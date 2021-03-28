@@ -1,0 +1,22 @@
+{
+  "name": "blood-4-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blood4LYF/Blood-4-Life.git"
+  },
+  "author": "Group Sixteen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blood4LYF/Blood-4-Life/issues"
+  },
+  "homepage": "https://github.com/Blood4LYF/Blood-4-Life#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
