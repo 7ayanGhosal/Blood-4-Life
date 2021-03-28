@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>page6</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" href="blood4life.js">
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "600px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+  
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+  }
+  </script>
+         
+    </head>
+    <body>
+        <div class="web_name">
+            <h1 style="color:red"><i>Blood</i><i>4</i><i>Life</i></h1>
+          </div>
+
+          <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a class="emergency" href="#emergency"><b>Emergency</b></a>
+            <a href="#about">About us</a>
+            <a href="#contact">Contact us</a>
+            <a onclick="openNav()">Profile</a>
+            <a href="#logout">log out</a>
+            
+          </div>
+
+          
+
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <input type="file" value="img" class="profile_pic">
+             <br>
+             <br>
+            Blood Group:<select>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="AB">AB</option>
+              <option value="O">O</option>
+            </select>
+            <br>
+            <br>
+            Rh factor :<select>
+              <option value="positive">Positive</option>
+              <option value="negetive">Negetive</option>
+            </select>
+            <br>
+            <br>
+
+            Address :<input type="text"  placeholder="Enter your address ">
+            <br>
+            <br>
+
+           <button class="Save_address">Add Saved Places</button>
+          </div>
+          
+          
+         
+    
+    </body>
+</html>
