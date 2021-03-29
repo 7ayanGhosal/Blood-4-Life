@@ -2,11 +2,24 @@ import React from "react";
 import Navbar from "./navbar/navbar";
 import LoginBox from "./loginBox/loginBox";
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { displayLoginBox: false };
+    this.toggleLoginDisplayHandler = () => {
+      this.setState({ displayLoginBox: !this.state.displayLoginBox });
+    };
+  }
   render() {
+    //LOGIN BOX
+    this.loginBox = null;
+    if (this.state.displayLoginBox) {
+      this.loginBox = <LoginBox></LoginBox>;
+    }
+
     return (
       <div>
-        <Navbar></Navbar>
-        <LoginBox></LoginBox>
+        {this.loginBox}
+        <Navbar toggleLogin={this.toggleLoginDisplayHandler}></Navbar>
       </div>
     );
   }
