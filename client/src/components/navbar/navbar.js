@@ -15,7 +15,9 @@ class Navbar extends Component {
           <a href="#about">About us</a>
           <a href="#contact">Contact us</a>
           <a href="#signup">Sign Up</a>
-          <a href="#login">log in</a>
+          <a href="#login" onClick={this.props.toggleLogin}>
+            log in
+          </a>
         </div>
         <div class="topnav">
           <a class="active" href="#home">
