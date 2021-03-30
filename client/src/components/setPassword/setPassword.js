@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classes from "./SetPassword.css";
+import "./setPassword.css";
 
 class SetPassword extends Component {
   render() {
@@ -10,20 +10,20 @@ class SetPassword extends Component {
             <div>
               <br />
               <br />
-              Password :
+              <label>Password :</label>
               <input
                 id="text2"
                 placeholder=" Enter the password "
                 type="password"
-              />
+              ></input>
               <br />
               <br />
-              Reenter Password :
+              <label>Re-enter Password :</label>
               <input
-                id="text2"
+                id="text3"
                 placeholder=" Renter the password "
                 type="password"
-              />
+              ></input>
             </div>
             <br />
             <br />
