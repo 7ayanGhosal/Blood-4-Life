@@ -7,22 +7,20 @@ class SignupBox extends Component {
       <div>
         <div class="centerbox">
           <center>
-            <div class="inputtext">
-              Email :
-              <input
-                id="text1"
-                placeholder=" Enter your valid email id "
-              ></input>
-              <br></br>
-              <br></br>
-              <input type="radio" value="person">
-                person
-              </input>
-              <br></br>
-              <input type="radio" value="Hospital">
-                Hospital
-              </input>
-              <br></br>
+            <div>
+              <form>
+                <label>Email :</label>
+                <input
+                  id="text1"
+                  placeholder=" Enter your valid email id "
+                ></input>
+                <br></br>
+                <br></br>
+                <input type="radio" value="person"></input>
+                <br></br>
+                <input type="radio" value="Hospital"></input>
+                <br></br>
+              </form>
             </div>
 
             <br></br>

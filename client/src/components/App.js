@@ -29,6 +29,8 @@ class App extends React.Component {
         <AccountDetails></AccountDetails>
         {this.loginBox}
         <Navbar toggleLogin={this.toggleLoginDisplayHandler}></Navbar>
+        {this.loginBox}
+        <SignupBox></SignupBox>
       </div>
     );
   }
