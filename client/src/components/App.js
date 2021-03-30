@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "./navbar/navbar";
 import LoginBox from "./loginBox/loginBox";
 import SignupBox from "./signupBox/signupBox";
+import SetPassword from "./setPassword/setPassword";
+import AccountDetails from "./accountDetails/accountDetails";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +22,12 @@ class App extends React.Component {
 
     return (
       <div>
+        <Navbar></Navbar>
+        <LoginBox></LoginBox>
+        <SignupBox></SignupBox>
+        <SetPassword></SetPassword>
+        <AccountDetails></AccountDetails>
+        {this.loginBox}
         <Navbar toggleLogin={this.toggleLoginDisplayHandler}></Navbar>
         {this.loginBox}
         <SignupBox></SignupBox>
