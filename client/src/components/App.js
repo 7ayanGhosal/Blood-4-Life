@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./navbar/navbar";
 import LoginBox from "./loginBox/loginBox";
+import SignupBox from "./signupBox/signupBox";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,8 +20,9 @@ class App extends React.Component {
 
     return (
       <div>
-        {this.loginBox}
         <Navbar toggleLogin={this.toggleLoginDisplayHandler}></Navbar>
+        {this.loginBox}
+        <SignupBox></SignupBox>
       </div>
     );
   }
