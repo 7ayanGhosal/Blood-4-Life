@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import classes from "./accountDetails.css";
+import "./accountDetails.css";
 
 class AccountDetails extends Component {
   render() {
     return (
       <div>
-        <div class="centerbox">
+        <div className="centerbox">
           <center>
             <div>
               First Name :
@@ -47,8 +47,8 @@ class AccountDetails extends Component {
               </select>
             </div>
             <br />
-            <div class="buttons">
-              <button class="submit">Next</button>
+            <div className="buttons">
+              <button className="submit">Next</button>
             </div>
           </center>
         </div>

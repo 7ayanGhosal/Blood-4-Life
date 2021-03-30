@@ -14,28 +14,32 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <div class="topnav">
-          <a class="active" href="#home">
+        <div className="topnav">
+          <a className="active" href="#home">
             Home
           </a>
-          <a class="emergency" href="#emergency">
+          <a className="emergency" href="#emergency">
             <b>Emergency</b>
           </a>
           <a href="#about">About us</a>
           <a href="#contact">Contact us</a>
-          <a onClick={this.onSignupDisplay}>Sign Up</a>
-          <a onClick={this.onLoginDisplay}>log in</a>
+          <a href="#" onClick={this.onSignupDisplay}>
+            Sign Up
+          </a>
+          <a href="#" onClick={this.onLoginDisplay}>
+            log in
+          </a>
         </div>
-        <div class="topnav">
-          <a class="active" href="#home">
+        <div className="topnav">
+          <a className="active" href="#home">
             Home
           </a>
-          <a class="emergency" href="#emergency">
+          <a className="emergency" href="#emergency">
             <b>Emergency</b>
           </a>
           <a href="#about">About us</a>
           <a href="#contact">Contact us</a>
-          <a onclick="openNav()">Profile</a>
+          <a href="#" /*onClick="openNav()"*/>Profile</a>
           <a href="#logout">log out</a>
         </div>
       </div>

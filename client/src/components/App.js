@@ -22,7 +22,7 @@ class App extends React.Component {
     if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
     else if (this.state.displayBox === "signupBox")
       this.box = <SignupBox></SignupBox>;
-
+    else this.box = null;
     return (
       <div>
         <Navbar
@@ -32,6 +32,7 @@ class App extends React.Component {
         {this.box}
         {/* <AccountDetails></AccountDetails> */}
         {/* <SetPassword></SetPassword> */}
+        <button onClick={this.offDisplayHandler}>Close box</button>
       </div>
     );
   }

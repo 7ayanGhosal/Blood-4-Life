@@ -4,9 +4,9 @@ import "./loginBox.css";
 class LoginBox extends Component {
   render() {
     return (
-      <div class="centerbox">
+      <div className="centerbox">
         <center>
-          <div class="inputtext">
+          <div className="inputtext">
             Email :<input id="text1" placeholder=" Enter your email id " />
             <br />
             <br />
@@ -19,11 +19,11 @@ class LoginBox extends Component {
             <br />
             <br />
           </div>
-          <div class="buttons">
-            <button class="submit">submit</button>
+          <div className="buttons">
+            <button className="submit">submit</button>
             <br />
             <br />
-            <button class="forgetpass">forgot password</button>
+            <button className="forgetpass">forgot password</button>
           </div>
         </center>
       </div>

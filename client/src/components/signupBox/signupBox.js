@@ -5,7 +5,7 @@ class SignupBox extends Component {
   render() {
     return (
       <div>
-        <div class="centerbox">
+        <div className="centerbox">
           <center>
             <div>
               <form>
@@ -24,15 +24,15 @@ class SignupBox extends Component {
             </div>
 
             <br></br>
-            <div class="buttons">
-              <button class="submit"> submit</button>
-              <button class="changemail">change email id</button>
-              <div class="settimer">
-                <h4 class="timer">60 sec </h4>
+            <div className="buttons">
+              <button className="submit"> submit</button>
+              <button className="changemail">change email id</button>
+              <div className="settimer">
+                <h4 className="timer">60 sec </h4>
               </div>
               <input type="text" placeholder="enter your OTP"></input>
-              <button class="verify">verify</button>
-              <button class="resend">resend</button>
+              <button className="verify">verify</button>
+              <button className="resend">resend</button>
             </div>
           </center>
         </div>

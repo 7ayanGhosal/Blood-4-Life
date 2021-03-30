@@ -5,7 +5,7 @@ class SetPassword extends Component {
   render() {
     return (
       <div>
-        <div class="centerbox">
+        <div className="centerbox">
           <center>
             <div>
               <br />
@@ -27,8 +27,8 @@ class SetPassword extends Component {
             </div>
             <br />
             <br />
-            <div class="buttons">
-              <button class="submit">Next</button>
+            <div className="buttons">
+              <button className="submit">Next</button>
               <br />
             </div>
           </center>
