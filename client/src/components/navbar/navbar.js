@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import classes from "./navbar.css";
+import "./navbar.css";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.onSignupDisplay = () => {
+      this.props.onDisplay("signupBox");
+    };
+    this.onLoginDisplay = () => {
+      this.props.onDisplay("loginBox");
+    };
+  }
   render() {
     return (
       <div>
@@ -14,10 +23,8 @@ class Navbar extends Component {
           </a>
           <a href="#about">About us</a>
           <a href="#contact">Contact us</a>
-          <a href="#signup">Sign Up</a>
-          <a href="#login" onClick={this.props.toggleLogin}>
-            log in
-          </a>
+          <a onClick={this.onSignupDisplay}>Sign Up</a>
+          <a onClick={this.onLoginDisplay}>log in</a>
         </div>
         <div class="topnav">
           <a class="active" href="#home">
