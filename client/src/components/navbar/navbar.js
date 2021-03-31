@@ -40,7 +40,7 @@ class Navbar extends Component {
           </a>
           <a href="#about">About us</a>
           <a href="#contact">Contact us</a>
-          <a href="#" onClick={"openNav()"}>
+          <a data-bs-toggle="modal" data-bs-target="#profileModal">
             Profile
           </a>
           <a href="#logout">log out</a>
