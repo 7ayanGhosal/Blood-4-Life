@@ -14,42 +14,15 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <div className="topnav">
-          <a className="active" href="#home">
-            Home
-          </a>
-          <a className="emergency" href="#emergency">
-            <b>Emergency</b>
-          </a>
-          <a href="#about">About us</a>
-          <a href="#contact">Contact us</a>
-          <a href="#" onClick={this.onSignupDisplay}>
-            Sign Up
-          </a>
-          <a href="#" onClick={this.onLoginDisplay}>
-            log in
-          </a>
-        </div>
-
-        <div className="topnav">
-          <a className="active" href="#home">
-            Home
-          </a>
-          <a className="emergency" href="#emergency">
-            <b>Emergency</b>
-          </a>
-          <a href="#about">About us</a>
-          <a href="#contact">Contact us</a>
-          <a data-bs-toggle="modal" data-bs-target="#profileModal">
-            Profile
-          </a>
-          <a href="#logout">log out</a>
-        </div>
-        <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-dark bg-light p-0">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <button
+              type="button"
+              class="btn btn-outline-danger navbar-custom text-align-center pe-5 ps-5"
+              href="#"
+            >
               Navbar
-            </a>
+            </button>
             <button
               class="navbar-toggler"
               type="button"
@@ -62,74 +35,61 @@ class Navbar extends Component {
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+              <div class="icons d-flex justify-content-center">
+                <div class="nav-item">
+                  <button
+                    type="button"
+                    class="btn btn-light navbar-custom text-align-center pe-5 ps-5 icons2"
+                  >
                     Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    Link
-                  </a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
+                  </button>
+                </div>
+                <div class="nav-item">
+                  <button
+                    type="button"
+                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
                   >
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <hr class="dropdown-divider" />
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link disabled"
+                    About Us
+                  </button>
+                </div>
+                <div class="nav-item">
+                  <button
+                    type="button"
+                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
-                    tabindex="-1"
-                    aria-disabled="true"
                   >
-                    Disabled
-                  </a>
-                </li>
-              </ul>
-              <form class="d-flex">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+              <ul class="navbar-nav me-auto"></ul>
+              <div class="icons d-flex justify-content-end">
+                <div class="nav-item">
+                  <button
+                    type="button"
+                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
+                    href="#"
+                    onClick={this.onLoginDisplay}
+                  >
+                    Login
+                  </button>
+                </div>
+                <div class="nav-item">
+                  <button
+                    type="button"
+                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
+                    href="#"
+                    onClick={this.onSignupDisplay}
+                  >
+                    Sign Up
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
     );
   }

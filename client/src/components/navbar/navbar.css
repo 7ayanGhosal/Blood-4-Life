@@ -3,30 +3,34 @@ h1 {
   font-size: 90px;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: rgb(235, 227, 214);
+.nav {
+  padding: 0;
+}
+.nav-item button:hover {
+  background-color: rgb(255, 0, 0);
+  color: rgb(47, 79, 79);
+}
+
+.container-fluid {
+  background-color: rgb(255, 160, 122);
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #0a0a0a;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+.nav-item button {
+  background-color: rgb(255, 160, 122);
+  color: rgb(47, 79, 79);
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: rgb(250, 6, 6);
+.btn-light {
+  border: none !important;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #ec1912;
-  color: white;
+@media (max-width: 768px) {
+  .icons {
+    flex-direction: column;
+  }
+  .icons2 {
+    width: 100% !important;
+    margin: 0;
+  }
 }
