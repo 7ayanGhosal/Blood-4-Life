@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Navbar from "./navbar/navbar";
 import LoginBox from "./loginBox/loginBox";
 import SignupBox from "./signupBox/signupBox";
@@ -16,13 +17,23 @@ class App extends React.Component {
     this.offDisplayHandler = () => {
       this.setState({ displayBox: "" });
     };
+    this.onEmailSubmit = (Email) => {
+      const body = { email: Email.email };
+      axios
+        .post("http://localhost:5000/emailVerification", body)
+        .then((response) => {
+          console.log("from backend:" + Email.email);
+        });
+
+      console.log(Email);
+    };
 
     this.box = null;
   }
   render() {
     if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
     else if (this.state.displayBox === "signupBox")
-      this.box = <SignupBox></SignupBox>;
+      this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
     else this.box = null;
     return (
       <div>
