@@ -16,13 +16,16 @@ class App extends React.Component {
     this.offDisplayHandler = () => {
       this.setState({ displayBox: "" });
     };
+    this.acceptEmail = (Email) => {
+      console.log(Email);
+    };
 
     this.box = null;
   }
   render() {
     if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
     else if (this.state.displayBox === "signupBox")
-      this.box = <SignupBox></SignupBox>;
+      this.box = <SignupBox onEmailSubmit={this.acceptEmail}></SignupBox>;
     else this.box = null;
     return (
       <div>
