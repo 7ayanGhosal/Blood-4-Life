@@ -19,11 +19,9 @@ class App extends React.Component {
     };
     this.onEmailSubmit = (Email) => {
       const body = { email: Email.email };
-      axios
-        .post("http://localhost:5000/emailVerification", body)
-        .then((response) => {
-          console.log("from backend:" + Email.email);
-        });
+      axios.post("/emailVerification", body).then((response) => {
+        console.log("from backend:" + Email.email);
+      });
 
       console.log(Email);
     };
