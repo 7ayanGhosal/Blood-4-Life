@@ -3,26 +3,43 @@ h1 {
   font-size: 90px;
 }
 
-.nav {
-  padding: 0;
-}
 .nav-item button:hover {
   background-color: rgb(255, 0, 0);
   color: rgb(47, 79, 79);
 }
 
 .container-fluid {
-  background-color: rgb(255, 160, 122);
+  background-color: wheat;
   overflow: hidden;
 }
 
 .nav-item button {
-  background-color: rgb(255, 160, 122);
+  background-color: rgba(0, 0, 0, 0);
   color: rgb(47, 79, 79);
 }
+/* .nav-item button:active {
+  background-color: tomato;
+} */
 
 .btn-light {
   border: none !important;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.logo h3 {
+  margin-left: 0.5em;
+  display: inline;
+  font-family: "Paytone One", sans-serif;
+  font-size: 1.5em;
+  color: firebrick;
+}
+.icons2 {
+  font-family: "Averia Serif Libre", cursive;
+  font-size: 1.2em;
 }
 
 @media (max-width: 768px) {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./navbar.css";
+import logo from "../../resources/logo.jpeg";
 
 class Navbar extends Component {
   constructor(props) {
@@ -14,17 +15,14 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-expand-md navbar-dark bg-light p-0">
+        <nav class="navbar navbar-expand-md p-0">
           <div class="container-fluid">
+            <div class="logo">
+              <img src={logo}></img>
+              <h3>Blood4Life</h3>
+            </div>
             <button
-              type="button"
-              class="btn btn-outline-danger navbar-custom text-align-center pe-5 ps-5"
-              href="#"
-            >
-              Navbar
-            </button>
-            <button
-              class="navbar-toggler"
+              class="navbar-toggler "
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -40,7 +38,7 @@ class Navbar extends Component {
                 <div class="nav-item">
                   <button
                     type="button"
-                    class="btn btn-light navbar-custom text-align-center pe-5 ps-5 icons2"
+                    class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
                   >
                     Home
                   </button>
@@ -48,7 +46,7 @@ class Navbar extends Component {
                 <div class="nav-item">
                   <button
                     type="button"
-                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
                   >
                     About Us
@@ -57,7 +55,7 @@ class Navbar extends Component {
                 <div class="nav-item">
                   <button
                     type="button"
-                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
                   >
                     Contact Us
@@ -69,7 +67,7 @@ class Navbar extends Component {
                 <div class="nav-item">
                   <button
                     type="button"
-                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
                     onClick={this.onLoginDisplay}
                   >
@@ -79,7 +77,7 @@ class Navbar extends Component {
                 <div class="nav-item">
                   <button
                     type="button"
-                    class="btn btn-light navbar-custom text-align-center pe-4 ps-4 icons2"
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
                     onClick={this.onSignupDisplay}
                   >
@@ -90,6 +88,20 @@ class Navbar extends Component {
             </div>
           </div>
         </nav>
+        <div className="topnav">
+          <a className="active" href="#home">
+            Home
+          </a>
+          <a className="emergency" href="#emergency">
+            <b>Emergency</b>
+          </a>
+          <a href="#about">About us</a>
+          <a href="#contact">Contact us</a>
+          <a data-bs-toggle="modal" data-bs-target="#profileModal">
+            Profile
+          </a>
+          <a href="#logout">log out</a>
+        </div>
       </div>
     );
   }
