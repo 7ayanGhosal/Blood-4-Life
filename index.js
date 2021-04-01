@@ -6,9 +6,6 @@ var mongoose = require("mongoose");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.listen(process.env.PORT || 5000, process.env.IP, () => {
-  console.log("Server has started");
-});
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
@@ -50,4 +47,69 @@ var hospital = mongoose.model("Hospital", hospitalSchema);
 
 app.get("/", (req, res) => {
   res.redirect("https://www.google.com/");
+});
+
+app.post("/emailVerification", async (req, res) => {
+  if (
+    (await user.findOne(req.body.email)) ||
+    (await hospital.findOne(req.body.email))
+  ) {
+    document.alert("This email id already exists! Use another id or sign in.");
+  } else {
+    //1.mail otp
+    res.send(req.body.email);
+  }
+});
+
+app.post("/signup", async (req, res) => {
+  newUser = {
+    name: req.body.name,
+    surname: req.body.surname,
+    email: req.body.email,
+    password: req.body.password,
+    birthday: req.body.dob,
+    zip: req.body.zip,
+    city: req.body.city,
+    address: req.body.addr,
+    bloodGroup: req.body.bg,
+    donor: req.body.donor,
+  };
+  newHospital = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    zip: req.body.zip,
+    city: req.body.city,
+    address: req.body.addr,
+    bloodGroup: req.body.bg,
+  };
+
+  if (
+    (await user.findOne(req.body.email)) ||
+    (await hospital.findOne(req.body.email))
+  ) {
+    document.alert("This email id already exists! Use another id or sign in.");
+  } else {
+    if (req.body.isPerson) {
+      await user.create(newUser, (err, newuser) => {
+        if (err) {
+          alert("error in user creation!!");
+        } else {
+          alert("New user successfully added");
+        }
+      });
+    } else {
+      await hospital.create(newHospital, (err, newhosp) => {
+        if (err) {
+          alert("error in hospital creation!!");
+        } else {
+          alert("New Hospital successfully added");
+        }
+      });
+    }
+  }
+});
+
+app.listen(process.env.PORT || 5000, process.env.IP, () => {
+  console.log("Server has started");
 });
