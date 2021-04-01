@@ -1,11 +1,21 @@
 var request = require("request");
 var express = require("express");
 var app = express();
-var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.listen(process.env.PORT || 5000, process.env.IP, () => {
+  console.log("Server has started");
+});
+
+//instead of body-parser
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.json());
+//----
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
@@ -50,11 +60,12 @@ app.get("/", (req, res) => {
 });
 
 app.post("/emailVerification", async (req, res) => {
+  console.log(req.body);
   if (
     (await user.findOne(req.body.email)) ||
     (await hospital.findOne(req.body.email))
   ) {
-    document.alert("This email id already exists! Use another id or sign in.");
+    res.send("This email id already exists! Use another id or sign in.");
   } else {
     //1.mail otp
     res.send(req.body.email);
@@ -110,6 +121,6 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 5000, process.env.IP, () => {
-  console.log("Server has started");
+app.post("/login", (req, res) => {
+  res.redirect("https://www.google.com/");
 });
