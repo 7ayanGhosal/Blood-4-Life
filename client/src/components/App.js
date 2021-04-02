@@ -18,12 +18,17 @@ class App extends React.Component {
       this.setState({ displayBox: "" });
     };
     this.onEmailSubmit = (Email) => {
-      const body = { email: Email.email };
-      axios
-        .post("http://localhost:5000/emailVerification", body)
-        .then((response) => {
-          console.log("from backend:" + Email.email);
-        });
+      const body = {
+        email: Email.email,
+      };
+      axios.post("/emailVerification", body).then(
+        (response) => {
+          console.log(/*"from appJs:" +*/ response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
 
       console.log(Email);
     };
