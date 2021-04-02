@@ -3,9 +3,9 @@ import axios from "axios";
 import Navbar from "./navbar/navbar";
 import LoginBox from "./loginBox/loginBox";
 import SignupBox from "./signupBox/signupBox";
+import ProfileModal from "./profleModal/profileModal";
 import SetPassword from "./setPassword/setPassword";
 import AccountDetails from "./accountDetails/accountDetails";
-import SideNav from "./sideNav/sideNav";
 
 class App extends React.Component {
   constructor(props) {
@@ -46,8 +46,8 @@ class App extends React.Component {
           onDisplay={this.onDisplayHandler}
           offDisplay={this.offDisplayHandler}
         ></Navbar>
-        <SideNav></SideNav>
         {this.box}
+        <ProfileModal></ProfileModal>
         {/* <AccountDetails></AccountDetails> */}
         {/* <SetPassword></SetPassword> */}
         <button onClick={this.offDisplayHandler}>Close box</button>

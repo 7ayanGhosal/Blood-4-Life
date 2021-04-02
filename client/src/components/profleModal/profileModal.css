@@ -1,0 +1,17 @@
+@media (min-width: 576px) {
+  .modal-dialog-new1,
+  .modal-dialog-new2 {
+    max-width: 1000px !important;
+    margin: 1.75rem auto;
+  }
+}
+
+.card-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.modal-body .card img {
+  width: 600px;
+  border-radius: 100%;
+}
