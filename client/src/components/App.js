@@ -47,6 +47,7 @@ class App extends React.Component {
           offDisplay={this.offDisplayHandler}
         ></Navbar>
         <SideNav></SideNav>
+        <LoginBox></LoginBox>
         {this.box}
         {/* <AccountDetails></AccountDetails> */}
         {/* <SetPassword></SetPassword> */}
