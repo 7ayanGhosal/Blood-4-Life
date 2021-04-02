@@ -61,14 +61,11 @@ app.get("/", (req, res) => {
 
 app.post("/emailVerification", async (req, res) => {
   console.log(req.body);
-  if (
-    (await user.findOne(req.body.email)) ||
-    (await hospital.findOne(req.body.email))
-  ) {
+  if ((await user.findOne(req.body)) || (await hospital.findOne(req.body))) {
     res.send("This email id already exists! Use another id or sign in.");
   } else {
     //1.mail otp
-    res.send(req.body.email);
+    res.send(req.body);
   }
 });
 

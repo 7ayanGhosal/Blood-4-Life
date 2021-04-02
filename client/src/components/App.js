@@ -23,7 +23,7 @@ class App extends React.Component {
       };
       axios.post("/emailVerification", body).then(
         (response) => {
-          console.log("from appJs:" + Email.email);
+          console.log(/*"from appJs:" +*/ response);
         },
         (error) => {
           console.log(error);
