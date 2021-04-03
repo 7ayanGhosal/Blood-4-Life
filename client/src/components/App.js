@@ -10,7 +10,7 @@ import AccountDetails from "./accountDetails/accountDetails";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { displayOTPBox: "none" };
+    this.state = { displayOTPBox: false };
     // this.state = { displayBox: "" };
     // this.onDisplayHandler = (boxId) => {
     //   this.setState({ displayBox: boxId });
@@ -31,7 +31,7 @@ class App extends React.Component {
           } else {
             //otp sent
             //start timer, show otp box
-            this.setState({ displayOTPBox: "block" });
+            this.setState({ displayOTPBox: true });
           }
         },
         (error) => {

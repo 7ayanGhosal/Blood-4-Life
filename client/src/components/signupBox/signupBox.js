@@ -18,6 +18,20 @@ class SignupBox extends Component {
     this.setState({ isHospital: true });
   };
   render() {
+    var OTPBox = null;
+    if (this.props.displayOTPBox) {
+      OTPBox = (
+        <div class="OTPBox">
+          <button class="btn btn-primary">change email id</button>
+          <div class="settimer">
+            <h4 class="timer">60 sec </h4>
+          </div>
+          <input type="text" placeholder="enter your OTP" />
+          <button class="btn btn-primary">verify</button>
+          <button class="btn btn-primary">resend</button>
+        </div>
+      );
+    }
     return (
       <div>
         <div
@@ -92,20 +106,7 @@ class SignupBox extends Component {
                             </button>
                           </div>
                         </form>
-                        <div
-                          class="OTPBox"
-                          style={{ display: this.props.displayOTPBox }}
-                        >
-                          <button class="btn btn-primary">
-                            change email id
-                          </button>
-                          <div class="settimer">
-                            <h4 class="timer">60 sec </h4>
-                          </div>
-                          <input type="text" placeholder="enter your OTP" />
-                          <button class="btn btn-primary">verify</button>
-                          <button class="btn btn-primary">resend</button>
-                        </div>
+                        {OTPBox}
                       </center>
                     </p>
                   </div>
