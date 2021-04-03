@@ -10,7 +10,7 @@ import AccountDetails from "./accountDetails/accountDetails";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { displayOTPBox: "none" };
     // this.state = { displayBox: "" };
     // this.onDisplayHandler = (boxId) => {
     //   this.setState({ displayBox: boxId });
@@ -23,8 +23,16 @@ class App extends React.Component {
         email: Email.email,
       };
       axios.post("/emailVerification", body).then(
-        (response) => {
-          console.log(/*"from appJs:" +*/ response);
+        (res) => {
+          if (res.data === "Exists") {
+            //Already exists
+          } else if (res.data === "False") {
+            //error in nodemailer
+          } else {
+            //otp sent
+            //start timer, show otp box
+            this.setState({ displayOTPBox: "block" });
+          }
         },
         (error) => {
           console.log(error);
@@ -49,7 +57,10 @@ class App extends React.Component {
         ></Navbar>
         {this.box} */}
         <Navbar></Navbar>
-        <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>
+        <SignupBox
+          onEmailSubmit={this.onEmailSubmit}
+          displayOTPBox={this.state.displayOTPBox}
+        ></SignupBox>
         {/* <SetPassword></SetPassword> */}
         {/* <AccountDetails></AccountDetails> */}
         <LoginBox></LoginBox>

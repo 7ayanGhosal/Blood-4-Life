@@ -60,6 +60,7 @@ class SignupBox extends Component {
                               onChange={(e) =>
                                 this.setState({ email: e.target.value })
                               }
+                              required
                             />
                             <br />
                             <br />
@@ -69,6 +70,7 @@ class SignupBox extends Component {
                               name="accountType"
                               // checked="checked"
                               onChange={this.onTypePerson}
+                              required
                             />
                             <b>Person</b>
                             <br />
@@ -77,6 +79,7 @@ class SignupBox extends Component {
                               value="Hospital"
                               name="accountType"
                               onChange={this.onTypeHospital}
+                              required
                             />
                             <b>Hospital</b>
                             <br />
@@ -89,11 +92,13 @@ class SignupBox extends Component {
                             </button>
                           </div>
                         </form>
-                        <div>
+                        <div
+                          class="OTPBox"
+                          style={{ display: this.props.displayOTPBox }}
+                        >
                           <button class="btn btn-primary">
                             change email id
                           </button>
-
                           <div class="settimer">
                             <h4 class="timer">60 sec </h4>
                           </div>
