@@ -10,13 +10,14 @@ import AccountDetails from "./accountDetails/accountDetails";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { displayBox: "" };
-    this.onDisplayHandler = (boxId) => {
-      this.setState({ displayBox: boxId });
-    };
-    this.offDisplayHandler = () => {
-      this.setState({ displayBox: "" });
-    };
+    this.state = {};
+    // this.state = { displayBox: "" };
+    // this.onDisplayHandler = (boxId) => {
+    //   this.setState({ displayBox: boxId });
+    // };
+    // this.offDisplayHandler = () => {
+    //   this.setState({ displayBox: "" });
+    // };
     this.onEmailSubmit = (Email) => {
       const body = {
         email: Email.email,
@@ -33,28 +34,27 @@ class App extends React.Component {
       console.log(Email);
     };
 
-    this.box = null;
+    // this.box = null;
   }
   render() {
-    if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
-    else if (this.state.displayBox === "signupBox")
-      this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
-    else this.box = null;
+    // if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
+    // else if (this.state.displayBox === "signupBox")
+    //   this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
+    // else this.box = null;
     return (
       <div>
-        <Navbar
+        {/* <Navbar
           onDisplay={this.onDisplayHandler}
           offDisplay={this.offDisplayHandler}
         ></Navbar>
-
-        <LoginBox></LoginBox>
+        {this.box} */}
+        <Navbar></Navbar>
         <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>
-
-        {this.box}
-        <ProfileModal></ProfileModal>
-        {/* <AccountDetails></AccountDetails> */}
         {/* <SetPassword></SetPassword> */}
-        <button onClick={this.offDisplayHandler}>Close box</button>
+        {/* <AccountDetails></AccountDetails> */}
+        <LoginBox></LoginBox>
+        <ProfileModal></ProfileModal>
+        {/* <button onClick={this.offDisplayHandler}>Close box</button> */}
       </div>
     );
   }

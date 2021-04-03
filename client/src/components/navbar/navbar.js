@@ -5,12 +5,12 @@ import logo from "../../resources/logo.jpeg";
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.onSignupDisplay = () => {
-      this.props.onDisplay("signupBox");
-    };
-    this.onLoginDisplay = () => {
-      this.props.onDisplay("loginBox");
-    };
+    // this.onSignupDisplay = () => {
+    //   this.props.onDisplay("signupBox");
+    // };
+    // this.onLoginDisplay = () => {
+    //   this.props.onDisplay("loginBox");
+    // };
   }
   render() {
     return (
