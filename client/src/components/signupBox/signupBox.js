@@ -20,52 +20,94 @@ class SignupBox extends Component {
   render() {
     return (
       <div>
-        <div className="centerbox">
-          <center>
-            <div>
-              <form onSubmit={this.onFormSubmit}>
-                <label>Email :</label>
-                <input
-                  id="text1"
-                  placeholder=" Enter your valid email id "
-                  value={this.state.email}
-                  onChange={(e) => this.setState({ email: e.target.value })}
-                ></input>
-                <br></br>
-                <br></br>
-                <input
-                  type="radio"
-                  value="person"
-                  name="accountType"
-                  // checked="checked"
-                  onChange={this.onTypePerson}
-                ></input>
-                <br></br>
-                <input
-                  type="radio"
-                  value="Hospital"
-                  name="accountType"
-                  onChange={this.onTypeHospital}
-                ></input>
-                <br></br>
-                <button className="submit" type="submit">
-                  {" "}
-                  submit
-                </button>
-                <br></br>
-              </form>
-            </div>
-
-            <div className="buttons">
-              <button className="changemail">change email id</button>
-              <div className="settimer">
-                <h4 className="timer">60 sec </h4>
+        <div
+          class="modal fade"
+          id="signupModal"
+          data-bs-backdrop="static"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Modal title
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
-              <input type="text" placeholder="enter your OTP"></input>
-              <button className="verify">verify</button>
-              <button className="resend">resend</button>
+              <div class="modal-body">
+                <div class="card w-100" style={{ width: 18 + "rem" }}>
+                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
+                    <h5 class="card-title">Profile Details</h5>
+                    <p class="card-text">
+                      <center>
+                        <form onSubmit={this.onFormSubmit}>
+                          <div
+                            class="inputtext"
+                            style={{ fontStyle: "italic", fontSize: 20 + "px" }}
+                          >
+                            <b>Email : </b>{" "}
+                            <input
+                              id="text1"
+                              placeholder=" Enter your valid email id "
+                              value={this.state.email}
+                              onChange={(e) =>
+                                this.setState({ email: e.target.value })
+                              }
+                            />
+                            <br />
+                            <br />
+                            <input
+                              type="radio"
+                              value="person"
+                              name="accountType"
+                              // checked="checked"
+                              onChange={this.onTypePerson}
+                            />
+                            <b>Person</b>
+                            <br />
+                            <input
+                              type="radio"
+                              value="Hospital"
+                              name="accountType"
+                              onChange={this.onTypeHospital}
+                            />
+                            <b>Hospital</b>
+                            <br />
+                          </div>
+                          <br />
+                          <div>
+                            <button type="submit" class="btn btn-primary">
+                              {" "}
+                              submit
+                            </button>
+                          </div>
+                        </form>
+                        <div>
+                          <button class="btn btn-primary">
+                            change email id
+                          </button>
+
+                          <div class="settimer">
+                            <h4 class="timer">60 sec </h4>
+                          </div>
+                          <input type="text" placeholder="enter your OTP" />
+                          <button class="btn btn-primary">verify</button>
+                          <button class="btn btn-primary">resend</button>
+                        </div>
+                      </center>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </center>
+          </div>
         </div>
       </div>
     );

@@ -48,6 +48,7 @@ class App extends React.Component {
         ></Navbar>
 
         <LoginBox></LoginBox>
+        <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>
 
         {this.box}
         <ProfileModal></ProfileModal>

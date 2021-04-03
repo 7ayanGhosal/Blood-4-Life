@@ -5,18 +5,9 @@ class LoginBox extends Component {
   render() {
     return (
       <div>
-        {/* <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal1"
-        >
-          Launch demo modal
-        </button> */}
-
         <div
           class="modal fade"
-          id="exampleModal1"
+          id="loginModal"
           data-bs-backdrop="static"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
@@ -24,7 +15,7 @@ class LoginBox extends Component {
         >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div class="modal-header special">
+              <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Modal title
                 </h5>

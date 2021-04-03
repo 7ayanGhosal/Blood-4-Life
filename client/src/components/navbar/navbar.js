@@ -56,7 +56,6 @@ class Navbar extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
                   >
                     Contact Us
                   </button>
@@ -68,10 +67,9 @@ class Navbar extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
                     // onClick={this.onLoginDisplay}
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal1"
+                    data-bs-target="#loginModal"
                   >
                     Login
                   </button>
@@ -80,8 +78,9 @@ class Navbar extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
-                    onClick={this.onSignupDisplay}
+                    data-bs-toggle="modal"
+                    data-bs-target="#signupModal"
+                    // onClick={this.onSignupDisplay}
                   >
                     Sign Up
                   </button>
