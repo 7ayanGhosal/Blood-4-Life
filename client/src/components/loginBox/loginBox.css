@@ -2,7 +2,7 @@
 @media (min-width: 576px) {
   .modal-dialog-new1,
   .modal-dialog-new2 {
-    max-width: 1000px !important;
+    /* max-width: 1000px !important; */
     margin: 1.75rem auto;
   }
 }
@@ -18,8 +18,8 @@
 
 .centerbox {
   box-sizing: border-box;
-  height: 400px;
-  width: 750px;
+  /* height: 400px;
+  width: 750px; */
   top: 400px;
   left: 500px;
   font-size: 30px;
