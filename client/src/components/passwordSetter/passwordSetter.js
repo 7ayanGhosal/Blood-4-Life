@@ -42,6 +42,7 @@ class PasswordSetter extends Component {
                   Set Password
                 </h5>
                 <button
+                  id="closePasswordBox"
                   type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
@@ -70,7 +71,10 @@ class PasswordSetter extends Component {
                                   type="password"
                                   value={this.state.p1}
                                   onChange={(e) => {
-                                    this.setState({ p1: e.target.value });
+                                    this.setState({
+                                      p1: e.target.value,
+                                      message: "",
+                                    });
                                   }}
                                 />
                                 <br></br>
@@ -82,7 +86,10 @@ class PasswordSetter extends Component {
                                   type="password"
                                   value={this.state.p2}
                                   onChange={(e) => {
-                                    this.setState({ p2: e.target.value });
+                                    this.setState({
+                                      p2: e.target.value,
+                                      message: "",
+                                    });
                                   }}
                                 />
                               </b>
