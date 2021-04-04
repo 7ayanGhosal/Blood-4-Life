@@ -6,7 +6,6 @@ import SignupBox from "./signupBox/signupBox";
 import ProfileModal from "./profleModal/profileModal";
 import PasswordSetter from "./passwordSetter/passwordSetter";
 import SetPassword from "./setPassword/setPassword";
-import AccountDetails from "./accountDetails/accountDetails";
 
 class App extends React.Component {
   constructor(props) {
