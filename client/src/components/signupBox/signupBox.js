@@ -72,6 +72,7 @@ class SignupBox extends Component {
                               onChange={(e) =>
                                 this.setState({ email: e.target.value })
                               }
+                              disabled={this.props.disableEmail}
                               required
                             />
                             <br />
@@ -82,6 +83,7 @@ class SignupBox extends Component {
                               name="accountType"
                               // checked="checked"
                               onChange={this.onTypePerson}
+                              disabled={this.props.disableEmail}
                               required
                             />
                             <b>Person</b>
@@ -91,6 +93,7 @@ class SignupBox extends Component {
                               value="Hospital"
                               name="accountType"
                               onChange={this.onTypeHospital}
+                              disabled={this.props.disableEmail}
                               required
                             />
                             <b>Hospital</b>
@@ -98,7 +101,11 @@ class SignupBox extends Component {
                           </div>
                           <br />
                           <div>
-                            <button type="submit" class="btn btn-primary">
+                            <button
+                              type="submit"
+                              class="btn btn-primary"
+                              disabled={this.props.disableEmail}
+                            >
                               submit
                             </button>
                           </div>

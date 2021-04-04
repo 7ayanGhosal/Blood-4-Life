@@ -10,9 +10,9 @@ import AccountDetails from "./accountDetails/accountDetails";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { displayOTPBox: false };
+    this.state = { displayOTPBox: false, disableEmail: false };
 
-    //EMAIL VERIFICATION
+    //EMAIL VERIFICATION (Email has email, isHospital)
     this.onEmailSubmit = (Email) => {
       const body = { email: Email.email };
       axios.post("/emailVerification", body).then(
@@ -26,7 +26,7 @@ class App extends React.Component {
           } else {
             //otp sent
             //start timer, show otp box
-            this.setState({ displayOTPBox: "true" });
+            this.setState({ displayOTPBox: "true", disableEmail: true });
           }
         },
         (error) => {
@@ -46,7 +46,8 @@ class App extends React.Component {
             res.send("INVALID OTP");
           } else {
             //correct OTP
-            res.send("VALID OTP");
+            //turn off signupbox
+            //turn on passwordSetter
           }
         },
         (error) => {
@@ -63,6 +64,7 @@ class App extends React.Component {
           onEmailSubmit={this.onEmailSubmit}
           onOTPSubmit={this.onOTPSubmit}
           displayOTPBox={this.state.displayOTPBox}
+          disableEmail={this.state.disableEmail}
         ></SignupBox>
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
