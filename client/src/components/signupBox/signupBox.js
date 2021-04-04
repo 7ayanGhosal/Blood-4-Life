@@ -50,6 +50,7 @@ class SignupBox extends Component {
                   class="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  id="closeSignupBox"
                 ></button>
               </div>
               <div class="modal-body">

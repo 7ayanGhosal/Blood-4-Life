@@ -4,6 +4,7 @@ import Navbar from "./navbar/navbar";
 import LoginBox from "./loginBox/loginBox";
 import SignupBox from "./signupBox/signupBox";
 import ProfileModal from "./profleModal/profileModal";
+import PasswordSetter from "./passwordSetter/passwordSetter";
 import SetPassword from "./setPassword/setPassword";
 import AccountDetails from "./accountDetails/accountDetails";
 
@@ -47,7 +48,9 @@ class App extends React.Component {
           } else {
             //correct OTP
             //turn off signupbox
+            document.getElementById("closeSignupBox").click();
             //turn on passwordSetter
+            document.getElementById("passwordSetterModalButton").click();
           }
         },
         (error) => {
@@ -66,6 +69,7 @@ class App extends React.Component {
           displayOTPBox={this.state.displayOTPBox}
           disableEmail={this.state.disableEmail}
         ></SignupBox>
+        <PasswordSetter></PasswordSetter>
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
       </div>
