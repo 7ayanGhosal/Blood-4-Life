@@ -11,64 +11,86 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { displayOTPBox: false };
-    // this.state = { displayBox: "" };
-    // this.onDisplayHandler = (boxId) => {
-    //   this.setState({ displayBox: boxId });
-    // };
-    // this.offDisplayHandler = () => {
-    //   this.setState({ displayBox: "" });
-    // };
+
+    //EMAIL VERIFICATION
     this.onEmailSubmit = (Email) => {
-      const body = {
-        email: Email.email,
-      };
+      const body = { email: Email.email };
       axios.post("/emailVerification", body).then(
         (res) => {
           if (res.data === "Exists") {
             //Already exists
+            this.setState({ displayOTPBox: "exists" });
           } else if (res.data === "False") {
             //error in nodemailer
+            this.setState({ displayOTPBox: "false" });
           } else {
             //otp sent
             //start timer, show otp box
-            this.setState({ displayOTPBox: true });
+            this.setState({ displayOTPBox: "true" });
           }
         },
         (error) => {
           console.log(error);
         }
       );
-
-      console.log(Email);
     };
 
-    // this.box = null;
+    //OTP VERIFICATION
+    this.onOTPSubmit = (OTP) => {
+      console.log(typeof OTP.otp);
+      const body = { otp: OTP.otp };
+      axios.post("/otpVerification", body).then(
+        (res) => {
+          if (res.data === "False") {
+            //Wrong OTP
+            res.send("INVALID OTP");
+          } else {
+            //correct OTP
+            res.send("VALID OTP");
+          }
+        },
+        (error) => {
+          console.log("ERROR IN OTP ONSUBMIT, App.js");
+        }
+      );
+    };
   }
   render() {
-    // if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
-    // else if (this.state.displayBox === "signupBox")
-    //   this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
-    // else this.box = null;
     return (
       <div>
-        {/* <Navbar
-          onDisplay={this.onDisplayHandler}
-          offDisplay={this.offDisplayHandler}
-        ></Navbar>
-        {this.box} */}
         <Navbar></Navbar>
         <SignupBox
           onEmailSubmit={this.onEmailSubmit}
+          onOTPSubmit={this.onOTPSubmit}
           displayOTPBox={this.state.displayOTPBox}
         ></SignupBox>
-        {/* <SetPassword></SetPassword> */}
-        {/* <AccountDetails></AccountDetails> */}
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
-        {/* <button onClick={this.offDisplayHandler}>Close box</button> */}
       </div>
     );
   }
 }
 
 export default App;
+
+// this.box = null;
+// if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
+// else if (this.state.displayBox === "signupBox")
+//   this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
+// else this.box = null;
+{
+  /* <Navbar
+  onDisplay={this.onDisplayHandler}
+  offDisplay={this.offDisplayHandler}
+  ></Navbar>
+{this.box} */
+}
+{
+  /* <SetPassword></SetPassword> */
+}
+{
+  /* <AccountDetails></AccountDetails> */
+}
+{
+  /* <button onClick={this.offDisplayHandler}>Close box</button> */
+}

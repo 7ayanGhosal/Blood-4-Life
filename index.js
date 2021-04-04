@@ -71,7 +71,7 @@ app.get("/", (req, res) => {
   res.redirect("https://www.google.com/");
 });
 
-var otp = "00349423";
+var otp = "55555";
 var timer = 60;
 app.post("/emailVerification", async (req, res) => {
   if ((await user.findOne(req.body)) || (await hospital.findOne(req.body))) {
@@ -95,6 +95,15 @@ app.post("/emailVerification", async (req, res) => {
         res.send("True");
       }
     });
+  }
+});
+
+app.post("/otpVerification", (req, res) => {
+  OTP = req.body.otp;
+  if (otp == OTP) {
+    res.send("True");
+  } else {
+    res.send("False");
   }
 });
 

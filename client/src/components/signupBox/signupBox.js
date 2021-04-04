@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./signupBox.css";
+import OTPBox from "./OTPBox/OTPBox";
 
 class SignupBox extends Component {
   state = { email: "", isHospital: false };
@@ -18,19 +19,15 @@ class SignupBox extends Component {
     this.setState({ isHospital: true });
   };
   render() {
-    var OTPBox = null;
-    if (this.props.displayOTPBox) {
-      OTPBox = (
-        <div class="OTPBox">
-          <button class="btn btn-primary">change email id</button>
-          <div class="settimer">
-            <h4 class="timer">60 sec </h4>
-          </div>
-          <input type="text" placeholder="enter your OTP" />
-          <button class="btn btn-primary">verify</button>
-          <button class="btn btn-primary">resend</button>
-        </div>
+    var Box = null;
+    if (this.props.displayOTPBox === "true") {
+      Box = <OTPBox onOTPSubmit={this.props.onOTPSubmit}></OTPBox>;
+    } else if (this.props.displayOTPBox === "exists") {
+      Box = (
+        <div>Email ID already exists, please change EmailID and try again!</div>
       );
+    } else if (this.props.displayOTPBox === "false") {
+      Box = <div>Something went wrong!!</div>;
     }
     return (
       <div>
@@ -68,6 +65,7 @@ class SignupBox extends Component {
                           >
                             <b>Email : </b>{" "}
                             <input
+                              type="email"
                               id="text1"
                               placeholder=" Enter your valid email id "
                               value={this.state.email}
@@ -101,12 +99,11 @@ class SignupBox extends Component {
                           <br />
                           <div>
                             <button type="submit" class="btn btn-primary">
-                              {" "}
                               submit
                             </button>
                           </div>
                         </form>
-                        {OTPBox}
+                        {Box}
                       </center>
                     </p>
                   </div>
