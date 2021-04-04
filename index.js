@@ -2,10 +2,22 @@ var request = require("request");
 var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
+var nodemailer = require("nodemailer");
 
 app.use(express.static("public"));
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
   console.log("Server has started");
+});
+
+//NodeMailer
+var emailid = "assist.blood4life@gmail.com";
+var emailpass = "bloodforlife";
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: emailid,
+    pass: emailpass,
+  },
 });
 
 //instead of body-parser
@@ -59,13 +71,39 @@ app.get("/", (req, res) => {
   res.redirect("https://www.google.com/");
 });
 
+var otp = "55555";
+var timer = 60;
 app.post("/emailVerification", async (req, res) => {
-  console.log(req.body);
   if ((await user.findOne(req.body)) || (await hospital.findOne(req.body))) {
-    res.send("This email id already exists! Use another id or sign in.");
+    res.send("Exists");
   } else {
     //1.mail otp
-    res.send(req.body);
+    //2.start timer
+    var email = req.body.email;
+    var mailOptions = {
+      from: emailid,
+      to: email,
+      subject: "Account Verification",
+      html: otp,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log("error in transporter :" + error);
+        res.send("False");
+      } else {
+        res.send("True");
+      }
+    });
+  }
+});
+
+app.post("/otpVerification", (req, res) => {
+  OTP = req.body.otp;
+  if (otp == OTP) {
+    res.send("True");
+  } else {
+    res.send("False");
   }
 });
 

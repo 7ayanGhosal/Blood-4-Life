@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "./signupBox.css";
+import OTPBox from "./OTPBox/OTPBox";
 
 class SignupBox extends Component {
   state = { email: "", isHospital: false };
   onFormSubmit = (event) => {
     event.preventDefault();
 
+    this.props.onEmailSubmit(this.state);
+  };
+  onResend = () => {
     this.props.onEmailSubmit(this.state);
   };
   // onTypeChange = (event) => {
@@ -18,6 +22,22 @@ class SignupBox extends Component {
     this.setState({ isHospital: true });
   };
   render() {
+    var Box = null;
+    if (this.props.displayOTPBox === "true") {
+      Box = (
+        <OTPBox
+          onOTPSubmit={this.props.onOTPSubmit}
+          enableEmail={this.props.enableEmail}
+          onResend={this.onResend}
+        ></OTPBox>
+      );
+    } else if (this.props.displayOTPBox === "exists") {
+      Box = (
+        <div>Email ID already exists, please change EmailID and try again!</div>
+      );
+    } else if (this.props.displayOTPBox === "false") {
+      Box = <div>Something went wrong!!</div>;
+    }
     return (
       <div>
         <div
@@ -39,6 +59,7 @@ class SignupBox extends Component {
                   class="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  id="closeSignupBox"
                 ></button>
               </div>
               <div class="modal-body">
@@ -54,12 +75,15 @@ class SignupBox extends Component {
                           >
                             <b>Email : </b>{" "}
                             <input
+                              type="email"
                               id="text1"
                               placeholder=" Enter your valid email id "
                               value={this.state.email}
                               onChange={(e) =>
                                 this.setState({ email: e.target.value })
                               }
+                              disabled={this.props.disableEmail}
+                              required
                             />
                             <br />
                             <br />
@@ -69,6 +93,8 @@ class SignupBox extends Component {
                               name="accountType"
                               // checked="checked"
                               onChange={this.onTypePerson}
+                              disabled={this.props.disableEmail}
+                              required
                             />
                             <b>Person</b>
                             <br />
@@ -77,30 +103,24 @@ class SignupBox extends Component {
                               value="Hospital"
                               name="accountType"
                               onChange={this.onTypeHospital}
+                              disabled={this.props.disableEmail}
+                              required
                             />
                             <b>Hospital</b>
                             <br />
                           </div>
                           <br />
                           <div>
-                            <button type="submit" class="btn btn-primary">
-                              {" "}
+                            <button
+                              type="submit"
+                              class="btn btn-primary"
+                              disabled={this.props.disableEmail}
+                            >
                               submit
                             </button>
                           </div>
                         </form>
-                        <div>
-                          <button class="btn btn-primary">
-                            change email id
-                          </button>
-
-                          <div class="settimer">
-                            <h4 class="timer">60 sec </h4>
-                          </div>
-                          <input type="text" placeholder="enter your OTP" />
-                          <button class="btn btn-primary">verify</button>
-                          <button class="btn btn-primary">resend</button>
-                        </div>
+                        {Box}
                       </center>
                     </p>
                   </div>
