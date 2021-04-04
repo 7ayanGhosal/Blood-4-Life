@@ -13,6 +13,15 @@ class ProfileSetter extends Component {
   render() {
     return (
       <div>
+        <button
+          id="profileSetterModalButton"
+          type="button"
+          class="btn navbar-custom text-align-center pe-4 ps-4 icons2 d-none"
+          data-bs-toggle="modal"
+          data-bs-target="#profileSetterModal"
+        >
+          Login
+        </button>
         <form onSubmit={this.formSubmit}>
           <div
             class="modal fade"

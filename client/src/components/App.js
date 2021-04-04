@@ -5,15 +5,18 @@ import LoginBox from "./loginBox/loginBox";
 import SignupBox from "./signupBox/signupBox";
 import ProfileModal from "./profleModal/profileModal";
 import PasswordSetter from "./passwordSetter/passwordSetter";
-import SetPassword from "./setPassword/setPassword";
+import ProfileSetterModal from "./profileSetter/profileSetter";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { displayOTPBox: false, disableEmail: false };
-    this.getPassword = (pass) => {
-      console.log(pass);
+    this.state = {
+      displayOTPBox: false,
+      disableEmail: false,
+      email: "",
+      pass: "",
     };
+
     //CHANGE EMAIL (Changes the state)
     this.enableEmail = () => {
       this.setState({ displayOTPBox: false, disableEmail: false });
@@ -32,7 +35,11 @@ class App extends React.Component {
           } else {
             //otp sent
             //start timer, show otp box
-            this.setState({ displayOTPBox: "true", disableEmail: true });
+            this.setState({
+              displayOTPBox: "true",
+              disableEmail: true,
+              email: Email.email,
+            });
           }
         },
         (error) => {
@@ -63,6 +70,15 @@ class App extends React.Component {
         }
       );
     };
+    //password matching
+    this.setProfile = (pass) => {
+      this.setState({ pass: pass });
+      //same passwords
+      //turn off passwordSetter
+      document.getElementById("closePasswordBox").click();
+      //turn on profileSetter
+      document.getElementById("profileSetterModalButton").click();
+    };
   }
   render() {
     return (
@@ -75,7 +91,8 @@ class App extends React.Component {
           disableEmail={this.state.disableEmail}
           enableEmail={this.enableEmail}
         ></SignupBox>
-        <PasswordSetter getPassword={this.getPassword}></PasswordSetter>
+        <PasswordSetter getPassword={this.setProfile}></PasswordSetter>
+        <ProfileSetterModal></ProfileSetterModal>
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
       </div>
