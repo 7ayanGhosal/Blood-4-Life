@@ -12,6 +12,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { displayOTPBox: false, disableEmail: false };
+    this.getPassword = (pass) => {
+      console.log(pass);
+    };
+    //CHANGE EMAIL (Changes the state)
     this.enableEmail = () => {
       this.setState({ displayOTPBox: false, disableEmail: false });
     };
@@ -72,7 +76,7 @@ class App extends React.Component {
           disableEmail={this.state.disableEmail}
           enableEmail={this.enableEmail}
         ></SignupBox>
-        <PasswordSetter></PasswordSetter>
+        <PasswordSetter getPassword={this.getPassword}></PasswordSetter>
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
       </div>
