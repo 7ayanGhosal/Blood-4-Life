@@ -12,7 +12,12 @@ class OTPBox extends Component {
   render() {
     return (
       <div class="OTPBox">
-        <button class="btn btn-primary">change email id</button>
+        <button
+          class="btn btn-primary"
+          onClick={() => this.props.enableEmail()}
+        >
+          change email id
+        </button>
         <div class="settimer">
           <h4 class="timer">60 sec </h4>
         </div>
@@ -31,7 +36,9 @@ class OTPBox extends Component {
             verify
           </button>
         </form>
-        <button class="btn btn-primary">resend</button>
+        <button class="btn btn-primary" onClick={() => this.props.onResend()}>
+          resend
+        </button>
       </div>
     );
   }

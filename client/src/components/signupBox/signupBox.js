@@ -9,6 +9,9 @@ class SignupBox extends Component {
 
     this.props.onEmailSubmit(this.state);
   };
+  onResend = () => {
+    this.props.onEmailSubmit(this.state);
+  };
   // onTypeChange = (event) => {
   //   this.setState({ isHospital: !this.state.isHospital });
   // };
@@ -21,7 +24,13 @@ class SignupBox extends Component {
   render() {
     var Box = null;
     if (this.props.displayOTPBox === "true") {
-      Box = <OTPBox onOTPSubmit={this.props.onOTPSubmit}></OTPBox>;
+      Box = (
+        <OTPBox
+          onOTPSubmit={this.props.onOTPSubmit}
+          enableEmail={this.props.enableEmail}
+          onResend={this.onResend}
+        ></OTPBox>
+      );
     } else if (this.props.displayOTPBox === "exists") {
       Box = (
         <div>Email ID already exists, please change EmailID and try again!</div>

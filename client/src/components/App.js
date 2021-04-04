@@ -12,7 +12,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { displayOTPBox: false, disableEmail: false };
-
+    this.enableEmail = () => {
+      this.setState({ displayOTPBox: false, disableEmail: false });
+    };
     //EMAIL VERIFICATION (Email has email, isHospital)
     this.onEmailSubmit = (Email) => {
       const body = { email: Email.email };
@@ -68,6 +70,7 @@ class App extends React.Component {
           onOTPSubmit={this.onOTPSubmit}
           displayOTPBox={this.state.displayOTPBox}
           disableEmail={this.state.disableEmail}
+          enableEmail={this.enableEmail}
         ></SignupBox>
         <PasswordSetter></PasswordSetter>
         <LoginBox></LoginBox>
