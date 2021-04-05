@@ -21,7 +21,7 @@ class App extends React.Component {
       age: "",
       bloodGroup: "",
       rhFactor: "",
-      isHospital: "",
+      isHospital: false,
       reqDonor: "",
     };
 

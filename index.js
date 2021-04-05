@@ -111,39 +111,41 @@ app.post("/otpVerification", (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  newUser = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastNname,
-    email: req.body.email,
-    password: req.body.pass,
-    age: req.body.age,
-    gender: req.body.gender,
-    bloodGroup: req.body.bloodGroup,
-    rhFactor: req.body.rhFactor,
-    reqDonor: req.body.reqDonor,
-  };
-  newHospital = {
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    zip: req.body.zip,
-    city: req.body.city,
-    address: req.body.addr,
-    bloodGroup: req.body.bg,
-  };
+  if (req.body.isHospital)
+    newHospital = {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      zip: req.body.zip,
+      city: req.body.city,
+      address: req.body.addr,
+      bloodGroup: req.body.bg,
+    };
+  else
+    newUser = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: req.body.pass,
+      age: req.body.age,
+      gender: req.body.gender,
+      bloodGroup: req.body.bloodGroup,
+      rhFactor: req.body.rhFactor,
+      reqDonor: req.body.reqDonor,
+    };
 
   if (
-    (await user.findOne(req.body.email)) ||
-    (await hospital.findOne(req.body.email))
+    (await user.findOne({ email: req.body.email })) ||
+    (await hospital.findOne({ email: req.body.email }))
   ) {
-    document.alert("This email id already exists! Use another id or sign in.");
+    console.log("This email id already exists! Use another id or sign in.");
   } else {
-    if (req.body.isPerson) {
+    if (!req.body.isHospital) {
       await user.create(newUser, (err, newuser) => {
         if (err) {
-          alert("error in user creation!!");
+          console.log("error in user creation!!");
         } else {
-          alert("New user successfully added");
+          console.log("New user successfully added");
         }
       });
     } else {

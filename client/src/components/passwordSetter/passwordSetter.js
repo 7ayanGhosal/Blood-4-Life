@@ -9,8 +9,8 @@ class PasswordSetter extends Component {
     this.onFormSubmit = (event) => {
       event.preventDefault();
       this.setState({ message: "" });
-      if (this.state.p1 != this.state.p2)
-        this.setState({ message: "Password do not match!" });
+      if (this.state.p1 !== this.state.p2)
+        this.setState({ message: "Passwords do not match!" });
       else this.props.getPassword(this.state.p1);
     };
   }
