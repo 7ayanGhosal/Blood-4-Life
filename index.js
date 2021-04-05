@@ -41,16 +41,19 @@ mongoose.connect(
 );
 
 var userSchema = new mongoose.Schema({
-  name: String,
-  surname: String,
+  firstName: String,
+  lastName: String,
   email: String,
   password: String,
+  age: Number,
+  gender: String,
   birthday: Date,
   zip: Number,
   city: String,
   address: String,
   bloodGroup: String,
-  donor: Boolean,
+  rhFactor: String,
+  reqDonor: Boolean,
 });
 
 var hospitalSchema = new mongoose.Schema({
@@ -109,16 +112,15 @@ app.post("/otpVerification", (req, res) => {
 
 app.post("/signup", async (req, res) => {
   newUser = {
-    name: req.body.name,
-    surname: req.body.surname,
+    firstName: req.body.firstName,
+    lastName: req.body.lastNname,
     email: req.body.email,
-    password: req.body.password,
-    birthday: req.body.dob,
-    zip: req.body.zip,
-    city: req.body.city,
-    address: req.body.addr,
-    bloodGroup: req.body.bg,
-    donor: req.body.donor,
+    password: req.body.pass,
+    age: req.body.age,
+    gender: req.body.gender,
+    bloodGroup: req.body.bloodGroup,
+    rhFactor: req.body.rhFactor,
+    reqDonor: req.body.reqDonor,
   };
   newHospital = {
     name: req.body.name,

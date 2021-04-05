@@ -13,8 +13,16 @@ class App extends React.Component {
     this.state = {
       displayOTPBox: false,
       disableEmail: false,
+      firstName: "",
+      lastName: "",
       email: "",
       pass: "",
+      gender: "",
+      age: "",
+      bloodGroup: "",
+      rhFactor: "",
+      isHospital: "",
+      reqDonor: "",
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -39,6 +47,7 @@ class App extends React.Component {
               displayOTPBox: "true",
               disableEmail: true,
               email: Email.email,
+              isHospital: Email.isHospital,
             });
           }
         },
@@ -71,13 +80,33 @@ class App extends React.Component {
       );
     };
     //password matching
-    this.setProfile = (pass) => {
+    this.setPassword = (pass) => {
       this.setState({ pass: pass });
       //same passwords
       //turn off passwordSetter
       document.getElementById("closePasswordBox").click();
       //turn on profileSetter
       document.getElementById("profileSetterModalButton").click();
+    };
+    //profileSetter
+    this.setProfile = async (profile) => {
+      await this.setState({
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        gender: profile.gender,
+        age: profile.age,
+        bloodGroup: profile.bloodGroup,
+        rhFactor: profile.rhFactor,
+        reqDonor: profile.reqDonor,
+      });
+      axios.post("/signup", this.state).then(
+        (res) => {
+          console.log("app.js: user details posted");
+        },
+        (error) => {
+          console.log("app.js: Error in /signup" + error);
+        }
+      );
     };
   }
   render() {
@@ -91,8 +120,8 @@ class App extends React.Component {
           disableEmail={this.state.disableEmail}
           enableEmail={this.enableEmail}
         ></SignupBox>
-        <PasswordSetter getPassword={this.setProfile}></PasswordSetter>
-        <ProfileSetterModal></ProfileSetterModal>
+        <PasswordSetter getPassword={this.setPassword}></PasswordSetter>
+        <ProfileSetterModal setProfile={this.setProfile}></ProfileSetterModal>
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
       </div>
