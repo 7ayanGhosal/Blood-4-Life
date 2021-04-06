@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
-import ProfileModal from "./components/profleModal/profileModal";
+
 import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
@@ -116,19 +116,22 @@ class App extends React.Component {
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
       axios.post("/login", this.state).then((res) => {
-        if (!res.data) {
-          document.getElementById("loginMessage").innerHTML = (
-            <h5 className="text-danger">Incorrect Details!</h5>
-          );
-        } else {
-          document.getElementById("loginMessage").innerHTML = (
-            <h5 className="text-danger">Logging In...</h5>
-          );
-          setInterval(() => {
-            document.getElementById("closeLoginModal");
-            this.setState({ authenticated: true, ...res.data });
-          }, 2000);
-        }
+        console.log(res);
+        // if (!res.data) {
+        // console.log("Incorrect Details!");
+        // document.getElementById("loginMessage").innerHTML = (
+        //   <h5 className="text-danger">Incorrect Details!</h5>
+        // );
+        // } else {
+        // console.log("Logging In...");
+        // document.getElementById("loginMessage").innerHTML = (
+        //   <h5 className="text-danger">Logging In...</h5>
+        // );
+        // setInterval(() => {
+        //   document.getElementById("closeLoginModal");
+        //   this.setState({ authenticated: true, ...res.data });
+        // }, 2000);
+        // }
       });
     };
   }
@@ -148,8 +151,6 @@ class App extends React.Component {
         >
           <Navbar></Navbar>
         </AuthContext.Provider>
-
-        <ProfileModal></ProfileModal>
       </div>
     );
   }
