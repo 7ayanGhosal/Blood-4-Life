@@ -143,17 +143,17 @@ app.post("/signup", async (req, res) => {
     if (!req.body.isHospital) {
       await user.create(newUser, (err, newuser) => {
         if (err) {
-          console.log("error in user creation!!");
+          res.send(false);
         } else {
-          console.log("New user successfully added");
+          res.send(true);
         }
       });
     } else {
       await hospital.create(newHospital, (err, newhosp) => {
         if (err) {
-          alert("error in hospital creation!!");
+          res.send(false);
         } else {
-          alert("New Hospital successfully added");
+          res.send(true);
         }
       });
     }

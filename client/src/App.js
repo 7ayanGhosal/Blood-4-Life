@@ -2,10 +2,7 @@ import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
 import LoginBox from "./components/loginBox/loginBox";
-import SignupBox from "./components/signupBox/signupBox";
 import ProfileModal from "./components/profleModal/profileModal";
-import PasswordSetter from "./components/passwordSetter/passwordSetter";
-import ProfileSetterModal from "./components/profileSetter/profileSetter";
 import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
@@ -49,8 +46,8 @@ class App extends React.Component {
             this.setState({
               displayOTPBox: "true",
               disableEmail: true,
-              // email: Email.email,
-              // isHospital: Email.isHospital,
+              email: Email.email,
+              isHospital: Email.isHospital,
             });
           }
         },
@@ -62,16 +59,16 @@ class App extends React.Component {
 
     //OTP VERIFICATION
     this.onOTPSubmit = (OTP) => {
-      console.log(typeof OTP.otp);
       const body = { otp: OTP.otp };
       axios.post("/otpVerification", body).then(
         (res) => {
           if (res.data === "False") {
             //Wrong OTP
-            res.send("INVALID OTP");
+            console.log("INVALID OTP");
           } else {
             //correct OTP
             //turn off signupbox
+            //this.setState({ displayOTPBox: false, disableEmail: false });
             document.getElementById("closeSignupBox").click();
             //turn on passwordSetter
             document.getElementById("passwordSetterModalButton").click();
@@ -104,7 +101,13 @@ class App extends React.Component {
       });
       axios.post("/signup", this.state).then(
         (res) => {
-          console.log("app.js: user details posted");
+          if (res.data) {
+            document.getElementById("closeProfileSetterModal").click();
+            this.setState({ authenticated: true });
+          } else
+            console.log(
+              "from App.js, there is some error in index.js(backend)"
+            );
         },
         (error) => {
           console.log("app.js: Error in /signup" + error);
@@ -115,18 +118,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <AuthContext.Provider value={this.state}>
+        <AuthContext.Provider
+          value={{
+            ...this.state,
+            onEmailSubmit: this.onEmailSubmit,
+            onOTPSubmit: this.onOTPSubmit,
+            enableEmail: this.enableEmail,
+            setPassword: this.setPassword,
+            setProfile: this.setProfile,
+          }}
+        >
           <Navbar></Navbar>
         </AuthContext.Provider>
-        <SignupBox
-          onEmailSubmit={this.onEmailSubmit}
-          onOTPSubmit={this.onOTPSubmit}
-          displayOTPBox={this.state.displayOTPBox}
-          disableEmail={this.state.disableEmail}
-          enableEmail={this.enableEmail}
-        ></SignupBox>
-        <PasswordSetter getPassword={this.setPassword}></PasswordSetter>
-        <ProfileSetterModal setProfile={this.setProfile}></ProfileSetterModal>
+
         <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
       </div>

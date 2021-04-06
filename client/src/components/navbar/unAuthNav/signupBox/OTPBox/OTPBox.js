@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import "./OTPBox.css";
+import AuthContext from "../../../../../context/auth-context";
 
 class OTPBox extends Component {
   state = {
     otp: "10000",
   };
+  static contextType = AuthContext;
+
   onFormSubmit = (event) => {
     event.preventDefault();
-    this.props.onOTPSubmit(this.state);
+    this.context.onOTPSubmit(this.state);
   };
   render() {
     return (
       <div class="OTPBox">
         <button
           class="btn btn-primary"
-          onClick={() => this.props.enableEmail()}
+          onClick={() => this.context.enableEmail()}
         >
           change email id
         </button>
