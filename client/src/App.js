@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
 import LoginBox from "./components/loginBox/loginBox";
-import ProfileModal from "./components/profleModal/profileModal";
 import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
@@ -132,7 +131,6 @@ class App extends React.Component {
         </AuthContext.Provider>
 
         <LoginBox></LoginBox>
-        <ProfileModal></ProfileModal>
       </div>
     );
   }

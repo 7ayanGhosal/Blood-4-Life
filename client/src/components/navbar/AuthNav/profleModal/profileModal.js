@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./profileModal.css";
-
+import AuthContext from "../../../../context/auth-context";
 class ProfileModal extends Component {
+  static contextType = AuthContext;
   render() {
     return (
       <div>
@@ -17,7 +18,7 @@ class ProfileModal extends Component {
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                  Modal title
+                  USER PROFILE
                 </h5>
                 <button
                   type="button"
@@ -36,17 +37,18 @@ class ProfileModal extends Component {
                   <div class="card-body">
                     <h5 class="card-title">Profile Details</h5>
                     <p class="card-text">
-                      Name:-Rishav Kundu
+                      Name:-
+                      {this.context.firstName + " " + this.context.lastName}
                       <br />
-                      Email:-rishavkundu7864@gmail.com <br />
-                      Address: Kolkata,India
+                      Email:- {this.context.email} <br />
+                      Address: {this.context.address}
                       <br />
-                      Blood Group:- A <br />
-                      Rh factor:-positive
+                      Blood Group:- {this.context.bloodGroup} <br />
+                      Rh factor:- {this.context.rhFactor}
                       <br />
-                      Last Donated on: 26th January
+                      Last Donated on: {this.context.lastDonated}
                       <br />
-                      Receive Donation Request: yes
+                      Receive Donation Request: {this.context.reqDonor}
                       <br />
                     </p>
                   </div>

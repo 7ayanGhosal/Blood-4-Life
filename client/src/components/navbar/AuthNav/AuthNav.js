@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.jpeg";
+import ProfileModal from "./profleModal/profileModal";
 
 class AuthNav extends Component {
   constructor(props) {
@@ -90,6 +91,7 @@ class AuthNav extends Component {
             </div>
           </div>
         </nav>
+        <ProfileModal></ProfileModal>
       </div>
     );
   }
