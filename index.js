@@ -143,21 +143,51 @@ app.post("/signup", async (req, res) => {
     if (!req.body.isHospital) {
       await user.create(newUser, (err, newuser) => {
         if (err) {
-          console.log("error in user creation!!");
+          res.send(false);
         } else {
-          console.log("New user successfully added");
+          res.send(true);
         }
       });
     } else {
       await hospital.create(newHospital, (err, newhosp) => {
         if (err) {
-          alert("error in hospital creation!!");
+          res.send(false);
         } else {
-          alert("New Hospital successfully added");
+          res.send(true);
         }
       });
     }
   }
+});
+
+app.post("/login", async (req, res) => {
+  var account = null;
+  account = await user.findOne({
+    email: req.body.email,
+    password: req.body.pass,
+  });
+  if (!account)
+    account = await hospital.findOne({
+      email: req.body.email,
+      password: req.body.pass,
+    });
+
+  if (!account) {
+    //Acccount not found
+    res.send(false);
+  } else {
+    delete account.password;
+    res.send(account);
+  }
+});
+
+app.get("/remove/:email", (req, res) => {
+  user.deleteOne({ email: req.params.email }, (err, usr) => {
+    if (err) res.send("Error from backend");
+    else {
+      res.send("account deleted!");
+    }
+  });
 });
 
 app.post("/login", (req, res) => {

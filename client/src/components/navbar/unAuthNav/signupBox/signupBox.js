@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import "./signupBox.css";
 import OTPBox from "./OTPBox/OTPBox";
+import AuthContext from "../../../../context/auth-context";
 
 class SignupBox extends Component {
   state = { email: "", isHospital: false };
+  static contextType = AuthContext;
   onFormSubmit = (event) => {
     event.preventDefault();
-
-    this.props.onEmailSubmit(this.state);
+    this.context.onEmailSubmit(this.state);
   };
   onResend = () => {
-    this.props.onEmailSubmit(this.state);
+    this.context.onEmailSubmit(this.state);
   };
   // onTypeChange = (event) => {
   //   this.setState({ isHospital: !this.state.isHospital });
@@ -23,19 +24,13 @@ class SignupBox extends Component {
   };
   render() {
     var Box = null;
-    if (this.props.displayOTPBox === "true") {
-      Box = (
-        <OTPBox
-          onOTPSubmit={this.props.onOTPSubmit}
-          enableEmail={this.props.enableEmail}
-          onResend={this.onResend}
-        ></OTPBox>
-      );
-    } else if (this.props.displayOTPBox === "exists") {
+    if (this.context.displayOTPBox === "true") {
+      Box = <OTPBox onResend={this.onResend}></OTPBox>;
+    } else if (this.context.displayOTPBox === "exists") {
       Box = (
         <div>Email ID already exists, please change EmailID and try again!</div>
       );
-    } else if (this.props.displayOTPBox === "false") {
+    } else if (this.context.displayOTPBox === "false") {
       Box = <div>Something went wrong!!</div>;
     }
     return (
@@ -82,7 +77,7 @@ class SignupBox extends Component {
                               onChange={(e) =>
                                 this.setState({ email: e.target.value })
                               }
-                              disabled={this.props.disableEmail}
+                              disabled={this.context.disableEmail}
                               required
                             />
                             <br />
@@ -93,7 +88,7 @@ class SignupBox extends Component {
                               name="accountType"
                               // checked="checked"
                               onChange={this.onTypePerson}
-                              disabled={this.props.disableEmail}
+                              disabled={this.context.disableEmail}
                               required
                             />
                             <b>Person</b>
@@ -103,7 +98,7 @@ class SignupBox extends Component {
                               value="Hospital"
                               name="accountType"
                               onChange={this.onTypeHospital}
-                              disabled={this.props.disableEmail}
+                              disabled={this.context.disableEmail}
                               required
                             />
                             <b>Hospital</b>
@@ -114,7 +109,7 @@ class SignupBox extends Component {
                             <button
                               type="submit"
                               class="btn btn-primary"
-                              disabled={this.props.disableEmail}
+                              disabled={this.context.disableEmail}
                             >
                               submit
                             </button>

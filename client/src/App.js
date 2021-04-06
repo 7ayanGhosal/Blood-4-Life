@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
-import Navbar from "./navbar/navbar";
-import LoginBox from "./loginBox/loginBox";
-import SignupBox from "./signupBox/signupBox";
-import ProfileModal from "./profleModal/profileModal";
-import PasswordSetter from "./passwordSetter/passwordSetter";
-import ProfileSetterModal from "./profileSetter/profileSetter";
+import Navbar from "./components/navbar/navbar";
+
+import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +20,7 @@ class App extends React.Component {
       rhFactor: "",
       isHospital: false,
       reqDonor: "",
+      authenticated: false,
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -43,6 +41,7 @@ class App extends React.Component {
           } else {
             //otp sent
             //start timer, show otp box
+
             this.setState({
               displayOTPBox: "true",
               disableEmail: true,
@@ -59,16 +58,16 @@ class App extends React.Component {
 
     //OTP VERIFICATION
     this.onOTPSubmit = (OTP) => {
-      console.log(typeof OTP.otp);
       const body = { otp: OTP.otp };
       axios.post("/otpVerification", body).then(
         (res) => {
           if (res.data === "False") {
             //Wrong OTP
-            res.send("INVALID OTP");
+            console.log("INVALID OTP");
           } else {
             //correct OTP
             //turn off signupbox
+            //this.setState({ displayOTPBox: false, disableEmail: false });
             document.getElementById("closeSignupBox").click();
             //turn on passwordSetter
             document.getElementById("passwordSetterModalButton").click();
@@ -101,54 +100,72 @@ class App extends React.Component {
       });
       axios.post("/signup", this.state).then(
         (res) => {
-          console.log("app.js: user details posted");
+          if (res.data) {
+            document.getElementById("closeProfileSetterModal").click();
+            this.setState({ authenticated: true });
+          } else
+            console.log(
+              "from App.js, there is some error in index.js(backend)"
+            );
         },
         (error) => {
           console.log("app.js: Error in /signup" + error);
         }
       );
     };
+    //LOGIN ROUTE
+    this.checkLogin = (cred) => {
+      axios.post("/login", cred).then((res) => {
+        if (!res.data) {
+          document.getElementById("loginMessage").innerHTML =
+            "<h5 className='text-danger'>Incorrect Details!</h5>";
+        } else {
+          document.getElementById("loginMessage").innerHTML =
+            "<h5 className='text-danger'>Logging In...</h5>";
+          document.getElementById("closeLoginModal").click();
+          this.setState({ authenticated: true, ...res.data });
+        }
+      });
+    };
+    this.logout = () => {
+      this.setState({
+        displayOTPBox: false,
+        disableEmail: false,
+        firstName: "",
+        lastName: "",
+        email: "",
+        pass: "",
+        gender: "",
+        age: "",
+        bloodGroup: "",
+        rhFactor: "",
+        isHospital: false,
+        reqDonor: "",
+        authenticated: false,
+      });
+    };
   }
+
   render() {
     return (
       <div>
-        <Navbar></Navbar>
-        <SignupBox
-          onEmailSubmit={this.onEmailSubmit}
-          onOTPSubmit={this.onOTPSubmit}
-          displayOTPBox={this.state.displayOTPBox}
-          disableEmail={this.state.disableEmail}
-          enableEmail={this.enableEmail}
-        ></SignupBox>
-        <PasswordSetter getPassword={this.setPassword}></PasswordSetter>
-        <ProfileSetterModal setProfile={this.setProfile}></ProfileSetterModal>
-        <LoginBox></LoginBox>
-        <ProfileModal></ProfileModal>
+        <AuthContext.Provider
+          value={{
+            ...this.state,
+            onEmailSubmit: this.onEmailSubmit,
+            onOTPSubmit: this.onOTPSubmit,
+            enableEmail: this.enableEmail,
+            setPassword: this.setPassword,
+            setProfile: this.setProfile,
+            checkLogin: this.checkLogin,
+            logout: this.logout,
+          }}
+        >
+          <Navbar></Navbar>
+        </AuthContext.Provider>
       </div>
     );
   }
 }
 
 export default App;
-
-// this.box = null;
-// if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
-// else if (this.state.displayBox === "signupBox")
-//   this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
-// else this.box = null;
-{
-  /* <Navbar
-  onDisplay={this.onDisplayHandler}
-  offDisplay={this.offDisplayHandler}
-  ></Navbar>
-{this.box} */
-}
-{
-  /* <SetPassword></SetPassword> */
-}
-{
-  /* <AccountDetails></AccountDetails> */
-}
-{
-  /* <button onClick={this.offDisplayHandler}>Close box</button> */
-}
