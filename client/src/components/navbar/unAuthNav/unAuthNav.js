@@ -4,6 +4,7 @@ import SignupBox from "./signupBox/signupBox";
 import logo from "../../../resources/logo.jpeg";
 import PasswordSetter from "./passwordSetter/passwordSetter";
 import ProfileSetter from "./profileSetter/profileSetter";
+import LoginBox from "./loginBox/loginBox";
 
 class UnAuthNav extends Component {
   constructor(props) {
@@ -86,6 +87,7 @@ class UnAuthNav extends Component {
             </div>
           </div>
         </nav>
+        <LoginBox></LoginBox>
         <SignupBox></SignupBox>
         <PasswordSetter></PasswordSetter>
         <ProfileSetter></ProfileSetter>

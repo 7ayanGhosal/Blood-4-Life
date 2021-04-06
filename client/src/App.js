@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
-import LoginBox from "./components/loginBox/loginBox";
 import ProfileModal from "./components/profleModal/profileModal";
 import AuthContext from "./context/auth-context";
 
@@ -114,6 +113,24 @@ class App extends React.Component {
         }
       );
     };
+    //LOGIN ROUTE
+    this.checkLogin = (cred) => {
+      axios.post("/login", this.state).then((res) => {
+        if (!res.data) {
+          document.getElementById("loginMessage").innerHTML = (
+            <h5 className="text-danger">Incorrect Details!</h5>
+          );
+        } else {
+          document.getElementById("loginMessage").innerHTML = (
+            <h5 className="text-danger">Logging In...</h5>
+          );
+          setInterval(() => {
+            document.getElementById("closeLoginModal");
+            this.setState({ authenticated: true, ...res.data });
+          }, 2000);
+        }
+      });
+    };
   }
   render() {
     return (
@@ -126,12 +143,12 @@ class App extends React.Component {
             enableEmail: this.enableEmail,
             setPassword: this.setPassword,
             setProfile: this.setProfile,
+            checkLogin: this.checkLogin,
           }}
         >
           <Navbar></Navbar>
         </AuthContext.Provider>
 
-        <LoginBox></LoginBox>
         <ProfileModal></ProfileModal>
       </div>
     );
