@@ -129,7 +129,6 @@ class App extends React.Component {
         >
           <Navbar></Navbar>
         </AuthContext.Provider>
-
         <LoginBox></LoginBox>
       </div>
     );

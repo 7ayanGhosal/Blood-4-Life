@@ -159,6 +159,27 @@ app.post("/signup", async (req, res) => {
     }
   }
 });
+
+app.post("/login", async (req, res) => {
+  var account;
+  account = await user.findOne({ email: req.body.email, pass: req.body.pass });
+  if (!account)
+    account = await hospital.findOne({
+      email: req.body.email,
+      pass: req.body.pass,
+    });
+
+  if (!account) {
+    //Acccount not found
+    res.send(false);
+  } else {
+    delete account.password;
+    res.send(account);
+  }
+});
+
+app.post();
+
 app.get("/remove/:email", (req, res) => {
   user.deleteOne({ email: req.params.email }, (err, usr) => {
     if (err) res.send("Error from backend");
