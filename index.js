@@ -159,6 +159,14 @@ app.post("/signup", async (req, res) => {
     }
   }
 });
+app.get("/remove/:email", (req, res) => {
+  user.deleteOne({ email: req.params.email }, (err, usr) => {
+    if (err) res.send("Error from backend");
+    else {
+      res.send("account deleted!");
+    }
+  });
+});
 
 app.post("/login", (req, res) => {
   res.redirect("https://www.google.com/");
