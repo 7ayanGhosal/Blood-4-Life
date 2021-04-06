@@ -161,12 +161,15 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  var account;
-  account = await user.findOne({ email: req.body.email, pass: req.body.pass });
+  var account = null;
+  account = await user.findOne({
+    email: req.body.email,
+    password: req.body.pass,
+  });
   if (!account)
     account = await hospital.findOne({
       email: req.body.email,
-      pass: req.body.pass,
+      password: req.body.pass,
     });
 
   if (!account) {

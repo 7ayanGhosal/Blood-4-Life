@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.jpeg";
 import ProfileModal from "./profleModal/profileModal";
+import AuthContext from "../../../context/auth-context";
 
 class AuthNav extends Component {
   constructor(props) {
     super(props);
   }
+  static contextType = AuthContext;
   render() {
     return (
       <div>
@@ -82,7 +84,7 @@ class AuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
+                    onClick={this.context.logout}
                   >
                     Logout
                   </button>
