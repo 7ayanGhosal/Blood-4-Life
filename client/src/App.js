@@ -6,6 +6,7 @@ import SignupBox from "./components/signupBox/signupBox";
 import ProfileModal from "./components/profleModal/profileModal";
 import PasswordSetter from "./components/passwordSetter/passwordSetter";
 import ProfileSetterModal from "./components/profileSetter/profileSetter";
+import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
       rhFactor: "",
       isHospital: false,
       reqDonor: "",
+      authenticated: false,
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -43,11 +45,12 @@ class App extends React.Component {
           } else {
             //otp sent
             //start timer, show otp box
+
             this.setState({
               displayOTPBox: "true",
               disableEmail: true,
-              email: Email.email,
-              isHospital: Email.isHospital,
+              // email: Email.email,
+              // isHospital: Email.isHospital,
             });
           }
         },
@@ -112,7 +115,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar></Navbar>
+        <AuthContext.Provider value={this.state}>
+          <Navbar></Navbar>
+        </AuthContext.Provider>
         <SignupBox
           onEmailSubmit={this.onEmailSubmit}
           onOTPSubmit={this.onOTPSubmit}
@@ -130,25 +135,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// this.box = null;
-// if (this.state.displayBox === "loginBox") this.box = <LoginBox></LoginBox>;
-// else if (this.state.displayBox === "signupBox")
-//   this.box = <SignupBox onEmailSubmit={this.onEmailSubmit}></SignupBox>;
-// else this.box = null;
-{
-  /* <Navbar
-  onDisplay={this.onDisplayHandler}
-  offDisplay={this.offDisplayHandler}
-  ></Navbar>
-{this.box} */
-}
-{
-  /* <SetPassword></SetPassword> */
-}
-{
-  /* <AccountDetails></AccountDetails> */
-}
-{
-  /* <button onClick={this.offDisplayHandler}>Close box</button> */
-}
