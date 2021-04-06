@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
-import Navbar from "./navbar/navbar";
-import LoginBox from "./loginBox/loginBox";
-import SignupBox from "./signupBox/signupBox";
-import ProfileModal from "./profleModal/profileModal";
-import PasswordSetter from "./passwordSetter/passwordSetter";
-import ProfileSetterModal from "./profileSetter/profileSetter";
+import Navbar from "./components/navbar/navbar";
+import LoginBox from "./components/loginBox/loginBox";
+import SignupBox from "./components/signupBox/signupBox";
+import ProfileModal from "./components/profleModal/profileModal";
+import PasswordSetter from "./components/passwordSetter/passwordSetter";
+import ProfileSetterModal from "./components/profileSetter/profileSetter";
 
 class App extends React.Component {
   constructor(props) {
