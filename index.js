@@ -65,10 +65,6 @@ var hospitalSchema = new mongoose.Schema({
 var user = mongoose.model("User", userSchema);
 var hospital = mongoose.model("Hospital", hospitalSchema);
 
-app.get("/", (req, res) => {
-  res.redirect("https://www.google.com/");
-});
-
 var otp = "55555";
 var timer = 60;
 app.post("/emailVerification", async (req, res) => {
@@ -184,10 +180,6 @@ app.get("/remove/:email", (req, res) => {
     }
   });
 });
-
-// app.post("/", (req, res) => {
-//   res.redirect("https://www.google.com/");
-// });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
