@@ -4,11 +4,6 @@ var app = express();
 var mongoose = require("mongoose");
 var nodemailer = require("nodemailer");
 
-app.use(express.static("public"));
-app.listen(process.env.PORT || 5000, process.env.IP, () => {
-  console.log("Server has started");
-});
-
 //NodeMailer
 var emailid = "assist.blood4life@gmail.com";
 var emailpass = "bloodforlife";
@@ -190,6 +185,17 @@ app.get("/remove/:email", (req, res) => {
   });
 });
 
-app.post("/login", (req, res) => {
+app.post("/", (req, res) => {
   res.redirect("https://www.google.com/");
+});
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+} else app.use(express.static("public"));
+
+app.listen(process.env.PORT || 5000, process.env.IP, () => {
+  console.log("Server has started");
 });
