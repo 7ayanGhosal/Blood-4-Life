@@ -185,9 +185,9 @@ app.get("/remove/:email", (req, res) => {
   });
 });
 
-app.post("/", (req, res) => {
-  res.redirect("https://www.google.com/");
-});
+// app.post("/", (req, res) => {
+//   res.redirect("https://www.google.com/");
+// });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
