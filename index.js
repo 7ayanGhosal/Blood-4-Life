@@ -65,10 +65,6 @@ var hospitalSchema = new mongoose.Schema({
 var user = mongoose.model("User", userSchema);
 var hospital = mongoose.model("Hospital", hospitalSchema);
 
-app.get("/", (req, res) => {
-  res.redirect("https://www.google.com/");
-});
-
 var otp = "55555";
 var timer = 60;
 app.post("/emailVerification", async (req, res) => {
@@ -172,7 +168,36 @@ app.post("/login", async (req, res) => {
     res.send(false);
   } else {
     delete account.password;
+    console.log(account.password);
     res.send(account);
+  }
+});
+
+app.post("/resetPass/sendOTP", async (req, res) => {
+  if (
+    (await user.findOne({ email: req.body.email })) ||
+    (await hospital.findOne({ email: req.body.email }))
+  ) {
+    //1.mail otp
+    //2.start timer
+    var email = req.body.email;
+    var mailOptions = {
+      from: emailid,
+      to: email,
+      subject: "Password Reset OTP",
+      html: otp,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log("error in transporter :" + error);
+        res.send("false");
+      } else {
+        res.send("true");
+      }
+    });
+  } else {
+    res.send("doesnotexist");
   }
 });
 
@@ -183,10 +208,6 @@ app.get("/remove/:email", (req, res) => {
       res.send("account deleted!");
     }
   });
-});
-
-app.post("/", (req, res) => {
-  res.redirect("https://www.google.com/");
 });
 
 if (process.env.NODE_ENV === "production") {

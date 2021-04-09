@@ -29,31 +29,60 @@ class App extends React.Component {
     };
     //EMAIL VERIFICATION (Email has email, isHospital)
     this.onEmailSubmit = (Email) => {
-      const body = { email: Email.email };
-      axios.post("/emailVerification", body).then(
-        (res) => {
-          if (res.data === "Exists") {
-            //Already exists
-            this.setState({ displayOTPBox: "exists" });
-          } else if (res.data === "False") {
-            //error in nodemailer
-            this.setState({ displayOTPBox: "false" });
-          } else {
-            //otp sent
-            //start timer, show otp box
+      if (Email.boxName == "SignupBox") {
+        const body = { email: Email.email };
+        axios.post("/emailVerification", body).then(
+          (res) => {
+            if (res.data === "Exists") {
+              //Already exists
+              this.setState({ displayOTPBox: "exists" });
+            } else if (res.data === "False") {
+              //error in nodemailer
+              this.setState({ displayOTPBox: "false" });
+            } else {
+              //otp sent
+              //start timer, show otp box
 
-            this.setState({
-              displayOTPBox: "true",
-              disableEmail: true,
-              email: Email.email,
-              isHospital: Email.isHospital,
-            });
+              this.setState({
+                displayOTPBox: "true",
+                disableEmail: true,
+                email: Email.email,
+                isHospital: Email.isHospital,
+              });
+            }
+          },
+          (error) => {
+            console.log(error);
           }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+        );
+      } else if (Email.boxName == "ResetPassBox") {
+        const body = { email: Email.email };
+
+        axios.post("/resetPass/sendOTP", body).then(
+          (res) => {
+            if (res.data === "doesnotexist") {
+              document.getElementById("ResetPassOTPBox").style.display =
+                "block";
+              document.getElementById("ResetPassOTPBox").innerHTML =
+                "<h5 className='text-danger'>This Email Id doesn't exist</h5>";
+            } else if (res.data === true) {
+              //otp sent
+              //start timer, show otp box
+              document.getElementById("ResetPassOTPBox").style.display =
+                "block";
+            } else {
+              //error in nodemailer
+              document.getElementById("ResetPassOTPBox").style.display =
+                "block";
+              document.getElementById("ResetPassOTPBox").innerHTML =
+                "<h5 className='text-danger'>Couldn't connect to server, please try again after sometime</h5>";
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
     };
 
     //OTP VERIFICATION
@@ -159,6 +188,7 @@ class App extends React.Component {
             setProfile: this.setProfile,
             checkLogin: this.checkLogin,
             logout: this.logout,
+            resetPass: this.resetPass,
           }}
         >
           <Navbar></Navbar>
