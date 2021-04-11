@@ -167,9 +167,36 @@ app.post("/login", async (req, res) => {
     //Acccount not found
     res.send(false);
   } else {
-    delete account.password;
+    // delete account.password;
+    account.password = "";
     res.send(account);
   }
+});
+
+app.post("/resetprofile", (req, res) => {
+  // console.log(req.body);
+  var account = null;
+  if (req.body.isHospital) account = hospital;
+  else account = user;
+  account.findOneAndUpdate(
+    { email: req.body.email },
+    {
+      $set: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        address: req.body.address,
+        bloodGroup: req.body.bloodGroup,
+        rhFactor: req.body.rhFactor,
+        reqDonor: req.body.reqDonor,
+      },
+    },
+    (err, updatedUser) => {
+      if (err) {
+        console.log(err);
+        res.send(false);
+      } else res.send(true);
+    }
+  );
 });
 
 app.get("/remove/:email", (req, res) => {

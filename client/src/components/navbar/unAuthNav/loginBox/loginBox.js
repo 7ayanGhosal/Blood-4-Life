@@ -37,9 +37,7 @@ class LoginBox extends Component {
               </div>
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div
-                    class="card-body" /*style={{ backgroundColor: bisque }}*/
-                  >
+                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
                     <h5 class="card-title">Enter your credentials</h5>
                     <p class="card-text" style={{ fontStyle: "italic" }}>
                       <form onSubmit={this.onFormSubmit}>
