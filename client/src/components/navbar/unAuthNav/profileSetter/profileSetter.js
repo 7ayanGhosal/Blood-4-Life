@@ -10,7 +10,7 @@ class ProfileSetter extends Component {
     gender: "Male",
     bloodGroup: "A",
     rhFactor: "Negative",
-    recDono: "No",
+    recDonor: false,
   };
   static contextType = AuthContext;
 
@@ -146,13 +146,13 @@ class ProfileSetter extends Component {
                         <select
                           name="donationRequest"
                           required
-                          value={this.state.recDono}
+                          value={this.state.recDonor}
                           onChange={(e) => {
-                            this.setState({ recDono: e.target.value });
+                            this.setState({ recDonor: e.target.value });
                           }}
                         >
-                          <option value="No">No</option>
-                          <option value="Yes">Yes</option>
+                          <option value={false}>No</option>
+                          <option value={true}>Yes</option>
                         </select>
                         <br />
                         <br />

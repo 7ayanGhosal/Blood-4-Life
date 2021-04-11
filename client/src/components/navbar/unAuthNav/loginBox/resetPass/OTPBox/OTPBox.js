@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 import "./OTPBox.css";
-import AuthContext from "../../../../../context/auth-context";
+import AuthContext from "../../../../../../context/auth-context";
 
 class OTPBox extends Component {
   state = {
     otp: "10000",
-    boxName: "SignupBox",
+    boxName: "ResetPassBox",
   };
   static contextType = AuthContext;
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    this.context.onOTPSubmit(this.state);
+    this.context.resetPassword(this.state);
   };
   render() {
     return (
       <div class="OTPBox">
         <button
           class="btn btn-primary"
-          onClick={() => this.context.enableEmail()}
+          onClick={() => {
+            this.props.onChangeEmail();
+          }}
         >
           change email id
         </button>
@@ -31,6 +33,7 @@ class OTPBox extends Component {
             name="OTP"
             onChange={(event) => {
               this.setState({ otp: event.target.value });
+              document.getElementById("ResetPassOTPBoxMessage").innerText = "";
             }}
             value={this.state.otp}
             min="10000"
@@ -43,6 +46,7 @@ class OTPBox extends Component {
         <button class="btn btn-primary" onClick={() => this.props.onResend()}>
           resend
         </button>
+        <h3 id="ResetPassOTPBoxMessage"></h3>
       </div>
     );
   }
