@@ -102,10 +102,9 @@ class App extends React.Component {
           } else {
             //correct OTP
             //turn off signupbox
-            //this.setState({ displayOTPBox: false, disableEmail: false });
-            document.getElementById("closeResetPassBox").click();
+            document.getElementById("closeSignupBox").click();
             //turn on passwordSetter
-            document.getElementById("ResetPassSetterModalButton").click();
+            document.getElementById("passwordSetterModalButton").click();
           }
         },
         (error) => {
@@ -113,6 +112,7 @@ class App extends React.Component {
         }
       );
     };
+
     //password matching
     this.setPassword = (pass) => {
       this.setState({ pass: pass });
@@ -148,12 +148,13 @@ class App extends React.Component {
         }
       );
     };
-    //PROFILE INFO CHANGE ROUTE
+    //PROFILE RESET
     this.resetProfile = (profile) => {
       axios.post("/resetprofile", profile).then((res) => {
         if (!res.data) {
           console.log("ERROR IN CHANGING VALUE!!");
         } else {
+          this.setState({ ...profile });
           document.getElementById("closeProfileResetterModal").click();
         }
       });
