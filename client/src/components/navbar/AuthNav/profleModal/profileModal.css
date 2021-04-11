@@ -15,3 +15,19 @@
   width: 600px;
   border-radius: 100%;
 }
+
+.attribute {
+  display: inline-block;
+  color: red;
+}
+
+.value {
+  display: inline-block;
+  font-style: italic;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: center;
+  color: green;
+}
