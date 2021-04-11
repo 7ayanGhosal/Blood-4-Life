@@ -17,9 +17,9 @@ class ProfileModal extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new1">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h2 class="modal-title" id="exampleModalLabel">
                   USER PROFILE
-                </h5>
+                </h2>
                 <button
                   type="button"
                   class="btn-close"
@@ -36,21 +36,56 @@ class ProfileModal extends Component {
                   />
                   <div class="card-body">
                     <h5 class="card-title">Profile Details</h5>
-                    <p class="card-text">
-                      Name:-
-                      {this.context.firstName + " " + this.context.lastName}
+                    <div class="card-text">
+                      <h3 class="attribute" href="#">
+                        Name :-{" "}
+                      </h3>
+                      <h3 class="value">
+                        {this.context.firstName + " " + this.context.lastName}
+                      </h3>
                       <br />
-                      Email:- {this.context.email} <br />
-                      Address: {this.context.address}
+                      <h3 class="attribute" href="#">
+                        Gender :-{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">Male</h3>
                       <br />
-                      Blood Group:- {this.context.bloodGroup} <br />
-                      Rh factor:- {this.context.rhFactor}
+                      <h3 class="attribute" href="#">
+                        Email :-{" "}
+                      </h3>
+                      <h3 class="value">{this.context.email}</h3>
                       <br />
-                      Last Donated on: {this.context.lastDonated}
+                      <h3 class="attribute" href="#">
+                        Address :-{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">{this.context.address}</h3>
                       <br />
-                      Receive Donation Request: {this.context.reqDonor}
+                      <h3 class="attribute" href="#">
+                        Blood Group :-{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">{this.context.bloodGroup}</h3>
                       <br />
-                    </p>
+                      <h3 class="attribute" href="#">
+                        Rh Factor :-{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">{this.context.rhFactor}</h3>
+                      <br />
+                      <h3 class="attribute" href="#">
+                        Last Donated on :-{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">{this.context.lastDonated}</h3>
+                      <br />
+                      <h3 class="attribute" href="#">
+                        Receive Donation Request :{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">{this.context.reqDonor}</h3>
+                      <br />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -78,9 +113,9 @@ class ProfileModal extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new2">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Modal title222222
-                </h5>
+                <h2 class="modal-title" id="exampleModalLabel">
+                  Edit profile
+                </h2>
                 <button
                   type="button"
                   class="btn-close"
@@ -102,15 +137,15 @@ class ProfileModal extends Component {
                       <p class="card-text">
                         Name:-
                         <input type="text" />{" "}
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary">Change</button>
                         <br /> <br />
                         Email:-
                         <input type="email" />{" "}
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary">Change</button>
                         <br />
                         <br />
                         Address: Kolkata,India <input type-="text" />{" "}
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary">Change</button>
                         <br />
                         <br />
                         Blood Group:-{" "}
@@ -120,19 +155,19 @@ class ProfileModal extends Component {
                           <option value="AB">AB</option>
                           <option value="O">O</option>
                         </select>{" "}
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary">Change</button>
                         <br />
                         <br />
                         Rh factor:-
                         <select>
                           <option value="positive">Positive</option>
-                          <option value="negetive">Negetive</option>
+                          <option value="negetive">Negative</option>
                         </select>{" "}
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary">Change</button>
                         <br />
                         <br />
                         Last Donated on: <input type="text" />{" "}
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary disabled">Change</button>
                         <br />
                         <br />
                         Receive Donation Request:{" "}
