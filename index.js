@@ -172,7 +172,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
 app.post("/resetprofile", (req, res) => {
   // console.log(req.body);
   var account = null;
@@ -197,6 +196,7 @@ app.post("/resetprofile", (req, res) => {
       } else res.send(true);
     }
   );
+});
 
 app.post("/resetPass/sendOTP", async (req, res) => {
   if (
