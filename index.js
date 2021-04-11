@@ -65,10 +65,6 @@ var hospitalSchema = new mongoose.Schema({
 var user = mongoose.model("User", userSchema);
 var hospital = mongoose.model("Hospital", hospitalSchema);
 
-app.get("/", (req, res) => {
-  res.redirect("https://www.google.com/");
-});
-
 var otp = "55555";
 var timer = 60;
 app.post("/emailVerification", async (req, res) => {
@@ -171,8 +167,98 @@ app.post("/login", async (req, res) => {
     //Acccount not found
     res.send(false);
   } else {
-    delete account.password;
+    account.password = "";
     res.send(account);
+  }
+});
+
+app.post("/resetprofile", (req, res) => {
+  // console.log(req.body);
+  var account = null;
+  if (req.body.isHospital) account = hospital;
+  else account = user;
+  account.findOneAndUpdate(
+    { email: req.body.email },
+    {
+      $set: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        address: req.body.address,
+        bloodGroup: req.body.bloodGroup,
+        rhFactor: req.body.rhFactor,
+        reqDonor: req.body.reqDonor,
+      },
+    },
+    (err, updatedUser) => {
+      if (err) {
+        console.log(err);
+        res.send(false);
+      } else res.send(true);
+    }
+  );
+});
+
+app.post("/resetPass/sendOTP", async (req, res) => {
+  if (
+    (await user.findOne({ email: req.body.email })) ||
+    (await hospital.findOne({ email: req.body.email }))
+  ) {
+    //1.mail otp
+    //2.start timer
+    var email = req.body.email;
+    var mailOptions = {
+      from: emailid,
+      to: email,
+      subject: "Password Reset OTP",
+      html: otp,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log("error in transporter :" + error);
+        res.send("false");
+      } else {
+        res.send("true");
+      }
+    });
+  } else {
+    res.send("doesnotexist");
+  }
+});
+
+app.post("/resetPass/otpVerification", async (req, res) => {
+  if (req.body.otp === otp) {
+    user.findOneAndUpdate(
+      { email: req.body.email },
+      { $set: { password: req.body.password } },
+      (err, foundUser) => {
+        if (err) {
+          res.send("error");
+        } else {
+          if (!foundUser) {
+            hospital.findOneAndUpdate(
+              { email: req.body.email },
+              { $set: { password: req.body.password } },
+              (err, foundHospital) => {
+                if (err) {
+                  res.send("error");
+                } else {
+                  if (!foundHospital) {
+                    res.send("error");
+                  } else {
+                    res.send(foundHospital);
+                  }
+                }
+              }
+            );
+          } else {
+            res.send(foundUser);
+          }
+        }
+      }
+    );
+  } else {
+    res.send("InvalidOTP");
   }
 });
 
@@ -183,10 +269,6 @@ app.get("/remove/:email", (req, res) => {
       res.send("account deleted!");
     }
   });
-});
-
-app.post("/", (req, res) => {
-  res.redirect("https://www.google.com/");
 });
 
 if (process.env.NODE_ENV === "production") {

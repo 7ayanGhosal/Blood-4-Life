@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./loginBox.css";
+import ResetPass from "./resetPass/resetPass";
 import AuthContext from "../../../../context/auth-context";
 
 class LoginBox extends Component {
@@ -37,9 +38,7 @@ class LoginBox extends Component {
               </div>
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div
-                    class="card-body" /*style={{ backgroundColor: bisque }}*/
-                  >
+                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
                     <h5 class="card-title">Enter your credentials</h5>
                     <p class="card-text" style={{ fontStyle: "italic" }}>
                       <form onSubmit={this.onFormSubmit}>
@@ -77,6 +76,18 @@ class LoginBox extends Component {
                           </center>
 
                           <div class="modal-footer">
+                            <button
+                              id="ResetPassButton"
+                              type="submit"
+                              class="btn btn-danger"
+                              onClick={this.context.resetPass}
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-bs-toggle="modal"
+                              data-bs-target="#resetPassModal"
+                            >
+                              Reset Password
+                            </button>
                             <button type="submit" class="btn btn-primary">
                               Submit
                             </button>
@@ -90,6 +101,7 @@ class LoginBox extends Component {
             </div>
           </div>
         </div>
+        <ResetPass></ResetPass>
       </div>
     );
   }

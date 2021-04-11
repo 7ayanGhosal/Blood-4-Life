@@ -6,6 +6,7 @@ import Carousel from "./components/carousel/carousel";
 import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -17,10 +18,11 @@ class App extends React.Component {
       pass: "",
       gender: "",
       age: "",
+      address: "",
       bloodGroup: "",
       rhFactor: "",
       isHospital: false,
-      reqDonor: "",
+      reqDonor: false,
       authenticated: false,
     };
 
@@ -30,31 +32,64 @@ class App extends React.Component {
     };
     //EMAIL VERIFICATION (Email has email, isHospital)
     this.onEmailSubmit = (Email) => {
-      const body = { email: Email.email };
-      axios.post("/emailVerification", body).then(
-        (res) => {
-          if (res.data === "Exists") {
-            //Already exists
-            this.setState({ displayOTPBox: "exists" });
-          } else if (res.data === "False") {
-            //error in nodemailer
-            this.setState({ displayOTPBox: "false" });
-          } else {
-            //otp sent
-            //start timer, show otp box
+      if (Email.boxName == "SignupBox") {
+        const body = { email: Email.email };
+        axios.post("/emailVerification", body).then(
+          (res) => {
+            if (res.data === "Exists") {
+              //Already exists
+              this.setState({ displayOTPBox: "exists" });
+            } else if (res.data === "False") {
+              //error in nodemailer
+              this.setState({ displayOTPBox: "false" });
+            } else {
+              //otp sent
+              //start timer, show otp box
 
-            this.setState({
-              displayOTPBox: "true",
-              disableEmail: true,
-              email: Email.email,
-              isHospital: Email.isHospital,
-            });
+              this.setState({
+                displayOTPBox: "true",
+                disableEmail: true,
+                email: Email.email,
+                isHospital: Email.isHospital,
+              });
+            }
+          },
+          (error) => {
+            console.log(error);
           }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+        );
+      } else if (Email.boxName == "ResetPassBox") {
+        const body = { email: Email.email };
+
+        axios.post("/resetPass/sendOTP", body).then(
+          (res) => {
+            if (res.data === "doesnotexist") {
+              document.getElementById("ResetPassOTPBox").style.display =
+                "block";
+              document.getElementById("ResetPassOTPBox").innerHTML =
+                "<h5 className='text-danger'>This Email Id doesn't exist</h5>";
+            } else if (res.data === true) {
+              //otp sent
+              //start timer, show otp box
+
+              this.context.resetPassEmail = Email.email;
+              document.getElementById("ResetPassPasswordSetter").style.display =
+                "block";
+              document.getElementById("ResetPassEmail").disabled = "true";
+              document.getElementById("ResetPassSubmit").disabled = "true";
+            } else {
+              //error in nodemailer
+              document.getElementById("ResetPassOTPBox").style.display =
+                "block";
+              document.getElementById("ResetPassOTPBox").innerHTML =
+                "<h5 className='text-danger'>Couldn't connect to server, please try again after sometime</h5>";
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
     };
 
     //OTP VERIFICATION
@@ -68,7 +103,6 @@ class App extends React.Component {
           } else {
             //correct OTP
             //turn off signupbox
-            //this.setState({ displayOTPBox: false, disableEmail: false });
             document.getElementById("closeSignupBox").click();
             //turn on passwordSetter
             document.getElementById("passwordSetterModalButton").click();
@@ -79,6 +113,7 @@ class App extends React.Component {
         }
       );
     };
+
     //password matching
     this.setPassword = (pass) => {
       this.setState({ pass: pass });
@@ -114,6 +149,17 @@ class App extends React.Component {
         }
       );
     };
+    //PROFILE RESET
+    this.resetProfile = (profile) => {
+      axios.post("/resetprofile", profile).then((res) => {
+        if (!res.data) {
+          console.log("ERROR IN CHANGING VALUE!!");
+        } else {
+          this.setState({ ...profile });
+          document.getElementById("closeProfileResetterModal").click();
+        }
+      });
+    };
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
       axios.post("/login", cred).then((res) => {
@@ -121,13 +167,14 @@ class App extends React.Component {
           document.getElementById("loginMessage").innerHTML =
             "<h5 className='text-danger'>Incorrect Details!</h5>";
         } else {
-          document.getElementById("loginMessage").innerHTML =
-            "<h5 className='text-danger'>Logging In...</h5>";
+          // document.getElementById("loginMessage").innerHTML =
+          //   "<h5 className='text-danger'>Logging In...</h5>";
           document.getElementById("closeLoginModal").click();
           this.setState({ authenticated: true, ...res.data });
         }
       });
     };
+    //LOGGING OUT USER
     this.logout = () => {
       this.setState({
         displayOTPBox: false,
@@ -138,12 +185,43 @@ class App extends React.Component {
         pass: "",
         gender: "",
         age: "",
+        address: "",
         bloodGroup: "",
         rhFactor: "",
         isHospital: false,
         reqDonor: "",
         authenticated: false,
       });
+    };
+    //Passsword Reset Route
+    this.checkResetPassword = (pass) => {
+      this.context.resetPassPassword = pass;
+      document.getElementById("ResetPassOTPBox").style.display = "block";
+      document.getElementById("ResetPassPasswordSetter").style.display = "none";
+    };
+    this.resetPassword = (OTP) => {
+      const body = {
+        email: this.context.resetPassEmail,
+        password: this.context.resetPassPassword,
+        otp: OTP.otp,
+      };
+      axios.post("/resetPass/otpVerification", body).then(
+        (res) => {
+          if (res.data === "InvalidOTP") {
+            //Wrong OTP
+            document.getElementById("ResetPassOTPBoxMessage").innerText =
+              "Invalid OTP!!!";
+          } else {
+            //correct OTP
+            //this.setState({ displayOTPBox: false, disableEmail: false });
+            document.getElementById("closeResetPassBox").click();
+            this.setState({ authenticated: true, ...res.data });
+          }
+        },
+        (error) => {
+          console.log("ERROR IN OTP ONSUBMIT, App.js" + error);
+        }
+      );
     };
   }
 
@@ -160,6 +238,9 @@ class App extends React.Component {
             setProfile: this.setProfile,
             checkLogin: this.checkLogin,
             logout: this.logout,
+            resetProfile: this.resetProfile,
+            checkResetPassword: this.checkResetPassword,
+            resetPassword: this.resetPassword,
           }}
         >
           <Navbar></Navbar>
