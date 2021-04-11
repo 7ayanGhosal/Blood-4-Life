@@ -48,7 +48,13 @@ class ProfileModal extends Component {
                         Gender :-{" "}
                       </h3>
                       &ensp;
-                      <h3 class="value">Male</h3>
+                      <h3 class="value">{this.context.gender}</h3>
+                      <br />
+                      <h3 class="attribute" href="#">
+                        Age :-{" "}
+                      </h3>
+                      &ensp;
+                      <h3 class="value">{this.context.age}</h3>
                       <br />
                       <h3 class="attribute" href="#">
                         Email :-{" "}
@@ -175,7 +181,7 @@ class ProfileModal extends Component {
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
-                        <button class="btn btn-primary">change</button>
+                        <button class="btn btn-primary">Change</button>
                         <br />
                         <br />
                       </p>
