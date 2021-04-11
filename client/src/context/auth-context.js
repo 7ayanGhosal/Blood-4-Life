@@ -11,6 +11,8 @@ const authContext = React.createContext({
   isHospital: false,
   reqDonor: "",
   authenticated: false,
+  resetPassPassword: "",
+  resetPassEmail: "",
 });
 
 export default authContext;
