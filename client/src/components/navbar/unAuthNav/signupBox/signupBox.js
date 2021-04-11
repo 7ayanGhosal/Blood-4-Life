@@ -4,7 +4,7 @@ import OTPBox from "./OTPBox/OTPBox";
 import AuthContext from "../../../../context/auth-context";
 
 class SignupBox extends Component {
-  state = { email: "", isHospital: false };
+  state = { email: "", isHospital: false, boxName: "SignupBox" };
   static contextType = AuthContext;
   onFormSubmit = (event) => {
     event.preventDefault();
