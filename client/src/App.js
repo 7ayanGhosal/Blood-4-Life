@@ -17,10 +17,11 @@ class App extends React.Component {
       pass: "",
       gender: "",
       age: "",
+      address: "",
       bloodGroup: "",
       rhFactor: "",
       isHospital: false,
-      reqDonor: "",
+      reqDonor: false,
       authenticated: false,
     };
 
@@ -147,6 +148,16 @@ class App extends React.Component {
         }
       );
     };
+    //PROFILE INFO CHANGE ROUTE
+    this.resetProfile = (profile) => {
+      axios.post("/resetprofile", profile).then((res) => {
+        if (!res.data) {
+          console.log("ERROR IN CHANGING VALUE!!");
+        } else {
+          document.getElementById("closeProfileResetterModal").click();
+        }
+      });
+    };
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
       axios.post("/login", cred).then((res) => {
@@ -154,13 +165,14 @@ class App extends React.Component {
           document.getElementById("loginMessage").innerHTML =
             "<h5 className='text-danger'>Incorrect Details!</h5>";
         } else {
-          document.getElementById("loginMessage").innerHTML =
-            "<h5 className='text-danger'>Logging In...</h5>";
+          // document.getElementById("loginMessage").innerHTML =
+          //   "<h5 className='text-danger'>Logging In...</h5>";
           document.getElementById("closeLoginModal").click();
           this.setState({ authenticated: true, ...res.data });
         }
       });
     };
+    //LOGGING OUT USER
     this.logout = () => {
       this.setState({
         displayOTPBox: false,
@@ -171,6 +183,7 @@ class App extends React.Component {
         pass: "",
         gender: "",
         age: "",
+        address: "",
         bloodGroup: "",
         rhFactor: "",
         isHospital: false,
@@ -223,6 +236,7 @@ class App extends React.Component {
             setProfile: this.setProfile,
             checkLogin: this.checkLogin,
             logout: this.logout,
+            resetProfile: this.resetProfile,
             checkResetPassword: this.checkResetPassword,
             resetPassword: this.resetPassword,
           }}

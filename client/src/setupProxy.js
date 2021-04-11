@@ -6,6 +6,7 @@ module.exports = function (app) {
       "/otpVerification",
       "/signup",
       "/login",
+      "/resetprofile",
       "/resetPass",
     ],
     createProxyMiddleware({
