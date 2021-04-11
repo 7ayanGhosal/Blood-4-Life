@@ -167,8 +167,6 @@ app.post("/login", async (req, res) => {
     //Acccount not found
     res.send(false);
   } else {
-    delete account.password;
-    console.log(account.password);
     res.send(account);
   }
 });
@@ -198,6 +196,42 @@ app.post("/resetPass/sendOTP", async (req, res) => {
     });
   } else {
     res.send("doesnotexist");
+  }
+});
+
+app.post("/resetPass/otpVerification", async (req, res) => {
+  if (req.body.otp === otp) {
+    user.findOneAndUpdate(
+      { email: req.body.email },
+      { $set: { password: req.body.password } },
+      (err, foundUser) => {
+        if (err) {
+          res.send("error");
+        } else {
+          if (!foundUser) {
+            hospital.findOneAndUpdate(
+              { email: req.body.email },
+              { $set: { password: req.body.password } },
+              (err, foundHospital) => {
+                if (err) {
+                  res.send("error");
+                } else {
+                  if (!foundHospital) {
+                    res.send("error");
+                  } else {
+                    res.send(foundHospital);
+                  }
+                }
+              }
+            );
+          } else {
+            res.send(foundUser);
+          }
+        }
+      }
+    );
+  } else {
+    res.send("InvalidOTP");
   }
 });
 

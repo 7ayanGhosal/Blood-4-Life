@@ -5,6 +5,7 @@ import AuthContext from "../../../../../context/auth-context";
 class OTPBox extends Component {
   state = {
     otp: "10000",
+    boxName: "SignupBox",
   };
   static contextType = AuthContext;
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./resetPass.css";
 import OTPBox from "./OTPBox/OTPBox";
+import PasswordSetter from "./passwordSetter/passwordSetter";
 import AuthContext from "../../../../../context/auth-context";
 
 class ResetPass extends Component {
@@ -9,6 +10,11 @@ class ResetPass extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     this.context.onEmailSubmit(this.state);
+  };
+  onChangeEmail = () => {
+    document.getElementById("ResetPassOTPBox").style.display = "none";
+    document.getElementById("ResetPassEmail").removeAttribute("disabled");
+    document.getElementById("ResetPassSubmit").removeAttribute("disabled");
   };
   onResend = () => {
     this.context.onEmailSubmit(this.state);
@@ -36,7 +42,7 @@ class ResetPass extends Component {
                   class="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                  id="closeSignupBox"
+                  id="closeResetPassBox"
                 ></button>
               </div>
               <div class="modal-body">
@@ -52,7 +58,7 @@ class ResetPass extends Component {
                             <b>Email : </b>{" "}
                             <input
                               type="email"
-                              id="text1"
+                              id="ResetPassEmail"
                               placeholder=" Enter your valid email id "
                               value={this.state.email}
                               onChange={(e) =>
@@ -65,6 +71,7 @@ class ResetPass extends Component {
                           <br />
                           <div>
                             <button
+                              id="ResetPassSubmit"
                               type="submit"
                               class="btn btn-primary"
                               disabled={this.context.disableEmail}
@@ -73,8 +80,18 @@ class ResetPass extends Component {
                             </button>
                           </div>
                         </form>
+                        <div
+                          id="ResetPassPasswordSetter"
+                          style={{ display: "none" }}
+                        >
+                          <PasswordSetter></PasswordSetter>
+                        </div>
+
                         <div id="ResetPassOTPBox" style={{ display: "none" }}>
-                          <OTPBox onResend={this.onResend}></OTPBox>
+                          <OTPBox
+                            onResend={this.onResend}
+                            onChangeEmail={this.onChangeEmail}
+                          ></OTPBox>
                         </div>
                       </center>
                     </p>

@@ -79,6 +79,7 @@ class LoginBox extends Component {
 
                           <div class="modal-footer">
                             <button
+                              id="ResetPassButton"
                               type="submit"
                               class="btn btn-danger"
                               onClick={this.context.resetPass}
