@@ -5,18 +5,30 @@ h1 {
 
 .nav-item button:hover {
   background-color: rgb(255, 0, 0);
-  color: rgb(47, 79, 79);
+  /* color: rgb(47, 79, 79); */
 }
 
 .container-fluid {
-  background-color: wheat;
+  color: cyan;
+  background: #ed213a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   overflow: hidden;
 }
 
-.nav-item button {
+/* .nav-item button {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(47, 79, 79);
-}
+} */
 /* .nav-item button:active {
   background-color: tomato;
 } */
@@ -35,7 +47,7 @@ h1 {
   display: inline;
   font-family: "Paytone One", sans-serif;
   font-size: 1.5em;
-  color: firebrick;
+  /* color: firebrick; */
 }
 .icons2 {
   font-family: "Averia Serif Libre", cursive;
