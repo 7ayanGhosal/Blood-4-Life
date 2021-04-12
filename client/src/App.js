@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
+import Carousel from "./components/carousel/carousel";
 
 import AuthContext from "./context/auth-context";
 
@@ -243,6 +244,7 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
+          <Carousel></Carousel>
         </AuthContext.Provider>
       </div>
     );

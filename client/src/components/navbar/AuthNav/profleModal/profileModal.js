@@ -23,7 +23,6 @@ class ProfileModal extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new1">
             <div class="modal-content">
               <div class="modal-header">
-
                 <h2 class="modal-title" id="exampleModalLabel">
                   USER PROFILE
                 </h2>
@@ -45,6 +44,7 @@ class ProfileModal extends Component {
                   />
                   <div class="card-body">
                     <h5 class="card-title">Profile Details</h5>
+                    <br />
                     <div class="card-text">
                       <h3 class="attribute" href="#">
                         Name :-{" "}
@@ -75,7 +75,6 @@ class ProfileModal extends Component {
                       </h3>
                       &ensp;
                       <h3 class="value">{this.context.address}</h3>
-
                       <br />
                       <h3 class="attribute" href="#">
                         Blood Group :-{" "}
@@ -112,7 +111,7 @@ class ProfileModal extends Component {
                   data-bs-toggle="modal"
                   data-bs-target="#profileResetterModal"
                 >
-                  Edit profile
+                  Edit Profile
                 </button>
               </div>
             </div>
@@ -133,7 +132,7 @@ class ProfileModal extends Component {
             <div class="modal-content">
               <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">
-                  Edit profile
+                  Edit Profile
                 </h2>
                 <button
                   id="closeProfileResetterModal"
@@ -150,7 +149,8 @@ class ProfileModal extends Component {
                     class="card-img-top"
                     alt="..."
                   />
-                  <input type="file" />
+                  <input class="img-change" type="file" />
+                  <br /> <br />
                   <div class="card-body">
                     <h4 class="card-title">Profile</h4>
                     <div class="card-text">
@@ -239,7 +239,6 @@ class ProfileModal extends Component {
                       <br />
                       <br />
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -252,7 +251,7 @@ class ProfileModal extends Component {
                   Close
                 </button>
                 <button type="submit" class="btn btn-primary">
-                  Save changes
+                  Save Changes
                 </button>
               </div>
             </div>
