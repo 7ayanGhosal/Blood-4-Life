@@ -1,0 +1,28 @@
+.row {
+  text-align: center;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.col-name {
+  color: salmon;
+}
+.back {
+  color: cyan;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+.cghid {
+  color: grey;
+}
+
+.back a {
+  color: salmon;
+  text-decoration: none;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+}

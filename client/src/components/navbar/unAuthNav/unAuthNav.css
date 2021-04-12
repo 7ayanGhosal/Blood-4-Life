@@ -5,7 +5,7 @@ h1 {
 
 .nav-item button:hover {
   background-color: rgb(255, 0, 0);
-  color: rgb(47, 79, 79);
+  /* color: rgb(47, 79, 79); */
 }
 
 .container-fluid {
@@ -15,7 +15,7 @@ h1 {
 
 .nav-item button {
   background-color: rgba(0, 0, 0, 0);
-  color: rgb(47, 79, 79);
+  /* color: rgb(47, 79, 79); */
 }
 /* .nav-item button:active {
   background-color: tomato;
@@ -35,7 +35,7 @@ h1 {
   display: inline;
   font-family: "Paytone One", sans-serif;
   font-size: 1.5em;
-  color: firebrick;
+  /* color: firebrick; */
 }
 .icons2 {
   font-family: "Averia Serif Libre", cursive;

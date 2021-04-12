@@ -29,6 +29,7 @@
   left: 30vw;
   width: 40vw;
   max-height: 100vh;
+  z-index: -10;
   /* margin-top: 20vh; */
   /* height: 100vh; */
 }
