@@ -1,0 +1,34 @@
+@media (max-width: 700px) {
+  .bodyImg {
+    margin-top: 30vh;
+  }
+}
+@media (min-width: 701px) {
+  .bodyImg {
+    margin-top: 20vh;
+  }
+}
+@media (min-width: 850px) {
+  .bodyImg {
+    margin-top: 15vh;
+  }
+}
+@media (min-width: 1000px) {
+  .bodyImg {
+    margin-top: 10vh;
+  }
+}
+
+@media (min-width: 1100px) {
+  .bodyImg {
+    margin-top: 5vh;
+  }
+}
+.bodyImg {
+  position: fixed;
+  left: 30vw;
+  width: 40vw;
+  max-height: 100vh;
+  /* margin-top: 20vh; */
+  /* height: 100vh; */
+}

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
 import Carousel from "./components/carousel/carousel";
-
+import "./App.css";
 import AuthContext from "./context/auth-context";
 
 class App extends React.Component {
@@ -228,6 +228,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
         <AuthContext.Provider
           value={{
             ...this.state,
