@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import img1 from "../../../src/resources/img1.jpg";
 import "./carousel.css";
 
 class Carousel extends Component {
@@ -74,8 +75,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323457.jpg')",
+                  backgroundImage: "url(" + img1 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
