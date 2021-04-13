@@ -24,10 +24,9 @@ class LoginBox extends Component {
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title loginh" id="exampleModalLabel">
                   Login Page
-                </h5>
-
+                </h3>
                 <button
                   id="closeLoginModal"
                   type="button"
@@ -38,20 +37,19 @@ class LoginBox extends Component {
               </div>
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
-                    <h5 class="card-title">Enter your credentials</h5>
+                  <div class="card-body card-gradient">
+                    <h4 class="card-title">Enter your credentials</h4>
                     <p class="card-text" style={{ fontStyle: "italic" }}>
                       <form onSubmit={this.onFormSubmit}>
                         <center>
                           <center>
                             <div>
-                              <br></br>
-                              <br></br>
+                              <br />
                               <b>
                                 Email ID :
                                 <input
                                   id="text2"
-                                  placeholder=" Enter your email ID "
+                                  placeholder=" Enter your Email Id "
                                   type="email"
                                   value={this.state.email}
                                   onChange={(e) =>
@@ -63,7 +61,7 @@ class LoginBox extends Component {
                                 Password :
                                 <input
                                   id="text2"
-                                  placeholder=" Enter your password "
+                                  placeholder=" Enter your Password "
                                   type="password"
                                   value={this.state.pass}
                                   onChange={(e) =>
