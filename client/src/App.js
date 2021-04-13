@@ -230,6 +230,7 @@ class App extends React.Component {
     return (
       <div>
         <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
+        <div class="bodyImgColor" />
         <AuthContext.Provider
           value={{
             ...this.state,

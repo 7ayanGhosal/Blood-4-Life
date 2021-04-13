@@ -33,19 +33,17 @@ class ResetPass extends Component {
         >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close modal-close-button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                id="closeResetPassBox"
+              ></button>
+              <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Reset Password
                 </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  id="closeResetPassBox"
-                ></button>
-              </div>
-              <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
                   <div class="card-body" style={{ backgroundColor: "bisque" }}>
                     <p class="card-text">

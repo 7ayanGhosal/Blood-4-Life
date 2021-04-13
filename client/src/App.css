@@ -33,3 +33,12 @@
   /* margin-top: 20vh; */
   /* height: 100vh; */
 }
+.bodyImgColor {
+  background-color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -9;
+}
