@@ -38,19 +38,17 @@ class PasswordSetter extends Component {
         >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div class="modal-header">
+              <button
+                id="closePasswordBox"
+                type="button"
+                class="btn-close modal-close-button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Set Password
                 </h5>
-                <button
-                  id="closePasswordBox"
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
                   <div
                     class="card-body" /*style={{ backgroundColor: bisque }}*/

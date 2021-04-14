@@ -37,3 +37,18 @@ button:hover {
   width: 200px;
   height: 70px;
 }
+
+.modal-close-button {
+  position: absolute;
+  right: -0.5px;
+  top: -40px;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  padding: 15px;
+  opacity: 1;
+  /* border: white; */
+}
+.modal-close-button:hover {
+  opacity: 1;
+}

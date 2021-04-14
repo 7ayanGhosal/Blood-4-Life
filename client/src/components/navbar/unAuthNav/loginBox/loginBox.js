@@ -21,57 +21,55 @@ class LoginBox extends Component {
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
-              <div class="modal-header">
-                <h3 class="modal-title loginh" id="exampleModalLabel">
-                  Login Page
-                </h3>
-                <button
-                  id="closeLoginModal"
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
+
+              <button
+                id="closeLoginModal"
+                type="button"
+                class="btn-close modal-close-button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
               <div class="modal-body">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Login Page
+                </h5>
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body card-gradient">
-                    <h4 class="card-title">Enter your credentials</h4>
-                    <p class="card-text" style={{ fontStyle: "italic" }}>
-                      <form onSubmit={this.onFormSubmit}>
-                        <center>
-                          <center>
-                            <div>
-                              <br />
-                              <b>
-                                Email ID :
-                                <input
-                                  id="text2"
-                                  placeholder=" Enter your Email Id "
-                                  type="email"
-                                  value={this.state.email}
-                                  onChange={(e) =>
-                                    this.setState({ email: e.target.value })
-                                  }
-                                />
-                                <br></br>
-                                <br></br>
-                                Password :
-                                <input
-                                  id="text2"
-                                  placeholder=" Enter your Password "
-                                  type="password"
-                                  value={this.state.pass}
-                                  onChange={(e) =>
-                                    this.setState({ pass: e.target.value })
-                                  }
-                                />
-                              </b>
-                            </div>
-                            <h5 id="loginMessage"></h5>
-                          </center>
+                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
+                    <h5 class="card-title">Enter your credentials</h5>
+                    <p class="card-text">
+                      <center>
+                        <form onSubmit={this.onFormSubmit}>
+                          <div>
+                            <br></br>
+                            <br></br>
+                            <b>
+                              Email ID :
+                              <input
+                                id="text2"
+                                placeholder=" Enter your email ID "
+                                type="email"
+                                value={this.state.email}
+                                onChange={(e) =>
+                                  this.setState({ email: e.target.value })
+                                }
+                              />
+                              <br></br>
+                              <br></br>
+                              Password :
+                              <input
+                                id="text2"
+                                placeholder=" Enter your password "
+                                type="password"
+                                value={this.state.pass}
+                                onChange={(e) =>
+                                  this.setState({ pass: e.target.value })
+                                }
+                              />
+                            </b>
+                          </div>
+                          <h5 id="loginMessage"></h5>
 
                           <div class="modal-footer">
                             <button
@@ -90,8 +88,8 @@ class LoginBox extends Component {
                               Submit
                             </button>
                           </div>
-                        </center>
-                      </form>
+                        </form>
+                      </center>
                     </p>
                   </div>
                 </div>
