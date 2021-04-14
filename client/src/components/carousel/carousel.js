@@ -101,7 +101,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img2 + ")",
+                  backgroundImage: "url(" + img2 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -113,7 +113,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img3 + ")",
+                  backgroundImage: "url(" + img3 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -125,18 +125,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img4 + ")",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                }}
-                class="carousel-item"
-              ></div>
-                            <div
-                style={{
-                  height: 60 + "vh",
-
-                   backgroundImage: "url(" + img5 + ")",
+                  backgroundImage: "url(" + img4 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -147,7 +136,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img6 + ")",
+                  backgroundImage: "url(" + img5 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -158,7 +147,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img7 + ")",
+                  backgroundImage: "url(" + img6 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -169,7 +158,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img8 + ")",
+                  backgroundImage: "url(" + img7 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -180,7 +169,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img9 + ")",
+                  backgroundImage: "url(" + img8 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -191,7 +180,18 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                   backgroundImage: "url(" + img10 + ")",
+                  backgroundImage: "url(" + img9 + ")",
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                }}
+                class="carousel-item"
+              ></div>
+              <div
+                style={{
+                  height: 60 + "vh",
+
+                  backgroundImage: "url(" + img10 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",

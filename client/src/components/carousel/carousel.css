@@ -1,6 +1,7 @@
 .carousel-inner {
   padding: 5px 0;
   /* border-radius: 25px; */
-  background-color: #ecf671;
+  /* background-color: #ecf671; */
+  background-color: khaki;
   border: 2px tomato solid;
 }
