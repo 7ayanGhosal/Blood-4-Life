@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import img1 from "../../../src/resources/img1.jpg";
+import img2 from "../../../src/resources/img2.jpg";
+import img3 from "../../../src/resources/img3.jpg";
+import img4 from "../../../src/resources/img4.jpg";
+import img5 from "../../../src/resources/img5.jpg";
+import img6 from "../../../src/resources/img6.png";
+import img7 from "../../../src/resources/img7.jpg";
+import img8 from "../../../src/resources/img8.jpeg";
+import img9 from "../../../src/resources/img9.jpeg";
+import img10 from "../../../src/resources/img10.jpg";
 import "./carousel.css";
 
 class Carousel extends Component {
@@ -69,6 +78,12 @@ class Carousel extends Component {
                 data-bs-slide-to="8"
                 aria-label="Slide 9"
               ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="9"
+                aria-label="Slide 10"
+              ></button>
             </div>
             <div class="carousel-inner ">
               <div
@@ -86,8 +101,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://image.freepik.com/free-vector/illustration-people-donating-blood_52683-22259.jpg')",
+                  backgroundImage: "url(" + img2 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -99,8 +113,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://image.freepik.com/free-vector/blood-cells-red-background-medical-plasma-human-artery-hemoglobin-erythrocytes-hematology-medicine-red-blood-cells-vein-stream-body-vascular-system-cancer-microbiology-science_8071-1527.jpg')",
+                  backgroundImage: "url(" + img3 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -112,8 +125,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323658.jpg')",
+                  backgroundImage: "url(" + img4 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -124,8 +136,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323663.jpg')",
+                  backgroundImage: "url(" + img5 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -136,8 +147,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323661.jpg')",
+                  backgroundImage: "url(" + img6 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -148,8 +158,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323556.jpg')",
+                  backgroundImage: "url(" + img7 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -160,8 +169,7 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323525.jpg')",
+                  backgroundImage: "url(" + img8 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -172,8 +180,18 @@ class Carousel extends Component {
                 style={{
                   height: 60 + "vh",
 
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp4323468.jpg')",
+                  backgroundImage: "url(" + img9 + ")",
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                }}
+                class="carousel-item"
+              ></div>
+              <div
+                style={{
+                  height: 60 + "vh",
+
+                  backgroundImage: "url(" + img10 + ")",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",

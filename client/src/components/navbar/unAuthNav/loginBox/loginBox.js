@@ -23,6 +23,7 @@ class LoginBox extends Component {
         >
           <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
+
               <button
                 id="closeLoginModal"
                 type="button"

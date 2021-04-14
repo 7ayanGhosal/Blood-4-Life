@@ -4,7 +4,7 @@ import "./footerHome.css";
 class FooterHome extends Component {
   render() {
     return (
-      <div>
+      <div class="footer">
         <div class="back">
           <div class="container">
             <div class="row">
