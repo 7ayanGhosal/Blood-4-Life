@@ -20,6 +20,11 @@
   font-size: 30px;
   color: blue;
 }
-.nav-item1 a:hover {
-  background-color: rgb(26, 67, 199);
+
+.Active {
+  background-color: lightgray;
+  border-radius: 5px;
+}
+.Active h5 {
+  color: black !important;
 }

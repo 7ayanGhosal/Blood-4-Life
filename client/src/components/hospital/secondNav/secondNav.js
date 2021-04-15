@@ -20,9 +20,8 @@ class SecondNav extends Component {
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
-                <li class="nav-item1">
-                  <a
-                    id="BloodBank"
+                <li class="nav-item1" id="BloodBank">
+                  <h5
                     class="nav-link"
                     aria-current="page"
                     onClick={() => {
@@ -30,40 +29,37 @@ class SecondNav extends Component {
                     }}
                   >
                     Blood Bank Counter
-                  </a>
+                  </h5>
                 </li>
-                <li class="nav-item1">
-                  <a
-                    id="UpcomingEvents"
+                <li class="nav-item1" id="UpcomingEvents">
+                  <h5
                     class="nav-link"
                     onClick={() => {
                       this.props.displayHandler("UpcomingEvents");
                     }}
                   >
                     Upcoming Blood Donation Camps
-                  </a>
+                  </h5>
                 </li>
-                <li class="nav-item1">
-                  <a
-                    id="OrganiseCamp"
+                <li class="nav-item1" id="OrganiseCamp">
+                  <h5
                     class="nav-link"
                     onClick={() => {
                       this.props.displayHandler("OrganiseCamp");
                     }}
                   >
                     Organise a Blood Donation Camp
-                  </a>
+                  </h5>
                 </li>
-                <li class="nav-item1">
-                  <a
-                    id="Profile"
-                    class="nav-link active"
+                <li class="nav-item1 Active" id="Profile">
+                  <h5
+                    class="nav-link"
                     onClick={() => {
                       this.props.displayHandler("Profile");
                     }}
                   >
                     Profile
-                  </a>
+                  </h5>
                 </li>
               </ul>
             </div>

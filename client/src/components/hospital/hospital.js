@@ -13,8 +13,8 @@ class Hospital extends Component {
   state = { display: "Profile" };
   displayHandler = (display) => {
     this.setState((prevState, props) => {
-      document.getElementById(prevState.display).classList.remove("active");
-      document.getElementById(display).classList.add("active");
+      document.getElementById(prevState.display).classList.remove("Active");
+      document.getElementById(display).classList.add("Active");
       return { display: display };
     });
   };
@@ -27,7 +27,7 @@ class Hospital extends Component {
     } else if (this.state.display === "UpcomingEvents") {
       box = <UpcomingEvents></UpcomingEvents>;
     } else {
-      // box = <Profile></Profile>;
+      box = <Profile></Profile>;
     }
     return (
       <div>

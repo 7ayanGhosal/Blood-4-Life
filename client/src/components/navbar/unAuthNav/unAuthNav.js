@@ -13,7 +13,7 @@ class UnAuthNav extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-dark navbar-expand-md p-0">
+        <nav class="navbar navbar-dark navbar-expand-md p-0 nav1">
           <div class="container-fluid">
             <div class="logo">
               <img src={logo}></img>
