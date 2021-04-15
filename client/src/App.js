@@ -248,10 +248,9 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
-          <Hospital></Hospital>
         </AuthContext.Provider>
-
         <Carousel></Carousel>
+        <Hospital></Hospital>
         <FooterHome></FooterHome>
       </div>
     );
