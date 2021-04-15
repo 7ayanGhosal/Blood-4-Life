@@ -2,18 +2,6 @@ import React, { Component } from "react";
 import "./secondNav.css";
 
 class SecondNav extends Component {
-  BloodBankDisplayHandler = () => {
-    this.props.displayHandler("BloodBank");
-  };
-  ProfileDisplayHnadler = () => {
-    this.props.displayHandler("Profile");
-  };
-  UpcomingEventsDisplayHandler = () => {
-    this.props.displayHandler("UpcomingEvents");
-  };
-  OrganiseCampDisplayHandler = () => {
-    this.props.displayHandler("OrganiseCamp");
-  };
   render() {
     return (
       <div class="topnav">
@@ -34,28 +22,46 @@ class SecondNav extends Component {
               <ul class="navbar-nav">
                 <li class="nav-item1">
                   <a
-                    class="nav-link active"
+                    id="BloodBank"
+                    class="nav-link"
                     aria-current="page"
-                    onClick={this.BloodBankDisplayHandler}
+                    onClick={() => {
+                      this.props.displayHandler("BloodBank");
+                    }}
                   >
                     Blood Bank Counter
                   </a>
                 </li>
                 <li class="nav-item1">
                   <a
+                    id="UpcomingEvents"
                     class="nav-link"
-                    onClick={this.UpcomingEventsDisplayHandler}
+                    onClick={() => {
+                      this.props.displayHandler("UpcomingEvents");
+                    }}
                   >
                     Upcoming Blood Donation Camps
                   </a>
                 </li>
                 <li class="nav-item1">
-                  <a class="nav-link" onClick={this.OrganiseCampDisplayHandler}>
+                  <a
+                    id="OrganiseCamp"
+                    class="nav-link"
+                    onClick={() => {
+                      this.props.displayHandler("OrganiseCamp");
+                    }}
+                  >
                     Organise a Blood Donation Camp
                   </a>
                 </li>
                 <li class="nav-item1">
-                  <a class="nav-link" onClick={this.ProfileDisplayHnadler}>
+                  <a
+                    id="Profile"
+                    class="nav-link active"
+                    onClick={() => {
+                      this.props.displayHandler("Profile");
+                    }}
+                  >
                     Profile
                   </a>
                 </li>

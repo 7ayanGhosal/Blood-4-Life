@@ -10,9 +10,13 @@ import AuthContext from "../../context/auth-context";
 class Hospital extends Component {
   static contextType = AuthContext;
   // display: will take 4 values, what to diplay? 1.Profile, 2.BloodBank 3.UpcomingEvents, 4.OrganiseCamp
-  state = { display: "profile" };
-  displayHandler = (box) => {
-    this.setState({ display: box });
+  state = { display: "Profile" };
+  displayHandler = (display) => {
+    this.setState((prevState, props) => {
+      document.getElementById(prevState.display).classList.remove("active");
+      document.getElementById(display).classList.add("active");
+      return { display: display };
+    });
   };
   render() {
     var box = <Profile></Profile>;
