@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
+import Hospital from "./components/hospital/hospital";
 import Carousel from "./components/carousel/carousel";
 import FooterHome from "./components/footerHome/footerHome";
 import "./App.css";
@@ -247,7 +248,9 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
+          <Hospital></Hospital>
         </AuthContext.Provider>
+
         <Carousel></Carousel>
         <FooterHome></FooterHome>
       </div>
