@@ -65,9 +65,10 @@ var hospitalSchema = new mongoose.Schema({
 var user = mongoose.model("User", userSchema);
 var hospital = mongoose.model("Hospital", hospitalSchema);
 
-var otp = "55555";
+var otp = String(Math.floor(Math.random() * 89999 + 10000));
 var timer = 60;
 app.post("/emailVerification", async (req, res) => {
+  otp = String(Math.floor(Math.random() * 89999 + 10000));
   if ((await user.findOne(req.body)) || (await hospital.findOne(req.body))) {
     res.send("Exists");
   } else {
@@ -199,6 +200,7 @@ app.post("/resetprofile", (req, res) => {
 });
 
 app.post("/resetPass/sendOTP", async (req, res) => {
+  otp = String(Math.floor(Math.random() * 89999 + 10000));
   if (
     (await user.findOne({ email: req.body.email })) ||
     (await hospital.findOne({ email: req.body.email }))
