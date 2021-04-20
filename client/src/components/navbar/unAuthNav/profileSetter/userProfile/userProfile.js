@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import './profileSetter.css';
+import './userProfile.css';
+import AuthContext from '../../../../../context/auth-context';
 
-class ProfileSetter extends Component {
+class UserProfile extends Component {
   state = {
     firstName: '',
     lastName: '',
@@ -9,15 +10,27 @@ class ProfileSetter extends Component {
     gender: 'Male',
     bloodGroup: 'A',
     rhFactor: 'Negative',
-    recDono: 'No',
+    recDonor: false,
   };
+  static contextType = AuthContext;
 
   onFormSubmit = (event) => {
     event.preventDefault();
 
-    this.props.setProfile(this.state);
+    this.context.setProfile(this.state);
   };
-
+  reset = () => {
+    this.setState({
+      firstName: '',
+      lastName: '',
+      age: 0,
+      gender: 'Male',
+      bloodGroup: 'A',
+      rhFactor: 'Negative',
+      recDonor: false,
+    });
+    this.context.remove();
+  };
   render() {
     return (
       <div>
@@ -27,9 +40,7 @@ class ProfileSetter extends Component {
           class="btn navbar-custom text-align-center pe-4 ps-4 icons2 d-none"
           data-bs-toggle="modal"
           data-bs-target="#profileSetterModal"
-        >
-          Login
-        </button>
+        ></button>
 
         <div
           class="modal fade"
@@ -50,6 +61,7 @@ class ProfileSetter extends Component {
                   class="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  id="closeProfileSetterModal"
                 ></button>
               </div>
               <div class="modal-body">
@@ -143,13 +155,13 @@ class ProfileSetter extends Component {
                         <select
                           name="donationRequest"
                           required
-                          value={this.state.recDono}
+                          value={this.state.recDonor}
                           onChange={(e) => {
-                            this.setState({recDono: e.target.value});
+                            this.setState({recDonor: e.target.value});
                           }}
                         >
-                          <option value="No">No</option>
-                          <option value="Yes">Yes</option>
+                          <option value={false}>No</option>
+                          <option value={true}>Yes</option>
                         </select>
                         <br />
                         <br />
@@ -178,4 +190,4 @@ class ProfileSetter extends Component {
   }
 }
 
-export default ProfileSetter;
+export default UserProfile;

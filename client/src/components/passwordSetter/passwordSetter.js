@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import "./passwordSetter.css";
+import React, {Component} from 'react';
+import './passwordSetter.css';
 
 class PasswordSetter extends Component {
   constructor(props) {
     super(props);
-    this.state = { p1: "", p2: "", message: "" };
+    this.state = {p1: '', p2: '', message: ''};
 
     this.onFormSubmit = (event) => {
       event.preventDefault();
-      this.setState({ message: "" });
+      this.setState({message: ''});
       if (this.state.p1 !== this.state.p2)
-        this.setState({ message: "Passwords do not match!" });
+        this.setState({message: 'Passwords do not match!'});
       else this.props.getPassword(this.state.p1);
     };
   }
@@ -50,12 +50,12 @@ class PasswordSetter extends Component {
                 ></button>
               </div>
               <div class="modal-body">
-                <div class="card w-100" style={{ width: 18 + "rem" }}>
+                <div class="card w-100" style={{width: 18 + 'rem'}}>
                   <div
                     class="card-body" /*style={{ backgroundColor: bisque }}*/
                   >
                     <h5 class="card-title">Set Password</h5>
-                    <p class="card-text" style={{ fontStyle: "italic" }}>
+                    <p class="card-text" style={{fontStyle: 'italic'}}>
                       <form onSubmit={this.onFormSubmit}>
                         <center>
                           <center>
@@ -63,17 +63,16 @@ class PasswordSetter extends Component {
                               <br></br>
                               <br></br>
                               <b>
-                                {" "}
+                                {' '}
                                 Password :
                                 <input
-                                  id="text2"
                                   placeholder=" Enter the password "
                                   type="password"
                                   value={this.state.p1}
                                   onChange={(e) => {
                                     this.setState({
                                       p1: e.target.value,
-                                      message: "",
+                                      message: '',
                                     });
                                   }}
                                 />
@@ -81,19 +80,18 @@ class PasswordSetter extends Component {
                                 <br></br>
                                 Re-type Password :
                                 <input
-                                  id="text2"
                                   placeholder=" Re-type password "
                                   type="password"
                                   value={this.state.p2}
                                   onChange={(e) => {
                                     this.setState({
                                       p2: e.target.value,
-                                      message: "",
+                                      message: '',
                                     });
                                   }}
                                 />
                               </b>
-                              <div style={{ color: "red" }}>
+                              <div style={{color: 'red'}}>
                                 {this.state.message}
                               </div>
                             </div>
