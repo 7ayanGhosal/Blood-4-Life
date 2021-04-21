@@ -248,7 +248,13 @@ class App extends React.Component {
             //correct OTP
             //this.setState({ displayOTPBox: false, disableEmail: false });
             document.getElementById('closeResetPassBox').click();
-            this.setState({authenticated: true, ...res.data});
+            var IsHospital = false;
+            if (res.data.name) IsHospital = true;
+            this.setState({
+              authenticated: true,
+              ...res.data,
+              isHospital: IsHospital,
+            });
           }
         },
         (error) => {
