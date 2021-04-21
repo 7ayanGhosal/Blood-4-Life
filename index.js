@@ -58,7 +58,7 @@ var hospitalSchema = new mongoose.Schema({
   zip: Number,
   city: String,
   address: String,
-  bloodGroup: Object,
+  bloodStock: Object,
 });
 
 //------------------------------------------------MODEL
@@ -111,7 +111,7 @@ app.post('/signup', async (req, res) => {
       zip: req.body.zip,
       city: req.body.city,
       address: req.body.addr,
-      bloodGroup: {
+      bloodStock: {
         'A+': 0,
         'A-': 0,
         'B+': 0,
@@ -191,9 +191,12 @@ app.post('/resetprofile', (req, res) => {
     {email: req.body.email},
     {
       $set: {
+        name: req.body.name,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         address: req.body.address,
+        city: req.body.city,
+        zip: req.body.zip,
         bloodGroup: req.body.bloodGroup,
         rhFactor: req.body.rhFactor,
         reqDonor: req.body.reqDonor,

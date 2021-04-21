@@ -25,6 +25,16 @@ class App extends React.Component {
       city: '',
       address: '',
       bloodGroup: '',
+      bloodStock: {
+        'A+': 0,
+        'A-': 0,
+        'B+': 0,
+        'B-': 0,
+        'AB+': 0,
+        'AB-': 0,
+        'O+': 0,
+        'O-': 0,
+      },
       rhFactor: '',
       isHospital: false,
       reqDonor: false,
@@ -178,8 +188,14 @@ class App extends React.Component {
         } else {
           // document.getElementById("loginMessage").innerHTML =
           //   "<h5 className='text-danger'>Logging In...</h5>";
+          var IsHospital = false;
+          if (res.data.name) IsHospital = true;
           document.getElementById('closeLoginModal').click();
-          this.setState({authenticated: true, ...res.data});
+          this.setState({
+            authenticated: true,
+            ...res.data,
+            isHospital: IsHospital,
+          });
         }
       });
     };
