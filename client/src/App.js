@@ -4,6 +4,7 @@ import Navbar from './components/navbar/navbar';
 import Carousel from './components/carousel/carousel';
 import FooterHome from './components/footerHome/footerHome';
 import PlacePicker from './components/placePicker/placePicker';
+import Hospital from './components/hospital/hospital';
 import './App.css';
 import AuthContext from './context/auth-context';
 
