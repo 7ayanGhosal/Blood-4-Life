@@ -1,14 +1,14 @@
-var request = require("request");
-var express = require("express");
+var request = require('request');
+var express = require('express');
 var app = express();
-var mongoose = require("mongoose");
-var nodemailer = require("nodemailer");
+var mongoose = require('mongoose');
+var nodemailer = require('nodemailer');
 
 //NodeMailer
-var emailid = "assist.blood4life@gmail.com";
-var emailpass = "bloodforlife";
+var emailid = 'assist.blood4life@gmail.com';
+var emailpass = 'bloodforlife';
 var transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: 'gmail',
   auth: {
     user: emailid,
     pass: emailpass,
@@ -24,15 +24,15 @@ app.use(
 app.use(express.json());
 //----
 
-mongoose.set("useNewUrlParser", true);
-mongoose.set("useFindAndModify", false);
-mongoose.set("useCreateIndex", true);
-mongoose.set("useUnifiedTopology", true);
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 //Mongoose
 mongoose.connect(
-  "mongodb+srv://Group16:bloodforlife@blood4life.i6agz.mongodb.net/Blood4LifeDB?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
+  'mongodb+srv://Group16:bloodforlife@blood4life.i6agz.mongodb.net/Blood4LifeDB?retryWrites=true&w=majority',
+  {useNewUrlParser: true, useUnifiedTopology: true}
 );
 
 var userSchema = new mongoose.Schema({
@@ -58,18 +58,19 @@ var hospitalSchema = new mongoose.Schema({
   zip: Number,
   city: String,
   address: String,
-  bloodGroup: Object,
+  bloodStock: Object,
 });
 
 //------------------------------------------------MODEL
-var user = mongoose.model("User", userSchema);
-var hospital = mongoose.model("Hospital", hospitalSchema);
+var user = mongoose.model('User', userSchema);
+var hospital = mongoose.model('Hospital', hospitalSchema);
 
-var otp = "55555";
+var otp = String(Math.floor(Math.random() * 89999 + 10000));
 var timer = 60;
-app.post("/emailVerification", async (req, res) => {
+app.post('/emailVerification', async (req, res) => {
+  otp = String(Math.floor(Math.random() * 89999 + 10000));
   if ((await user.findOne(req.body)) || (await hospital.findOne(req.body))) {
-    res.send("Exists");
+    res.send('Exists');
   } else {
     //1.mail otp
     //2.start timer
@@ -77,40 +78,49 @@ app.post("/emailVerification", async (req, res) => {
     var mailOptions = {
       from: emailid,
       to: email,
-      subject: "Account Verification",
+      subject: 'Account Verification',
       html: otp,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("error in transporter :" + error);
-        res.send("False");
+        console.log('error in transporter :' + error);
+        res.send('False');
       } else {
-        res.send("True");
+        res.send('True');
       }
     });
   }
 });
 
-app.post("/otpVerification", (req, res) => {
+app.post('/otpVerification', (req, res) => {
   OTP = req.body.otp;
   if (otp == OTP) {
-    res.send("True");
+    res.send('True');
   } else {
-    res.send("False");
+    res.send('False');
   }
 });
 
-app.post("/signup", async (req, res) => {
+app.post('/signup', async (req, res) => {
   if (req.body.isHospital)
     newHospital = {
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.pass,
       zip: req.body.zip,
       city: req.body.city,
       address: req.body.addr,
-      bloodGroup: req.body.bg,
+      bloodStock: {
+        'A+': 0,
+        'A-': 0,
+        'B+': 0,
+        'B-': 0,
+        'AB+': 0,
+        'AB-': 0,
+        'O+': 0,
+        'O-': 0,
+      },
     };
   else
     newUser = {
@@ -126,10 +136,10 @@ app.post("/signup", async (req, res) => {
     };
 
   if (
-    (await user.findOne({ email: req.body.email })) ||
-    (await hospital.findOne({ email: req.body.email }))
+    (await user.findOne({email: req.body.email})) ||
+    (await hospital.findOne({email: req.body.email}))
   ) {
-    console.log("This email id already exists! Use another id or sign in.");
+    console.log('This email id already exists! Use another id or sign in.');
   } else {
     if (!req.body.isHospital) {
       await user.create(newUser, (err, newuser) => {
@@ -151,7 +161,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post('/login', async (req, res) => {
   var account = null;
   account = await user.findOne({
     email: req.body.email,
@@ -167,23 +177,26 @@ app.post("/login", async (req, res) => {
     //Acccount not found
     res.send(false);
   } else {
-    account.password = "";
+    account.password = '';
     res.send(account);
   }
 });
 
-app.post("/resetprofile", (req, res) => {
+app.post('/resetprofile', (req, res) => {
   // console.log(req.body);
   var account = null;
   if (req.body.isHospital) account = hospital;
   else account = user;
   account.findOneAndUpdate(
-    { email: req.body.email },
+    {email: req.body.email},
     {
       $set: {
+        name: req.body.name,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         address: req.body.address,
+        city: req.body.city,
+        zip: req.body.zip,
         bloodGroup: req.body.bloodGroup,
         rhFactor: req.body.rhFactor,
         reqDonor: req.body.reqDonor,
@@ -198,10 +211,11 @@ app.post("/resetprofile", (req, res) => {
   );
 });
 
-app.post("/resetPass/sendOTP", async (req, res) => {
+app.post('/resetPass/sendOTP', async (req, res) => {
+  otp = String(Math.floor(Math.random() * 89999 + 10000));
   if (
-    (await user.findOne({ email: req.body.email })) ||
-    (await hospital.findOne({ email: req.body.email }))
+    (await user.findOne({email: req.body.email})) ||
+    (await hospital.findOne({email: req.body.email}))
   ) {
     //1.mail otp
     //2.start timer
@@ -209,42 +223,42 @@ app.post("/resetPass/sendOTP", async (req, res) => {
     var mailOptions = {
       from: emailid,
       to: email,
-      subject: "Password Reset OTP",
+      subject: 'Password Reset OTP',
       html: otp,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("error in transporter :" + error);
-        res.send("false");
+        console.log('error in transporter :' + error);
+        res.send('false');
       } else {
-        res.send("true");
+        res.send('true');
       }
     });
   } else {
-    res.send("doesnotexist");
+    res.send('doesnotexist');
   }
 });
 
-app.post("/resetPass/otpVerification", async (req, res) => {
+app.post('/resetPass/otpVerification', async (req, res) => {
   if (req.body.otp === otp) {
     user.findOneAndUpdate(
-      { email: req.body.email },
-      { $set: { password: req.body.password } },
+      {email: req.body.email},
+      {$set: {password: req.body.password}},
       (err, foundUser) => {
         if (err) {
-          res.send("error");
+          res.send('error');
         } else {
           if (!foundUser) {
             hospital.findOneAndUpdate(
-              { email: req.body.email },
-              { $set: { password: req.body.password } },
+              {email: req.body.email},
+              {$set: {password: req.body.password}},
               (err, foundHospital) => {
                 if (err) {
-                  res.send("error");
+                  res.send('error');
                 } else {
                   if (!foundHospital) {
-                    res.send("error");
+                    res.send('error');
                   } else {
                     res.send(foundHospital);
                   }
@@ -258,26 +272,26 @@ app.post("/resetPass/otpVerification", async (req, res) => {
       }
     );
   } else {
-    res.send("InvalidOTP");
+    res.send('InvalidOTP');
   }
 });
 
-app.get("/remove/:email", (req, res) => {
-  user.deleteOne({ email: req.params.email }, (err, usr) => {
-    if (err) res.send("Error from backend");
+app.get('/remove/:email', (req, res) => {
+  user.deleteOne({email: req.params.email}, (err, usr) => {
+    if (err) res.send('Error from backend');
     else {
-      res.send("account deleted!");
+      res.send('account deleted!');
     }
   });
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
-} else app.use(express.static("public"));
+} else app.use(express.static('public'));
 
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
-  console.log("Server has started");
+  console.log('Server has started');
 });

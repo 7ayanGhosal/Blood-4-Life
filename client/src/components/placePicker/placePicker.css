@@ -1,0 +1,9 @@
+.placePickerBox {
+  background-color: black;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  border: black 5px solid;
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+}

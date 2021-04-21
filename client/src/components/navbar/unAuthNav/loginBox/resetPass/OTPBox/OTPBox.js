@@ -1,17 +1,24 @@
-import React, { Component } from "react";
-import "./OTPBox.css";
-import AuthContext from "../../../../../../context/auth-context";
+import React, {Component} from 'react';
+import './OTPBox.css';
+import AuthContext from '../../../../../../context/auth-context';
 
 class OTPBox extends Component {
   state = {
-    otp: "10000",
-    boxName: "ResetPassBox",
+    otp: '10000',
+    boxName: 'ResetPassBox',
   };
   static contextType = AuthContext;
 
   onFormSubmit = (event) => {
     event.preventDefault();
     this.context.resetPassword(this.state);
+  };
+  reset = () => {
+    this.setState({
+      otp: '10000',
+      boxName: 'ResetPassBox',
+    });
+    this.context.remove();
   };
   render() {
     return (
@@ -32,8 +39,8 @@ class OTPBox extends Component {
             type="number"
             name="OTP"
             onChange={(event) => {
-              this.setState({ otp: event.target.value });
-              document.getElementById("ResetPassOTPBoxMessage").innerText = "";
+              this.setState({otp: event.target.value});
+              document.getElementById('ResetPassOTPBoxMessage').innerText = '';
             }}
             value={this.state.otp}
             min="10000"

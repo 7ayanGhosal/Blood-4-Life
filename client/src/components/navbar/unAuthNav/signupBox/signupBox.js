@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "./signupBox.css";
-import OTPBox from "./OTPBox/OTPBox";
-import AuthContext from "../../../../context/auth-context";
+import React, {Component} from 'react';
+import './signupBox.css';
+import OTPBox from './OTPBox/OTPBox';
+import AuthContext from '../../../../context/auth-context';
 
 class SignupBox extends Component {
-  state = { email: "", isHospital: false, boxName: "SignupBox" };
+  state = {email: '', isHospital: false, boxName: 'SignupBox'};
   static contextType = AuthContext;
   onFormSubmit = (event) => {
     event.preventDefault();
@@ -17,20 +17,24 @@ class SignupBox extends Component {
   //   this.setState({ isHospital: !this.state.isHospital });
   // };
   onTypePerson = (event) => {
-    this.setState({ isHospital: false });
+    this.setState({isHospital: false});
   };
   onTypeHospital = (event) => {
-    this.setState({ isHospital: true });
+    this.setState({isHospital: true});
+  };
+  reset = () => {
+    this.setState({email: '', isHospital: false, boxName: 'SignupBox'});
+    this.context.remove();
   };
   render() {
     var Box = null;
-    if (this.context.displayOTPBox === "true") {
+    if (this.context.displayOTPBox === 'true') {
       Box = <OTPBox onResend={this.onResend}></OTPBox>;
-    } else if (this.context.displayOTPBox === "exists") {
+    } else if (this.context.displayOTPBox === 'exists') {
       Box = (
         <div>Email ID already exists, please change EmailID and try again!</div>
       );
-    } else if (this.context.displayOTPBox === "false") {
+    } else if (this.context.displayOTPBox === 'false') {
       Box = <div>Something went wrong!!</div>;
     }
     return (
@@ -51,30 +55,31 @@ class SignupBox extends Component {
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 id="closeSignupBox"
+                onClick={this.reset}
               ></button>
 
               <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Signup
                 </h5>
-                <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
+                <div class="card w-100" style={{width: 18 + 'rem'}}>
+                  <div class="card-body" style={{backgroundColor: 'bisque'}}>
                     <h5 class="card-title">Profile Details</h5>
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>
                           <div
                             class="inputtext"
-                            style={{ fontStyle: "italic", fontSize: 20 + "px" }}
+                            style={{fontStyle: 'italic', fontSize: 20 + 'px'}}
                           >
-                            <b>Email : </b>{" "}
+                            <b>Email : </b>{' '}
                             <input
                               type="email"
                               id="text1"
                               placeholder=" Enter your valid email id "
                               value={this.state.email}
                               onChange={(e) =>
-                                this.setState({ email: e.target.value })
+                                this.setState({email: e.target.value})
                               }
                               disabled={this.context.disableEmail}
                               required

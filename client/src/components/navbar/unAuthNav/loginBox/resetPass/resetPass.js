@@ -1,25 +1,28 @@
-import React, { Component } from "react";
-import "./resetPass.css";
-import OTPBox from "./OTPBox/OTPBox";
-import PasswordSetter from "./passwordSetter/passwordSetter";
-import AuthContext from "../../../../../context/auth-context";
+import React, {Component} from 'react';
+import './resetPass.css';
+import OTPBox from './OTPBox/OTPBox';
+import PasswordSetter from './passwordSetter/passwordSetter';
+import AuthContext from '../../../../../context/auth-context';
 
 class ResetPass extends Component {
-  state = { email: "", boxName: "ResetPassBox" };
+  state = {email: '', boxName: 'ResetPassBox'};
   static contextType = AuthContext;
   onFormSubmit = (event) => {
     event.preventDefault();
     this.context.onEmailSubmit(this.state);
   };
   onChangeEmail = () => {
-    document.getElementById("ResetPassOTPBox").style.display = "none";
-    document.getElementById("ResetPassEmail").removeAttribute("disabled");
-    document.getElementById("ResetPassSubmit").removeAttribute("disabled");
+    document.getElementById('ResetPassOTPBox').style.display = 'none';
+    document.getElementById('ResetPassEmail').removeAttribute('disabled');
+    document.getElementById('ResetPassSubmit').removeAttribute('disabled');
   };
   onResend = () => {
     this.context.onEmailSubmit(this.state);
   };
-
+  reset = () => {
+    this.setState({email: '', boxName: 'ResetPassBox'});
+    this.context.remove();
+  };
   render() {
     return (
       <div>
@@ -39,28 +42,29 @@ class ResetPass extends Component {
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 id="closeResetPassBox"
+                onClick={this.close}
               ></button>
               <div class="modal-body">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Reset Password
                 </h5>
-                <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
+                <div class="card w-100" style={{width: 18 + 'rem'}}>
+                  <div class="card-body" style={{backgroundColor: 'bisque'}}>
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>
                           <div
                             class="inputtext"
-                            style={{ fontStyle: "italic", fontSize: 20 + "px" }}
+                            style={{fontStyle: 'italic', fontSize: 20 + 'px'}}
                           >
-                            <b>Email : </b>{" "}
+                            <b>Email : </b>{' '}
                             <input
                               type="email"
                               id="ResetPassEmail"
                               placeholder=" Enter your valid email id "
                               value={this.state.email}
                               onChange={(e) =>
-                                this.setState({ email: e.target.value })
+                                this.setState({email: e.target.value})
                               }
                               disabled={this.context.disableEmail}
                               required
@@ -80,12 +84,12 @@ class ResetPass extends Component {
                         </form>
                         <div
                           id="ResetPassPasswordSetter"
-                          style={{ display: "none" }}
+                          style={{display: 'none'}}
                         >
                           <PasswordSetter></PasswordSetter>
                         </div>
 
-                        <div id="ResetPassOTPBox" style={{ display: "none" }}>
+                        <div id="ResetPassOTPBox" style={{display: 'none'}}>
                           <OTPBox
                             onResend={this.onResend}
                             onChangeEmail={this.onChangeEmail}
