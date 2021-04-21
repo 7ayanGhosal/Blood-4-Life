@@ -288,6 +288,8 @@ class App extends React.Component {
           <Navbar></Navbar>
         </AuthContext.Provider>
         <Carousel></Carousel>
+
+        <Hospital></Hospital>
         <PlacePicker></PlacePicker>
         <FooterHome></FooterHome>
       </div>
