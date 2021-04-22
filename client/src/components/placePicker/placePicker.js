@@ -1,29 +1,35 @@
-import React, { Component } from "react";
-import Map from "mapmyindia-react";
-import "./placePicker.css";
+import React, {Component} from 'react';
+import Map from 'mapmyindia-react';
+import './placePicker.css';
 
 class PlacePicker extends Component {
-  state = {
-    latitude: 0,
-    longitude: 0,
-  };
-  getUserLocation = () => {
-    window.navigator.geolocation.getCurrentPosition(
-      (res) => {
-        console.log(this.state.latitude + " " + this.state.longitude);
-        this.setState({
-          latitude: res.coords.latitude,
-          longitude: res.coords.longitude,
-        });
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      latitude: 0,
+      longitude: 0,
+    };
+    this.getUserLocation = () => {
+      window.navigator.geolocation.getCurrentPosition(
+        (res) => {
+          this.setState({
+            latitude: res.coords.latitude,
+            longitude: res.coords.longitude,
+          });
+          console.log(this.state.latitude + ' ' + this.state.longitude);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    };
+  }
+
+  componentDidMount() {
+    this.getUserLocation();
+  }
 
   render() {
-    this.getUserLocation();
     return (
       <div>
         <div id="map-details"></div>
@@ -33,16 +39,16 @@ class PlacePicker extends Component {
               {
                 position: [this.state.latitude, this.state.longitude],
                 draggable: true,
-                title: "Marker title",
+                title: 'Marker title',
                 onClick: (e) => {
-                  console.log("clicked ");
+                  console.log('clicked ');
                 },
                 onDragend: (e) => {
                   // console.log(e);
-                  document.getElementById("map-details").innerHTML =
-                    "longitude: " +
+                  document.getElementById('map-details').innerHTML =
+                    'longitude: ' +
                     e.target._latlng.lng +
-                    " latitude: " +
+                    ' latitude: ' +
                     e.target._latlng.lat;
                   // this.setState({longitude: e.sourceTarget., latitude: })
                 },

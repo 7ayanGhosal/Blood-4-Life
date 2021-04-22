@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "./unAuthNav.css";
-import SignupBox from "./signupBox/signupBox";
-import logo from "../../../resources/logo.jpeg";
-import PasswordSetter from "./passwordSetter/passwordSetter";
-import ProfileSetter from "./profileSetter/profileSetter";
-import LoginBox from "./loginBox/loginBox";
+import React, {Component} from 'react';
+import './unAuthNav.css';
+import SignupBox from './signupBox/signupBox';
+import logo from '../../../resources/logo.jpeg';
+import PasswordSetter from './passwordSetter/passwordSetter';
+import ProfileSetter from './profileSetter/profileSetter';
+import LoginBox from './loginBox/loginBox';
 
 class UnAuthNav extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class UnAuthNav extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-dark navbar-expand-md p-0">
+        <nav class="navbar navbar-dark navbar-expand-md p-0 nav1">
           <div class="container-fluid">
             <div class="logo">
               <img src={logo}></img>

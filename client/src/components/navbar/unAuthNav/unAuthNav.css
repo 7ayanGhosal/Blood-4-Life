@@ -8,11 +8,6 @@ h1 {
   /* color: rgb(47, 79, 79); */
 }
 
-.container-fluid {
-  background-color: wheat;
-  overflow: hidden;
-}
-
 .nav-item button {
   background-color: rgba(0, 0, 0, 0);
   /* color: rgb(47, 79, 79); */
