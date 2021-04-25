@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import './unAuthNav.css';
-import SignupBox from './signupBox/signupBox';
-import logo from '../../../resources/logo.jpeg';
-import PasswordSetter from './passwordSetter/passwordSetter';
-import ProfileSetter from './profileSetter/profileSetter';
-import LoginBox from './loginBox/loginBox';
+import React, { Component } from "react";
+import "./unAuthNav.css";
+import SignupBox from "./signupBox/signupBox";
+import logo from "../../../resources/logo.jpeg";
+import PasswordSetter from "./passwordSetter/passwordSetter";
+import ProfileSetter from "./profileSetter/profileSetter";
+import LoginBox from "./loginBox/loginBox";
 
 class UnAuthNav extends Component {
   constructor(props) {
