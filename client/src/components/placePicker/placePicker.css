@@ -1,1 +1,8 @@
-
+.slist {
+  max-height: 150px;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

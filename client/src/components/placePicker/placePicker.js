@@ -110,6 +110,7 @@ class PlacePicker extends Component {
               ></button>
               <div class="modal-body">
                 <h5>Pick your location</h5>
+                <br />
                 <form onSubmit={this.locationSubmit}>
                   <input
                     name="address"
@@ -117,12 +118,15 @@ class PlacePicker extends Component {
                     onChange={this.locationChange}
                     value={this.state.location}
                   ></input>
+                  &emsp;
                   <button class="btn btn-success" type="submit">
                     Submit
                   </button>
                 </form>
                 <br></br>
-                <div id="suggestions">{suggestions}</div>
+                <div class="slist" id="suggestions">
+                  {suggestions}
+                </div>
                 <br></br>
                 <div id="map-details"></div>
                 <Map
