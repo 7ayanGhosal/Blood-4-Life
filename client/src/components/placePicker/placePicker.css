@@ -7,6 +7,7 @@
 .suggestions:hover {
   background-color: skyblue;
 }
+
 .slist {
   max-height: 150px;
   margin-bottom: 10px;
@@ -15,6 +16,7 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 #MAP {
   object-position: center;
   max-height: 250px;
