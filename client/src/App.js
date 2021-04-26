@@ -2,9 +2,10 @@ import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
 import Carousel from "./components/carousel/carousel";
+import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
 import PlacePicker from "./components/placePicker/placePicker";
-import Hospital from "./components/hospital/hospital";
+import AboutUs from "./components/aboutUs/aboutUs";
 import "./App.css";
 import AuthContext from "./context/auth-context";
 
@@ -290,9 +291,13 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
+          {box}
         </AuthContext.Provider>
-        {box}
+        <AboutUs></AboutUs>
+      
+
         <PlacePicker></PlacePicker>
+
         <FooterHome></FooterHome>
       </div>
     );
