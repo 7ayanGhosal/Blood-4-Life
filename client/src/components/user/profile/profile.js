@@ -70,7 +70,7 @@ class Profile extends React.Component {
               Receive Donation Request :{" "}
             </h3>
             &ensp;
-            <h3 class="value">{this.context.reqDonor}</h3>
+            <h3 class="value">{this.context.reqDonor ? "Yes" : "No"}</h3>
             <br />
           </div>
         </div>
@@ -195,7 +195,13 @@ class Profile extends React.Component {
                         class="value"
                         value={this.state.reqDonor}
                         onChange={(e) => {
-                          this.setState({ reqDonor: e.target.value });
+                          this.setState({
+                            reqDonor:
+                              e.target.value === "true" ||
+                              e.target.value === true
+                                ? true
+                                : false,
+                          });
                         }}
                       >
                         <option value={true}>Yes</option>

@@ -6,7 +6,7 @@ import Notifications from "./notifications/notifications";
 import Events from "./upcomingEvents/upcomingEvents";
 import AuthContext from "../../context/auth-context";
 
-class Hospital extends Component {
+class User extends Component {
   static contextType = AuthContext;
   // display: will take 4 values, what to diplay? 1.Profile, 2.BloodBank 3.UpcomingEvents, 4.OrganiseCamp
   state = { display: "Profile" };
@@ -35,4 +35,4 @@ class Hospital extends Component {
   }
 }
 
-export default Hospital;
+export default User;
