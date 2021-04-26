@@ -5,7 +5,6 @@ import Carousel from "./components/carousel/carousel";
 import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
 import PlacePicker from "./components/placePicker/placePicker";
-import Hospital from "./components/hospital/hospital";
 import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
 
