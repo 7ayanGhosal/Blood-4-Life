@@ -1,4 +1,6 @@
 var request = require("request");
+var axios = require("axios");
+
 var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
@@ -23,6 +25,89 @@ app.use(
 );
 app.use(express.json());
 //----
+
+
+//MapMyIndia
+var token = 0;
+var restAPIKey = "dxyg9yvopbpjt1zh39asi1hneipg9thl";
+var clientID =
+  "33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
+var clientSecret =
+  "lrFxI-iSEg_XoGoVnWmmSWrjUoJE0Zo4uufY7hCXP5OFHOkXa5xLOh3UyhyC0CPyX9L0N5MLhoIP9w4q7ArSu-b-ZGMGSMMMghAY3pWRNw7qAHrZh9zloy9ZequrPxoJ";
+axios
+  .post(
+    "https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=" +
+      clientID +
+      "&client_secret=" +
+      clientSecret,
+    {}
+  )
+  .then(
+    (res) => {
+      token = res.data.access_token;
+      axios.defaults.headers.common = { Authorization: `bearer ${token}` };
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+
+app.get("/suggest/:location", (req, res) => {
+  var url =
+    "https://atlas.mapmyindia.com/api/places/search/json?query=" +
+    req.params.location;
+  axios.get(url).then(
+    (Res) => {
+      res.send(Res.data.suggestedLocations);
+    },
+    (err) => {
+      res.send(err);
+    }
+  );
+});
+app.get("/eloc/:eloc", (req, res) => {
+  var url =
+    "https://apis.mapmyindia.com/advancedmaps/v1/" +
+    restAPIKey +
+    "/place_detail?place_id=" +
+    req.params.eloc;
+  axios.get(url).then(
+    (Res) => {
+      console.log(Res.data.results[0]);
+      res.send({
+        lat: Res.data.results[0].latitude,
+        long: Res.data.results[0].longitude,
+        poi: Res.data.results[0].poi,
+        street: Res.data.results[0].street,
+        subSubLocality: Res.data.results[0].subSubLocality,
+        subLocality: Res.data.results[0].subLocality,
+        locality: Res.data.results[0].locality,
+        village: Res.data.results[0].village,
+        district: Res.data.results[0].district,
+        subDistrict: Res.data.results[0].subDistrict,
+        city: Res.data.results[0].city,
+        state: Res.data.results[0].state,
+        pincode: Res.data.results[0].pincode,
+        address:
+          Res.data.results[0].poi +
+          Res.data.results[0].street +
+          Res.data.results[0].subSubLocality +
+          Res.data.results[0].subLocality +
+          Res.data.results[0].locality +
+          Res.data.results[0].village +
+          Res.data.results[0].district +
+          Res.data.results[0].subDistrict +
+          Res.data.results[0].city +
+          Res.data.results[0].state +
+          Res.data.results[0].pincode,
+      });
+    },
+    (err) => {
+      res.send(err);
+    }
+  );
+});
+
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);

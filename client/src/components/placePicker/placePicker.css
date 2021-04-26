@@ -1,9 +1,23 @@
-.placePickerBox {
-  background-color: black;
-  width: 100%;
-  margin: auto;
-  padding: 0;
-  border: black 5px solid;
-  margin-top: 30vh;
-  margin-bottom: 30vh;
+.suggestions {
+  background-color: rgba(0, 0, 139, 0.6);
+  color: white;
+  font-size: 0.9rem;
+  padding: 2px;
+}
+.suggestions:hover {
+  background-color: skyblue;
+}
+
+.slist {
+  max-height: 150px;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#MAP {
+  object-position: center;
+  max-height: 250px;
 }
