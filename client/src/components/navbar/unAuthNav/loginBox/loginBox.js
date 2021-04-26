@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
-import './loginBox.css';
-import ResetPass from './resetPass/resetPass';
-import AuthContext from '../../../../context/auth-context';
+import React, { Component } from "react";
+import "./loginBox.css";
+import ResetPass from "./resetPass/resetPass";
+import AuthContext from "../../../../context/auth-context";
 
 class LoginBox extends Component {
-  state = {email: '', pass: ''};
+  state = { email: "", pass: "" };
   static contextType = AuthContext;
   onFormSubmit = (event) => {
     event.preventDefault();
     this.context.checkLogin(this.state);
   };
   reset = () => {
-    this.setState({email: '', pass: ''});
+    this.setState({ email: "", pass: "" });
     this.context.remove();
   };
   render() {
@@ -36,37 +36,40 @@ class LoginBox extends Component {
                 onClick={this.reset}
               ></button>
               <div class="modal-body">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title loginh" id="exampleModalLabel">
                   Login Page
-                </h5>
-                <div class="card w-100" style={{width: 18 + 'rem'}}>
-                  <div class="card-body" style={{backgroundColor: 'bisque'}}>
-                    <h5 class="card-title">Enter your credentials</h5>
+                </h3>
+
+                <div class="card w-100" style={{ width: 18 + "rem" }}>
+                  <div class="card-body card-gradient">
+                    <h4 class="card-title">Enter your credentials</h4>
+                    <br />
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>
-                          <div>
+                          <div class="form-group row">
                             <br></br>
                             <br></br>
                             <b>
-                              Email ID :
+                              Email ID &nbsp;:&ensp;
                               <input
-                                placeholder=" Enter your email ID "
+                                placeholder=" Enter your Email ID "
                                 type="email"
                                 value={this.state.email}
                                 onChange={(e) =>
-                                  this.setState({email: e.target.value})
+                                  this.setState({ email: e.target.value })
                                 }
                               />
                               <br></br>
                               <br></br>
-                              Password :
+                              <br></br>
+                              Password :&ensp;
                               <input
                                 placeholder=" Enter your password "
                                 type="password"
                                 value={this.state.pass}
                                 onChange={(e) =>
-                                  this.setState({pass: e.target.value})
+                                  this.setState({ pass: e.target.value })
                                 }
                               />
                             </b>
