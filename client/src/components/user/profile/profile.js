@@ -21,12 +21,25 @@ class Profile extends React.Component {
               Name :-{" "}
             </h3>
             &ensp;
-            <h3 class="value">{this.context.name}</h3>
+            <h3 class="value">
+              {this.context.firstName + " " + this.context.lastName}
+            </h3>
+            <br />
+            <h3 class="attribute" href="#">
+              Gender :-{" "}
+            </h3>
+            &ensp;
+            <h3 class="value">{this.context.gender}</h3>
+            <br />
+            <h3 class="attribute" href="#">
+              Age :-{" "}
+            </h3>
+            &ensp;
+            <h3 class="value">{this.context.age}</h3>
             <br />
             <h3 class="attribute" href="#">
               Email :-{" "}
             </h3>
-            &ensp;
             <h3 class="value">{this.context.email}</h3>
             <br />
             <h3 class="attribute" href="#">
@@ -36,16 +49,28 @@ class Profile extends React.Component {
             <h3 class="value">{this.context.address}</h3>
             <br />
             <h3 class="attribute" href="#">
-              City :-{" "}
+              Blood Group :-{" "}
             </h3>
             &ensp;
-            <h3 class="value">{this.context.city}</h3>
+            <h3 class="value">{this.context.bloodGroup}</h3>
             <br />
             <h3 class="attribute" href="#">
-              PIN code :-{" "}
+              Rh Factor :-{" "}
             </h3>
             &ensp;
-            <h3 class="value">{this.context.zip}</h3>
+            <h3 class="value">{this.context.rhFactor}</h3>
+            <br />
+            <h3 class="attribute" href="#">
+              Last Donated on :-{" "}
+            </h3>
+            &ensp;
+            <h3 class="value">{this.context.lastDonated}</h3>
+            <br />
+            <h3 class="attribute" href="#">
+              Receive Donation Request :{" "}
+            </h3>
+            &ensp;
+            <h3 class="value">{this.context.reqDonor ? "Yes" : "No"}</h3>
             <br />
           </div>
         </div>
@@ -95,14 +120,26 @@ class Profile extends React.Component {
                     <h4 class="card-title">Profile</h4>
                     <div class="card-text">
                       <h3 class="attribute" href="#">
-                        Name :-{" "}
+                        First Name :-{" "}
                       </h3>
                       <input
                         class="value"
                         type="text"
-                        value={this.state.name}
+                        value={this.state.firstName}
                         onChange={(e) => {
-                          this.setState({ name: e.target.value });
+                          this.setState({ firstName: e.target.value });
+                        }}
+                      />
+                      <br /> <br />
+                      <h3 class="attribute" href="#">
+                        Last Name :-{" "}
+                      </h3>
+                      <input
+                        class="value"
+                        type="text"
+                        value={this.state.lastName}
+                        onChange={(e) => {
+                          this.setState({ lastName: e.target.value });
                         }}
                       />
                       <br /> <br />
@@ -120,29 +157,56 @@ class Profile extends React.Component {
                       <br />
                       <br />
                       <h3 class="attribute" href="#">
-                        City :-{" "}
+                        Blood Group :-{" "}
                       </h3>
-                      <input
+                      <select
                         class="value"
-                        type-="text"
-                        value={this.state.city}
+                        value={this.state.bloodGroup}
                         onChange={(e) => {
-                          this.setState({ city: e.target.value });
+                          this.setState({ bloodGroup: e.target.value });
                         }}
-                      />
+                      >
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="AB">AB</option>
+                        <option value="O">O</option>
+                      </select>
                       <br />
                       <br />
                       <h3 class="attribute" href="#">
-                        PIN code :-{" "}
+                        Rh factor :-{" "}
                       </h3>
-                      <input
+                      <select
                         class="value"
-                        type-="text"
-                        value={this.state.zip}
+                        value={this.state.rhFactor}
                         onChange={(e) => {
-                          this.setState({ zip: e.target.value });
+                          this.setState({ rhFactor: e.target.value });
                         }}
-                      />
+                      >
+                        <option value="Positive">Positive</option>
+                        <option value="Negative">Negative</option>
+                      </select>
+                      <br />
+                      <br />
+                      <h3 class="attribute" href="#">
+                        Receive Donation Request :-{" "}
+                      </h3>
+                      <select
+                        class="value"
+                        value={this.state.reqDonor}
+                        onChange={(e) => {
+                          this.setState({
+                            reqDonor:
+                              e.target.value === "true" ||
+                              e.target.value === true
+                                ? true
+                                : false,
+                          });
+                        }}
+                      >
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                      </select>
                       <br />
                       <br />
                     </div>

@@ -8,46 +8,97 @@ class Events extends Component {
     return (
       <div class="container">
         <center>
-          <h1>Upcoming Blood Donation Camps</h1>
-          <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-            <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#camp1">
-                  Camp 1
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#camp2">
-                  Camp 2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#camp3">
-                  Camp 3
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#camp4">
-                  Camp 4
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div
-            data-bs-spy="scroll"
-            data-bs-target="#navbar-example2"
-            data-bs-offset="0"
-            tabindex="0"
-          >
-            <h4 id="camp1">Camp 1</h4>
-            <p>...</p>
-            <h4 id="camp2">Camp 2</h4>
-            <p>...</p>
-            <h4 id="camp3">Camp 3</h4>
-            <p>...</p>
-            <h4 id="camp4">Camp 4</h4>
-            <p>...</p>
+          <br />
+          <h3>Upcoming Blood Donation Camps</h3>
+          <br />
+          <br />
+          <div class="card ue">
+            <div class="card-body">
+              <h3 class="attribute" href="#">
+                Date :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">01.05.21</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Time :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">2:00 pm</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Location :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">kolkata</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Details :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">Blood Camp</h3>
+              <br />
+            </div>
           </div>
+          <br />
+          <div class="card ue">
+            <div class="card-body">
+              <h3 class="attribute" href="#">
+                Date :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">01.05.21</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Time :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">2:00 pm</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Location :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">kolkata</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Details :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">Blood Camp</h3>
+              <br />
+            </div>
+          </div>
+          <br />
+          <div class="card ue">
+            <div class="card-body">
+              <h3 class="attribute" href="#">
+                Date :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">01.05.21</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Time :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">2:00 pm</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Location :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">kolkata</h3>
+              <br />
+              <h3 class="attribute" href="#">
+                Details :-{" "}
+              </h3>
+              &ensp;
+              <h3 class="value">Blood Camp</h3>
+              <br />
+            </div>
+          </div>
+          <br />
         </center>
       </div>
     );
