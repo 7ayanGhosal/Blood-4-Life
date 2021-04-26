@@ -1,0 +1,11 @@
+.rhfactor {
+  font-weight: bold;
+  color: hotpink;
+}
+
+.boxc {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
