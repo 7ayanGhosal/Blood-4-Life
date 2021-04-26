@@ -5,7 +5,7 @@ class AboutUs extends Component {
   render() {
     return (
       <div>
-        <div class="container-fluid">
+        <div class="container-fluid creatorRow">
           <h3>Our Motto:-</h3>
           <p>
             The target of our project is to accumulate donors and hospitals all
@@ -18,7 +18,7 @@ class AboutUs extends Component {
 
           <h3>Creators:-</h3>
           <div class="row">
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 m-auto mt-3">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 m-auto mt-3">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
@@ -38,7 +38,7 @@ class AboutUs extends Component {
               </div>
             </div>
 
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 m-auto mt-3">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 m-auto mt-3">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
@@ -58,7 +58,7 @@ class AboutUs extends Component {
               </div>
             </div>
 
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 m-auto mt-3">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 m-auto mt-3">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
@@ -78,7 +78,7 @@ class AboutUs extends Component {
               </div>
             </div>
 
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 m-auto mt-3">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 m-auto mt-3">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
@@ -98,7 +98,7 @@ class AboutUs extends Component {
               </div>
             </div>
 
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 m-auto mt-3">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 m-auto mt-3">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
