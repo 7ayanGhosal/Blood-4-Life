@@ -267,6 +267,9 @@ class App extends React.Component {
   }
 
   render() {
+    var box = null;
+    if (this.state.authenticated) box = <Hospital></Hospital>;
+    else box = <Carousel></Carousel>;
     return (
       <div>
         <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
@@ -288,11 +291,11 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
+          {box}
         </AuthContext.Provider>
-        <Carousel></Carousel>
-
-        <Hospital></Hospital>
         <AboutUs></AboutUs>
+      
+
         <PlacePicker></PlacePicker>
 
         <FooterHome></FooterHome>
