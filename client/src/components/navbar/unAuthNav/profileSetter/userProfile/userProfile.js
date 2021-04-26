@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import './userProfile.css';
-import AuthContext from '../../../../../context/auth-context';
+import React, { Component } from "react";
+import "./userProfile.css";
+import AuthContext from "../../../../../context/auth-context";
 
 class UserProfile extends Component {
   state = {
-    firstName: '',
-    lastName: '',
+    firstName: "",
+    lastName: "",
     age: 0,
-    gender: 'Male',
-    bloodGroup: 'A',
-    rhFactor: 'Negative',
-    recDonor: false,
+    gender: "Male",
+    bloodGroup: "A",
+    rhFactor: "Negative",
+    reqDonor: false,
   };
   static contextType = AuthContext;
 
@@ -21,13 +21,13 @@ class UserProfile extends Component {
   };
   reset = () => {
     this.setState({
-      firstName: '',
-      lastName: '',
+      firstName: "",
+      lastName: "",
       age: 0,
-      gender: 'Male',
-      bloodGroup: 'A',
-      rhFactor: 'Negative',
-      recDonor: false,
+      gender: "Male",
+      bloodGroup: "A",
+      rhFactor: "Negative",
+      reqDonor: false,
     });
     this.context.remove();
   };
@@ -66,7 +66,7 @@ class UserProfile extends Component {
               </div>
               <div class="modal-body">
                 <form onSubmit={this.onFormSubmit}>
-                  <div class="card w-100" style={{width: 18 + 'rem'}} />
+                  <div class="card w-100" style={{ width: 18 + "rem" }} />
                   <div class="card w-100">
                     <div class="card-body">
                       <h5 class="card-title">Profile</h5>
@@ -79,7 +79,7 @@ class UserProfile extends Component {
                           required
                           value={this.state.firstName}
                           onChange={(e) => {
-                            this.setState({firstName: e.target.value});
+                            this.setState({ firstName: e.target.value });
                           }}
                         />
                         <br /> <br />
@@ -91,7 +91,7 @@ class UserProfile extends Component {
                           required
                           value={this.state.lastName}
                           onChange={(e) => {
-                            this.setState({lastName: e.target.value});
+                            this.setState({ lastName: e.target.value });
                           }}
                         />
                         <br /> <br />
@@ -101,7 +101,7 @@ class UserProfile extends Component {
                           required
                           value={this.state.gender}
                           onChange={(e) => {
-                            this.setState({gender: e.target.value});
+                            this.setState({ gender: e.target.value });
                           }}
                         >
                           <option value="Male">Male</option>
@@ -118,7 +118,7 @@ class UserProfile extends Component {
                           required
                           value={this.state.age}
                           onChange={(e) => {
-                            this.setState({age: e.target.value});
+                            this.setState({ age: e.target.value });
                           }}
                         />
                         <br /> <br />
@@ -128,7 +128,7 @@ class UserProfile extends Component {
                           required
                           value={this.state.bloodGroup}
                           onChange={(e) => {
-                            this.setState({bloodGroup: e.target.value});
+                            this.setState({ bloodGroup: e.target.value });
                           }}
                         >
                           <option value="A">A</option>
@@ -143,7 +143,7 @@ class UserProfile extends Component {
                           required
                           value={this.state.rhFactor}
                           onChange={(e) => {
-                            this.setState({rhFactor: e.target.value});
+                            this.setState({ rhFactor: e.target.value });
                           }}
                         >
                           <option value="Negative">Negative</option>
@@ -155,9 +155,9 @@ class UserProfile extends Component {
                         <select
                           name="donationRequest"
                           required
-                          value={this.state.recDonor}
+                          value={this.state.reqDonor}
                           onChange={(e) => {
-                            this.setState({recDonor: e.target.value});
+                            this.setState({ reqDonor: e.target.value });
                           }}
                         >
                           <option value={false}>No</option>
