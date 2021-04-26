@@ -1,5 +1,6 @@
 var request = require("request");
 var axios = require("axios");
+
 var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
@@ -24,6 +25,7 @@ app.use(
 );
 app.use(express.json());
 //----
+
 
 //MapMyIndia
 var token = 0;
@@ -105,6 +107,7 @@ app.get("/eloc/:eloc", (req, res) => {
     }
   );
 });
+
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
@@ -362,6 +365,9 @@ app.get("/remove/:email", (req, res) => {
   user.deleteOne({ email: req.params.email }, (err, usr) => {
     if (err) res.send("Error from backend");
     else {
+      if (!usr) {
+        hospital.deleteOne({ email: req.params.email });
+      }
       res.send("account deleted!");
     }
   });

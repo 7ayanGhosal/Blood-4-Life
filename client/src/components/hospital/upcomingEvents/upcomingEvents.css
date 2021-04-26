@@ -1,0 +1,6 @@
+.ue {
+  background: #fdc830;
+  background: -webkit-linear-gradient(to right, #f37335, #fdc830);
+  background: linear-gradient(to right, #f37335, #fdc830);
+  box-shadow: 5px 10px 18px red;
+}

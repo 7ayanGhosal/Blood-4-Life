@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import './hospitalProfile.css';
-import AuthContext from '../../../../../context/auth-context';
+import React, { Component } from "react";
+import "./hospitalProfile.css";
+import AuthContext from "../../../../../context/auth-context";
 
 class HospitalProfile extends Component {
   state = {
-    name: '',
+    name: "",
     zip: 0,
-    city: '',
-    address: '',
+    city: "",
+    address: "",
   };
   static contextType = AuthContext;
 
@@ -18,10 +18,10 @@ class HospitalProfile extends Component {
   };
   reset = () => {
     this.setState({
-      name: '',
+      name: "",
       zip: 0,
-      city: '',
-      address: '',
+      city: "",
+      address: "",
     });
     this.context.remove();
   };
@@ -61,7 +61,7 @@ class HospitalProfile extends Component {
               </div>
               <div class="modal-body">
                 <form onSubmit={this.onFormSubmit}>
-                  <div class="card w-100" style={{width: 18 + 'rem'}} />
+                  <div class="card w-100" style={{ width: 18 + "rem" }} />
                   <div class="card w-100">
                     <div class="card-body">
                       <h5 class="card-title">Profile</h5>
@@ -74,10 +74,11 @@ class HospitalProfile extends Component {
                           required
                           value={this.state.name}
                           onChange={(e) => {
-                            this.setState({name: e.target.value});
+                            this.setState({ name: e.target.value });
                           }}
                         />
                         <br /> <br />
+                        Address :
                         <input
                           placeholder=" Enter the address "
                           type="text"
@@ -85,10 +86,11 @@ class HospitalProfile extends Component {
                           required
                           value={this.state.address}
                           onChange={(e) => {
-                            this.setState({address: e.target.value});
+                            this.setState({ address: e.target.value });
                           }}
                         />
                         <br /> <br />
+                        City :
                         <input
                           placeholder=" Enter the city name "
                           type="text"
@@ -96,10 +98,11 @@ class HospitalProfile extends Component {
                           required
                           value={this.state.city}
                           onChange={(e) => {
-                            this.setState({city: e.target.value});
+                            this.setState({ city: e.target.value });
                           }}
                         />
                         <br /> <br />
+                        PIN code :
                         <input
                           placeholder=" Enter the pincode "
                           type="text"
@@ -107,7 +110,7 @@ class HospitalProfile extends Component {
                           required
                           value={this.state.zip}
                           onChange={(e) => {
-                            this.setState({zip: e.target.value});
+                            this.setState({ zip: e.target.value });
                           }}
                         />
                         <br /> <br />

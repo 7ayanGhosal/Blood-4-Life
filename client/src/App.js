@@ -2,9 +2,12 @@ import React from "react";
 import axios from "axios";
 import Navbar from "./components/navbar/navbar";
 import Carousel from "./components/carousel/carousel";
+import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
 import PlacePicker from "./components/placePicker/placePicker";
-import Hospital from "./components/hospital/hospital";
+import User from "./components/user/user";
+import AboutUs from "./components/aboutUs/aboutUs";
+
 import "./App.css";
 import AuthContext from "./context/auth-context";
 
@@ -149,7 +152,7 @@ class App extends React.Component {
         age: profile.age,
         zip: profile.zip,
         city: profile.city,
-        addr: profile.address,
+        address: profile.address,
         bloodGroup: profile.bloodGroup,
         rhFactor: profile.rhFactor,
         reqDonor: profile.reqDonor,
@@ -176,7 +179,7 @@ class App extends React.Component {
           console.log("ERROR IN CHANGING VALUE!!");
         } else {
           this.setState({ ...profile });
-          document.getElementById("closeProfileResetterModal").click();
+          document.getElementById(profile.close).click();
         }
       });
     };
@@ -267,8 +270,10 @@ class App extends React.Component {
 
   render() {
     var box = null;
-    if (this.state.authenticated) box = <Hospital></Hospital>;
-    else box = <Carousel></Carousel>;
+    if (this.state.authenticated) {
+      if (this.state.isHospital) box = <Hospital></Hospital>;
+      else box = <User></User>;
+    } else box = <Carousel></Carousel>;
     return (
       <div>
         <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
@@ -290,9 +295,11 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
+          {box}
         </AuthContext.Provider>
-        {box}
+        <AboutUs></AboutUs>
         <PlacePicker></PlacePicker>
+
         <FooterHome></FooterHome>
       </div>
     );

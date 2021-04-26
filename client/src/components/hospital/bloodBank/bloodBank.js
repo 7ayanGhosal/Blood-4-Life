@@ -9,53 +9,109 @@ class BloodBank extends Component {
       <div class="back">
         <div class="container">
           <center>
-            <h1>Blood Group Counter</h1>
+            <h1>Blood Bank Archive</h1>
             <div class="row">
               <div class="col-sm">
                 <div class="col-name">
                   <p class="text1">
-                    <b> Positive Rh :- </b>
+                    <h2 class="rhfactor">Rh Positive</h2>
                   </p>
                 </div>{" "}
                 <br></br>
                 <p class="text">
-                  A+ :- <input type="number" name="OTP" min="1" max="99999" />
+                  A+{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
                 <p class="text">
-                  B+ :- <input type="number" name="OTP" min="1" max="99999" />
+                  B+{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
                 <p class="text">
-                  AB+ :- <input type="number" name="OTP" min="1" max="99999" />
+                  AB+{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
                 <p class="text">
-                  O+ :- <input type="number" name="OTP" min="1" max="99999" />
+                  O+{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
               </div>
               <div class="col-sm">
                 <div class="col-name">
                   <p class="text1">
-                    <b> Negetive Rh:- </b>
+                    <h2 class="rhfactor">Rh Negative</h2>
                   </p>
                 </div>{" "}
                 <br></br>
                 <p class="text">
-                  A- :- <input type="number" name="OTP" min="1" max="99999" />
+                  A-{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
                 <p class="text">
-                  B- :- <input type="number" name="OTP" min="1" max="99999" />
+                  B-{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
                 <p class="text">
-                  AB- :- <input type="number" name="OTP" min="1" max="99999" />
+                  AB-{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
                 <p class="text">
-                  O- :- <input type="number" name="OTP" min="1" max="99999" />
+                  O-{" "}
+                  <input
+                    type="number"
+                    name="OTP"
+                    min="0"
+                    max="99999"
+                    defaultValue="0"
+                  />
                 </p>
                 <br></br>
               </div>
