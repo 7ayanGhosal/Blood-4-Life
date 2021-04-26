@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Map from "mapmyindia-react";
+import Map from "./map/map";
 import "./placePicker.css";
+
 import axios from "axios";
 
 class PlacePicker extends Component {
@@ -19,7 +20,7 @@ class PlacePicker extends Component {
             latitude: res.coords.latitude,
             longitude: res.coords.longitude,
           });
-          console.log(this.state.latitude + " " + this.state.longitude);
+          // console.log(this.state.latitude + " " + this.state.longitude);
         },
         (error) => {
           console.log(error);
@@ -28,58 +29,73 @@ class PlacePicker extends Component {
     };
 
     this.pointLocation = (eloc) => {
-      console.log(eloc);
       axios.get("/eloc/" + eloc).then((res) => {
-        // console.log(res);
-        this.setState({ latitude: res.data.lat, longitude: res.data.long });
+        this.setState({
+          latitude: res.data.lat,
+          longitude: res.data.long,
+          results: [],
+          location: res.data.address,
+        });
       });
     };
 
-    this.locationSubmit = (event) => {
-      event.preventDefault();
-      console.log(this.state.location);
-      axios.get("/suggest/" + this.state.location).then((res) => {
-        console.log(res);
-        this.setState({ results: res.data });
-        // var html = "";
-        // for (var i = 0; i < res.data.length; i++) {
-        //   html +=
-        //     "<a onclick=this.print()>" +
-        //     res.data[i].placeName +
-        //     ", " +
-        //     res.data[i].placeAddress +
-        //     "</a> <br/>";
-        // }
-
-        // document.getElementById("suggestions").innerHTML = html;
-      });
-    };
     this.locationChange = (e) => {
       this.setState({ location: e.target.value });
+      axios.get("/suggest/" + this.state.location).then((res) => {
+        // console.log(res);
+        this.setState({ results: res.data });
+      });
+    };
+    this.dragHandler = (e) => {
+      this.setState({
+        longitude: e.target._latlng.lng,
+        latitude: e.target._latlng.lat,
+      });
     };
   }
 
   componentDidMount() {
     this.getUserLocation();
   }
-
+  // ADDING ONCLICK TO SUGGESTIONS
+  componentDidUpdate() {
+    for (var i = 0; i < this.state.results.length; i++) {
+      var eloc = this.state.results[i].eLoc;
+      var ele = document.getElementById("suggestion" + i);
+      ele.onclick = (e) => {
+        this.pointLocation(e.target.getAttribute("name"));
+      };
+    }
+  }
   render() {
+    var mapJSX = (
+      <div id="MAP">
+        <Map
+          key={this.state.latitude + this.state.longitude}
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
+          dragHandler={this.dragHandler}
+        ></Map>
+      </div>
+    );
     var suggestions = [];
     for (var i = 0; i < this.state.results.length; i++) {
       var eloc = this.state.results[i].eLoc;
       suggestions.push(
-        <h5
-          onClick={() => {
-            this.pointLocation(eloc);
-          }}
-        >
-          {this.state.results[i].placeName +
-            ", " +
-            this.state.results[i].placeAddress}
-        </h5>
+        <div>
+          <li
+            class="list-group-item suggestions"
+            id={"suggestion" + i}
+            name={this.state.results[i].eLoc}
+          >
+            {this.state.results[i].placeName +
+              ", " +
+              this.state.results[i].placeAddress}
+          </li>
+        </div>
       );
-      suggestions.push(<br />);
     }
+
     return (
       <div>
         <button
@@ -109,43 +125,25 @@ class PlacePicker extends Component {
                 onClick={this.reset}
               ></button>
               <div class="modal-body">
-                <h5>Pick your location</h5>
-                <form onSubmit={this.locationSubmit}>
-                  <input
-                    name="address"
-                    type="text"
-                    onChange={this.locationChange}
-                    value={this.state.location}
-                  ></input>
-                  <button class="btn btn-success" type="submit">
-                    Submit
-                  </button>
-                </form>
+                <h5>Enter your location</h5>
+                <input
+                  class="form-control"
+                  name="address"
+                  type="text"
+                  onChange={this.locationChange}
+                  value={this.state.location}
+                  placeholder="Enter your location"
+                ></input>
+                <div class="slist" id="suggestions">
+                  <ul class="list-group">{suggestions}</ul>
+                </div>
                 <br></br>
-                <div id="suggestions">{suggestions}</div>
-                <br></br>
-                <div id="map-details"></div>
-                <Map
-                  markers={[
-                    {
-                      position: [this.state.latitude, this.state.longitude],
-                      draggable: true,
-                      title: "Marker title",
-                      onClick: (e) => {
-                        console.log("clicked ");
-                      },
-                      onDragend: (e) => {
-                        // console.log(e);
-                        document.getElementById("map-details").innerHTML =
-                          "longitude: " +
-                          e.target._latlng.lng +
-                          " latitude: " +
-                          e.target._latlng.lat;
-                        // this.setState({longitude: e.sourceTarget., latitude: })
-                      },
-                    },
-                  ]}
-                />
+                <h5>
+                  Or, drag the pointer in the map below (Use scroll to zoom
+                  in/out)
+                </h5>
+                {mapJSX}
+                <button className="btn btn-success w-100 mt-1">Next</button>
               </div>
             </div>
           </div>
