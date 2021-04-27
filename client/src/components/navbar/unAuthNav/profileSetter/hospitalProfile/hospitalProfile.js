@@ -123,7 +123,7 @@ class HospitalProfile extends Component {
                             Discard Changes
                           </button>
                           <button class="btn btn-primary" type="submit">
-                            Create Account
+                            Next
                           </button>
                         </div>
                       </p>

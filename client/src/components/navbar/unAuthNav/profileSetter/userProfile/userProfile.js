@@ -173,8 +173,8 @@ class UserProfile extends Component {
                           >
                             Discard Changes
                           </button>
-                          <button class="btn btn-primary" type="submit">
-                            Create Account
+                          <button class="btn btn-success" type="submit">
+                            Next
                           </button>
                         </div>
                       </p>
