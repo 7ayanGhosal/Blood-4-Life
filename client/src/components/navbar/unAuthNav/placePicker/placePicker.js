@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import Map from "./map/map";
 import "./placePicker.css";
-
+import AuthContext from "../../../../context/auth-context";
 import axios from "axios";
 
 class PlacePicker extends Component {
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
     this.state = {
       latitude: 0,
       longitude: 0,
-      location: "",
+      location: "", //denotes the adress written inside the search box
       results: [],
       address: {
         poi: "",
@@ -24,6 +25,7 @@ class PlacePicker extends Component {
         city: "",
         state: "",
         pincode: "",
+        eloc: "",
       },
     };
     this.getUserLocation = () => {
@@ -33,8 +35,18 @@ class PlacePicker extends Component {
             latitude: res.coords.latitude,
             longitude: res.coords.longitude,
           });
-          //Get eloc and call pointLocation function
-          // console.log(this.state.latitude + " " + this.state.longitude);
+          axios
+            .get(
+              "/map/getEloc/" + res.coords.latitude + "/" + res.coords.longitude
+            )
+            .then(
+              (Res) => {
+                this.pointLocation(Res.data);
+              },
+              (err) => {
+                console.log(err);
+              }
+            );
         },
         (error) => {
           console.log(error);
@@ -43,7 +55,7 @@ class PlacePicker extends Component {
     };
 
     this.pointLocation = (eloc) => {
-      axios.get("/eloc/" + eloc).then((res) => {
+      axios.get("/map/eloc/" + eloc).then((res) => {
         this.setState({
           latitude: res.data.lat,
           longitude: res.data.long,
@@ -61,6 +73,7 @@ class PlacePicker extends Component {
             city: res.data.city,
             state: res.data.state,
             pincode: res.data.pincode,
+            eloc: eloc,
           },
         });
       });
@@ -68,8 +81,7 @@ class PlacePicker extends Component {
 
     this.locationChange = (e) => {
       this.setState({ location: e.target.value });
-      axios.get("/suggest/" + this.state.location).then((res) => {
-        // console.log(res);
+      axios.get("/map/suggest/" + this.state.location).then((res) => {
         this.setState({ results: res.data });
       });
     };
@@ -78,6 +90,29 @@ class PlacePicker extends Component {
         longitude: e.target._latlng.lng,
         latitude: e.target._latlng.lat,
       });
+      axios
+        .get(
+          "/map/getEloc/" + e.target._latlng.lat + "/" + e.target._latlng.lng
+        )
+        .then(
+          (Res) => {
+            console.log(Res);
+            this.pointLocation(Res.data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    };
+
+    this.onFormSubmit = (e) => {
+      e.preventDefault();
+      var res = {
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        ...this.state.address,
+      };
+      this.context.signup(res); //HAVE TO CHANGE THIS FOR SENDING LOCATION DETAILS!!!!
     };
   }
 
@@ -126,12 +161,13 @@ class PlacePicker extends Component {
     return (
       <div>
         <button
+          id="openSignupPlacepickerModal"
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary d-none"
           data-bs-toggle="modal"
           data-bs-target="#placepickerModal"
         >
-          Launch PlacePicker
+          Launch SignupPlacePicker
         </button>
         <div
           class="modal fade"
@@ -144,7 +180,7 @@ class PlacePicker extends Component {
           <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
               <button
-                id="closeLoginModal"
+                id="closeSignupPlacepickerModal"
                 type="button"
                 class="btn-close modal-close-button"
                 data-bs-dismiss="modal"
@@ -152,25 +188,29 @@ class PlacePicker extends Component {
                 onClick={this.reset}
               ></button>
               <div class="modal-body">
-                <h5>Enter your location</h5>
-                <input
-                  class="form-control"
-                  name="address"
-                  type="text"
-                  onChange={this.locationChange}
-                  value={this.state.location}
-                  placeholder="Enter your location"
-                ></input>
-                <div class="slist" id="suggestions">
-                  <ul class="list-group">{suggestions}</ul>
-                </div>
-                <br></br>
-                <h5>
-                  Or, drag the pointer in the map below (Use scroll to zoom
-                  in/out)
-                </h5>
-                {mapJSX}
-                <button className="btn btn-success w-100 mt-1">Next</button>
+                <form onSubmit={this.onFormSubmit}>
+                  <h5>Enter your location</h5>
+                  <input
+                    class="form-control"
+                    name="address"
+                    type="text"
+                    onChange={this.locationChange}
+                    value={this.state.location}
+                    placeholder="Enter your location"
+                  ></input>
+                  <div class="slist" id="suggestions">
+                    <ul class="list-group">{suggestions}</ul>
+                  </div>
+                  <br></br>
+                  <h5>
+                    Or, drag the pointer in the map below (Use scroll to zoom
+                    in/out)
+                  </h5>
+                  {mapJSX}
+                  <button type="submit" className="btn btn-success w-100 mt-1">
+                    Create Account
+                  </button>
+                </form>
               </div>
             </div>
           </div>
