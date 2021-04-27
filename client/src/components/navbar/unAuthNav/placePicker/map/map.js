@@ -3,13 +3,7 @@ import MapMyIndia from "mapmyindia-react";
 import axios from "axios";
 
 class Map extends Component {
-  componentDidUpdate() {
-    console.log("updated map");
-  }
   render() {
-    console.log("map rendering..");
-    console.log(this.props);
-
     return (
       <MapMyIndia
         key={this.props.key}
@@ -20,10 +14,10 @@ class Map extends Component {
             draggable: true,
             title: "Marker title",
             onClick: (e) => {
-              console.log("clicked ");
+              // console.log("clicked ");
             },
             onDragend: (e) => {
-              console.log("dragged");
+              // console.log("dragged");
               this.props.dragHandler(e);
             },
           },

@@ -4,11 +4,12 @@ import Navbar from "./components/navbar/navbar";
 import Carousel from "./components/carousel/carousel";
 import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
-import PlacePicker from "./components/placePicker/placePicker";
 import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 import Emergency from "./components/emergency/emergency";
+import OurNetwork from "./components/ourNetwork/ourNetwork";
+
 
 import "./App.css";
 import AuthContext from "./context/auth-context";
@@ -46,6 +47,22 @@ class App extends React.Component {
       isHospital: false,
       reqDonor: false,
       authenticated: false,
+      location: {
+        latitude: 0,
+        longitude: 0,
+        poi: "",
+        street: "",
+        subSubLocality: "",
+        subLocality: "",
+        locality: "",
+        village: "",
+        district: "",
+        subDistrict: "",
+        city: "",
+        state: "",
+        pincode: "",
+        eloc: "",
+      },
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -160,6 +177,18 @@ class App extends React.Component {
         rhFactor: profile.rhFactor,
         reqDonor: profile.reqDonor,
       });
+      //turn off profilesetter
+      document.getElementById("closeProfileSetterModal").click();
+      //turn on placepicker
+      document.getElementById("openSignupPlacepickerModal").click();
+    };
+
+    this.signup = async (location) => {
+      await this.setState({
+        location: location,
+      });
+      //turn off placepicker
+      document.getElementById("closeSignupPlacepickerModal").click();
       axios.post("/signup", this.state).then(
         (res) => {
           if (res.data) {
@@ -175,6 +204,7 @@ class App extends React.Component {
         }
       );
     };
+
     //PROFILE RESET
     this.resetProfile = (profile) => {
       axios.post("/resetprofile", profile).then((res) => {
@@ -319,14 +349,15 @@ class App extends React.Component {
             checkResetPassword: this.checkResetPassword,
             resetPassword: this.resetPassword,
             pageHandler: this.pageHandler,
+
+            signup: this.signup,
           }}
         >
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
-
-        <PlacePicker></PlacePicker>
-
+        {/* <PlacePicker></PlacePicker> */}
+        <OurNetwork></OurNetwork>
         <FooterHome></FooterHome>
       </div>
     );
