@@ -26,7 +26,6 @@ app.use(
 app.use(express.json());
 //----
 
-
 //MapMyIndia
 var token = 0;
 var restAPIKey = "vnho6si4yv1ihymphyrzczd936i61hyw";
@@ -110,7 +109,6 @@ app.get("/eloc/:eloc", (req, res) => {
     }
   );
 });
-
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
@@ -362,6 +360,11 @@ app.post("/resetPass/otpVerification", async (req, res) => {
   } else {
     res.send("InvalidOTP");
   }
+});
+
+// Get User Points
+app.get("/get/users", (req, res) => {
+  user.find({}, {});
 });
 
 app.get("/remove/:email", (req, res) => {
