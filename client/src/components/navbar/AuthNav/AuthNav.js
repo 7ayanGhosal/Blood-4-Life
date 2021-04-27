@@ -36,6 +36,7 @@ class AuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
+                    onClick={() => this.context.pageHandler("Emergency")}
                   >
                     <b>Emergency</b>
                   </button>
@@ -44,6 +45,7 @@ class AuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
+                    onClick={() => this.context.pageHandler("Home")}
                   >
                     Home
                   </button>
@@ -52,7 +54,7 @@ class AuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
+                    onClick={() => this.context.pageHandler("About Us")}
                   >
                     About Us
                   </button>
@@ -61,7 +63,7 @@ class AuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
+                    onClick={() => this.context.pageHandler("Contact Us")}
                   >
                     Contact Us
                   </button>
@@ -74,8 +76,7 @@ class AuthNav extends Component {
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
                     href="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#profileModal"
+                    onClick={() => this.context.pageHandler("Profile")}
                   >
                     Profile
                   </button>

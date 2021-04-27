@@ -6,7 +6,10 @@ import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
 import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
+import ContactUs from "./components/contactUs/contactUs";
+import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
+
 
 import "./App.css";
 import AuthContext from "./context/auth-context";
@@ -40,6 +43,7 @@ class App extends React.Component {
         "O-": 0,
       },
       rhFactor: "",
+      page: "Home",
       isHospital: false,
       reqDonor: false,
       authenticated: false,
@@ -259,6 +263,11 @@ class App extends React.Component {
         disableEmail: false,
       });
     };
+
+    //Method for changing main content on screen
+    this.pageHandler = (Page) => {
+      this.setState({ page: Page });
+    };
     //Passsword Reset Route
     this.checkResetPassword = (pass) => {
       this.context.resetPassPassword = pass;
@@ -299,10 +308,28 @@ class App extends React.Component {
 
   render() {
     var box = null;
-    if (this.state.authenticated) {
-      if (this.state.isHospital) box = <Hospital></Hospital>;
-      else box = <User></User>;
-    } else box = <Carousel></Carousel>;
+    switch (this.state.page) {
+      case "Home":
+        box = <Carousel></Carousel>;
+        break;
+      case "Emergency":
+        box = <Emergency></Emergency>;
+        break;
+      case "About Us":
+        box = <AboutUs></AboutUs>;
+        break;
+      case "Contact Us":
+        box = <ContactUs></ContactUs>;
+        break;
+      case "Profile":
+        if (this.state.authenticated) {
+          if (this.state.isHospital) box = <Hospital></Hospital>;
+          else box = <User></User>;
+        }
+        break;
+      default:
+        box = <Carousel></Carousel>;
+    }
     return (
       <div>
         <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
@@ -321,13 +348,14 @@ class App extends React.Component {
             resetProfile: this.resetProfile,
             checkResetPassword: this.checkResetPassword,
             resetPassword: this.resetPassword,
+            pageHandler: this.pageHandler,
+
             signup: this.signup,
           }}
         >
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
-        <AboutUs></AboutUs>
         {/* <PlacePicker></PlacePicker> */}
         <OurNetwork></OurNetwork>
         <FooterHome></FooterHome>
