@@ -21,3 +21,6 @@
   object-position: center;
   max-height: 250px;
 }
+.marker-icon {
+  height: 48px;
+}

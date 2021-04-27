@@ -9,6 +9,7 @@ module.exports = function (app) {
       "/resetprofile",
       "/resetPass",
       "/map",
+      "/get",
     ],
     createProxyMiddleware({
       target: "http://localhost:5000",
