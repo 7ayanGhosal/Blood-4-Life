@@ -5,11 +5,13 @@ import logo from "../../../resources/logo.jpeg";
 import PasswordSetter from "./passwordSetter/passwordSetter";
 import ProfileSetter from "./profileSetter/profileSetter";
 import LoginBox from "./loginBox/loginBox";
+import AuthContext from "../../../context/auth-context";
 
 class UnAuthNav extends Component {
   constructor(props) {
     super(props);
   }
+  static contextType = AuthContext;
   render() {
     return (
       <div>
@@ -37,6 +39,16 @@ class UnAuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
+                    onClick={() => this.context.pageHandler("Emergency")}
+                  >
+                    Emergency
+                  </button>
+                </div>
+                <div class="nav-item">
+                  <button
+                    type="button"
+                    class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
+                    onClick={() => this.context.pageHandler("Home")}
                   >
                     Home
                   </button>
@@ -45,7 +57,7 @@ class UnAuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
+                    onClick={() => this.context.pageHandler("About Us")}
                   >
                     About Us
                   </button>
@@ -54,6 +66,7 @@ class UnAuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
+                    onClick={() => this.context.pageHandler("Contact Us")}
                   >
                     Contact Us
                   </button>
