@@ -329,7 +329,7 @@ class App extends React.Component {
         </AuthContext.Provider>
         <AboutUs></AboutUs>
         {/* <PlacePicker></PlacePicker> */}
-        {/* <OurNetwork></OurNetwork> */}
+        <OurNetwork></OurNetwork>
         <FooterHome></FooterHome>
       </div>
     );
