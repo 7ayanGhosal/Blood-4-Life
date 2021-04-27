@@ -43,6 +43,22 @@ class App extends React.Component {
       isHospital: false,
       reqDonor: false,
       authenticated: false,
+      location: {
+        latitude: 0,
+        longitude: 0,
+        poi: "",
+        street: "",
+        subSubLocality: "",
+        subLocality: "",
+        locality: "",
+        village: "",
+        district: "",
+        subDistrict: "",
+        city: "",
+        state: "",
+        pincode: "",
+        eloc: "",
+      },
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -157,6 +173,18 @@ class App extends React.Component {
         rhFactor: profile.rhFactor,
         reqDonor: profile.reqDonor,
       });
+      //turn off profilesetter
+      document.getElementById("closeProfileSetterModal").click();
+      //turn on placepicker
+      document.getElementById("openSignupPlacepickerModal").click();
+    };
+
+    this.signup = async (location) => {
+      await this.setState({
+        location: location,
+      });
+      //turn off placepicker
+      document.getElementById("closeSignupPlacepickerModal").click();
       axios.post("/signup", this.state).then(
         (res) => {
           if (res.data) {
@@ -172,6 +200,7 @@ class App extends React.Component {
         }
       );
     };
+
     //PROFILE RESET
     this.resetProfile = (profile) => {
       axios.post("/resetprofile", profile).then((res) => {
@@ -292,14 +321,14 @@ class App extends React.Component {
             resetProfile: this.resetProfile,
             checkResetPassword: this.checkResetPassword,
             resetPassword: this.resetPassword,
+            signup: this.signup,
           }}
         >
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
         <AboutUs></AboutUs>
-        <PlacePicker></PlacePicker>
-
+        {/* <PlacePicker></PlacePicker> */}
         <FooterHome></FooterHome>
       </div>
     );
