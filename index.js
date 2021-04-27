@@ -26,6 +26,7 @@ app.use(
 app.use(express.json());
 //----
 
+
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
@@ -189,6 +190,7 @@ app.get("/map/eloc/:eloc", (req, res) => {
     }
   );
 });
+
 
 app.post("/emailVerification", async (req, res) => {
   otp = String(Math.floor(Math.random() * 89999 + 10000));
@@ -396,6 +398,11 @@ app.post("/resetPass/otpVerification", async (req, res) => {
   } else {
     res.send("InvalidOTP");
   }
+});
+
+// Get User Points
+app.get("/get/users", (req, res) => {
+  user.find({}, {});
 });
 
 app.get("/remove/:email", (req, res) => {
