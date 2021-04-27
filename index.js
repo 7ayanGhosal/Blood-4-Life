@@ -26,7 +26,6 @@ app.use(
 app.use(express.json());
 //----
 
-
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
@@ -156,7 +155,6 @@ app.get("/map/eloc/:eloc", (req, res) => {
     req.params.eloc;
   axios.get(url).then(
     (Res) => {
-      console.log(Res.data.results[0]);
       res.send({
         lat: Res.data.results[0].latitude,
         long: Res.data.results[0].longitude,
@@ -190,7 +188,6 @@ app.get("/map/eloc/:eloc", (req, res) => {
     }
   );
 });
-
 
 app.post("/emailVerification", async (req, res) => {
   otp = String(Math.floor(Math.random() * 89999 + 10000));
@@ -402,7 +399,15 @@ app.post("/resetPass/otpVerification", async (req, res) => {
 
 // Get User Points
 app.get("/get/users", (req, res) => {
-  user.find({}, {});
+  user.find({}, (err, foundUser) => {
+    if (err) console.log(err);
+    else console.log(foundUser);
+  });
+});
+// Get Hosp Points
+app.get("/get/hospitals", (req, res) => {
+  foundHosp = hospital.find({});
+  // console.log(foundHosp);
 });
 
 app.get("/remove/:email", (req, res) => {

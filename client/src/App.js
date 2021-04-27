@@ -4,9 +4,9 @@ import Navbar from "./components/navbar/navbar";
 import Carousel from "./components/carousel/carousel";
 import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
-import PlacePicker from "./components/placePicker/placePicker";
 import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
+import OurNetwork from "./components/ourNetwork/ourNetwork";
 
 import "./App.css";
 import AuthContext from "./context/auth-context";
@@ -329,6 +329,7 @@ class App extends React.Component {
         </AuthContext.Provider>
         <AboutUs></AboutUs>
         {/* <PlacePicker></PlacePicker> */}
+        {/* <OurNetwork></OurNetwork> */}
         <FooterHome></FooterHome>
       </div>
     );
