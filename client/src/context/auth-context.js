@@ -13,6 +13,7 @@ const authContext = React.createContext({
   authenticated: false,
   resetPassPassword: "",
   resetPassEmail: "",
+  birthday: "",
 });
 
 export default authContext;

@@ -10,7 +10,6 @@ import ContactUs from "./components/contactUs/contactUs";
 import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
 
-
 import "./App.css";
 import AuthContext from "./context/auth-context";
 
@@ -28,9 +27,6 @@ class App extends React.Component {
       pass: "",
       gender: "",
       age: "",
-      zip: "",
-      city: "",
-      address: "",
       bloodGroup: "",
       bloodStock: {
         "A+": 0,
@@ -170,9 +166,6 @@ class App extends React.Component {
         lastName: profile.lastName,
         gender: profile.gender,
         age: profile.age,
-        zip: profile.zip,
-        city: profile.city,
-        address: profile.address,
         bloodGroup: profile.bloodGroup,
         rhFactor: profile.rhFactor,
         reqDonor: profile.reqDonor,
