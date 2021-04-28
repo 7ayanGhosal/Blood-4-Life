@@ -9,13 +9,14 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: 0.0,
-      longitude: 0.0,
+      latitude: 0,
+      longitude: 0,
       address: "",
       results: [],
-      ...this.context,
+      // ...this.context,
       close: "closeProfileResetModal",
     };
+
     this.onFormSubmit = (event) => {
       event.preventDefault();
       // console.log(this.state);
@@ -25,17 +26,19 @@ class Profile extends React.Component {
       this.setState({
         latitude: this.state.location.latitude,
         longitude: this.state.location.longitude,
+        address:
+          this.state.location.poi +
+          this.state.location.street +
+          this.state.location.subSubLocality +
+          this.state.location.subLocality +
+          this.state.location.locality +
+          this.state.location.village +
+          this.state.location.district +
+          this.state.location.subDistrict +
+          this.state.location.city +
+          this.state.location.state +
+          this.state.location.pincode,
       });
-      axios
-        .get("/map/getEloc/" + this.state.latitude + "/" + this.state.longitude)
-        .then(
-          (Res) => {
-            this.pointLocation(Res.data);
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
     };
 
     this.pointLocation = (eloc) => {
@@ -58,6 +61,8 @@ class Profile extends React.Component {
             state: res.data.state,
             pincode: res.data.pincode,
             eloc: eloc,
+            latitude: res.data.lat,
+            longitude: res.data.long,
           },
         });
       });
@@ -88,6 +93,20 @@ class Profile extends React.Component {
           }
         );
     };
+  }
+  componentDidMount() {
+    this.setState({ ...this.context }, () => {
+      this.getUserLocation();
+    });
+  }
+  componentDidUpdate() {
+    for (var i = 0; i < this.state.results.length; i++) {
+      var eloc = this.state.results[i].eLoc;
+      var ele = document.getElementById("suggestion" + i);
+      ele.onclick = (e) => {
+        this.pointLocation(e.target.getAttribute("name"));
+      };
+    }
   }
   render() {
     var mapJSX = (

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.jpeg";
-import ProfileModal from "./profleModal/profileModal";
 import AuthContext from "../../../context/auth-context";
 
 class AuthNav extends Component {
@@ -94,7 +93,6 @@ class AuthNav extends Component {
             </div>
           </div>
         </nav>
-        <ProfileModal></ProfileModal>
       </div>
     );
   }
