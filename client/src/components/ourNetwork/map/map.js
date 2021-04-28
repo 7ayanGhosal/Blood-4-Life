@@ -26,8 +26,10 @@ class Map extends Component {
     }
     return (
       <MapMyIndia
-        height="250px"
-        zoom="5"
+        height="52vh"
+        width="125%"
+        center={[1100, 1100]}
+        zoom="4"
         markers={[...UserMarkers, ...HospMarkers]}
       />
     );
