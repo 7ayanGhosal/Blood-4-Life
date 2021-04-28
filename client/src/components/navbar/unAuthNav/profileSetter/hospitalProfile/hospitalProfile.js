@@ -5,9 +5,6 @@ import AuthContext from "../../../../../context/auth-context";
 class HospitalProfile extends Component {
   state = {
     name: "",
-    zip: 0,
-    city: "",
-    address: "",
   };
   static contextType = AuthContext;
 
@@ -19,9 +16,6 @@ class HospitalProfile extends Component {
   reset = () => {
     this.setState({
       name: "",
-      zip: 0,
-      city: "",
-      address: "",
     });
     this.context.remove();
   };
@@ -75,42 +69,6 @@ class HospitalProfile extends Component {
                           value={this.state.name}
                           onChange={(e) => {
                             this.setState({ name: e.target.value });
-                          }}
-                        />
-                        <br /> <br />
-                        Address :
-                        <input
-                          placeholder=" Enter the address "
-                          type="text"
-                          name="Address"
-                          required
-                          value={this.state.address}
-                          onChange={(e) => {
-                            this.setState({ address: e.target.value });
-                          }}
-                        />
-                        <br /> <br />
-                        City :
-                        <input
-                          placeholder=" Enter the city name "
-                          type="text"
-                          name="City"
-                          required
-                          value={this.state.city}
-                          onChange={(e) => {
-                            this.setState({ city: e.target.value });
-                          }}
-                        />
-                        <br /> <br />
-                        PIN code :
-                        <input
-                          placeholder=" Enter the pincode "
-                          type="text"
-                          name="Zipcode"
-                          required
-                          value={this.state.zip}
-                          onChange={(e) => {
-                            this.setState({ zip: e.target.value });
                           }}
                         />
                         <br /> <br />

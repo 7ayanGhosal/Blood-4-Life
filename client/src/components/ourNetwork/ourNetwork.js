@@ -24,7 +24,7 @@ class OurNetwork extends Component {
     if (flag) {
       setTimeout(() => {
         this.forceUpdate();
-      }, 2000);
+      }, 500);
     }
   }
   async componentDidMount() {
