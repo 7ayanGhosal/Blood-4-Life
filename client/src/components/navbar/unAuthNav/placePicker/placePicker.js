@@ -11,9 +11,9 @@ class PlacePicker extends Component {
     this.state = {
       latitude: 0,
       longitude: 0,
-      location: "", //denotes the adress written inside the search box
+      address: "", //denotes the adress written inside the search box
       results: [],
-      address: {
+      location: {
         poi: "",
         street: "",
         subSubLocality: "",
@@ -60,8 +60,8 @@ class PlacePicker extends Component {
           latitude: res.data.lat,
           longitude: res.data.long,
           results: [],
-          location: res.data.address,
-          address: {
+          address: res.data.address,
+          location: {
             poi: res.data.poi,
             street: res.data.street,
             subSubLocality: res.data.subSubLocality,
@@ -79,9 +79,9 @@ class PlacePicker extends Component {
       });
     };
 
-    this.locationChange = (e) => {
-      this.setState({ location: e.target.value });
-      axios.get("/map/suggest/" + this.state.location).then((res) => {
+    this.addressChange = (e) => {
+      this.setState({ address: e.target.value });
+      axios.get("/map/suggest/" + this.state.address).then((res) => {
         this.setState({ results: res.data });
       });
     };
@@ -110,7 +110,7 @@ class PlacePicker extends Component {
       var res = {
         latitude: this.state.latitude,
         longitude: this.state.longitude,
-        ...this.state.address,
+        ...this.state.location,
       };
       this.context.signup(res); //HAVE TO CHANGE THIS FOR SENDING LOCATION DETAILS!!!!
     };
@@ -189,14 +189,14 @@ class PlacePicker extends Component {
               ></button>
               <div class="modal-body">
                 <form onSubmit={this.onFormSubmit}>
-                  <h5>Enter your location</h5>
+                  <h5>Enter your address</h5>
                   <input
                     class="form-control"
                     name="address"
                     type="text"
-                    onChange={this.locationChange}
-                    value={this.state.location}
-                    placeholder="Enter your location"
+                    onChange={this.addressChange}
+                    value={this.state.address}
+                    placeholder="Enter your address"
                   ></input>
                   <div class="slist" id="suggestions">
                     <ul class="list-group">{suggestions}</ul>
