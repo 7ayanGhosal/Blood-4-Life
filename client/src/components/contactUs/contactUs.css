@@ -1,0 +1,46 @@
+.contact-us-row {
+  min-height: 80vh;
+  font-size: 1.5rem;
+}
+.location p {
+  width: 75%;
+  margin: auto;
+  color: #2c4776;
+  font-size: 1.2rem;
+}
+.side1 {
+  background-color: #c8bee2;
+}
+.header1 {
+  color: #2c4776;
+}
+.side2 {
+  background-color: #2c4776;
+}
+.header2 {
+  color: #c8bee2;
+}
+.text1 {
+  font-size: 20px;
+  font-size: 1.5rem;
+}
+.u-social-icons img:hover {
+  animation: a1 0.5s linear 1;
+}
+@keyframes a1 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.u-social-icons img {
+  width: 52px;
+  height: 52px;
+  font-size: 2rem;
+  padding: 0px !important;
+  border-radius: 50%;
+  border: 2px solid black;
+  /*background-color: #2c4776;*/
+  color: #c8bee2;
+  text-decoration: none;
+}
