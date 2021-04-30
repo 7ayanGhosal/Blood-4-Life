@@ -428,6 +428,34 @@ app.get("/get/hospitals", (req, res) => {
   });
 });
 
+//Blood stock updater route
+app.post("/hospital/updatestock", (req, res) => {
+  hospital.findOneAndUpdate(
+    { email: req.body.email },
+    {
+      $set: {
+        bloodStock: {
+          ["A+"]: req.body.bloodStock["A+"],
+          ["B+"]: req.body.bloodStock["B+"],
+          ["AB+"]: req.body.bloodStock["AB+"],
+          ["O+"]: req.body.bloodStock["O+"],
+          ["A-"]: req.body.bloodStock["A-"],
+          ["B-"]: req.body.bloodStock["B-"],
+          ["AB-"]: req.body.bloodStock["AB-"],
+          ["O-"]: req.body.bloodStock["O-"],
+        },
+      },
+    },
+    (err, foundHosp) => {
+      if (err) {
+        res.send("Error occured " + err);
+      } else {
+        res.send(foundHosp);
+      }
+    }
+  );
+});
+
 app.get("/remove/:email", (req, res) => {
   user.deleteOne({ email: req.params.email }, (err, usr) => {
     if (err) res.send("Error from backend");
