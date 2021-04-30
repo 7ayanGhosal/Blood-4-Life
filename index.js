@@ -440,6 +440,33 @@ app.get("/get/hospitals", (req, res) => {
   });
 });
 
+//Blood stock updater route
+app.post("/hospital/updatestock", (req, res) => {
+  hospital.findOneAndUpdate(
+    { email: req.body.email },
+    {
+      $set: {
+        bloodStock: {
+          ["A+"]: req.body.bloodStock["A+"],
+          ["B+"]: req.body.bloodStock["B+"],
+          ["AB+"]: req.body.bloodStock["AB+"],
+          ["O+"]: req.body.bloodStock["O+"],
+          ["A-"]: req.body.bloodStock["A-"],
+          ["B-"]: req.body.bloodStock["B-"],
+          ["AB-"]: req.body.bloodStock["AB-"],
+          ["O-"]: req.body.bloodStock["O-"],
+        },
+      },
+    },
+    (err, foundHosp) => {
+      if (err) {
+        res.send("Error occured " + err);
+      } else {
+        res.send(foundHosp);
+      }
+    }
+  );
+});
 // HOSPITAL CREATE BLOOD CAMP
 app.post("/hospital/organiseCamp", (req, res) => {
   console.log(req.body);

@@ -4,6 +4,27 @@ import AuthContext from "../../../context/auth-context";
 
 class BloodBank extends Component {
   static contextType = AuthContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      bloodStock: {
+        "A+": 0,
+        "A-": 0,
+        "B+": 0,
+        "B-": 0,
+        "AB+": 0,
+        "AB-": 0,
+        "O+": 0,
+        "O-": 0,
+      },
+    };
+    this.updateStock = () => {
+      this.context.updateStock(this.state);
+    };
+  }
+  componentDidMount() {
+    this.setState({ ...this.context });
+  }
   render() {
     return (
       <div class="back">
@@ -25,7 +46,16 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["A+"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["A+"] = parseInt(e.target.value, 10);
+                      // console.log(typeof BloodStock["A+"]);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -36,7 +66,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["B+"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["B+"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -47,7 +85,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["AB+"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["AB+"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -58,7 +104,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["O+"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["O+"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -77,7 +131,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["A-"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["A-"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -88,7 +150,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["B-"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["B-"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -99,7 +169,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["AB-"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["AB-"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>
@@ -110,7 +188,15 @@ class BloodBank extends Component {
                     name="OTP"
                     min="0"
                     max="99999"
-                    defaultValue="0"
+                    value={this.state.bloodStock["O-"]}
+                    onChange={(e) => {
+                      var BloodStock = this.state.bloodStock;
+                      BloodStock["O-"] = parseInt(e.target.value, 10);
+                      this.setState({
+                        bloodStock: BloodStock,
+                      });
+                      this.updateStock();
+                    }}
                   />
                 </p>
                 <br></br>

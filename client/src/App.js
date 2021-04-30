@@ -262,6 +262,31 @@ class App extends React.Component {
     this.pageHandler = (Page) => {
       this.setState({ page: Page });
     };
+
+    //Blood stock updater
+    this.updateStock = (stock) => {
+      console.log(stock);
+      this.setState({
+        bloodStock: {
+          ["A+"]: stock.bloodStock["A+"],
+          ["B+"]: stock.bloodStock["B+"],
+          ["AB+"]: stock.bloodStock["AB+"],
+          ["O+"]: stock.bloodStock["O+"],
+          ["A-"]: stock.bloodStock["A-"],
+          ["B-"]: stock.bloodStock["B-"],
+          ["AB-"]: stock.bloodStock["AB-"],
+          ["O-"]: stock.bloodStock["O-"],
+        },
+      });
+      axios.post("/hospital/updatestock", stock).then(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    };
     //Passsword Reset Route
     this.checkResetPassword = (pass) => {
       this.context.resetPassPassword = pass;
@@ -363,6 +388,7 @@ class App extends React.Component {
             resetPassword: this.resetPassword,
             pageHandler: this.pageHandler,
             signup: this.signup,
+            updateStock: this.updateStock,
             organiseCamp: this.organiseCamp,
           }}
         >
