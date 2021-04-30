@@ -5,6 +5,7 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var nodemailer = require("nodemailer");
+var faker = require("faker");
 
 //NodeMailer
 var emailid = "assist.blood4life@gmail.com";
@@ -81,22 +82,26 @@ var timer = 60;
 //MapMyIndia
 var token = 0;
 var restAPIKey =
-  // "8ao7pqx5ep643nfhux7fl9h6cj88n1u7"; //self.master
-
-  "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
-// "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
-// "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
+  //  "8ao7pqx5ep643nfhux7fl9h6cj88n1u7"; //self.master
+  // "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
+  // "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
+  // "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
+  // "oymmpwqkf6ucxplv8xglbxvsz5t4cu6c"; //patra1
+  "f4slxwqq1r5kh7tmv2blz68hrvsf275g"; //patra2
 var clientID =
   // "33OkryzDZsKud94n0RHNubvOQuBX7plQb60OBebv_UOx9JOq4JbkK0S8MUesdAh9tDIgn3vlhbmifnFmxOPXT_eGXRLvbW95PhT5nywtJlxtZcL0fvC6kw==";
-  "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
-// "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
-//"33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
+  // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
+  // "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
+  // "33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
+  // "33OkryzDZsIxyJnU5Dq3RHxwahAUX51pfdoAFm7zG_zPzrufmmfPzIcIzVMkVwb5gQCiFc_Lgp9KANt3mU3g71CFAaXBvC5nTuiHqmyIqE4-Tmj779fUHA=="; //patra1
+  "33OkryzDZsIfGlUo6y0W-b-v0_R3xyHCINIJYPpjOE9yKkUNqH4T4uvhQL8PqaefiEdkgM7klj1Hd1wreawAmAfyyE-nPgGCa_PE8eMviR6dvxT1Ihc9kA==";
 var clientSecret =
-  // "8ao7pqx5ep643nfhux7fl9h6cj88n1u7";
-  "lrFxI-iSEg-4SAEyHH3N8Yr5o0Mq_TDDx1BKe1gnOlV-5wchHPK_P2uo7msJ6olzITexNmJ9C4M0PgBBPQfUUaAOgpYVTNRHcOlv0ABYKg1fp72eCZP3dhgXTeZu9_bI";
-// "lrFxI-iSEg-zO4DQYfnrt24sc7s5VbE72wYjFxjWkhoQjrvP6aG8G8qr0lacNQx2utb4WWnv_K0Jy45plKKWFN-55t-6k4C3ZzQxDau6CuU7DJc-lLXcK3I-IkHQmRHF";
-//"lrFxI-iSEg_XoGoVnWmmSWrjUoJE0Zo4uufY7hCXP5OFHOkXa5xLOh3UyhyC0CPyX9L0N5MLhoIP9w4q7ArSu-b-ZGMGSMMMghAY3pWRNw7qAHrZh9zloy9ZequrPxoJ";
-
+  // "lrFxI-iSEg-zO4DQYfnrt3fVbtkxTr847H5outlqQmJHu__AEHKeeXlkkELCOpGN3gtIe-lEzwRbIsYdmPpLPGG3ZiQs8PCwY-JenzFK_CZAK38D0B9dWVA-C4FjcCxc";
+  // "lrFxI-iSEg-4SAEyHH3N8Yr5o0Mq_TDDx1BKe1gnOlV-5wchHPK_P2uo7msJ6olzITexNmJ9C4M0PgBBPQfUUaAOgpYVTNRHcOlv0ABYKg1fp72eCZP3dhgXTeZu9_bI";
+  // "lrFxI-iSEg-zO4DQYfnrt24sc7s5VbE72wYjFxjWkhoQjrvP6aG8G8qr0lacNQx2utb4WWnv_K0Jy45plKKWFN-55t-6k4C3ZzQxDau6CuU7DJc-lLXcK3I-IkHQmRHF";
+  // "lrFxI-iSEg_XoGoVnWmmSWrjUoJE0Zo4uufY7hCXP5OFHOkXa5xLOh3UyhyC0CPyX9L0N5MLhoIP9w4q7ArSu-b-ZGMGSMMMghAY3pWRNw7qAHrZh9zloy9ZequrPxoJ";
+  // "lrFxI-iSEg8fgRD_vMjNSnLNbwY7GOZ_HaTmUcjnmy8R9FTv2ldK9OlrVSwX1ndkHKoLOSrnurIsNdWX8NunJ4XW7m4Sd9SI6NLXXeTWFpfeAnBQc5MFWgKtDloVI3tA"; //patra1
+  "lrFxI-iSEg8fgRD_vMjNSoxRqR5oJ7zJlyNaXYy7nwxLccpUjvSfG_3IYGICS2uGliB45v-CjEZz1V-DrZgQM0VtEp26DwYL-3ylKSDtXO_GyZk0nx60dsZIz1Ae7byb";
 revgeocodeUrl =
   "https://apis.mapmyindia.com/advancedmaps/v1/" + restAPIKey + "/rev_geocode?";
 geocodeUrl = "https://atlas.mapmyindia.com/api/places/geocode?";
@@ -508,6 +513,13 @@ app.get("/remove/:email", (req, res) => {
   });
 });
 
+app.post("/hospital/fake", (req, res) => {
+  hospital.create(req.body, (err, newHosp) => {
+    if (err) console.log(err);
+    else return true;
+  });
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
@@ -518,26 +530,3 @@ if (process.env.NODE_ENV === "production") {
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
   console.log("Server has started");
 });
-
-// Fake Hospitals
-fakeHospitals = (count) => {
-  for (var i = 0; i < count; i++) {
-    newHospital = {
-      name: req.body.name,
-      email: req.body.email,
-      password: "bloodforlife",
-      location: req.body.location,
-      bloodStock: {
-        "A+": Math.floor(Math.random() * 30),
-        "A-": Math.floor(Math.random() * 30),
-        "B+": Math.floor(Math.random() * 30),
-        "B-": Math.floor(Math.random() * 30),
-        "AB+": Math.floor(Math.random() * 30),
-        "AB-": Math.floor(Math.random() * 30),
-        "O+": Math.floor(Math.random() * 30),
-        "O-": Math.floor(Math.random() * 30),
-      },
-    };
-    hospital.create(newHospital, (err, newhosp));
-  }
-};

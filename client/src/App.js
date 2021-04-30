@@ -11,6 +11,8 @@ import ContactUs from "./components/contactUs/contactUs";
 import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
 
+import faker from "faker";
+
 import "./App.css";
 import AuthContext from "./context/auth-context";
 
@@ -345,6 +347,88 @@ class App extends React.Component {
         }
       );
     };
+
+    // Fake Hospitals
+    this.fakeHospitals = (count) => {
+      var coord = [
+        { a: 16, b: 14, c: 6, d: 74 },
+        { a: 2, b: 22, c: 4, d: 70 },
+        { a: 4, b: 24, c: 2, d: 72 },
+        { a: 3, b: 33, c: 4, d: 74 },
+        { a: 4, b: 10, c: 4, d: 76 },
+        { a: 6, b: 22, c: 8, d: 80 },
+        { a: 4, b: 18, c: 4, d: 80 },
+        { a: 4, b: 24, c: 2, d: 92 },
+      ];
+      for (var i = 0; i < count; i++) {
+        var index = Math.floor(Math.random() * coord.length);
+        index = index % coord.length;
+        var lat = (Math.random() * coord[index].a + coord[index].b).toFixed(4);
+        var lng = (Math.random() * coord[index].c + coord[index].d).toFixed(4);
+        axios.get("/map/getEloc/" + lat + "/" + lng).then(
+          (res) => {
+            // console.log(res);
+            axios.get("/map/eloc/" + res.data).then(
+              (Res) => {
+                console.log(Res.data);
+                var location = {
+                  latitude: Res.data.lat,
+                  longitude: Res.data.long,
+                  poi: Res.data.poi,
+                  street: Res.data.street,
+                  subSubLocality: Res.data.subSubLocality,
+                  subLocality: Res.data.subLocality,
+                  locality: Res.data.locality,
+                  village: Res.data.village,
+                  district: Res.data.district,
+                  subDistrict: Res.data.subDistrict,
+                  city: Res.data.city,
+                  state: Res.data.state,
+                  pincode: Res.data.pincode,
+                  eloc: res.data,
+                };
+                var name = faker.company.companyName();
+                var newHospital = {
+                  name: name + " Hospital",
+                  email:
+                    name +
+                    String(Math.floor(Math.random() * 1000)) +
+                    "@xyz.com",
+                  password: "bloodforlife",
+                  location: location,
+                  bloodStock: {
+                    "A+": Math.floor(Math.random() * 30),
+                    "A-": Math.floor(Math.random() * 30),
+                    "B+": Math.floor(Math.random() * 30),
+                    "B-": Math.floor(Math.random() * 30),
+                    "AB+": Math.floor(Math.random() * 30),
+                    "AB-": Math.floor(Math.random() * 30),
+                    "O+": Math.floor(Math.random() * 30),
+                    "O-": Math.floor(Math.random() * 30),
+                  },
+                };
+                axios.post("/hospital/fake", newHospital).then(
+                  (res) => {
+                    console.log("FakeHosp");
+                  },
+                  (err) => {
+                    console.log(err);
+                  }
+                );
+              },
+              (Err) => {
+                console.log(Err);
+                // break;
+              }
+            );
+          },
+          (err) => {
+            console.log(err);
+            // break;
+          }
+        );
+      }
+    };
   }
 
   render() {
@@ -403,6 +487,7 @@ class App extends React.Component {
         <OurNetwork></OurNetwork>
 
         <FooterHome></FooterHome>
+        <button onClick={() => this.fakeHospitals(5)}>fakeeeeeeeeeee</button>
       </div>
     );
   }
