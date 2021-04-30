@@ -59,11 +59,11 @@ class SignupBox extends Component {
               ></button>
 
               <div class="modal-body">
-                <h3 class="modal-title loginh" id="exampleModalLabel">
+                <h2 class="modal-title loginh" id="exampleModalLabel">
                   Signup
-                </h3>
+                </h2>
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body card-gradient">
+                  <div class="card-body sbox-bg">
                     <h4 class="card-title">Profile Details</h4>
                     <br />
 

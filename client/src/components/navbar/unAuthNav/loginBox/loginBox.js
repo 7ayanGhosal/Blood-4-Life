@@ -36,12 +36,11 @@ class LoginBox extends Component {
                 onClick={this.reset}
               ></button>
               <div class="modal-body">
-                <h3 class="modal-title loginh" id="exampleModalLabel">
+                <h2 class="modal-title loginh" id="exampleModalLabel">
                   Login Page
-                </h3>
-
-                <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body card-gradient">
+                </h2>
+                <div class="card w-100 lbox-bg" style={{ width: 18 + "rem" }}>
+                  <div class="card-body">
                     <h4 class="card-title">Enter your credentials</h4>
                     <br />
                     <p class="card-text">
