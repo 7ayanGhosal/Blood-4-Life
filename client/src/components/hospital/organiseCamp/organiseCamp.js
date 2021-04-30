@@ -19,7 +19,7 @@ class OrganiseCamp extends React.Component {
       location: this.context.location,
       ...this.state,
     };
-    console.log(camp);
+    // console.log(camp);
     this.context.organiseCamp(camp);
   };
   render() {

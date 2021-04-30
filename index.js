@@ -295,6 +295,7 @@ app.post("/login", async (req, res) => {
     email: req.body.email,
     password: req.body.pass,
   });
+
   if (!account)
     account = await hospital.findOne({
       email: req.body.email,
@@ -305,8 +306,17 @@ app.post("/login", async (req, res) => {
     //Acccount not found
     res.send(false);
   } else {
-    account.password = "";
-    res.send(account);
+    if (account.name) {
+      account.password = "";
+      await camp.find({ email: req.body.email }, (err, foundCamps) => {
+        Account = { data: account, event: foundCamps };
+        res.send(Account);
+      });
+    } else {
+      account.password = "";
+      Account = { data: account, event: {} };
+      res.send(Account);
+    }
   }
 });
 
@@ -469,22 +479,22 @@ app.post("/hospital/updatestock", (req, res) => {
 });
 // HOSPITAL CREATE BLOOD CAMP
 app.post("/hospital/organiseCamp", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   camp.create(req.body, (err, newCamp) => {
     if (err) {
       console.log(err);
       res.send(false);
     } else {
-      res.send(true);
+      res.send(req.body);
     }
   });
 });
 
-app.get("/hospital/getEvents/:email", (req, res) => {
-  foundCamps = camp.find({ email: req.params.email }, (err, foundCamps) => {
-    console.log(foundCamps);
-  });
-});
+// app.get("/hospital/getEvents/:email", (req, res) => {
+//   camp.find({ email: req.params.email }, (err, foundCamps) => {
+//     res.send(foundCamps);
+//   });
+// });
 
 app.get("/remove/:email", (req, res) => {
   user.deleteOne({ email: req.params.email }, (err, usr) => {

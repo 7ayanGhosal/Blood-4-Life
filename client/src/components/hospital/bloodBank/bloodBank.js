@@ -50,7 +50,6 @@ class BloodBank extends Component {
                     onChange={(e) => {
                       var BloodStock = this.state.bloodStock;
                       BloodStock["A+"] = parseInt(e.target.value, 10);
-                      // console.log(typeof BloodStock["A+"]);
                       this.setState({
                         bloodStock: BloodStock,
                       });

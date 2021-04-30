@@ -27,14 +27,6 @@ class Hospital extends Component {
       box = <BloodBank></BloodBank>;
     } else if (this.state.display === "UpcomingEvents") {
       // Get the event details
-      axios.get("/hospital/getEvents/" + this.state.email).then(
-        (res) => {
-          console.log(res.data);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
       box = <UpcomingEvents></UpcomingEvents>;
     } else {
       box = <Profile></Profile>;

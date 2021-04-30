@@ -44,6 +44,7 @@ class App extends React.Component {
       isHospital: false,
       reqDonor: false,
       authenticated: false,
+      events: {},
       location: {
         latitude: 0,
         longitude: 0,
@@ -213,6 +214,7 @@ class App extends React.Component {
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
       axios.post("/login", cred).then((res) => {
+        // console.log(res.data);
         if (!res.data) {
           document.getElementById("loginMessage").innerHTML =
             "<h5 className='text-danger'>Incorrect Details!</h5>";
@@ -220,16 +222,18 @@ class App extends React.Component {
           // document.getElementById("loginMessage").innerHTML =
           //   "<h5 className='text-danger'>Logging In...</h5>";
           var IsHospital = false;
-          if (res.data.name) IsHospital = true;
+          if (res.data.data.name) IsHospital = true;
           document.getElementById("closeLoginModal").click();
           this.setState({
             authenticated: true,
-            ...res.data,
+            ...res.data.data,
+            events: res.data.event,
             isHospital: IsHospital,
           });
         }
       });
     };
+
     //LOGGING OUT USER
     this.logout = () => {
       this.setState({
@@ -263,30 +267,6 @@ class App extends React.Component {
       this.setState({ page: Page });
     };
 
-    //Blood stock updater
-    this.updateStock = (stock) => {
-      console.log(stock);
-      this.setState({
-        bloodStock: {
-          ["A+"]: stock.bloodStock["A+"],
-          ["B+"]: stock.bloodStock["B+"],
-          ["AB+"]: stock.bloodStock["AB+"],
-          ["O+"]: stock.bloodStock["O+"],
-          ["A-"]: stock.bloodStock["A-"],
-          ["B-"]: stock.bloodStock["B-"],
-          ["AB-"]: stock.bloodStock["AB-"],
-          ["O-"]: stock.bloodStock["O-"],
-        },
-      });
-      axios.post("/hospital/updatestock", stock).then(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    };
     //Passsword Reset Route
     this.checkResetPassword = (pass) => {
       this.context.resetPassPassword = pass;
@@ -323,14 +303,37 @@ class App extends React.Component {
         }
       );
     };
+    //Blood stock updater
+    this.updateStock = (stock) => {
+      this.setState({
+        bloodStock: {
+          ["A+"]: stock.bloodStock["A+"],
+          ["B+"]: stock.bloodStock["B+"],
+          ["AB+"]: stock.bloodStock["AB+"],
+          ["O+"]: stock.bloodStock["O+"],
+          ["A-"]: stock.bloodStock["A-"],
+          ["B-"]: stock.bloodStock["B-"],
+          ["AB-"]: stock.bloodStock["AB-"],
+          ["O-"]: stock.bloodStock["O-"],
+        },
+      });
+      axios.post("/hospital/updatestock", stock);
+    };
 
     //ORGANISE BLOOD CAMP EVENT
     this.organiseCamp = (camp) => {
       axios.post("/hospital/organiseCamp", camp).then(
         (res) => {
-          if (res) {
+          if (res != false) {
             document.getElementById("eventMessage").innerHTML =
               "<h4>Event Created Successfully</h4>";
+            this.setState((prevState) => {
+              var events = prevState.events;
+              events.push(res.data);
+              return {
+                events: events,
+              };
+            });
           } else {
             document.getElementById("eventMessage").innerHTML =
               "<h4>Couldn't Create Event, Try After Sometime!</h4>";
