@@ -59,12 +59,14 @@ class SignupBox extends Component {
               ></button>
 
               <div class="modal-body">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title loginh" id="exampleModalLabel">
                   Signup
-                </h5>
+                </h3>
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div class="card-body" style={{ backgroundColor: "bisque" }}>
-                    <h5 class="card-title">Profile Details</h5>
+                  <div class="card-body card-gradient">
+                    <h4 class="card-title">Profile Details</h4>
+                    <br />
+
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>
@@ -76,7 +78,7 @@ class SignupBox extends Component {
                             <input
                               type="email"
                               id="text1"
-                              placeholder=" Enter your valid email id "
+                              placeholder=" Enter your Email Id "
                               value={this.state.email}
                               onChange={(e) =>
                                 this.setState({ email: e.target.value })
@@ -95,7 +97,7 @@ class SignupBox extends Component {
                               disabled={this.context.disableEmail}
                               required
                             />
-                            <b>Person</b>
+                            <b>&nbsp;Person&nbsp;&nbsp;</b>
                             <br />
                             <input
                               type="radio"
@@ -105,7 +107,7 @@ class SignupBox extends Component {
                               disabled={this.context.disableEmail}
                               required
                             />
-                            <b>Hospital</b>
+                            <b>&nbsp;Hospital</b>
                             <br />
                           </div>
                           <br />
@@ -115,7 +117,7 @@ class SignupBox extends Component {
                               class="btn btn-primary"
                               disabled={this.context.disableEmail}
                             >
-                              submit
+                              Submit
                             </button>
                           </div>
                         </form>

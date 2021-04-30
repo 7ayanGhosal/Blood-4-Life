@@ -7,6 +7,7 @@ import FooterHome from "./components/footerHome/footerHome";
 import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
+
 import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
 
@@ -368,8 +369,10 @@ class App extends React.Component {
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
+
         {/* <PlacePicker></PlacePicker> */}
         <OurNetwork></OurNetwork>
+
         <FooterHome></FooterHome>
       </div>
     );
