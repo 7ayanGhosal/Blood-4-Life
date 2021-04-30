@@ -297,6 +297,25 @@ class App extends React.Component {
         }
       );
     };
+
+    //ORGANISE BLOOD CAMP EVENT
+    this.organiseCamp = (camp) => {
+      axios.post("/hospital/organiseCamp", camp).then(
+        (res) => {
+          if (res) {
+            document.getElementById("eventMessage").innerHTML =
+              "<h4>Event Created Successfully</h4>";
+          } else {
+            document.getElementById("eventMessage").innerHTML =
+              "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+          }
+        },
+        (err) => {
+          document.getElementById("eventMessage").innerHTML =
+            "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+        }
+      );
+    };
   }
 
   render() {
@@ -342,8 +361,8 @@ class App extends React.Component {
             checkResetPassword: this.checkResetPassword,
             resetPassword: this.resetPassword,
             pageHandler: this.pageHandler,
-
             signup: this.signup,
+            organiseCamp: this.organiseCamp,
           }}
         >
           <Navbar></Navbar>

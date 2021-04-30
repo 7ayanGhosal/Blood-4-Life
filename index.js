@@ -59,9 +59,21 @@ var hospitalSchema = new mongoose.Schema({
   location: Object,
 });
 
+var campSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  location: Object,
+  eventName: String,
+  eventDate: Date,
+  eventStartTime: String,
+  eventEndTime: String,
+  eventDescription: String,
+});
+
 //------------------------------------------------MODEL
 var user = mongoose.model("User", userSchema);
 var hospital = mongoose.model("Hospital", hospitalSchema);
+var camp = mongoose.model("Camp", campSchema);
 
 var otp = String(Math.floor(Math.random() * 89999 + 10000));
 var timer = 60;
@@ -425,6 +437,25 @@ app.get("/get/hospitals", (req, res) => {
       // console.log(hospitalPoints);
       res.send(hospitalPoints);
     }
+  });
+});
+
+// HOSPITAL CREATE BLOOD CAMP
+app.post("/hospital/organiseCamp", (req, res) => {
+  console.log(req.body);
+  camp.create(req.body, (err, newCamp) => {
+    if (err) {
+      console.log(err);
+      res.send(false);
+    } else {
+      res.send(true);
+    }
+  });
+});
+
+app.get("/hospital/getEvents/:email", (req, res) => {
+  foundCamps = camp.find({ email: req.params.email }, (err, foundCamps) => {
+    console.log(foundCamps);
   });
 });
 
