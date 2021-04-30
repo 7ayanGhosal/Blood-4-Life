@@ -83,18 +83,18 @@ var token = 0;
 var restAPIKey =
   // "8ao7pqx5ep643nfhux7fl9h6cj88n1u7"; //self.master
 
-  // "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
-  "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
+  "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
+// "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
 // "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
 var clientID =
   // "33OkryzDZsKud94n0RHNubvOQuBX7plQb60OBebv_UOx9JOq4JbkK0S8MUesdAh9tDIgn3vlhbmifnFmxOPXT_eGXRLvbW95PhT5nywtJlxtZcL0fvC6kw==";
-  // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
-  "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
+  "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
+// "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
 //"33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
 var clientSecret =
   // "8ao7pqx5ep643nfhux7fl9h6cj88n1u7";
-  // "lrFxI-iSEg-4SAEyHH3N8Yr5o0Mq_TDDx1BKe1gnOlV-5wchHPK_P2uo7msJ6olzITexNmJ9C4M0PgBBPQfUUaAOgpYVTNRHcOlv0ABYKg1fp72eCZP3dhgXTeZu9_bI";
-  "lrFxI-iSEg-zO4DQYfnrt24sc7s5VbE72wYjFxjWkhoQjrvP6aG8G8qr0lacNQx2utb4WWnv_K0Jy45plKKWFN-55t-6k4C3ZzQxDau6CuU7DJc-lLXcK3I-IkHQmRHF";
+  "lrFxI-iSEg-4SAEyHH3N8Yr5o0Mq_TDDx1BKe1gnOlV-5wchHPK_P2uo7msJ6olzITexNmJ9C4M0PgBBPQfUUaAOgpYVTNRHcOlv0ABYKg1fp72eCZP3dhgXTeZu9_bI";
+// "lrFxI-iSEg-zO4DQYfnrt24sc7s5VbE72wYjFxjWkhoQjrvP6aG8G8qr0lacNQx2utb4WWnv_K0Jy45plKKWFN-55t-6k4C3ZzQxDau6CuU7DJc-lLXcK3I-IkHQmRHF";
 //"lrFxI-iSEg_XoGoVnWmmSWrjUoJE0Zo4uufY7hCXP5OFHOkXa5xLOh3UyhyC0CPyX9L0N5MLhoIP9w4q7ArSu-b-ZGMGSMMMghAY3pWRNw7qAHrZh9zloy9ZequrPxoJ";
 
 revgeocodeUrl =
@@ -518,3 +518,26 @@ if (process.env.NODE_ENV === "production") {
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
   console.log("Server has started");
 });
+
+// Fake Hospitals
+fakeHospitals = (count) => {
+  for (var i = 0; i < count; i++) {
+    newHospital = {
+      name: req.body.name,
+      email: req.body.email,
+      password: "bloodforlife",
+      location: req.body.location,
+      bloodStock: {
+        "A+": Math.floor(Math.random() * 30),
+        "A-": Math.floor(Math.random() * 30),
+        "B+": Math.floor(Math.random() * 30),
+        "B-": Math.floor(Math.random() * 30),
+        "AB+": Math.floor(Math.random() * 30),
+        "AB-": Math.floor(Math.random() * 30),
+        "O+": Math.floor(Math.random() * 30),
+        "O-": Math.floor(Math.random() * 30),
+      },
+    };
+    hospital.create(newHospital, (err, newhosp));
+  }
+};
