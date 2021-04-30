@@ -1,6 +1,8 @@
 .contact-us-row {
   min-height: 80vh;
   font-size: 1.5rem;
+  width: 100% !important;
+  margin: 0;
 }
 .location p {
   width: 75%;
@@ -25,7 +27,7 @@
   font-size: 1.5rem;
 }
 .u-social-icons img:hover {
-  animation: a1 0.5s linear 1;
+  animation: a1 0.3s linear 1;
 }
 @keyframes a1 {
   100% {
@@ -39,8 +41,9 @@
   font-size: 2rem;
   padding: 0px !important;
   border-radius: 50%;
-  border: 2px solid black;
+  /* border: 2px solid #2c4776; */
   /*background-color: #2c4776;*/
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.8);
   color: #c8bee2;
   text-decoration: none;
 }
