@@ -16,7 +16,11 @@ button:hover {
   background-color: REPLACEDlawngreen;
   color: rgb(233, 27, 13);
 }
-
+.card-gradient {
+  background: #ee9ca7;
+  background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+}
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left 0.5s;

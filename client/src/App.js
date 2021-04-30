@@ -7,6 +7,7 @@ import FooterHome from "./components/footerHome/footerHome";
 import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
+
 import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
 
@@ -322,6 +323,25 @@ class App extends React.Component {
         }
       );
     };
+
+    //ORGANISE BLOOD CAMP EVENT
+    this.organiseCamp = (camp) => {
+      axios.post("/hospital/organiseCamp", camp).then(
+        (res) => {
+          if (res) {
+            document.getElementById("eventMessage").innerHTML =
+              "<h4>Event Created Successfully</h4>";
+          } else {
+            document.getElementById("eventMessage").innerHTML =
+              "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+          }
+        },
+        (err) => {
+          document.getElementById("eventMessage").innerHTML =
+            "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+        }
+      );
+    };
   }
 
   render() {
@@ -369,13 +389,16 @@ class App extends React.Component {
             pageHandler: this.pageHandler,
             signup: this.signup,
             updateStock: this.updateStock,
+            organiseCamp: this.organiseCamp,
           }}
         >
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
+
         {/* <PlacePicker></PlacePicker> */}
         <OurNetwork></OurNetwork>
+
         <FooterHome></FooterHome>
       </div>
     );

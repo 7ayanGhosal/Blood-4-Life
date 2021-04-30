@@ -40,7 +40,7 @@ class BloodBank extends Component {
                 </div>{" "}
                 <br></br>
                 <p class="text">
-                  A+{" "}
+                  A+&ensp;{" "}
                   <input
                     type="number"
                     name="OTP"
@@ -60,7 +60,7 @@ class BloodBank extends Component {
                 </p>
                 <br></br>
                 <p class="text">
-                  B+{" "}
+                  B+&ensp;{" "}
                   <input
                     type="number"
                     name="OTP"
@@ -98,7 +98,7 @@ class BloodBank extends Component {
                 </p>
                 <br></br>
                 <p class="text">
-                  O+{" "}
+                  O+&ensp;{" "}
                   <input
                     type="number"
                     name="OTP"
@@ -125,7 +125,7 @@ class BloodBank extends Component {
                 </div>{" "}
                 <br></br>
                 <p class="text">
-                  A-{" "}
+                  A-&ensp;{" "}
                   <input
                     type="number"
                     name="OTP"
@@ -144,7 +144,7 @@ class BloodBank extends Component {
                 </p>
                 <br></br>
                 <p class="text">
-                  B-{" "}
+                  B-&ensp;{" "}
                   <input
                     type="number"
                     name="OTP"
@@ -182,7 +182,7 @@ class BloodBank extends Component {
                 </p>
                 <br></br>
                 <p class="text">
-                  O-{" "}
+                  O-&ensp;{" "}
                   <input
                     type="number"
                     name="OTP"
