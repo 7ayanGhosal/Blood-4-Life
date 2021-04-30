@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import "./contactUs.css";
 
@@ -6,7 +5,7 @@ class ContactUs extends Component {
   render() {
     return (
       // <div class="">
-      <div class="contact-us-row row">
+      <div class="contact-us-row row mb-3">
         <div class="col col-12 col-md-6 d-flex align-items-center justify-content-center side1">
           <div class="text-center location">
             <h1 class="header1">LOCATION</h1>
@@ -71,7 +70,7 @@ class ContactUs extends Component {
               placeholder="Enter your message"
             ></textarea>
 
-            <button type="button" class="w-50 btn btn-outline-primary mb-3">
+            <button type="button" class="w-50 btn btn-info text-dark mb-3">
               Submit
             </button>
           </div>
@@ -79,7 +78,6 @@ class ContactUs extends Component {
       </div>
       // </div>
     );
-
   }
 }
 

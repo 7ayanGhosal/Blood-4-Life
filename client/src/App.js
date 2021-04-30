@@ -11,6 +11,8 @@ import ContactUs from "./components/contactUs/contactUs";
 import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
 
+import faker from "faker";
+
 import "./App.css";
 import AuthContext from "./context/auth-context";
 
@@ -44,6 +46,7 @@ class App extends React.Component {
       isHospital: false,
       reqDonor: false,
       authenticated: false,
+      events: {},
       location: {
         latitude: 0,
         longitude: 0,
@@ -213,6 +216,7 @@ class App extends React.Component {
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
       axios.post("/login", cred).then((res) => {
+        // console.log(res.data);
         if (!res.data) {
           document.getElementById("loginMessage").innerHTML =
             "<h5 className='text-danger'>Incorrect Details!</h5>";
@@ -220,16 +224,18 @@ class App extends React.Component {
           // document.getElementById("loginMessage").innerHTML =
           //   "<h5 className='text-danger'>Logging In...</h5>";
           var IsHospital = false;
-          if (res.data.name) IsHospital = true;
+          if (res.data.data.name) IsHospital = true;
           document.getElementById("closeLoginModal").click();
           this.setState({
             authenticated: true,
-            ...res.data,
+            ...res.data.data,
+            events: res.data.event,
             isHospital: IsHospital,
           });
         }
       });
     };
+
     //LOGGING OUT USER
     this.logout = () => {
       this.setState({
@@ -263,30 +269,6 @@ class App extends React.Component {
       this.setState({ page: Page });
     };
 
-    //Blood stock updater
-    this.updateStock = (stock) => {
-      console.log(stock);
-      this.setState({
-        bloodStock: {
-          ["A+"]: stock.bloodStock["A+"],
-          ["B+"]: stock.bloodStock["B+"],
-          ["AB+"]: stock.bloodStock["AB+"],
-          ["O+"]: stock.bloodStock["O+"],
-          ["A-"]: stock.bloodStock["A-"],
-          ["B-"]: stock.bloodStock["B-"],
-          ["AB-"]: stock.bloodStock["AB-"],
-          ["O-"]: stock.bloodStock["O-"],
-        },
-      });
-      axios.post("/hospital/updatestock", stock).then(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    };
     //Passsword Reset Route
     this.checkResetPassword = (pass) => {
       this.context.resetPassPassword = pass;
@@ -323,14 +305,37 @@ class App extends React.Component {
         }
       );
     };
+    //Blood stock updater
+    this.updateStock = (stock) => {
+      this.setState({
+        bloodStock: {
+          ["A+"]: stock.bloodStock["A+"],
+          ["B+"]: stock.bloodStock["B+"],
+          ["AB+"]: stock.bloodStock["AB+"],
+          ["O+"]: stock.bloodStock["O+"],
+          ["A-"]: stock.bloodStock["A-"],
+          ["B-"]: stock.bloodStock["B-"],
+          ["AB-"]: stock.bloodStock["AB-"],
+          ["O-"]: stock.bloodStock["O-"],
+        },
+      });
+      axios.post("/hospital/updatestock", stock);
+    };
 
     //ORGANISE BLOOD CAMP EVENT
     this.organiseCamp = (camp) => {
       axios.post("/hospital/organiseCamp", camp).then(
         (res) => {
-          if (res) {
+          if (res != false) {
             document.getElementById("eventMessage").innerHTML =
               "<h4>Event Created Successfully</h4>";
+            this.setState((prevState) => {
+              var events = prevState.events;
+              events.push(res.data);
+              return {
+                events: events,
+              };
+            });
           } else {
             document.getElementById("eventMessage").innerHTML =
               "<h4>Couldn't Create Event, Try After Sometime!</h4>";
@@ -341,6 +346,88 @@ class App extends React.Component {
             "<h4>Couldn't Create Event, Try After Sometime!</h4>";
         }
       );
+    };
+
+    // Fake Hospitals
+    this.fakeHospitals = (count) => {
+      var coord = [
+        { a: 16, b: 14, c: 6, d: 74 },
+        { a: 2, b: 22, c: 4, d: 70 },
+        { a: 4, b: 24, c: 2, d: 72 },
+        { a: 3, b: 33, c: 4, d: 74 },
+        { a: 4, b: 10, c: 4, d: 76 },
+        { a: 6, b: 22, c: 8, d: 80 },
+        { a: 4, b: 18, c: 4, d: 80 },
+        { a: 4, b: 24, c: 2, d: 92 },
+      ];
+      for (var i = 0; i < count; i++) {
+        var index = Math.floor(Math.random() * coord.length);
+        index = index % coord.length;
+        var lat = (Math.random() * coord[index].a + coord[index].b).toFixed(4);
+        var lng = (Math.random() * coord[index].c + coord[index].d).toFixed(4);
+        axios.get("/map/getEloc/" + lat + "/" + lng).then(
+          (res) => {
+            // console.log(res);
+            axios.get("/map/eloc/" + res.data).then(
+              (Res) => {
+                console.log(Res.data);
+                var location = {
+                  latitude: Res.data.lat,
+                  longitude: Res.data.long,
+                  poi: Res.data.poi,
+                  street: Res.data.street,
+                  subSubLocality: Res.data.subSubLocality,
+                  subLocality: Res.data.subLocality,
+                  locality: Res.data.locality,
+                  village: Res.data.village,
+                  district: Res.data.district,
+                  subDistrict: Res.data.subDistrict,
+                  city: Res.data.city,
+                  state: Res.data.state,
+                  pincode: Res.data.pincode,
+                  eloc: res.data,
+                };
+                var name = faker.company.companyName();
+                var newHospital = {
+                  name: name + " Hospital",
+                  email:
+                    name +
+                    String(Math.floor(Math.random() * 1000)) +
+                    "@xyz.com",
+                  password: "bloodforlife",
+                  location: location,
+                  bloodStock: {
+                    "A+": Math.floor(Math.random() * 30),
+                    "A-": Math.floor(Math.random() * 30),
+                    "B+": Math.floor(Math.random() * 30),
+                    "B-": Math.floor(Math.random() * 30),
+                    "AB+": Math.floor(Math.random() * 30),
+                    "AB-": Math.floor(Math.random() * 30),
+                    "O+": Math.floor(Math.random() * 30),
+                    "O-": Math.floor(Math.random() * 30),
+                  },
+                };
+                axios.post("/hospital/fake", newHospital).then(
+                  (res) => {
+                    console.log("FakeHosp");
+                  },
+                  (err) => {
+                    console.log(err);
+                  }
+                );
+              },
+              (Err) => {
+                console.log(Err);
+                // break;
+              }
+            );
+          },
+          (err) => {
+            console.log(err);
+            // break;
+          }
+        );
+      }
     };
   }
 
@@ -400,6 +487,7 @@ class App extends React.Component {
         <OurNetwork></OurNetwork>
 
         <FooterHome></FooterHome>
+        <button onClick={() => this.fakeHospitals(5)}>fakeeeeeeeeeee</button>
       </div>
     );
   }

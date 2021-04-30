@@ -3,6 +3,8 @@
   font-size: 1.5rem;
   width: 100% !important;
   margin: 0;
+  padding: 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 .location p {
   width: 75%;
@@ -11,13 +13,13 @@
   font-size: 1.2rem;
 }
 .side1 {
-  background-color: #c8bee2;
+  background-color: rgba(202, 192, 227, 0.8);
 }
 .header1 {
   color: #2c4776;
 }
 .side2 {
-  background-color: #2c4776;
+  background-color: rgba(70, 71, 150, 0.8);
 }
 .header2 {
   color: #c8bee2;

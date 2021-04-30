@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "concurrently": "^6.0.0",
+    "faker": "^5.5.3",
     "http-proxy-middleware": "^1.1.0",
     "mapmyindia-react": "^1.0.6",
     "react": "^17.0.2",

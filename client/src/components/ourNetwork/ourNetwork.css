@@ -1,3 +1,6 @@
+.net-row {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
 .suggestions {
   background-color: rgba(0, 0, 139, 0.6);
   color: white;
@@ -27,7 +30,7 @@
   height: 50vh;
 }
 .marker-icon {
-  height: 2rem;
+  height: 1rem;
 }
 
 #OurNetwork {

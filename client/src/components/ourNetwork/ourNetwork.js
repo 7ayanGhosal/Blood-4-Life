@@ -51,7 +51,7 @@ class OurNetwork extends Component {
   }
   render() {
     return (
-      <div class="container-fluid">
+      <div class="net-row container-fluid mb-3">
         <div id="OurNetwork" class="row">
           <div class="col col-12 col-md-6 d-flex align-items-center">
             <div class="w-100">
