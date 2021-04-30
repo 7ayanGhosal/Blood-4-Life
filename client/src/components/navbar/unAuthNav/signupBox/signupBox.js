@@ -66,6 +66,7 @@ class SignupBox extends Component {
                   <div class="card-body card-gradient">
                     <h4 class="card-title">Profile Details</h4>
                     <br />
+
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>

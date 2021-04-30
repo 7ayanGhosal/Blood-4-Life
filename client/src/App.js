@@ -4,9 +4,13 @@ import Navbar from "./components/navbar/navbar";
 import Carousel from "./components/carousel/carousel";
 import Hospital from "./components/hospital/hospital";
 import FooterHome from "./components/footerHome/footerHome";
-import PlacePicker from "./components/placePicker/placePicker";
+import User from "./components/user/user";
 import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
+
+import Emergency from "./components/emergency/emergency";
+import OurNetwork from "./components/ourNetwork/ourNetwork";
+
 import "./App.css";
 import AuthContext from "./context/auth-context";
 
@@ -24,9 +28,6 @@ class App extends React.Component {
       pass: "",
       gender: "",
       age: "",
-      zip: "",
-      city: "",
-      address: "",
       bloodGroup: "",
       bloodStock: {
         "A+": 0,
@@ -39,9 +40,26 @@ class App extends React.Component {
         "O-": 0,
       },
       rhFactor: "",
+      page: "Home",
       isHospital: false,
       reqDonor: false,
       authenticated: false,
+      location: {
+        latitude: 0,
+        longitude: 0,
+        poi: "",
+        street: "",
+        subSubLocality: "",
+        subLocality: "",
+        locality: "",
+        village: "",
+        district: "",
+        subDistrict: "",
+        city: "",
+        state: "",
+        pincode: "",
+        eloc: "",
+      },
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -149,13 +167,22 @@ class App extends React.Component {
         lastName: profile.lastName,
         gender: profile.gender,
         age: profile.age,
-        zip: profile.zip,
-        city: profile.city,
-        addr: profile.address,
         bloodGroup: profile.bloodGroup,
         rhFactor: profile.rhFactor,
         reqDonor: profile.reqDonor,
       });
+      //turn off profilesetter
+      document.getElementById("closeProfileSetterModal").click();
+      //turn on placepicker
+      document.getElementById("openSignupPlacepickerModal").click();
+    };
+
+    this.signup = async (location) => {
+      await this.setState({
+        location: location,
+      });
+      //turn off placepicker
+      document.getElementById("closeSignupPlacepickerModal").click();
       axios.post("/signup", this.state).then(
         (res) => {
           if (res.data) {
@@ -171,6 +198,7 @@ class App extends React.Component {
         }
       );
     };
+
     //PROFILE RESET
     this.resetProfile = (profile) => {
       axios.post("/resetprofile", profile).then((res) => {
@@ -178,7 +206,7 @@ class App extends React.Component {
           console.log("ERROR IN CHANGING VALUE!!");
         } else {
           this.setState({ ...profile });
-          document.getElementById("closeProfileResetterModal").click();
+          document.getElementById(profile.close).click();
         }
       });
     };
@@ -229,6 +257,11 @@ class App extends React.Component {
         disableEmail: false,
       });
     };
+
+    //Method for changing main content on screen
+    this.pageHandler = (Page) => {
+      this.setState({ page: Page });
+    };
     //Passsword Reset Route
     this.checkResetPassword = (pass) => {
       this.context.resetPassPassword = pass;
@@ -265,12 +298,51 @@ class App extends React.Component {
         }
       );
     };
+
+    //ORGANISE BLOOD CAMP EVENT
+    this.organiseCamp = (camp) => {
+      axios.post("/hospital/organiseCamp", camp).then(
+        (res) => {
+          if (res) {
+            document.getElementById("eventMessage").innerHTML =
+              "<h4>Event Created Successfully</h4>";
+          } else {
+            document.getElementById("eventMessage").innerHTML =
+              "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+          }
+        },
+        (err) => {
+          document.getElementById("eventMessage").innerHTML =
+            "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+        }
+      );
+    };
   }
 
   render() {
     var box = null;
-    if (this.state.authenticated) box = <Hospital></Hospital>;
-    else box = <Carousel></Carousel>;
+    switch (this.state.page) {
+      case "Home":
+        box = <Carousel></Carousel>;
+        break;
+      case "Emergency":
+        box = <Emergency></Emergency>;
+        break;
+      case "About Us":
+        box = <AboutUs></AboutUs>;
+        break;
+      case "Contact Us":
+        box = <ContactUs></ContactUs>;
+        break;
+      case "Profile":
+        if (this.state.authenticated) {
+          if (this.state.isHospital) box = <Hospital></Hospital>;
+          else box = <User></User>;
+        }
+        break;
+      default:
+        box = <Carousel></Carousel>;
+    }
     return (
       <div>
         <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
@@ -289,15 +361,17 @@ class App extends React.Component {
             resetProfile: this.resetProfile,
             checkResetPassword: this.checkResetPassword,
             resetPassword: this.resetPassword,
+            pageHandler: this.pageHandler,
+            signup: this.signup,
+            organiseCamp: this.organiseCamp,
           }}
         >
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
-        <AboutUs></AboutUs>
-        <ContactUs></ContactUs>
 
-        <PlacePicker></PlacePicker>
+        {/* <PlacePicker></PlacePicker> */}
+        <OurNetwork></OurNetwork>
 
         <FooterHome></FooterHome>
       </div>

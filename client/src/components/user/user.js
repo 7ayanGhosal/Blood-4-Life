@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import "./hospital.css";
+import "./user.css";
 import SecondNav from "./secondNav/secondNav";
-import BloodBank from "./bloodBank/bloodBank";
-import UpcomingEvents from "./upcomingEvents/upcomingEvents";
 import Profile from "./profile/profile";
-import OrganiseCamp from "./organiseCamp/organiseCamp";
+import Notifications from "./notifications/notifications";
+import Events from "./upcomingEvents/upcomingEvents";
 import AuthContext from "../../context/auth-context";
-import axios from "axios";
 
-class Hospital extends Component {
+class User extends Component {
   static contextType = AuthContext;
   // display: will take 4 values, what to diplay? 1.Profile, 2.BloodBank 3.UpcomingEvents, 4.OrganiseCamp
   state = { display: "Profile" };
@@ -21,21 +19,10 @@ class Hospital extends Component {
   };
   render() {
     var box = <Profile></Profile>;
-    if (this.state.display === "OrganiseCamp") {
-      box = <OrganiseCamp></OrganiseCamp>;
-    } else if (this.state.display === "BloodBank") {
-      box = <BloodBank></BloodBank>;
-    } else if (this.state.display === "UpcomingEvents") {
-      // Get the event details
-      axios.get("/hospital/getEvents/" + this.state.email).then(
-        (res) => {
-          console.log(res.data);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-      box = <UpcomingEvents></UpcomingEvents>;
+    if (this.state.display === "UpcomingEvents") {
+      box = <Events></Events>;
+    } else if (this.state.display === "Notifications") {
+      box = <Notifications></Notifications>;
     } else {
       box = <Profile></Profile>;
     }
@@ -48,4 +35,4 @@ class Hospital extends Component {
   }
 }
 
-export default Hospital;
+export default User;
