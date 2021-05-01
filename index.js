@@ -89,7 +89,6 @@ var restAPIKey =
   // "oymmpwqkf6ucxplv8xglbxvsz5t4cu6c"; //patra1
   // "f4slxwqq1r5kh7tmv2blz68hrvsf275g"; //patra2
   "gn53n3t9ljaldc39tonzt7brfwojehwt"; //tevoh10810@dghetian.com
-("gn53n3t9ljaldc39tonzt7brfwojehwt");
 var clientID =
   // "33OkryzDZsKud94n0RHNubvOQuBX7plQb60OBebv_UOx9JOq4JbkK0S8MUesdAh9tDIgn3vlhbmifnFmxOPXT_eGXRLvbW95PhT5nywtJlxtZcL0fvC6kw==";
   // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";

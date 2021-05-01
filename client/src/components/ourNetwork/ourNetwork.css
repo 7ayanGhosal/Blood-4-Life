@@ -53,3 +53,19 @@
   font-weight: bold;
   color: darkmagenta;
 }
+
+/* Toggle Button */
+/* .switch-toggle input {
+  width: 10em;
+} */
+.switch-candy a {
+  background-color: goldenrod;
+}
+.switch-toggle.switch-candy,
+.switch-light.switch-candy > span {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.switch-toggle label:not(.disabled) {
+  cursor: pointer;
+}
