@@ -351,14 +351,32 @@ class App extends React.Component {
     // Fake Hospitals
     this.fakeHospitals = (count) => {
       var coord = [
-        { a: 16, b: 14, c: 6, d: 74 },
+        { a: 2, b: 14, c: 6, d: 74 },
+        { a: 2, b: 16, c: 6, d: 74 },
+        { a: 2, b: 18, c: 6, d: 74 },
+        { a: 2, b: 20, c: 6, d: 74 },
+        { a: 2, b: 22, c: 6, d: 74 },
+        { a: 2, b: 24, c: 6, d: 74 },
+        { a: 2, b: 26, c: 6, d: 74 },
+        { a: 2, b: 28, c: 6, d: 74 },
         { a: 2, b: 22, c: 4, d: 70 },
         { a: 4, b: 24, c: 2, d: 72 },
         { a: 3, b: 33, c: 4, d: 74 },
-        { a: 4, b: 10, c: 4, d: 76 },
-        { a: 6, b: 22, c: 8, d: 80 },
-        { a: 4, b: 18, c: 4, d: 80 },
+        { a: 4, b: 10, c: 2, d: 76 },
+        { a: 4, b: 10, c: 2, d: 78 },
+        { a: 3, b: 22, c: 4, d: 80 },
+        { a: 3, b: 25, c: 4, d: 80 },
+        { a: 3, b: 22, c: 4, d: 84 },
+        { a: 3, b: 25, c: 4, d: 84 },
+        { a: 4, b: 18, c: 2, d: 80 },
+        { a: 4, b: 18, c: 2, d: 82 },
         { a: 4, b: 24, c: 2, d: 92 },
+        { a: 2, b: 26, c: 2, d: 70 }, //a
+        { a: 2, b: 30, c: 4, d: 75 }, //b
+        { a: 2, b: 16, c: 2, d: 80 }, //c
+        { a: 2, b: 26, c: 4, d: 80 }, //d
+        { a: 2, b: 20, c: 2, d: 84 }, //e
+        { a: 2, b: 26, c: 2, d: 94 }, //f
       ];
       for (var i = 0; i < count; i++) {
         var index = Math.floor(Math.random() * coord.length);
@@ -410,6 +428,104 @@ class App extends React.Component {
                 axios.post("/hospital/fake", newHospital).then(
                   (res) => {
                     console.log("FakeHosp");
+                  },
+                  (err) => {
+                    console.log(err);
+                  }
+                );
+              },
+              (Err) => {
+                console.log(Err);
+                // break;
+              }
+            );
+          },
+          (err) => {
+            console.log(err);
+            // break;
+          }
+        );
+      }
+    };
+
+    this.fakeUsers = (count) => {
+      var bloodgrp = ["A", "B", "AB", "O"];
+      var coord = [
+        { a: 2, b: 14, c: 6, d: 74 },
+        { a: 2, b: 16, c: 6, d: 74 },
+        { a: 2, b: 18, c: 6, d: 74 },
+        { a: 2, b: 20, c: 6, d: 74 },
+        { a: 2, b: 22, c: 6, d: 74 },
+        { a: 2, b: 24, c: 6, d: 74 },
+        { a: 2, b: 26, c: 6, d: 74 },
+        { a: 2, b: 28, c: 6, d: 74 },
+        { a: 2, b: 22, c: 4, d: 70 },
+        { a: 4, b: 24, c: 2, d: 72 },
+        { a: 3, b: 33, c: 4, d: 74 },
+        { a: 4, b: 10, c: 2, d: 76 },
+        { a: 4, b: 10, c: 2, d: 78 },
+        { a: 3, b: 22, c: 4, d: 80 },
+        { a: 3, b: 25, c: 4, d: 80 },
+        { a: 3, b: 22, c: 4, d: 84 },
+        { a: 3, b: 25, c: 4, d: 84 },
+        { a: 4, b: 18, c: 2, d: 80 },
+        { a: 4, b: 18, c: 2, d: 82 },
+        { a: 4, b: 24, c: 2, d: 92 },
+        { a: 2, b: 26, c: 2, d: 70 }, //a
+        { a: 2, b: 30, c: 4, d: 75 }, //b
+        { a: 2, b: 16, c: 2, d: 80 }, //c
+        { a: 2, b: 26, c: 4, d: 80 }, //d
+        { a: 2, b: 20, c: 2, d: 84 }, //e
+        { a: 2, b: 26, c: 2, d: 94 }, //f
+      ];
+      for (var i = 0; i < count; i++) {
+        var index = Math.floor(Math.random() * coord.length);
+        index = index % coord.length;
+        var lat = (Math.random() * coord[index].a + coord[index].b).toFixed(4);
+        var lng = (Math.random() * coord[index].c + coord[index].d).toFixed(4);
+        axios.get("/map/getEloc/" + lat + "/" + lng).then(
+          (res) => {
+            // console.log(res);
+            axios.get("/map/eloc/" + res.data).then(
+              (Res) => {
+                console.log(Res.data);
+                var location = {
+                  latitude: Res.data.lat,
+                  longitude: Res.data.long,
+                  poi: Res.data.poi,
+                  street: Res.data.street,
+                  subSubLocality: Res.data.subSubLocality,
+                  subLocality: Res.data.subLocality,
+                  locality: Res.data.locality,
+                  village: Res.data.village,
+                  district: Res.data.district,
+                  subDistrict: Res.data.subDistrict,
+                  city: Res.data.city,
+                  state: Res.data.state,
+                  pincode: Res.data.pincode,
+                  eloc: res.data,
+                };
+
+                var firstName = faker.name.firstName();
+                var lastName = faker.name.lastName();
+                var newUser = {
+                  firstName: firstName,
+                  lastName: lastName,
+                  email:
+                    firstName +
+                    String(Math.floor(Math.random() * 1000)) +
+                    "@xyz.com",
+                  password: "bloodforlife",
+                  location: location,
+                  age: Math.floor(Math.random() * 80 + 10),
+                  gender: Math.round(Math.random()) ? "Male" : "Female",
+                  bloodGroup: bloodgrp[Math.floor(Math.random() * 4) % 4],
+                  rhFactor: Math.round(Math.random()) ? "Positive" : "Negative",
+                  reqDonor: true,
+                };
+                axios.post("/user/fake", newUser).then(
+                  (res) => {
+                    console.log("FakeUser");
                   },
                   (err) => {
                     console.log(err);
@@ -487,7 +603,8 @@ class App extends React.Component {
         <OurNetwork></OurNetwork>
 
         <FooterHome></FooterHome>
-        <button onClick={() => this.fakeHospitals(5)}>fakeeeeeeeeeee</button>
+        <button onClick={() => this.fakeHospitals(5)}>fakeHosp</button>
+        <button onClick={() => this.fakeUsers(5)}>fakeUser</button>
       </div>
     );
   }

@@ -15,6 +15,7 @@ class OurNetwork extends Component {
         flag = false;
         icons[i].src = hospitalMarker;
         icons[i].classList.add("marker-icon");
+        icons[i].classList.add("d-none");
       } else if (icons[i].title === "User") {
         flag = false;
         icons[i].src = userMarker;
