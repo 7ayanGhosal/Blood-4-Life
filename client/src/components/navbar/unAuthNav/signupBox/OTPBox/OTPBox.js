@@ -35,25 +35,30 @@ class OTPBox extends Component {
           <h4 class="timer">60 sec </h4>
         </div>
         <form onSubmit={this.onFormSubmit}>
-          <input
-            class="otpverify"
-            type="number"
-            name="OTP"
-            onChange={(event) => {
-              this.setState({ otp: event.target.value });
-            }}
-            value={this.state.otp}
-            min="10000"
-            max="99999"
-          />
-          &ensp;
+          <div class="form-group-row">
+            <h5>
+              Enter OTP :&emsp;
+              <input
+                type="number"
+                name="OTP"
+                onChange={(event) => {
+                  this.setState({ otp: event.target.value });
+                }}
+                value={this.state.otp}
+                min="10000"
+                max="99999"
+              />
+            </h5>
+          </div>
+          <br />
           <button class="btn btn-success otpverify" type="submit">
             Verify
           </button>
-          <br />
         </form>
-        <br />
-        <button class="btn btn-danger" onClick={() => this.props.onResend()}>
+        <button
+          class="btn btn-danger otpresend"
+          onClick={() => this.props.onResend()}
+        >
           Resend
         </button>
       </div>
