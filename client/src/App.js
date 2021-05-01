@@ -603,8 +603,8 @@ class App extends React.Component {
         <OurNetwork></OurNetwork>
 
         <FooterHome></FooterHome>
-        <button onClick={() => this.fakeHospitals(5)}>fakeHosp</button>
-        <button onClick={() => this.fakeUsers(5)}>fakeUser</button>
+        <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>
+        <button onClick={() => this.fakeUsers(2)}>fakeUser</button>
       </div>
     );
   }
