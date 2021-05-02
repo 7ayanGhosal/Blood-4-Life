@@ -25,7 +25,7 @@ class OTPBox extends Component {
       <div class="OTPBox">
         <br />
         <button
-          class="btn btn-secondary"
+          class="btn btn-secondary email-change otp-btn"
           onClick={() => this.context.enableEmail()}
         >
           Change email id
@@ -51,12 +51,12 @@ class OTPBox extends Component {
             </h5>
           </div>
           <br />
-          <button class="btn btn-success otpverify" type="submit">
+          <button class="btn btn-success otpverify otp-btn" type="submit">
             Verify
           </button>
         </form>
         <button
-          class="btn btn-danger otpresend"
+          class="btn btn-danger otpresend otp-btn"
           onClick={() => this.props.onResend()}
         >
           Resend

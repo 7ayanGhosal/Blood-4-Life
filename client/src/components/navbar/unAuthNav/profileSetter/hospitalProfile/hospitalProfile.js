@@ -59,7 +59,7 @@ class HospitalProfile extends Component {
                   <div class="card w-100">
                     <div class="card-body">
                       <h5 class="card-title">Profile</h5>
-                      <p class="card-text">
+                      <p class="card-text hcard">
                         Name :
                         <input
                           placeholder=" Enter the hospital's name "

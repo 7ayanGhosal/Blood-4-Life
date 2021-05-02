@@ -70,7 +70,7 @@ class UserProfile extends Component {
                   <div class="card w-100">
                     <div class="card-body">
                       <h5 class="card-title">Profile</h5>
-                      <p class="card-text">
+                      <p class="card-text ucard">
                         First Name :
                         <input
                           placeholder=" Enter your first name "

@@ -36,7 +36,7 @@ class UnAuthNav extends Component {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
               <div class="icons d-flex justify-content-center">
-                <div class="nav-item">
+                <div class="nav-item unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
@@ -45,7 +45,7 @@ class UnAuthNav extends Component {
                     Emergency
                   </button>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
@@ -54,7 +54,7 @@ class UnAuthNav extends Component {
                     Home
                   </button>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
@@ -63,7 +63,7 @@ class UnAuthNav extends Component {
                     About Us
                   </button>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
@@ -75,7 +75,7 @@ class UnAuthNav extends Component {
               </div>
               <ul class="navbar-nav me-auto"></ul>
               <div class="icons d-flex justify-content-end">
-                <div class="nav-item">
+                <div class="nav-item unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
@@ -86,7 +86,7 @@ class UnAuthNav extends Component {
                     Login
                   </button>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"

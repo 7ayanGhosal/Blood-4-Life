@@ -1,9 +1,9 @@
-.nav-item button:hover {
+.unauth-nav-item button:hover {
   background-color: whitesmoke;
   /* color: rgb(47, 79, 79); */
 }
 
-.nav-item button {
+.unauth-nav-item button {
   background-color: rgba(0, 0, 0, 0);
   /* color: rgb(47, 79, 79); */
 }

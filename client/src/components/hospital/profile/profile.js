@@ -141,7 +141,7 @@ class Profile extends React.Component {
         <div class="card-body">
           <h4 class="card-title">Profile Details</h4>
           <br />
-          <div class="card-text">
+          <div class="card-text pcard">
             <h3 class="attribute" href="#">
               Name :-{" "}
             </h3>
@@ -228,7 +228,7 @@ class Profile extends React.Component {
                   <br /> <br />
                   <div class="card-body">
                     <h4 class="card-title">Profile</h4>
-                    <div class="card-text">
+                    <div class="card-text pcard">
                       <h3 class="attribute" href="#">
                         Name :-{" "}
                       </h3>

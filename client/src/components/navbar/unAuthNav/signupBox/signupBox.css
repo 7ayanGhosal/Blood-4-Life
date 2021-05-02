@@ -7,8 +7,7 @@
   width: 200px;
   height: 40px;
 }
-button:hover {
-  background-color: REPLACEDlawngreen;
+.sbtn button:hover {
   color: rgb(233, 27, 13);
 }
 .sbox-bg {

@@ -7,7 +7,7 @@ class FooterHome extends Component {
       <div class="footer">
         <div class="back">
           <div class="container">
-            <div class="row">
+            <div class="row frow">
               <div class="col-sm">
                 <div class="col-name">
                   <h3>Address:- </h3>

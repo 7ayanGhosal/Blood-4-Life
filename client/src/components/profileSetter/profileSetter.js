@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import './profileSetter.css';
+import React, { Component } from "react";
+import "./profileSetter.css";
 
 class ProfileSetter extends Component {
   state = {
-    firstName: '',
-    lastName: '',
+    firstName: "",
+    lastName: "",
     age: 0,
-    gender: 'Male',
-    bloodGroup: 'A',
-    rhFactor: 'Negative',
-    recDono: 'No',
+    gender: "Male",
+    bloodGroup: "A",
+    rhFactor: "Negative",
+    recDono: "No",
   };
 
   onFormSubmit = (event) => {
@@ -54,11 +54,11 @@ class ProfileSetter extends Component {
               </div>
               <div class="modal-body">
                 <form onSubmit={this.onFormSubmit}>
-                  <div class="card w-100" style={{width: 18 + 'rem'}} />
+                  <div class="card w-100" style={{ width: 18 + "rem" }} />
                   <div class="card w-100">
                     <div class="card-body">
                       <h5 class="card-title">Profile</h5>
-                      <p class="card-text">
+                      <p class="card-text card-text-ps">
                         First Name :
                         <input
                           placeholder=" Enter your first name "
@@ -67,7 +67,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.firstName}
                           onChange={(e) => {
-                            this.setState({firstName: e.target.value});
+                            this.setState({ firstName: e.target.value });
                           }}
                         />
                         <br /> <br />
@@ -79,7 +79,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.lastName}
                           onChange={(e) => {
-                            this.setState({lastName: e.target.value});
+                            this.setState({ lastName: e.target.value });
                           }}
                         />
                         <br /> <br />
@@ -89,7 +89,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.gender}
                           onChange={(e) => {
-                            this.setState({gender: e.target.value});
+                            this.setState({ gender: e.target.value });
                           }}
                         >
                           <option value="Male">Male</option>
@@ -106,7 +106,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.age}
                           onChange={(e) => {
-                            this.setState({age: e.target.value});
+                            this.setState({ age: e.target.value });
                           }}
                         />
                         <br /> <br />
@@ -116,7 +116,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.bloodGroup}
                           onChange={(e) => {
-                            this.setState({bloodGroup: e.target.value});
+                            this.setState({ bloodGroup: e.target.value });
                           }}
                         >
                           <option value="A">A</option>
@@ -131,7 +131,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.rhFactor}
                           onChange={(e) => {
-                            this.setState({rhFactor: e.target.value});
+                            this.setState({ rhFactor: e.target.value });
                           }}
                         >
                           <option value="Negative">Negative</option>
@@ -145,7 +145,7 @@ class ProfileSetter extends Component {
                           required
                           value={this.state.recDono}
                           onChange={(e) => {
-                            this.setState({recDono: e.target.value});
+                            this.setState({ recDono: e.target.value });
                           }}
                         >
                           <option value="No">No</option>

@@ -51,7 +51,7 @@ class SignupBox extends Component {
             <div class="modal-content">
               <button
                 type="button"
-                class="btn-close modal-close-button"
+                class="btn-close modal-close-button s-btn"
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 id="closeSignupBox"
@@ -114,7 +114,7 @@ class SignupBox extends Component {
                           <div>
                             <button
                               type="submit"
-                              class="btn btn-primary"
+                              class="btn btn-primary s-btn"
                               disabled={this.context.disableEmail}
                             >
                               Submit
