@@ -22,26 +22,32 @@ class ContactUs extends Component {
             <div class="followuslinks p-5">
               <h3 class="header1">Follow us</h3>
               <div class="u-social-icons">
-                <img
-                  class="u-social-url fab fa-twitter fa-2x p-3"
-                  src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
-                  target="_blank"
+                <a
                   href="https://www.facebook.com/assist.blood4life"
-                ></img>
-                &ensp;
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/social-media-circle/512/circle-twitter-512.png"
-                  class="u-social-url fab fa-twitter fa-2x p-3"
                   target="_blank"
-                  href="https://twitter.com/Blood4life12"
-                ></img>
+                >
+                  <img
+                    class="u-social-url fab fa-twitter fa-2x p-3"
+                    src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                  ></img>
+                </a>
                 &ensp;
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png"
-                  class="u-social-url fab fa-instagram fa-2x p-3"
+                <a target="_blank" href="https://twitter.com/Blood4life12">
+                  <img
+                    src="https://cdn3.iconfinder.com/data/icons/social-media-circle/512/circle-twitter-512.png"
+                    class="u-social-url fab fa-twitter fa-2x p-3"
+                  ></img>
+                </a>
+                &ensp;
+                <a
                   target="_blank"
                   href="https://www.instagram.com/assist.blood4life"
-                ></img>
+                >
+                  <img
+                    src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png"
+                    class="u-social-url fab fa-instagram fa-2x p-3"
+                  ></img>
+                </a>
               </div>
             </div>
           </div>
