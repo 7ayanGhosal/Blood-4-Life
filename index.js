@@ -551,6 +551,30 @@ app.post("/user/fake", (req, res) => {
   });
 });
 
+app.post("/emergency", (req, res) => {
+  hospital.find({}, (err, Hospitals) => {
+    if (err) console.log(err);
+    else {
+      for (var i = 0; i < Hospitals.length; i++) {
+        Hospitals[i].distance = Math.sqrt(
+          Math.pow(
+            Hospitals[i].location.latitude - req.body.location.latitude,
+            2
+          ) +
+            Math.pow(
+              Hospitals[i].location.longitude - req.body.location.longitude,
+              2
+            )
+        );
+      }
+      Hospitals.sort((a, b) => {
+        return a.distance - b.distance;
+      });
+      res.send(Hospitals.slice(0, 10));
+    }
+  });
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
