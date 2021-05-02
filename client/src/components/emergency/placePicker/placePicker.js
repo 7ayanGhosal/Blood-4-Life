@@ -257,6 +257,7 @@ class PlacePicker extends Component {
             Create Account
           </button>
         </form>
+        <div id="NearbyHospitals"></div>
       </div>
     );
   }
