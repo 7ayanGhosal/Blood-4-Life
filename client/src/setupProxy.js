@@ -12,6 +12,7 @@ module.exports = function (app) {
       "/get",
       "/hospital",
       "/user",
+      "/emergency",
     ],
     createProxyMiddleware({
       target: "http://localhost:5000",
