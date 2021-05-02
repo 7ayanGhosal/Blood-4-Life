@@ -84,7 +84,7 @@ class OurNetwork extends Component {
         <div class="net-row container-fluid mb-3">
           <div id="OurNetwork" class="row">
             <div class="col col-12 col-md-6 d-flex align-items-center">
-              <div class="w-100">
+              <div class="w-100 text-center">
                 <p>
                   We Feel Proud To Inform You That Our Vast Community Of Happy
                   Donors Includes

@@ -31,12 +31,12 @@
   height: 70px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.otp::-webkit-inner-spin-button,
+.otp::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-input[type="number"] {
+.otp {
   -moz-appearance: textfield;
 }
 

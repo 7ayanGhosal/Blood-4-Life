@@ -15,7 +15,7 @@ class Carousel extends Component {
   render() {
     return (
       <div>
-        <div class="carouselDiv">
+        <div class="carouselDiv mb-3">
           <div
             id="carouselExampleIndicators"
             class="carousel slide"

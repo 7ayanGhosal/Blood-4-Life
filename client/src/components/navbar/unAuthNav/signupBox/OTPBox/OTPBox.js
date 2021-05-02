@@ -39,6 +39,7 @@ class OTPBox extends Component {
             <h5>
               Enter OTP :&emsp;
               <input
+                class="otp"
                 type="number"
                 name="OTP"
                 onChange={(event) => {
