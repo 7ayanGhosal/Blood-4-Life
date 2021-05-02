@@ -215,9 +215,11 @@ class App extends React.Component {
     };
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
+      document.getElementById("closeLoginModal").click();
       axios.post("/login", cred).then((res) => {
         // console.log(res.data);
         if (!res.data) {
+          document.getElementById("openLoginModal").click();
           document.getElementById("loginMessage").innerHTML =
             "<h5 className='text-danger'>Incorrect Details!</h5>";
         } else {
@@ -225,7 +227,6 @@ class App extends React.Component {
           //   "<h5 className='text-danger'>Logging In...</h5>";
           var IsHospital = false;
           if (res.data.data.name) IsHospital = true;
-          document.getElementById("closeLoginModal").click();
           this.setState({
             authenticated: true,
             ...res.data.data,
@@ -344,6 +345,18 @@ class App extends React.Component {
         (err) => {
           document.getElementById("eventMessage").innerHTML =
             "<h4>Couldn't Create Event, Try After Sometime!</h4>";
+        }
+      );
+    };
+
+    //EMERGENCY
+    this.emergency = (body) => {
+      axios.post("/emergency", body).then(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
         }
       );
     };
@@ -593,6 +606,7 @@ class App extends React.Component {
             signup: this.signup,
             updateStock: this.updateStock,
             organiseCamp: this.organiseCamp,
+            emergency: this.emergency,
           }}
         >
           <Navbar></Navbar>

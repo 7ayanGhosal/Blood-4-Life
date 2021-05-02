@@ -79,7 +79,7 @@ class UnAuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    // onClick={this.onLoginDisplay}
+                    id="openLoginModal"
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
                   >
