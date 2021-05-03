@@ -233,6 +233,7 @@ class App extends React.Component {
             events: res.data.event,
             isHospital: IsHospital,
           });
+          this.pageHandler("Home");
         }
       });
     };
@@ -255,6 +256,7 @@ class App extends React.Component {
         reqDonor: "",
         authenticated: false,
       });
+      this.pageHandler("Home");
     };
 
     //METHOD FOR REMOVING INFO FROM MODALS
@@ -299,6 +301,7 @@ class App extends React.Component {
               ...res.data,
               isHospital: IsHospital,
             });
+            this.pageHandler("Home");
           }
         },
         (error) => {
