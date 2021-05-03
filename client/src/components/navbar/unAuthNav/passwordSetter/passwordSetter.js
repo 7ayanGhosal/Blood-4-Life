@@ -49,26 +49,23 @@ class PasswordSetter extends Component {
                 aria-label="Close"
               ></button>
               <div class="modal-body">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title loginh" id="exampleModalLabel">
                   Set Password
-                </h5>
-                <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <div
-                    class="card-body" /*style={{ backgroundColor: bisque }}*/
-                  >
-                    <h5 class="card-title">Set Password</h5>
+                </h3>
+                <div class="card psbox-bg w-100" style={{ width: 18 + "rem" }}>
+                  <div class="card-body">
                     <p class="card-text pscard" style={{ fontStyle: "italic" }}>
                       <form onSubmit={this.onFormSubmit}>
                         <center>
                           <center>
                             <div>
                               <br></br>
-                              <br></br>
-                              <b>
+                              <h5>
                                 {" "}
-                                Password :
+                                Enter Password &emsp;:&emsp;
                                 <input
-                                  placeholder=" Enter the password "
+                                  class="ps-modal-input form-control"
+                                  placeholder=" Enter password "
                                   type="password"
                                   value={this.state.p1}
                                   onChange={(e) => {
@@ -80,9 +77,10 @@ class PasswordSetter extends Component {
                                 />
                                 <br></br>
                                 <br></br>
-                                Re-type Password :
+                                Confirm Password :&ensp;
                                 <input
-                                  placeholder=" Re-type password "
+                                  class="ps-modal-input form-control"
+                                  placeholder=" Confirm password "
                                   type="password"
                                   value={this.state.p2}
                                   onChange={(e) => {
@@ -92,7 +90,7 @@ class PasswordSetter extends Component {
                                     });
                                   }}
                                 />
-                              </b>
+                              </h5>
                               <div style={{ color: "red" }}>
                                 {this.state.message}
                               </div>

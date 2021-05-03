@@ -17,3 +17,15 @@
 .modal-close-button:hover {
   opacity: 1;
 }
+
+.card-title {
+  color: green;
+  font-family: "Lucida Console", monospace;
+}
+
+.psh {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  color: darkred;
+}

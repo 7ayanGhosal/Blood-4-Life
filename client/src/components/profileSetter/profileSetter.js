@@ -42,9 +42,9 @@ class ProfileSetter extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new2">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title psh" id="exampleModalLabel">
                   Profile Details
-                </h5>
+                </h3>
                 <button
                   type="button"
                   class="btn-close"

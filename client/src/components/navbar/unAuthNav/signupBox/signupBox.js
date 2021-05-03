@@ -70,23 +70,22 @@ class SignupBox extends Component {
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>
-                          <div
-                            class="inputtext"
-                            style={{ fontStyle: "italic", fontSize: 20 + "px" }}
-                          >
-                            <b>Email : </b>{" "}
-                            <input
-                              type="email"
-                              id="text1"
-                              placeholder=" Enter your Email Id "
-                              value={this.state.email}
-                              onChange={(e) =>
-                                this.setState({ email: e.target.value })
-                              }
-                              disabled={this.context.disableEmail}
-                              required
-                            />
-                            <br />
+                          <div class="inputtext">
+                            <h5 class="field-label">
+                              Email Id:&emsp;{" "}
+                              <input
+                                type="email"
+                                class="modal-input form-control"
+                                id="text1"
+                                placeholder=" Enter your Email Id "
+                                value={this.state.email}
+                                onChange={(e) =>
+                                  this.setState({ email: e.target.value })
+                                }
+                                disabled={this.context.disableEmail}
+                                required
+                              />
+                            </h5>
                             <br />
                             <input
                               type="radio"
