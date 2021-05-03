@@ -7,6 +7,18 @@
   width: 200px;
   height: 40px;
 }
+
+.reseth {
+  text-align: center;
+  color: darkred;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+.rp-box-bg {
+  background-color: #c8bee2;
+}
+
 button:hover {
   background-color: REPLACEDlawngreen;
   color: rgb(233, 27, 13);
