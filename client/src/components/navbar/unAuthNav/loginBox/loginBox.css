@@ -71,6 +71,8 @@ button:hover {
 }
 
 .loginh {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
   text-align: center;
   color: darkred;
 }
@@ -81,8 +83,19 @@ button:hover {
 
 .card-title {
   color: green;
+  font-family: "Lucida Console", monospace;
 }
 
 .ltitle {
   display: inline;
+}
+
+.modal-input {
+  display: inline-block;
+  width: 70%;
+  border: 1px solid black;
+}
+
+.field-label {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }

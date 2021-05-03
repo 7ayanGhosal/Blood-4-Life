@@ -49,9 +49,10 @@ class LoginBox extends Component {
                           <div class="form-group row">
                             <br></br>
                             <br></br>
-                            <b>
+                            <h5 class="field-label">
                               Email ID &nbsp;:&ensp;
                               <input
+                                class="modal-input form-control"
                                 placeholder=" Enter your Email ID "
                                 type="email"
                                 value={this.state.email}
@@ -64,6 +65,7 @@ class LoginBox extends Component {
                               <br></br>
                               Password :&ensp;
                               <input
+                                class="modal-input form-control"
                                 placeholder=" Enter your password "
                                 type="password"
                                 value={this.state.pass}
@@ -71,7 +73,8 @@ class LoginBox extends Component {
                                   this.setState({ pass: e.target.value })
                                 }
                               />
-                            </b>
+                            </h5>
+                            <br />
                           </div>
                           <h5 id="loginMessage"></h5>
 
