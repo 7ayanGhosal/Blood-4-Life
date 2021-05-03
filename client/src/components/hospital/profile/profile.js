@@ -139,6 +139,17 @@ class Profile extends React.Component {
     return (
       <div>
         <div class="card-body">
+          {/* QR CODE */}
+          <img
+            id="QRCode"
+            src={
+              "https://api.qrserver.com/v1/create-qr-code/?data=https://blood-for-life.herokuapp.com/hospital/qr/" +
+              this.context.email +
+              "&amp;size=50x50"
+            }
+            alt=""
+            title=""
+          />
           <h4 class="card-title">Profile Details</h4>
           <br />
           <div class="card-text pcard">

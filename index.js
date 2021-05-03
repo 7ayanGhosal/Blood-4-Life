@@ -362,7 +362,7 @@ app.post("/login", async (req, res) => {
       });
     } else {
       account.password = "";
-      Account = { data: account, event: {} };
+      Account = { data: account, event: {} }; //ADD UPCOMING EVENTS
       res.send(Account);
     }
   }
@@ -538,11 +538,21 @@ app.post("/hospital/organiseCamp", (req, res) => {
   });
 });
 
-// app.get("/hospital/getEvents/:email", (req, res) => {
-//   camp.find({ email: req.params.email }, (err, foundCamps) => {
-//     res.send(foundCamps);
-//   });
-// });
+// QR Code Get request
+app.get("/hospital/qr/:email", (req, res) => {
+  hospital.findOne({ email: req.params.email }, (err, foundHosp) => {
+    if (err) {
+      res.send("Error occured " + err);
+    } else {
+      var data = {
+        name: foundHosp.name,
+        email: foundHosp.email,
+        location: foundHosp.location,
+      };
+      res.send(data);
+    }
+  });
+});
 
 app.get("/remove/:email", (req, res) => {
   user.deleteOne({ email: req.params.email }, (err, usr) => {

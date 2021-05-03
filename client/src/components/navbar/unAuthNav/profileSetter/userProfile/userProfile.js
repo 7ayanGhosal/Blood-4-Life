@@ -53,7 +53,7 @@ class UserProfile extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new2">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h5 class="modal-title psh" id="exampleModalLabel">
                   Profile Details
                 </h5>
                 <button
@@ -66,7 +66,10 @@ class UserProfile extends Component {
               </div>
               <div class="modal-body">
                 <form onSubmit={this.onFormSubmit}>
-                  <div class="card w-100" style={{ width: 18 + "rem" }} />
+                  <div
+                    class="card w-100 ps-bos-bg"
+                    style={{ width: 18 + "rem" }}
+                  />
                   <div class="card w-100">
                     <div class="card-body">
                       <h5 class="card-title">Profile</h5>

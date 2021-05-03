@@ -41,18 +41,22 @@
 }
 
 .otpverify {
-  margin-left: 20px;
-  float: left;
-  width: 40%;
+  float: right;
+  width: 30%;
 }
 
 .otpresend {
-  margin-right: 20px;
-  float: right;
-  width: 40%;
+  float: center;
+  width: 30%;
 }
 
 .email-change {
   float: left;
-  margin-left: 10px;
+  width: 33%;
+}
+
+.otp-modal-input {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid black;
 }

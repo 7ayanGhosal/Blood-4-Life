@@ -66,48 +66,50 @@ class SignupBox extends Component {
                   <div class="card-body sbox-bg">
                     <h4 class="card-title">Profile Details</h4>
                     <br />
-
+                    <br />
                     <p class="card-text">
                       <center>
                         <form onSubmit={this.onFormSubmit}>
-                          <div
-                            class="inputtext"
-                            style={{ fontStyle: "italic", fontSize: 20 + "px" }}
-                          >
-                            <b>Email : </b>{" "}
-                            <input
-                              type="email"
-                              id="text1"
-                              placeholder=" Enter your Email Id "
-                              value={this.state.email}
-                              onChange={(e) =>
-                                this.setState({ email: e.target.value })
-                              }
-                              disabled={this.context.disableEmail}
-                              required
-                            />
+                          <div class="inputtext">
+                            <h5 class="field-label">
+                              Email Id :&emsp;{" "}
+                              <input
+                                type="email"
+                                class="modal-input form-control"
+                                id="text1"
+                                placeholder=" Enter your Email Id "
+                                value={this.state.email}
+                                onChange={(e) =>
+                                  this.setState({ email: e.target.value })
+                                }
+                                disabled={this.context.disableEmail}
+                                required
+                              />
+                            </h5>
                             <br />
-                            <br />
-                            <input
-                              type="radio"
-                              value="person"
-                              name="accountType"
-                              // checked="checked"
-                              onChange={this.onTypePerson}
-                              disabled={this.context.disableEmail}
-                              required
-                            />
-                            <b>&nbsp;Person&nbsp;&nbsp;</b>
-                            <br />
-                            <input
-                              type="radio"
-                              value="Hospital"
-                              name="accountType"
-                              onChange={this.onTypeHospital}
-                              disabled={this.context.disableEmail}
-                              required
-                            />
-                            <b>&nbsp;Hospital</b>
+                            <h4 class="radio-label">
+                              <input
+                                type="radio"
+                                value="person"
+                                name="accountType"
+                                // checked="checked"
+                                onChange={this.onTypePerson}
+                                disabled={this.context.disableEmail}
+                                required
+                              />
+                              &nbsp;Person&emsp;
+                            </h4>
+                            <h4 class="radio-label">
+                              <input
+                                type="radio"
+                                value="Hospital"
+                                name="accountType"
+                                onChange={this.onTypeHospital}
+                                disabled={this.context.disableEmail}
+                                required
+                              />
+                              &nbsp;Hospital&ensp;
+                            </h4>
                             <br />
                           </div>
                           <br />

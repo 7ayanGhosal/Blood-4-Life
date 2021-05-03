@@ -10,7 +10,7 @@ import ContactUs from "./components/contactUs/contactUs";
 
 import Emergency from "./components/emergency/emergency";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
-
+import HospitalSearch from "./components/hospitalSearch/hospitalSearch";
 import faker from "faker";
 
 import "./App.css";
@@ -579,7 +579,12 @@ class App extends React.Component {
     var box = null;
     switch (this.state.page) {
       case "Home":
-        box = <Carousel></Carousel>;
+        box = (
+          <div>
+            <Carousel></Carousel>
+            {/* <HospitalSearch></HospitalSearch> */}
+          </div>
+        );
         break;
       case "Emergency":
         box = <Emergency></Emergency>;

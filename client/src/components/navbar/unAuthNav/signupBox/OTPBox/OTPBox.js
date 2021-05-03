@@ -24,22 +24,17 @@ class OTPBox extends Component {
     return (
       <div class="OTPBox">
         <br />
-        <button
-          class="btn btn-secondary email-change otp-btn"
-          onClick={() => this.context.enableEmail()}
-        >
-          Change email id
-        </button>
+
         <br />
-        <div class="settimer">
+        {/*<div class="settimer">
           <h4 class="timer">60 sec </h4>
-        </div>
+    </div>*/}
         <form onSubmit={this.onFormSubmit}>
           <div class="form-group-row">
             <h5>
               Enter OTP :&emsp;
               <input
-                class="otp"
+                class="otp form-control otp-modal-input"
                 type="number"
                 name="OTP"
                 onChange={(event) => {
@@ -52,6 +47,12 @@ class OTPBox extends Component {
             </h5>
           </div>
           <br />
+          <button
+            class="btn btn-secondary email-change otp-btn"
+            onClick={() => this.context.enableEmail()}
+          >
+            Change Email Id
+          </button>
           <button class="btn btn-success otpverify otp-btn" type="submit">
             Verify
           </button>
