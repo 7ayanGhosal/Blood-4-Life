@@ -357,16 +357,18 @@ class App extends React.Component {
       axios.post("/emergency", body).then(
         (res) => {
           // console.log(res);
-          var html = "";
-          for (var i = 0; i < res.data.length; i++) {
-            html +=
-              "<h5>Name: " +
-              res.data[i].name +
-              "</h5><br/><h5>Distance: " +
-              res.data[i].distance +
-              " KM</h5><br/><br/>";
-          }
-          document.getElementById("NearbyHospitals").innerHTML = html;
+          // var html = "";
+          // for (var i = 0; i < res.data.length; i++) {
+          //   html +=
+          //     "<h5>Name: " +
+          //     res.data[i].name +
+          //     "</h5><br/><h5>Distance: " +
+          //     res.data[i].distance +
+          //     " KM</h5><br/><br/>";
+          // }
+          // document.getElementById("NearbyHospitals").innerHTML = html;
+          // console.log(res.data);
+          return res.data;
         },
         (err) => {
           console.log(err);

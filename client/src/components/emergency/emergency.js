@@ -1,14 +1,31 @@
 import React from "react";
+import axios from "axios";
 import PlacePicker from "./placePicker/placePicker";
 import "./emergency.css";
+import HospitalList from "./hospitalList/hospitalList";
 
 class Emergency extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { Hospitals: [] };
+    this.hospSearch = (data) => {
+      axios.post("/emergency", data).then(
+        (Res) => {
+          this.setState({ Hospitals: Res.data });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    };
+  }
   render() {
+    var box = <HospitalList list={this.state.Hospitals}></HospitalList>;
     return (
       <div>
         <h1>Emergency</h1>
-        <PlacePicker></PlacePicker>
-        <div>
+        <PlacePicker hospSearch={this.hospSearch}></PlacePicker>
+        {/* <div>
           <div class="card">
             <div class="card-body">
               <h3 class="e-attribute" href="#">
@@ -50,7 +67,8 @@ class Emergency extends React.Component {
               <br />
             </div>
           </div>
-        </div>
+        </div> */}
+        {box}
       </div>
     );
   }

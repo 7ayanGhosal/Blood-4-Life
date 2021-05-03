@@ -31,6 +31,7 @@ class PlacePicker extends Component {
         pincode: "",
         eloc: "",
       },
+      Hospitals: [],
     };
     this.getUserLocation = () => {
       window.navigator.geolocation.getCurrentPosition(
@@ -109,7 +110,7 @@ class PlacePicker extends Component {
         );
     };
 
-    this.onFormSubmit = (e) => {
+    this.onFormSubmit = async (e) => {
       e.preventDefault();
       var res = {
         details: {
@@ -124,7 +125,11 @@ class PlacePicker extends Component {
           ...this.state.location,
         },
       };
-      this.context.emergency(res); //HAVE TO CHANGE THIS FOR SENDING LOCATION DETAILS!!!!
+
+      // var hospitals = await this.context.emergency(res);
+      // console.log(hospitals); //HAVE TO CHANGE THIS FOR SENDING LOCATION DETAILS!!!!
+      // console.log(this.state.Hospitals);
+      this.props.hospSearch(res);
     };
   }
 
