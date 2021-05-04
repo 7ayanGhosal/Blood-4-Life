@@ -211,9 +211,10 @@ class PlacePicker extends Component {
             required
           ></input>
           <br></br>
-          <h5>Blood Group:</h5>
+          <h5 class="d-inline">Blood Group:</h5>
           <select
             name="bloodGroup"
+            class="d-inline"
             value={this.state.bloodGroup}
             onChange={(e) => {
               this.setState({ bloodGroup: e.target.value });
@@ -225,10 +226,11 @@ class PlacePicker extends Component {
             <option value="AB">AB</option>
             <option value="O">O</option>
           </select>
-          <br /> <br />
-          <h5>Rh factor :</h5>
+          {/* <br /> <br /> */}
+          <h5 class="d-inline">Rh factor :</h5>
           <select
             name="rhFactor"
+            class="d-inline"
             value={this.state.rhFactor}
             onChange={(e) => {
               this.setState({ rhFactor: e.target.value });
@@ -259,7 +261,7 @@ class PlacePicker extends Component {
           </h5>
           {mapJSX}
           <button type="submit" className="btn btn-success w-100 mt-1">
-            Create Account
+            Submit
           </button>
         </form>
         <div id="NearbyHospitals"></div>
