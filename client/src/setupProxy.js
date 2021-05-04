@@ -13,6 +13,7 @@ module.exports = function (app) {
       "/hospital",
       "/user",
       "/emergency",
+      "/requestBlood",
     ],
     createProxyMiddleware({
       target: "http://localhost:5000",

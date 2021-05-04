@@ -9,6 +9,7 @@ class RequestBlood extends React.Component {
     super(props);
     this.state = {
       Hospitals: [],
+      dispState: 1, //1: Default, 2: Hospitals Found, 3: Display User Button, 4: Change Range
       details: {
         name: "",
         contact: "",
@@ -17,17 +18,37 @@ class RequestBlood extends React.Component {
       },
     };
     this.hospSearch = (data) => {
-      axios.post("/emergency", data).then(
+      axios.post("/requestBlood/hospitals", data).then(
         (Res) => {
-          this.setState({
-            details: {
-              name: data.details.name,
-              contact: data.details.contact,
-              bloodGroup: data.details.bloodGroup,
-              rhFactor: data.details.rhFactor,
+          // console.log(Res);
+          this.setState(
+            {
+              details: {
+                name: data.details.name,
+                contact: data.details.contact,
+                bloodGroup: data.details.bloodGroup,
+                rhFactor: data.details.rhFactor,
+                maxDistance: data.details.maxDistance,
+              },
             },
-            Hospitals: Res.data,
-          });
+            () => {
+              if (Res.data.length === 0) {
+                // axios.post("/requestBlood/user", data).then((res) => {
+                //   if (res.data.length === 0)
+                //     document.getElementById("listMessage").innerText =
+                //       "No hospital or donor exists in the given range, please increase the range";
+                //   else {
+                //     document.getElementById("listMessage").innerText =
+                //       "No hospitals found in the given range with necessary blood type, showing a list of willing donors in the range";
+                //     this.setState({ Hospitals: res.data });
+                //   }
+                // });
+                this.setState({ dispState: 3 });
+              } else {
+                this.setState({ Hospitals: Res.data, dispState: 2 });
+              }
+            }
+          );
         },
         (err) => {
           console.log(err);
@@ -36,12 +57,16 @@ class RequestBlood extends React.Component {
     };
   }
   render() {
-    var box = (
-      <HospitalList
-        list={this.state.Hospitals}
-        details={this.state.details}
-      ></HospitalList>
-    );
+    var box = null;
+    if (this.state.dispState !== 1) {
+      box = (
+        <HospitalList
+          list={this.state.Hospitals}
+          details={this.state.details}
+          dispState={this.state.dispState}
+        ></HospitalList>
+      );
+    }
     return (
       <div>
         <h5>Make A Blood Request From Other Hospitals</h5>

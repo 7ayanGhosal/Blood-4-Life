@@ -614,6 +614,80 @@ app.post("/emergency", (req, res) => {
   });
 });
 
+app.post("/requestBlood/hospitals", (req, res) => {
+  Hosp = [];
+  var bloodType = "";
+  hospital.find({}, (err, Hospitals) => {
+    if (err) console.log(err);
+    else {
+      for (var i = 0; i < Hospitals.length; i++) {
+        var distance = Distance(
+          Hospitals[i].location.latitude,
+          req.body.location.latitude,
+          Hospitals[i].location.longitude,
+          req.body.location.longitude
+        );
+        distance = distance.toFixed(3);
+        bloodType =
+          req.body.details.bloodGroup +
+          (req.body.details.rhFactor === "Positive" ? "+" : "-");
+        if (
+          Hospitals[i].bloodStock[bloodType] > 0 &&
+          distance < req.body.details.maxDistance &&
+          Hospitals[i].email !== req.body.details.contact
+        ) {
+          Hosp.push({
+            name: Hospitals[i].name,
+            email: Hospitals[i].email,
+            bloodStock: Hospitals[i].bloodStock,
+            location: Hospitals[i].location,
+            distance: distance,
+          });
+        }
+      }
+      Hosp.sort((a, b) => {
+        return a.distance - b.distance;
+      });
+      res.send(Hosp);
+    }
+  });
+});
+
+app.post("/requestBlood/user", (req, res) => {
+  User = [];
+  user.find({}, (err, Users) => {
+    if (err) console.log(err);
+    else {
+      for (var i = 0; i < Users.length; i++) {
+        var distance = Distance(
+          Users[i].location.latitude,
+          req.body.location.latitude,
+          Users[i].location.longitude,
+          req.body.location.longitude
+        );
+        distance = distance.toFixed(3);
+        User.push({
+          name: Users[i].firstName + " " + Users[i].lastName,
+          email: Users[i].email,
+          bloodGroup: Users[i].bloodGroup,
+          rhFactor: Users[i].rhFactor,
+          location: Users[i].location,
+          distance: distance,
+        });
+      }
+      Hosp.sort((a, b) => {
+        return a.distance - b.distance;
+      });
+      var i = 0;
+      for (i = 0; i < Hosp.length; i++) {
+        if (Hosp[i].distance > req.body.details.maxDistance) break;
+      }
+      // console.log(Hosp.slice(0, i));
+      res.send(Hosp.slice(0, i));
+    }
+  });
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
