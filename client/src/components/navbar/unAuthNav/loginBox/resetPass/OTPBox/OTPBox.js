@@ -50,7 +50,7 @@ class OTPBox extends Component {
           <button
             class="btn btn-secondary email-change otp-btn"
             onClick={() => {
-              this.props.onchangeEmail();
+              this.props.onChangeEmail();
             }}
           >
             Change Email Id
@@ -65,7 +65,7 @@ class OTPBox extends Component {
         >
           Resend
         </button>
-        <h3 id="ResetPassOTPMessage"></h3>
+        <h3 id="ResetPassOTPBoxMessage"></h3>
       </div>
     );
   }
