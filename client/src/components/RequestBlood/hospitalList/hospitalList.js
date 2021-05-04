@@ -6,12 +6,11 @@ class HospitalList extends React.Component {
     this.state = {
       maxDistance: 200,
       onlyAvailable: false,
-      listmessage: "",
     };
   }
 
   render() {
-    var jsx = [];
+    var jsx2 = [];
 
     if (this.props.details.rhFactor === "Positive") {
       this.props.details.rhFactor = "+";
@@ -19,9 +18,8 @@ class HospitalList extends React.Component {
       this.props.details.rhFactor = "-";
     }
     if (this.props.dispState === 2) {
-      this.setState({ listmessage: "" });
       this.props.list.forEach((ele, slno) => {
-        jsx.push(
+        jsx2.push(
           <tr>
             <th scope="row">{slno + 1}</th>
             <td>{ele.name}</td>
@@ -54,31 +52,45 @@ class HospitalList extends React.Component {
         );
       });
     } else if (this.props.dispState === 3) {
-      this.setState({
-        listmessage:
-          "<h5>No hospital found in given range, please increase your search range</h5><br/><h5>or...</h5><br/><h5>Mail all donors within " +
-          this.state.maxDistance +
-          " KM :</h5><button id='userMail'>Mail donors</button>",
-      });
-      document.getElementById("listMessage").onclick = () => {
-        console.log("Ami Kaaj Korchi!!!");
-      };
+      // document.getElementById("listMessage").onclick = () => {
+      //   console.log("Ami Kaaj Korchi!!!");
+      // };
     }
     return (
       <div>
         <div id="listMessage"></div>
-        <table class="table table-bordered table-light hover m-auto">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email id</th>
-              <th scope="col">Address</th>
-              <th scope="col">Distance</th>
-            </tr>
-          </thead>
-          <tbody>{jsx}</tbody>
-        </table>
+        {this.props.dispState === 2 ? (
+          <table class="table table-bordered table-light hover m-auto">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email id</th>
+                <th scope="col">Address</th>
+                <th scope="col">Distance</th>
+              </tr>
+            </thead>
+            <tbody>{jsx2}</tbody>
+          </table>
+        ) : null}
+
+        {this.props.dispState === 3 ? (
+          <div>
+            <h5>
+              No hospital found in given range, please increase your search
+              range
+            </h5>
+            <br />
+            <h5>or...</h5>
+            <br />
+            <h5 class="d-inline">
+              Mail all donors within <b>{this.state.maxDistance} KM </b> {"=>"}
+            </h5>
+            <button class="d-inline" id="userMail">
+              Mail Potential Donors
+            </button>
+          </div>
+        ) : null}
       </div>
     );
   }

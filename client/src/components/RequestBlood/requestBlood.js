@@ -70,7 +70,7 @@ class RequestBlood extends React.Component {
     return (
       <div>
         <h5>Make A Blood Request From Other Hospitals</h5>
-        <p>(Or Send Request To Users If Not Available In Hospitals)</p>
+        <p>(Send Request To Users If Not Available In Hospitals)</p>
         <PlacePicker hospSearch={this.hospSearch}></PlacePicker>
         {box}
       </div>
