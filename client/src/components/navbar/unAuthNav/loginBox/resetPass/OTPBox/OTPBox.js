@@ -23,38 +23,49 @@ class OTPBox extends Component {
   render() {
     return (
       <div class="OTPBox">
-        <button
-          class="btn btn-primary"
-          onClick={() => {
-            this.props.onChangeEmail();
-          }}
-        >
-          change email id
-        </button>
-        <div class="settimer">
+        {/*<div class="settimer">
           <h4 class="timer">60 sec </h4>
-        </div>
+        </div>*/}
+        <br />
         <form onSubmit={this.onFormSubmit}>
-          <input
-            class="otp"
-            type="number"
-            name="OTP"
-            onChange={(event) => {
-              this.setState({ otp: event.target.value });
-              document.getElementById("ResetPassOTPBoxMessage").innerText = "";
+          <div class="form-group-row">
+            <h5>
+              Enter OTP :&emsp;
+              <input
+                class="otp form-control otp-modal-input"
+                type="number"
+                name="OTP"
+                onChange={(event) => {
+                  this.setState({ otp: event.target.value });
+                  document.getElementById("ResetPassOTPBoxMessage").innerText =
+                    "";
+                }}
+                value={this.state.otp}
+                min="10000"
+                max="99999"
+              />
+            </h5>
+          </div>
+          <br />
+          <button
+            class="btn btn-secondary email-change otp-btn"
+            onClick={() => {
+              this.props.onchangeEmail();
             }}
-            value={this.state.otp}
-            min="10000"
-            max="99999"
-          />
-          <button class="btn btn-primary" type="submit">
-            verify
+          >
+            Change Email Id
+          </button>
+          <button class="btn btn-success otpverify otp-btn" type="submit">
+            Verify
           </button>
         </form>
-        <button class="btn btn-primary" onClick={() => this.props.onResend()}>
-          resend
+        <button
+          class="btn btn-danger otpresend otp-btn"
+          onClick={() => this.props.onResend()}
+        >
+          Resend
         </button>
-        <h3 id="ResetPassOTPBoxMessage"></h3>
+        <h3 id="ResetPassOTPMessage"></h3>
       </div>
     );
   }
