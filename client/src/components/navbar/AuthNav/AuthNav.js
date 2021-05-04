@@ -37,7 +37,11 @@ class AuthNav extends Component {
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
                     onClick={() => this.context.pageHandler("Emergency")}
                   >
-                    <b>Emergency</b>
+                    {this.context.isHospital ? (
+                      <b>Request Blood</b>
+                    ) : (
+                      <b>Emergency</b>
+                    )}
                   </button>
                 </div>
                 <div class="nav-item">
