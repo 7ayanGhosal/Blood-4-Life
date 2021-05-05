@@ -142,6 +142,7 @@ class Profile extends React.Component {
           {/* QR CODE */}
           <img
             id="QRCode"
+            class="hospital-pic"
             src={
               "https://api.qrserver.com/v1/create-qr-code/?data=https://blood-for-life.herokuapp.com/hospital/qr/" +
               this.context.email +
@@ -150,9 +151,11 @@ class Profile extends React.Component {
             alt=""
             title=""
           />
-          <h4 class="card-title">Profile Details</h4>
           <br />
-          <div class="card-text pcard">
+          <br />
+          <h2 class="card-title">Profile Details</h2>
+          <br />
+          <div class="cardtext">
             <h3 class="p-attribute" href="#">
               Name :-{" "}
             </h3>
@@ -245,7 +248,8 @@ class Profile extends React.Component {
                   <br /> <br />
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>
-                    <div class="card-text pcard">
+                    <br />
+                    <div class="cardtext">
                       <h3 class="p-attribute" href="#">
                         Name :-&ensp;{" "}
                       </h3>

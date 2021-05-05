@@ -141,7 +141,7 @@ class Profile extends React.Component {
         <div class="card-body profile-bg">
           <h3 class="card-title p-card">Profile Details</h3>
           <br />
-          <div class="card-text">
+          <div class="cardtext">
             <h3 class="p-attribute" href="#">
               Name :-{" "}
             </h3>
@@ -277,7 +277,8 @@ class Profile extends React.Component {
                   <br /> <br />
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>
-                    <div class="card-text">
+                    <br />
+                    <div class="cardtext">
                       <h3 class="p-attribute" href="#">
                         First Name :-&emsp;{" "}
                       </h3>
@@ -303,7 +304,7 @@ class Profile extends React.Component {
                       />
                       <br /> <br />
                       <h3 class="p-attribute" href="#">
-                        Address :-&emsp;{" "}
+                        Address :-&emsp;&ensp;{" "}
                       </h3>
                       <input
                         class="p-value form-control profile-modal-input4"
@@ -367,10 +368,11 @@ class Profile extends React.Component {
                         <option value={false}>No</option>
                       </select>
                       <br />
+                      <br />
                       <hr class="hr-style"></hr>
                       <div>
                         <h4 class="profile-placepicker">Enter your address</h4>
-
+                        <br />
                         <input
                           class="form-control profile-modal-input6"
                           name="address"
@@ -382,7 +384,8 @@ class Profile extends React.Component {
                         <div class="slist" id="suggestions">
                           <ul class="list-group">{suggestions}</ul>
                         </div>
-                        <br></br>
+                        <br />
+                        <br />
                         <h5>
                           Or, drag the pointer in the map below (Use scroll to
                           zoom in/out)

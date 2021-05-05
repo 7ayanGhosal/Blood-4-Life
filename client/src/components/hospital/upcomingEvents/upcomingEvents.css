@@ -6,11 +6,12 @@
 }
 
 .ue-attribute {
-  display: inline-block;
+  display: inline;
   color: red;
+  justify-content: left;
 }
 
 .ue-value {
-  display: inline-block;
+  display: inline;
   font-style: italic;
 }

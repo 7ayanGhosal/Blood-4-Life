@@ -1,10 +1,10 @@
 .p-attribute {
-  display: inline-block;
+  display: inline;
   color: red;
 }
 
 .p-value {
-  display: inline-block;
+  display: inline;
   font-style: italic;
 }
 
@@ -83,8 +83,9 @@
 }
 
 .profile-placepicker {
-  color: green;
+  color: violet;
   font-family: "Lucida Console", monospace;
+  text-align: center;
 }
 
 .hr-style {
