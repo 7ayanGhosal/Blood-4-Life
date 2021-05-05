@@ -24,8 +24,6 @@ class OTPBox extends Component {
     return (
       <div class="OTPBox">
         <br />
-
-        <br />
         {/*<div class="settimer">
           <h4 class="timer">60 sec </h4>
     </div>*/}
@@ -47,12 +45,12 @@ class OTPBox extends Component {
             </h5>
           </div>
           <br />
-          <button
+          <div
             class="btn btn-secondary email-change otp-btn"
             onClick={() => this.context.enableEmail()}
           >
             Change Email Id
-          </button>
+          </div>
           <button class="btn btn-success otpverify otp-btn" type="submit">
             Verify
           </button>
