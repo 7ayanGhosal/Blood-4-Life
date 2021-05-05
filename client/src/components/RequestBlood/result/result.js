@@ -1,10 +1,9 @@
 import React from "react";
 
-class HospitalList extends React.Component {
+class Result extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      maxDistance: 200,
       onlyAvailable: false,
     };
   }
@@ -73,7 +72,6 @@ class HospitalList extends React.Component {
             <tbody>{jsx2}</tbody>
           </table>
         ) : null}
-
         {this.props.dispState === 3 ? (
           <div>
             <h5>
@@ -84,11 +82,30 @@ class HospitalList extends React.Component {
             <h5>or...</h5>
             <br />
             <h5 class="d-inline">
-              Mail all donors within <b>{this.state.maxDistance} KM </b> {"=>"}
+              Mail all donors within <b>{this.props.details.maxDistance} KM </b>{" "}
+              {"=>"}
             </h5>
-            <button class="d-inline" id="userMail">
+            <button
+              onClick={this.props.mailUsers}
+              class="d-inline"
+              id="userMail"
+            >
               Mail Potential Donors
             </button>
+          </div>
+        ) : null}
+        {this.props.dispState === 4 ? (
+          <div>
+            <h5>Couldn't Mail Any Suitable Donor!!</h5>
+            <h5>Please Increase Your Search Range</h5>
+          </div>
+        ) : null}
+
+        {this.props.dispState === 5 ? (
+          <div>
+            <h5>We Have Successfully Informed {this.props.count} Donors</h5>
+            <h5>Please Wait For Their Response</h5>
+            <h5>Or, Increase The Search Range For More Hospitals.</h5>
           </div>
         ) : null}
       </div>
@@ -96,4 +113,4 @@ class HospitalList extends React.Component {
   }
 }
 
-export default HospitalList;
+export default Result;
