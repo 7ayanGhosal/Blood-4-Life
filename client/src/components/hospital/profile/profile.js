@@ -138,7 +138,7 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <div class="card-body">
+        <div class="card-body hprofile-bg">
           {/* QR CODE */}
           <img
             id="QRCode"
@@ -153,23 +153,25 @@ class Profile extends React.Component {
           <h4 class="card-title">Profile Details</h4>
           <br />
           <div class="card-text pcard">
-            <h3 class="attribute" href="#">
+            <h3 class="p-attribute" href="#">
               Name :-{" "}
             </h3>
             &ensp;
-            <h3 class="value">{this.context.name}</h3>
+            <h3 class="p-value">{this.context.name}</h3>
             <br />
-            <h3 class="attribute" href="#">
+            <br />
+            <h3 class="p-attribute" href="#">
               Email :-{" "}
             </h3>
             &ensp;
-            <h3 class="value">{this.context.email}</h3>
+            <h3 class="p-value">{this.context.email}</h3>
             <br />
-            <h3 class="attribute" href="#">
+            <br />
+            <h3 class="p-attribute" href="#">
               Address :-{" "}
             </h3>
             &ensp;
-            <h3 class="value">
+            <h3 class="p-value">
               {this.context.location.poi +
                 ", " +
                 this.context.location.street +
@@ -193,16 +195,20 @@ class Profile extends React.Component {
                 this.context.location.pincode}
             </h3>
             <br />
+            <br />
           </div>
+          <button
+            type="button"
+            class="btn btn-success edit-profile"
+            data-bs-toggle="modal"
+            data-bs-target="#profileResetModal"
+          >
+            Edit Profile
+          </button>
+          <br />
+          <br />
         </div>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#profileResetModal"
-        >
-          Edit Profile
-        </button>
+
         <div
           class="modal fade"
           id="profileResetModal"
@@ -217,9 +223,9 @@ class Profile extends React.Component {
           >
             <div class="modal-content">
               <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">
+                <h1 class="modal-title editph" id="exampleModalLabel">
                   Edit Profile
-                </h2>
+                </h1>
                 <button
                   id="closeProfileResetModal"
                   type="button"
@@ -232,30 +238,32 @@ class Profile extends React.Component {
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
                   <img
                     src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
-                    class="card-img-top"
+                    class="card-img-top hospital-pic"
                     alt="..."
                   />
                   <input class="img-change" type="file" />
                   <br /> <br />
                   <div class="card-body">
-                    <h4 class="card-title">Profile</h4>
+                    <h3 class="card-title p-card">Profile</h3>
                     <div class="card-text pcard">
-                      <h3 class="attribute" href="#">
-                        Name :-{" "}
+                      <h3 class="p-attribute" href="#">
+                        Name :-&ensp;{" "}
                       </h3>
                       <input
-                        class="value"
+                        class="p-value form-control hp-modal-input"
                         type="text"
                         value={this.state.name}
                         onChange={(e) => {
                           this.setState({ name: e.target.value });
                         }}
                       />
-                      <br /> <br />
+                      <br />
+                      <br />
+                      <hr class="hr-style"></hr>
                       <div>
-                        <h5>Enter your address</h5>
+                        <h4 class="hp-placepicker">Enter your address</h4>
                         <input
-                          class="form-control"
+                          class="form-control hp-modal-input2"
                           name="address"
                           type="text"
                           onChange={this.addressChange}
@@ -265,7 +273,8 @@ class Profile extends React.Component {
                         <div class="slist" id="suggestions">
                           <ul class="list-group">{suggestions}</ul>
                         </div>
-                        <br></br>
+                        <br />
+                        <br />
                         <h5>
                           Or, drag the pointer in the map below (Use scroll to
                           zoom in/out)

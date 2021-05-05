@@ -4,3 +4,13 @@
   background: linear-gradient(to right, #f37335, #fdc830);
   box-shadow: 5px 10px 18px red;
 }
+
+.ue-attribute {
+  display: inline-block;
+  color: red;
+}
+
+.ue-value {
+  display: inline-block;
+  font-style: italic;
+}

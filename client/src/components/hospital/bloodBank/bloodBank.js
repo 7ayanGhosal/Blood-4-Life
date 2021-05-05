@@ -27,10 +27,11 @@ class BloodBank extends Component {
   }
   render() {
     return (
-      <div class="back">
-        <div class="container">
+      <div class="bb-bg">
+        <div class="container ">
           <center>
-            <h1>Blood Bank Archive</h1>
+            <h1 class="bb-h">Blood Bank Archive</h1>
+            <br />
             <div class="row">
               <div class="col-sm">
                 <div class="col-name">
@@ -39,9 +40,10 @@ class BloodBank extends Component {
                   </p>
                 </div>{" "}
                 <br></br>
-                <p class="text">
-                  A+&ensp;{" "}
+                <h4 class="blood-text">
+                  A+&ensp;&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -56,11 +58,12 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
-                <p class="text">
-                  B+&ensp;{" "}
+                <h4 class="blood-text">
+                  B+&ensp;&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -75,11 +78,12 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
-                <p class="text">
-                  AB+{" "}
+                <h4 class="blood-text">
+                  AB+&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -94,11 +98,12 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
-                <p class="text">
-                  O+&ensp;{" "}
+                <h4 class="blood-text">
+                  O+&ensp;&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -113,7 +118,7 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
               </div>
               <div class="col-sm">
@@ -123,9 +128,10 @@ class BloodBank extends Component {
                   </p>
                 </div>{" "}
                 <br></br>
-                <p class="text">
-                  A-&ensp;{" "}
+                <h4 class="blood-text">
+                  A-&ensp;&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -140,11 +146,12 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
-                <p class="text">
-                  B-&ensp;{" "}
+                <h4 class="blood-text">
+                  B-&ensp;&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -159,11 +166,12 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
-                <p class="text">
-                  AB-{" "}
+                <h4 class="blood-text">
+                  AB-&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -178,11 +186,12 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
-                <p class="text">
-                  O-&ensp;{" "}
+                <h4 class="blood-text">
+                  O-&ensp;&ensp;{" "}
                   <input
+                    class="form-control bb-modal-input"
                     type="number"
                     name="OTP"
                     min="0"
@@ -197,7 +206,7 @@ class BloodBank extends Component {
                       this.updateStock();
                     }}
                   />
-                </p>
+                </h4>
                 <br></br>
               </div>
             </div>
