@@ -100,9 +100,7 @@ class PlacePicker extends Component {
             value={this.state.address}
             disabled
           />
-          {/* <div class="slist" id="suggestions">
-            <ul class="list-group">{suggestions}</ul>
-          </div> */}
+
           <br></br>
           <h5 class="d-inline">Blood Group:</h5>
           <select
@@ -120,7 +118,7 @@ class PlacePicker extends Component {
             <option value="AB">AB</option>
             <option value="O">O</option>
           </select>
-          {/* <br /> <br /> */}
+
           <h5 class="d-inline">Rh factor :</h5>
           <select
             name="rhFactor"

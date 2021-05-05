@@ -1,5 +1,5 @@
 import React from "react";
-import "./hospitalList.css" ;
+import "./hospitalList.css";
 class HospitalList extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ class HospitalList extends React.Component {
       ) {
         hospListjsx.push(
           <tr>
-            <th scope="row">{slno + 1}</th>
+            <td>{ele.distance}</td>
             <td>{available ? "Yes" : "No"}</td>
             <td>{ele.name}</td>
             <td>{ele.email}</td>
@@ -65,60 +65,65 @@ class HospitalList extends React.Component {
                 ", " +
                 ele.location.pincode}
             </td>
-            <td>{ele.distance}</td>
           </tr>
         );
       }
     });
     return (
-      <div>
-        <h4>Filter by: </h4>
-        <label for="customRange3" class="form-label distance_txt">
-        <b>  Max Distance ( {this.state.maxDistance} KM)</b>
-        </label>
-        <input
-          type="range"
-          class="form-range w-50"
-          min="20"
-          max="200"
-          step="20"
-          id="customRange3"
-          value={this.state.maxDistance}
-          onChange={(e) =>
-            this.setState({ maxDistance: parseInt(e.target.value, 10) })
-          }
-        ></input>
-        <div class="form-check form-switch">
-          <label class="form-check-label blood_font" for="flexSwitchCheckDefault">
-            <b>
-            Blood Type {this.props.details.bloodGroup}{" "}
-            {this.props.details.rhFactor} availability
-            </b>
+      <div class="main-div">
+        <div class="filters">
+          <h4>Filter by: </h4>
+          <label for="customRange3" class="form-label distance_txt">
+            <b> Max Distance ( {this.state.maxDistance} KM)</b>
           </label>
           <input
-            class="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-            disabled={this.props.details.bloodGroup === "" ? true : false}
-            checked={this.state.onlyAvailable}
-            onChange={(e) => {
-              this.setState({ onlyAvailable: e.target.checked });
-            }}
-          />
+            type="range"
+            class="form-range w-50"
+            min="20"
+            max="200"
+            step="20"
+            id="customRange3"
+            value={this.state.maxDistance}
+            onChange={(e) =>
+              this.setState({ maxDistance: parseInt(e.target.value, 10) })
+            }
+          ></input>
+          <div class="form-check form-switch">
+            <label
+              class="form-check-label blood_font"
+              for="flexSwitchCheckDefault"
+            >
+              <b>
+                Blood Type {this.props.details.bloodGroup}{" "}
+                {this.props.details.rhFactor} availability
+              </b>
+            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexSwitchCheckDefault"
+              disabled={this.props.details.bloodGroup === "" ? true : false}
+              checked={this.state.onlyAvailable}
+              onChange={(e) => {
+                this.setState({ onlyAvailable: e.target.checked });
+              }}
+            />
+          </div>
         </div>
-        <table class="table table-bordered table-light hover m-auto">
-          <thead>
-            <tr class="table-info">
-              <th scope="col">#</th>
-              <th scope="col">Availability</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email id</th>
-              <th scope="col">Address</th>
-              <th scope="col">Distance</th>
-            </tr>
-          </thead>
-          <tbody>{hospListjsx}</tbody>
-        </table>
+        <pre class="hospitalList">
+          <table class="table table-bordered table-light hover m-auto">
+            <thead>
+              <tr class="table-info">
+                <th scope="col">Distance</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email id</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>{hospListjsx}</tbody>
+          </table>
+        </pre>
       </div>
     );
   }
