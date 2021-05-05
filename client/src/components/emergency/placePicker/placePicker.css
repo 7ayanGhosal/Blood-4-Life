@@ -21,3 +21,7 @@
   object-position: center;
   max-height: 250px;
 }
+.emergency_background{
+  background-color: rgb(119, 209, 119);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}

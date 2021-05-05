@@ -186,11 +186,11 @@ class PlacePicker extends Component {
     }
 
     return (
-      <div class="container">
+      <div class="container emergency_background">
         <form onSubmit={this.onFormSubmit}>
-          <h5>Name :</h5>
+          <h4>Name :</h4>
           <input
-            class="form-control"
+            class="form-control "
             name="name"
             type="text"
             onChange={(e) => this.setState({ name: e.target.value })}
@@ -199,7 +199,7 @@ class PlacePicker extends Component {
             required
           ></input>
           <br></br>
-          <h5>Contact Details (email/phone):</h5>
+          <h4>Contact Details (Email/Phone):</h4>
           <p>(Note: Hospitals might contact you if required)</p>
           <input
             class="form-control"
@@ -211,10 +211,10 @@ class PlacePicker extends Component {
             required
           ></input>
           <br></br>
-          <h5 class="d-inline">Blood Group:</h5>
+          <h4 class="d-inline p-3">Blood Group:</h4>
           <select
             name="bloodGroup"
-            class="d-inline"
+            class="d-inline m-auto"
             value={this.state.bloodGroup}
             onChange={(e) => {
               this.setState({ bloodGroup: e.target.value });
@@ -227,10 +227,10 @@ class PlacePicker extends Component {
             <option value="O">O</option>
           </select>
           {/* <br /> <br /> */}
-          <h5 class="d-inline">Rh factor :</h5>
+          <h4 class="d-inline m-auto p-3">Rh factor :</h4>
           <select
             name="rhFactor"
-            class="d-inline"
+            class="d-inline m-auto"
             value={this.state.rhFactor}
             onChange={(e) => {
               this.setState({ rhFactor: e.target.value });
@@ -242,7 +242,7 @@ class PlacePicker extends Component {
           </select>
           <br />
           <br></br>
-          <h5>Enter your address</h5>
+          <h4>Enter your address</h4>
           <input
             class="form-control"
             name="address"

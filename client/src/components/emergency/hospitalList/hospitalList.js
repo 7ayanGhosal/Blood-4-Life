@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./hospitalList.css" ;
 class HospitalList extends React.Component {
   constructor(props) {
     super(props);
@@ -72,13 +72,13 @@ class HospitalList extends React.Component {
     });
     return (
       <div>
-        <h5>Filter by: </h5>
-        <label for="customRange3" class="form-label">
-          Max Distance ( {this.state.maxDistance} KM)
+        <h4>Filter by: </h4>
+        <label for="customRange3" class="form-label distance_txt">
+        <b>  Max Distance ( {this.state.maxDistance} KM)</b>
         </label>
         <input
           type="range"
-          class="form-range w-75"
+          class="form-range w-50"
           min="20"
           max="200"
           step="20"
@@ -89,9 +89,11 @@ class HospitalList extends React.Component {
           }
         ></input>
         <div class="form-check form-switch">
-          <label class="form-check-label" for="flexSwitchCheckDefault">
+          <label class="form-check-label blood_font" for="flexSwitchCheckDefault">
+            <b>
             Blood Type {this.props.details.bloodGroup}{" "}
             {this.props.details.rhFactor} availability
+            </b>
           </label>
           <input
             class="form-check-input"
@@ -106,7 +108,7 @@ class HospitalList extends React.Component {
         </div>
         <table class="table table-bordered table-light hover m-auto">
           <thead>
-            <tr>
+            <tr class="table-info">
               <th scope="col">#</th>
               <th scope="col">Availability</th>
               <th scope="col">Name</th>
