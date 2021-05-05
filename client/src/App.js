@@ -115,8 +115,8 @@ class App extends React.Component {
               this.context.resetPassEmail = Email.email;
               document.getElementById("ResetPassPasswordSetter").style.display =
                 "block";
-              document.getElementById("ResetPassEmail").disabled = "true";
-              document.getElementById("ResetPassSubmit").disabled = "true";
+              document.getElementById("ResetPassEmail").disabled = true;
+              document.getElementById("ResetPassSubmit").disabled = true;
             } else {
               //error in nodemailer
               document.getElementById("ResetPassOTPBox").style.display =
@@ -280,6 +280,7 @@ class App extends React.Component {
       document.getElementById("ResetPassPasswordSetter").style.display = "none";
     };
     this.resetPassword = (OTP) => {
+      console.log("Faltu logs!!!");
       const body = {
         email: this.context.resetPassEmail,
         password: this.context.resetPassPassword,

@@ -112,7 +112,6 @@ class SignupBox extends Component {
                             </h4>
                             <br />
                           </div>
-                          <br />
                           <div>
                             <button
                               type="submit"
