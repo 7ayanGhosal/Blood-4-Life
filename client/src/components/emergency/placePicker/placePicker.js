@@ -186,85 +186,96 @@ class PlacePicker extends Component {
     }
 
     return (
-      <div class="container">
-        <form onSubmit={this.onFormSubmit}>
-          <h5>Name :</h5>
-          <input
-            class="form-control"
-            name="name"
-            type="text"
-            onChange={(e) => this.setState({ name: e.target.value })}
-            value={this.state.name}
-            placeholder="Enter Your Name"
-            required
-          ></input>
-          <br></br>
-          <h5>Contact Details (email/phone):</h5>
-          <p>(Note: Hospitals might contact you if required)</p>
-          <input
-            class="form-control"
-            name="contact"
-            type="text"
-            onChange={(e) => this.setState({ contact: e.target.value })}
-            value={this.state.contact}
-            placeholder="Email/ Phone Number"
-            required
-          ></input>
-          <br></br>
-          <h5 class="d-inline">Blood Group:</h5>
-          <select
-            name="bloodGroup"
-            class="d-inline"
-            value={this.state.bloodGroup}
-            onChange={(e) => {
-              this.setState({ bloodGroup: e.target.value });
-            }}
-          >
-            <option value="">Not Sure</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="AB">AB</option>
-            <option value="O">O</option>
-          </select>
-          {/* <br /> <br /> */}
-          <h5 class="d-inline">Rh factor :</h5>
-          <select
-            name="rhFactor"
-            class="d-inline"
-            value={this.state.rhFactor}
-            onChange={(e) => {
-              this.setState({ rhFactor: e.target.value });
-            }}
-          >
-            <option value="">Not Sure</option>
-            <option value="Positive">Positive</option>
-            <option value="Negative">Negative</option>
-          </select>
-          <br />
-          <br></br>
-          <h5>Enter your address</h5>
-          <input
-            class="form-control"
-            name="address"
-            type="text"
-            onChange={this.addressChange}
-            value={this.state.address}
-            placeholder="Enter your address"
-            required
-          ></input>
-          <div class="slist" id="suggestions">
-            <ul class="list-group">{suggestions}</ul>
-          </div>
-          <br></br>
-          <h5>
-            Or, drag the pointer in the map below (Use scroll to zoom in/out)
-          </h5>
-          {mapJSX}
-          <button type="submit" className="btn btn-success w-100 mt-1">
-            Submit
-          </button>
-        </form>
-        <div id="NearbyHospitals"></div>
+      <div class="emergency_background mb-3">
+        <div class="container">
+          <form onSubmit={this.onFormSubmit}>
+            <div>
+              <h4 class="d-inline mr-x">Name :</h4>
+              <input
+                class="form-control w-75"
+                name="name"
+                type="text"
+                onChange={(e) => this.setState({ name: e.target.value })}
+                value={this.state.name}
+                placeholder="Enter Your Name"
+                required
+              ></input>
+            </div>
+            <br></br>
+            <div>
+              <h4>Contact Details (Email/Phone):</h4>
+              <p>(Note: Hospitals might contact you if required)</p>
+              <input
+                class="form-control w-75"
+                name="contact"
+                type="text"
+                onChange={(e) => this.setState({ contact: e.target.value })}
+                value={this.state.contact}
+                placeholder="Email/ Phone Number"
+                required
+              ></input>
+            </div>
+            <br></br>
+            <div>
+              <div class="d-inline-block e-selection">
+                <h4 class="d-inline p-3">Blood Group:</h4>
+                <select
+                  name="bloodGroup"
+                  class="d-inline form-control"
+                  value={this.state.bloodGroup}
+                  onChange={(e) => {
+                    this.setState({ bloodGroup: e.target.value });
+                  }}
+                >
+                  <option value="">Not Sure</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="AB">AB</option>
+                  <option value="O">O</option>
+                </select>
+              </div>
+              <div class="d-inline-block e-selection">
+                <h4 class="d-inline m-auto p-3">Rh factor :</h4>
+                <select
+                  name="rhFactor"
+                  class="d-inline form-control"
+                  value={this.state.rhFactor}
+                  onChange={(e) => {
+                    this.setState({ rhFactor: e.target.value });
+                  }}
+                >
+                  <option value="">Not Sure</option>
+                  <option value="Positive">Positive</option>
+                  <option value="Negative">Negative</option>
+                </select>
+              </div>
+            </div>
+            <br />
+            <br></br>
+            <h4>Enter your address</h4>
+            <textarea
+              class="form-control w-75"
+              name="address"
+              type="text"
+              onChange={this.addressChange}
+              value={this.state.address}
+              placeholder="Enter your address"
+              required
+            ></textarea>
+            <div class="slist" id="suggestions">
+              <ul class="list-group">{suggestions}</ul>
+            </div>
+            <br></br>
+            <h5>
+              Or, drag the pointer in the map below (Use scroll to zoom in/out)
+            </h5>
+            <div class="MAP2">{mapJSX}</div>
+            <button type="submit" className="btn btn-success w-100 mt-1">
+              Submit
+            </button>
+          </form>
+          <div id="NearbyHospitals"></div>
+        </div>
       </div>
     );
   }
