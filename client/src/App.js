@@ -9,6 +9,7 @@ import AboutUs from "./components/aboutUs/aboutUs";
 import ContactUs from "./components/contactUs/contactUs";
 
 import Emergency from "./components/emergency/emergency";
+import RequestBlood from "./components/RequestBlood/requestBlood";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
 import HospitalSearch from "./components/hospitalSearch/hospitalSearch";
 import faker from "faker";
@@ -563,7 +564,11 @@ class App extends React.Component {
         );
         break;
       case "Emergency":
-        box = <Emergency></Emergency>;
+        if (this.state.isHospital) {
+          box = <RequestBlood></RequestBlood>;
+        } else {
+          box = <Emergency></Emergency>;
+        }
         break;
       case "About Us":
         box = <AboutUs></AboutUs>;

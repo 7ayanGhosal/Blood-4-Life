@@ -72,7 +72,7 @@ class ResetPass extends Component {
                             </h5>
                           </div>
                           <br />
-                          <br />
+                          <hr class="style-six"></hr>
                           <div>
                             <button
                               id="ResetPassSubmit"

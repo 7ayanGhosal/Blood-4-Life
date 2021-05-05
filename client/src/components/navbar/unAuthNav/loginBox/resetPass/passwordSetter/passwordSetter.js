@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import './passwordSetter.css';
-import AuthContext from '../../../../../../context/auth-context';
+import React, { Component } from "react";
+import "./passwordSetter.css";
+import AuthContext from "../../../../../../context/auth-context";
 class PasswordSetter extends Component {
-  state = {p1: '', p2: '', message: ''};
+  state = { p1: "", p2: "", message: "" };
   static contextType = AuthContext;
   onFormSubmit = (event) => {
     event.preventDefault();
-    this.setState({message: ''});
+    this.setState({ message: "" });
     if (this.state.p1 !== this.state.p2)
-      this.setState({message: 'Passwords do not match!'});
+      this.setState({ message: "Passwords do not match!" });
     else this.context.checkResetPassword(this.state.p1);
   };
   reset = () => {
-    this.setState({p1: '', p2: '', message: ''});
+    this.setState({ p1: "", p2: "", message: "" });
     this.context.remove();
   };
   render() {
@@ -22,45 +22,45 @@ class PasswordSetter extends Component {
           <center>
             <center>
               <div>
-                <br></br>
-                <br></br>
-                <b>
-                  {' '}
-                  Password :
+                <br />
+                <br />
+                <h5 class="reset-pass-text">
+                  {" "}
+                  Enter Password &emsp;:&emsp;
                   <input
-                    id="ResetPassInp1"
-                    placeholder=" Enter the password "
+                    class="ps-modal-input form-control"
+                    placeholder=" Enter password "
                     type="password"
                     value={this.state.p1}
                     onChange={(e) => {
                       this.setState({
                         p1: e.target.value,
-                        message: '',
+                        message: "",
                       });
                     }}
                   />
                   <br></br>
                   <br></br>
-                  Re-type Password :
+                  Confirm Password :&ensp;
                   <input
-                    id="ResetPassInp2"
-                    placeholder=" Re-type password "
+                    class="ps-modal-input form-control"
+                    placeholder=" Confirm password "
                     type="password"
                     value={this.state.p2}
                     onChange={(e) => {
                       this.setState({
                         p2: e.target.value,
-                        message: '',
+                        message: "",
                       });
                     }}
                   />
-                </b>
-                <div style={{color: 'red'}}>{this.state.message}</div>
+                </h5>
+                <br />
+                <div style={{ color: "red" }}>{this.state.message}</div>
               </div>
             </center>
-
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-success">
                 Next
               </button>
             </div>

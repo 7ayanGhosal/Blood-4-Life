@@ -1,0 +1,18 @@
+.e-attribute {
+  display: inline-block;
+}
+
+.e-value {
+  display: inline-block;
+}
+
+.tick {
+  font-size: 1.5em;
+  font-weight: bolder;
+  color: transparent;
+  text-shadow: 0 0 0 green;
+}
+
+.wrong {
+  color: red;
+}

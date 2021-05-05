@@ -37,3 +37,40 @@
   width: 200px;
   height: 70px;
 }
+
+.otp::-webkit-inner-spin-button,
+.otp::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.otp {
+  -moz-appearance: textfield;
+}
+
+.otpverify {
+  float: right;
+  width: 30%;
+}
+
+.otpresend {
+  float: center;
+  width: 30%;
+}
+
+.email-change {
+  float: left;
+  width: 33%;
+}
+
+.otp-modal-input {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid black;
+}
+
+hr.style-six {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
