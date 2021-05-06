@@ -46,9 +46,9 @@
   margin-right: 10%;
 }
 
-.profile-modal-input {
+.profile-modal-input1 {
   display: inline-block;
-  width: 30%;
+  width: 20%;
   border: 1px solid black;
 }
 
@@ -66,7 +66,7 @@
 
 .profile-modal-input4 {
   display: inline-block;
-  width: 50%;
+  width: 70%;
   border: 1px solid black;
 }
 
@@ -86,6 +86,7 @@
   color: violet;
   font-family: "Lucida Console", monospace;
   text-align: center;
+  font-weight: bold;
 }
 
 .hr-style {

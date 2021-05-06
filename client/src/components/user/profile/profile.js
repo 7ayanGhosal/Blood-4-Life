@@ -280,10 +280,10 @@ class Profile extends React.Component {
                     <br />
                     <div class="cardtext">
                       <h3 class="p-attribute" href="#">
-                        First Name :-&emsp;{" "}
+                        First Name &emsp;:-&ensp;&emsp;{" "}
                       </h3>
                       <input
-                        class="p-value form-control profile-modal-input"
+                        class="p-value form-control profile-modal-input1"
                         type="text"
                         value={this.state.firstName}
                         onChange={(e) => {
@@ -292,10 +292,10 @@ class Profile extends React.Component {
                       />
                       <br /> <br />
                       <h3 class="p-attribute" href="#">
-                        Last Name :-&emsp;{" "}
+                        Last Name &emsp;:-&emsp;&ensp;{" "}
                       </h3>
                       <input
-                        class="p-value form-control profile-modal-input"
+                        class="p-value form-control profile-modal-input1"
                         type="text"
                         value={this.state.lastName}
                         onChange={(e) => {
@@ -304,7 +304,7 @@ class Profile extends React.Component {
                       />
                       <br /> <br />
                       <h3 class="p-attribute" href="#">
-                        Address :-&emsp;&ensp;{" "}
+                        Address &nbsp;&emsp;&emsp;:-&emsp;&ensp;{" "}
                       </h3>
                       <input
                         class="p-value form-control profile-modal-input4"
@@ -317,7 +317,7 @@ class Profile extends React.Component {
                       <br />
                       <br />
                       <h3 class="p-attribute" href="#">
-                        Blood Group :-&emsp;{" "}
+                        Blood Group &ensp;:-&emsp;{" "}
                       </h3>
                       <select
                         class="p-value form-control profile-modal-input3"
@@ -334,7 +334,7 @@ class Profile extends React.Component {
                       <br />
                       <br />
                       <h3 class="p-attribute" href="#">
-                        Rh factor :-&emsp;{" "}
+                        Rh factor &emsp;&ensp;:-&emsp;&ensp;{" "}
                       </h3>
                       <select
                         class="p-value form-control profile-modal-input2"
