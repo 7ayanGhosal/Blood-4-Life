@@ -9,7 +9,12 @@ class PasswordSetter extends Component {
     this.setState({ message: "" });
     if (this.state.p1 !== this.state.p2)
       this.setState({ message: "Passwords do not match!" });
-    else this.context.checkResetPassword(this.state.p1);
+    else {
+      var pass = this.state.p1;
+      this.setState({ p1: "", p2: "" }, () => {
+        this.context.checkResetPassword(pass);
+      });
+    }
   };
   reset = () => {
     this.setState({ p1: "", p2: "", message: "" });
@@ -28,10 +33,12 @@ class PasswordSetter extends Component {
                   {" "}
                   Enter Password &emsp;:&emsp;
                   <input
+                    id="ResetPassInp1"
                     class="ps-modal-input form-control"
                     placeholder=" Enter password "
                     type="password"
                     value={this.state.p1}
+                    required
                     onChange={(e) => {
                       this.setState({
                         p1: e.target.value,
@@ -43,6 +50,7 @@ class PasswordSetter extends Component {
                   <br></br>
                   Confirm Password :&ensp;
                   <input
+                    id="ResetPassInp2"
                     class="ps-modal-input form-control"
                     placeholder=" Confirm password "
                     type="password"
