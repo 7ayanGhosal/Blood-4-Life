@@ -24,6 +24,7 @@
 .emergency_background {
   background-color: rgba(119, 209, 119, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  font-family: "Helvetica One", sans-serif;
 }
 .e-selection {
   margin-right: 2em;
