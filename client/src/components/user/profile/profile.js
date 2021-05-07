@@ -144,6 +144,8 @@ class Profile extends React.Component {
             class="card-img-top user-dp"
             alt="..."
           />
+          <br/>
+          <br/>
           <h3 class="card-title p-card">Profile Details</h3>
           <br />
           <div class="cardtext">
@@ -278,7 +280,7 @@ class Profile extends React.Component {
                     class="card-img-top user-dp"
                     alt="..."
                   />
-                  <input class="img-change" type="file" />
+                  {/*<{input class="img-change" type="file" />*/}
                   <br /> <br />
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>
