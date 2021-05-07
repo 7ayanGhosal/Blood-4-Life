@@ -11,38 +11,38 @@ class Events extends Component {
         <div>
           <div class="card ue">
             <div class="card-body">
-              <h3 class="attribute" href="#">
+              <h5 class="ue-attribute" href="#">
                 Name :-
-              </h3>
+              </h5>
               &ensp;
-              <h3 class="value">{this.context.events[i].eventName}</h3>
+              <h5 class="ue-value">{this.context.events[i].eventName}</h5>
               <br />
-              <h3 class="attribute" href="#">
+              <h5 class="ue-attribute" href="#">
                 Date :-
-              </h3>
+              </h5>
               &ensp;
-              <h3 class="value">{this.context.events[i].eventDate}</h3>
+              <h5 class="ue-value">{this.context.events[i].eventDate}</h5>
               <br />
-              <h3 class="attribute" href="#">
+              <h5 class="ue-attribute" href="#">
                 Time :-
-              </h3>
+              </h5>
               &ensp;
-              <h3 class="value">
+              <h5 class="ue-value">
                 {this.context.events[i].eventStartTime} To{" "}
                 {this.context.events[i].eventEndTime}
-              </h3>
+              </h5>
               <br />
-              <h3 class="attribute" href="#">
+              <h5 class="ue-attribute" href="#">
                 Contact :-
-              </h3>
+              </h5>
               &ensp;
-              <h3 class="value">{this.context.events[i].email}</h3>
+              <h5 class="ue-value">{this.context.events[i].email}</h5>
               <br />
-              <h3 class="attribute" href="#">
+              <h5 class="ue-attribute" href="#">
                 Location :-{" "}
-              </h3>
+              </h5>
               &ensp;
-              <h3 class="value">
+              <h5 class="ue-value">
                 {this.context.events[i].location.poi +
                   ", " +
                   this.context.events[i].location.street +
@@ -64,13 +64,15 @@ class Events extends Component {
                   this.context.events[i].location.state +
                   ", " +
                   this.context.events[i].location.pincode}
-              </h3>
+              </h5>
               <br />
-              <h3 class="attribute" href="#">
+              <h5 class="ue-attribute" href="#">
                 Description :-{" "}
-              </h3>
+              </h5>
               &ensp;
-              <h3 class="value">{this.context.events[i].eventDescription}</h3>
+              <h5 class="ue-value">
+                {this.context.events[i].eventDescription}
+              </h5>
               <br />
             </div>
           </div>
@@ -80,13 +82,11 @@ class Events extends Component {
     }
     return (
       <div class="container">
-        <center>
-          <br />
-          <h3>Upcoming Blood Donation Camps</h3>
-          <br />
-          <br />
-          {events}
-        </center>
+        <br />
+        <h3>Upcoming Blood Donation Camps</h3>
+        <br />
+        <br />
+        {events}
       </div>
     );
   }

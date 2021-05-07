@@ -1,0 +1,101 @@
+.p-attribute {
+  display: inline;
+  color: red;
+}
+
+.p-value {
+  display: inline;
+  font-style: italic;
+}
+
+.edit-profile {
+  float: right;
+  width: 15%;
+  border: 2px solid black;
+}
+
+.profile-bg {
+  background-color: #c8bee2;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1em;
+}
+
+.p-card {
+  font-weight: bold;
+}
+
+.editph {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  color: darkred;
+}
+
+.user-dp {
+  width: 600px;
+  width: 250px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100%;
+  border: 5px solid rgb(2, 2, 2);
+}
+
+.img-change {
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+.profile-modal-input1 {
+  display: inline-block;
+  width: 20%;
+  border: 1px solid black;
+}
+
+.profile-modal-input2 {
+  display: inline-block;
+  width: 10%;
+  border: 1px solid black;
+}
+
+.profile-modal-input3 {
+  display: inline-block;
+  width: 5%;
+  border: 1px solid black;
+}
+
+.profile-modal-input4 {
+  display: inline-block;
+  width: 70%;
+  border: 1px solid black;
+}
+
+.profile-modal-input5 {
+  display: inline-block;
+  width: 8%;
+  border: 1px solid black;
+}
+
+.profile-modal-input6 {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.profile-placepicker {
+  color: violet;
+  font-family: "Lucida Console", monospace;
+  text-align: center;
+  font-weight: bold;
+}
+
+.hr-style {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}

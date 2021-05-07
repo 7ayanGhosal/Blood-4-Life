@@ -1,11 +1,30 @@
 .rhfactor {
   font-weight: bold;
-  color: hotpink;
+  color: green;
+  font-family: "Lucida Console", monospace;
 }
 
-.boxc {
-  margin: auto;
-  width: 50%;
-  border: 3px solid green;
-  padding: 10px;
+.bb-bg {
+  background-color: lightskyblue;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1em;
+  margin-top: 0.2em;
+}
+
+.bb-h {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  color: darkred;
+}
+
+.blood-text {
+  color: red;
+  font-weight: bold;
+}
+
+.bb-modal-input {
+  display: inline-block;
+  width: 15%;
+  border: 1px solid black;
 }

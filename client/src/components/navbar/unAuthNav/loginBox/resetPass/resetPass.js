@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./resetPass.css";
 import OTPBox from "./OTPBox/OTPBox";
 import PasswordSetter from "./passwordSetter/passwordSetter";
@@ -15,13 +16,29 @@ class ResetPass extends Component {
     document.getElementById("ResetPassOTPBox").style.display = "none";
     document.getElementById("ResetPassEmail").removeAttribute("disabled");
     document.getElementById("ResetPassSubmit").removeAttribute("disabled");
+    document.getElementById("ResetPassInp1").value = "";
+    document.getElementById("ResetPassInp2").value = "";
   };
   onResend = () => {
-    this.context.onEmailSubmit(this.state);
+    // this.context.onEmailSubmit(this.state);
+    const body = { email: this.state.email };
+    axios.post("/resetPass/sendOTP", body);
+  };
+  close = () => {
+    document.getElementById("ResetPassOTPBox").style.display = "none";
+    document.getElementById("ResetPassPasswordSetter").style.display = "none";
+    this.setState = { email: "" };
+    // document.getElementById("ResetPassInp1").value = "";
+    // document.getElementById("ResetPassInp2").value = "";
+    document.getElementById("ResetPassEmail").disabled = false;
+    document.getElementById("ResetPassSubmit").disabled = false;
   };
   reset = () => {
     this.setState({ email: "", boxName: "ResetPassBox" });
     this.context.remove();
+  };
+  resetSetter = (func) => {
+    func();
   };
   render() {
     return (
@@ -66,7 +83,6 @@ class ResetPass extends Component {
                                 onChange={(e) =>
                                   this.setState({ email: e.target.value })
                                 }
-                                disabled={this.context.disableEmail}
                                 required
                               />
                             </h5>
@@ -78,7 +94,6 @@ class ResetPass extends Component {
                               id="ResetPassSubmit"
                               type="submit"
                               class="btn btn-primary"
-                              disabled={this.context.disableEmail}
                             >
                               Submit
                             </button>
@@ -88,11 +103,15 @@ class ResetPass extends Component {
                           id="ResetPassPasswordSetter"
                           style={{ display: "none" }}
                         >
-                          <PasswordSetter></PasswordSetter>
+                          <PasswordSetter
+                            key={this.state.email}
+                            resetSetter={this.resetSetter}
+                          ></PasswordSetter>
                         </div>
 
                         <div id="ResetPassOTPBox" style={{ display: "none" }}>
                           <OTPBox
+                            key={this.state.email + "2"}
                             onResend={this.onResend}
                             onChangeEmail={this.onChangeEmail}
                           ></OTPBox>
