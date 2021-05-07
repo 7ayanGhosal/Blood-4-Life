@@ -70,7 +70,8 @@ class HospitalList extends React.Component {
       }
     });
     return (
-      <div class="main-div ">
+      <div class="mb-3 p-3 main-div useremerlist">
+        <h4>Search Results:-</h4>
         {this.props.dispState === 2 ? (
           <div>
             <div class="filters">

@@ -1,4 +1,5 @@
 import React from "react";
+import "./result.css";
 
 class Result extends React.Component {
   constructor(props) {
@@ -56,21 +57,23 @@ class Result extends React.Component {
       // };
     }
     return (
-      <div>
-        <div id="listMessage"></div>
+      <div className="mb-3 p-3 useremerlist">
+        <h4>Search Results:-</h4>
         {this.props.dispState === 2 ? (
-          <table class="table table-bordered table-light hover m-auto">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email id</th>
-                <th scope="col">Address</th>
-                <th scope="col">Distance</th>
-              </tr>
-            </thead>
-            <tbody>{jsx2}</tbody>
-          </table>
+          <div>
+            <table class="table table-bordered table-light hover m-auto">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email id</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Distance</th>
+                </tr>
+              </thead>
+              <tbody>{jsx2}</tbody>
+            </table>
+          </div>
         ) : null}
         {this.props.dispState === 3 ? (
           <div>
