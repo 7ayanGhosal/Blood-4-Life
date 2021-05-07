@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./navbar.css";
 import AuthNav from "./AuthNav/AuthNav";
 import UnAuthNav from "./unAuthNav/unAuthNav";
 import AuthContext from "../../context/auth-context";
@@ -9,8 +10,15 @@ class Navbar extends Component {
   }
   static contextType = AuthContext;
   render() {
-    if (this.context.authenticated) return <AuthNav></AuthNav>;
-    else return <UnAuthNav></UnAuthNav>;
+    return (
+      <div id="Top-Nav">
+        {this.context.authenticated ? (
+          <AuthNav></AuthNav>
+        ) : (
+          <UnAuthNav></UnAuthNav>
+        )}
+      </div>
+    );
   }
 }
 

@@ -13,3 +13,8 @@
 .nav-item1 a:hover {
   background-color: rgb(26, 67, 199);
 }
+
+.oc-bg {
+  background-color: rgba(135, 206, 250, 0.8);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}

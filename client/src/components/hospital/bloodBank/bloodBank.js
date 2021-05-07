@@ -27,7 +27,7 @@ class BloodBank extends Component {
   }
   render() {
     return (
-      <div class="bb-bg">
+      <div class="bb-bg mb-3">
         <div class="container ">
           <center>
             <h1 class="bb-h">Blood Bank Archive</h1>

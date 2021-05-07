@@ -24,7 +24,7 @@ class OrganiseCamp extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div class="oc-bg mb-3 p-3">
         <center>
           <h1>Organise A Blood Camp</h1>
           <br></br>

@@ -5,10 +5,8 @@
 }
 
 .bb-bg {
-  background-color: lightskyblue;
+  background-color: rgba(135, 206, 250, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-  margin-bottom: 1em;
-  margin-top: 0.2em;
 }
 
 .bb-h {
