@@ -68,8 +68,6 @@ class RequestBlood extends React.Component {
   render() {
     return (
       <div>
-        <h5>Make A Blood Request From Other Hospitals</h5>
-        <p>(Send Request To Users If Not Available In Hospitals)</p>
         <PlacePicker hospSearch={this.hospSearch}></PlacePicker>
         {this.state.dispState !== 1 ? (
           <Result

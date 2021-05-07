@@ -49,7 +49,6 @@ class Emergency extends React.Component {
   render() {
     return (
       <div>
-        <h1>Emergency</h1>
         <PlacePicker hospSearch={this.hospSearch}></PlacePicker>
         {this.state.dispState !== 1 ? (
           <HospitalList

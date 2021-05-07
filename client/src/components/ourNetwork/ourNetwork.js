@@ -113,7 +113,7 @@ class OurNetwork extends Component {
                 </div>
               </div>
             </div>
-            <div class="col col-12 col-md-6">
+            <div class="col col-12 col-md-6 p-3">
               <div class="MAP">
                 <Map
                   key={this.state.users.length + this.state.hospitals.length}

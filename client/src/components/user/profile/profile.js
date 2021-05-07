@@ -139,6 +139,11 @@ class Profile extends React.Component {
     return (
       <div>
         <div class="card-body profile-bg">
+          <img
+            src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+            class="card-img-top user-dp"
+            alt="..."
+          />
           <h3 class="card-title p-card">Profile Details</h3>
           <br />
           <div class="cardtext">
