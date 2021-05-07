@@ -41,3 +41,21 @@
     margin: 0;
   }
 }
+
+@keyframes glow {
+  0% {
+    color: red;
+  }
+
+  50% {
+    color: gold;
+  }
+
+  100% {
+    color: darkblue;
+  }
+}
+
+.glow {
+  animation: glow 1s infinite;
+}

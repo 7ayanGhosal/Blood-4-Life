@@ -34,13 +34,13 @@ class AuthNav extends Component {
                 <div class="nav-item auth-nav-item">
                   <button
                     type="button"
-                    class="btn navbar-custom text-align-center pe-5 ps-5 icons2"
+                    class="btn navbar-custom text-align-center pe-5 ps-5 icons2 glow"
                     onClick={() => this.context.pageHandler("Emergency")}
                   >
                     {this.context.isHospital ? (
                       <b>Request Blood</b>
                     ) : (
-                      <b>Emergency</b>
+                      <b>Need Blood?</b>
                     )}
                   </button>
                 </div>

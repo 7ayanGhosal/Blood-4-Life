@@ -560,6 +560,7 @@ class App extends React.Component {
         box = (
           <div>
             <Carousel></Carousel>
+            <OurNetwork></OurNetwork>
             {/* <HospitalSearch></HospitalSearch> */}
           </div>
         );
@@ -584,7 +585,12 @@ class App extends React.Component {
         }
         break;
       default:
-        box = <Carousel></Carousel>;
+        box = (
+          <div>
+            <Carousel></Carousel>
+            <OurNetwork></OurNetwork>
+          </div>
+        );
     }
     return (
       <div>
@@ -614,13 +620,9 @@ class App extends React.Component {
           <Navbar></Navbar>
           {box}
         </AuthContext.Provider>
-
-        {/* <PlacePicker></PlacePicker> */}
-        <OurNetwork></OurNetwork>
-
         <FooterHome></FooterHome>
-        <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>
-        <button onClick={() => this.fakeUsers(2)}>fakeUser</button>
+        {/* <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>
+        <button onClick={() => this.fakeUsers(2)}>fakeUser</button> */}
       </div>
     );
   }
