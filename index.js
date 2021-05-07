@@ -674,6 +674,7 @@ app.post("/requestBlood/user", (req, res) => {
         distance = distance.toFixed(3);
         if (
           reqBloodType === userBloodType &&
+          Users[i].reqDonor &&
           parseFloat(distance) < parseInt(req.body.details.maxDistance)
         ) {
           User.push({

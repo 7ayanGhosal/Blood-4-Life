@@ -90,7 +90,7 @@ class Result extends React.Component {
             </h5>
             <button
               onClick={this.props.mailUsers}
-              class="d-inline"
+              class="d-inline btn btn-warning m-1"
               id="userMail"
             >
               Mail Potential Donors
