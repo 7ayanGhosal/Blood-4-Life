@@ -70,9 +70,11 @@ class HospitalList extends React.Component {
       }
     });
     return (
-      <div class="main-div">
+      <div class="main-div ">
         <div class="filters">
+        <div> 
           <h4>Filter by: </h4>
+          <div class="d-inline">
           <label for="customRange3" class="form-label distance_txt">
             <b> Max Distance ( {this.state.maxDistance} KM)</b>
           </label>
@@ -88,7 +90,9 @@ class HospitalList extends React.Component {
               this.setState({ maxDistance: parseInt(e.target.value, 10) })
             }
           ></input>
-          <div class="form-check form-switch">
+          </div>
+       <div>
+          <div class="form-check form-switch d-inline-block">
             <label
               class="form-check-label blood_font"
               for="flexSwitchCheckDefault"
@@ -98,6 +102,7 @@ class HospitalList extends React.Component {
                 {this.props.details.rhFactor} availability
               </b>
             </label>
+            
             <input
               class="form-check-input"
               type="checkbox"
@@ -109,6 +114,11 @@ class HospitalList extends React.Component {
               }}
             />
           </div>
+          
+        </div>
+
+          </div>
+          
         </div>
         <pre class="hospitalList">
           <table class="table table-bordered table-light hover m-auto">

@@ -21,3 +21,11 @@
   object-position: center;
   max-height: 250px;
 }
+.hospital_style{
+   background-color: rgba(119, 209, 119, 0.8);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  font-family: 'Krona One', sans-serif;
+}
+.bloodgroup-selection {
+  margin-right: 2em;
+}

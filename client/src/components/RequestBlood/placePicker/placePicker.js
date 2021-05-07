@@ -71,9 +71,10 @@ class PlacePicker extends Component {
 
   render() {
     return (
+      <div class="hospital_style mb-3">
       <div class="container">
         <form onSubmit={this.onFormSubmit}>
-          <h5>Name :</h5>
+          <h4>Name :</h4>
           <input
             class="form-control"
             name="name"
@@ -82,7 +83,7 @@ class PlacePicker extends Component {
             disabled
           ></input>
           <br></br>
-          <h5>Contact Details (email/phone):</h5>
+          <h4>Contact Details (email/phone):</h4>
           <p>(Note: Hospitals might contact if required)</p>
           <input
             class="form-control"
@@ -92,7 +93,7 @@ class PlacePicker extends Component {
             disabled
           ></input>
           <br></br>
-          <h5>Address</h5>
+          <h4>Address:</h4>
           <textarea
             class="form-control"
             name="address"
@@ -102,7 +103,8 @@ class PlacePicker extends Component {
           />
 
           <br></br>
-          <h5 class="d-inline">Blood Group:</h5>
+          <div class="d-inline-block bloodgroup-selection">
+          <h4 class="d-inline p-3">Blood Group:</h4>
           <select
             name="bloodGroup"
             class="d-inline"
@@ -118,8 +120,9 @@ class PlacePicker extends Component {
             <option value="AB">AB</option>
             <option value="O">O</option>
           </select>
-
-          <h5 class="d-inline">Rh factor :</h5>
+           </div>
+           <div class="d-inline-block bloodgroup-selection">
+          <h4 class="d-inline m-auto p-3">Rh factor :</h4>
           <select
             name="rhFactor"
             class="d-inline"
@@ -134,8 +137,10 @@ class PlacePicker extends Component {
             <option value="Negative">Negative</option>
           </select>
           <br></br>
+          </div>
           <br></br>
-          <h5 class="d-inline">Max Distance (KM):</h5>
+          <br></br>
+          <h4 class="d-inline">Max Distance (KM):</h4>
           <input
             type="number"
             name="maxDistance"
@@ -153,6 +158,7 @@ class PlacePicker extends Component {
           </button>
         </form>
         <div id="NearbyHospitals"></div>
+      </div>
       </div>
     );
   }
