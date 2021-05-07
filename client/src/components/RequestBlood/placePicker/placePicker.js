@@ -71,94 +71,100 @@ class PlacePicker extends Component {
 
   render() {
     return (
-      <div class="hospital_style mb-3">
-      <div class="container">
-        <form onSubmit={this.onFormSubmit}>
-          <h4>Name :</h4>
-          <input
-            class="form-control"
-            name="name"
-            type="text"
-            value={this.state.name}
-            disabled
-          ></input>
-          <br></br>
-          <h4>Contact Details (email/phone):</h4>
-          <p>(Note: Hospitals might contact if required)</p>
-          <input
-            class="form-control"
-            name="contact"
-            type="text"
-            value={this.state.contact}
-            disabled
-          ></input>
-          <br></br>
-          <h4>Address:</h4>
-          <textarea
-            class="form-control"
-            name="address"
-            type="text"
-            value={this.state.address}
-            disabled
-          />
+      <div class="hospital_style mb-3 p-3">
+        <div class="container">
+          <h3>
+            <b>Make A Blood Request From Other Hospitals</b>
+          </h3>
+          <p>
+            <b>(Send Request To Users If Not Available In Hospitals)</b>
+          </p>
+          <form onSubmit={this.onFormSubmit}>
+            <h4>Name :</h4>
+            <input
+              class="form-control"
+              name="name"
+              type="text"
+              value={this.state.name}
+              disabled
+            ></input>
+            <br></br>
+            <h4>Contact Details (email/phone):</h4>
+            <p>(Note: Hospitals might contact if required)</p>
+            <input
+              class="form-control"
+              name="contact"
+              type="text"
+              value={this.state.contact}
+              disabled
+            ></input>
+            <br></br>
+            <h4>Address:</h4>
+            <textarea
+              class="form-control"
+              name="address"
+              type="text"
+              value={this.state.address}
+              disabled
+            />
 
-          <br></br>
-          <div class="d-inline-block bloodgroup-selection">
-          <h4 class="d-inline p-3">Blood Group:</h4>
-          <select
-            name="bloodGroup"
-            class="d-inline"
-            value={this.state.bloodGroup}
-            onChange={(e) => {
-              this.setState({ bloodGroup: e.target.value });
-            }}
-            required
-          >
-            <option value="">select</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="AB">AB</option>
-            <option value="O">O</option>
-          </select>
-           </div>
-           <div class="d-inline-block bloodgroup-selection">
-          <h4 class="d-inline m-auto p-3">Rh factor :</h4>
-          <select
-            name="rhFactor"
-            class="d-inline"
-            value={this.state.rhFactor}
-            onChange={(e) => {
-              this.setState({ rhFactor: e.target.value });
-            }}
-            required
-          >
-            <option value="">select</option>
-            <option value="Positive">Positive</option>
-            <option value="Negative">Negative</option>
-          </select>
-          <br></br>
-          </div>
-          <br></br>
-          <br></br>
-          <h4 class="d-inline">Max Distance (KM):</h4>
-          <input
-            type="number"
-            name="maxDistance"
-            class="d-inline"
-            value={this.state.maxDistance}
-            onChange={(e) => {
-              this.setState({ maxDistance: e.target.value });
-            }}
-            required
-          ></input>
-          <br></br>
-          <br></br>
-          <button type="submit" className="btn btn-success w-100 mt-1">
-            Submit
-          </button>
-        </form>
-        <div id="NearbyHospitals"></div>
-      </div>
+            <br></br>
+            <div class="d-inline-block bloodgroup-selection">
+              <h4 class="d-inline p-3">Blood Group:</h4>
+              <select
+                name="bloodGroup"
+                class="d-inline"
+                value={this.state.bloodGroup}
+                onChange={(e) => {
+                  this.setState({ bloodGroup: e.target.value });
+                }}
+                required
+              >
+                <option value="">select</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+              </select>
+            </div>
+            <div class="d-inline-block bloodgroup-selection">
+              <h4 class="d-inline m-auto p-3">Rh factor :</h4>
+              <select
+                name="rhFactor"
+                class="d-inline"
+                value={this.state.rhFactor}
+                onChange={(e) => {
+                  this.setState({ rhFactor: e.target.value });
+                }}
+                required
+              >
+                <option value="">select</option>
+                <option value="Positive">Positive</option>
+                <option value="Negative">Negative</option>
+              </select>
+              <br></br>
+            </div>
+            <br></br>
+            <br></br>
+            <h4 class="d-inline">Max Distance (KM):</h4>
+            <input
+              type="number"
+              name="maxDistance"
+              class="d-inline"
+              value={this.state.maxDistance}
+              onChange={(e) => {
+                this.setState({ maxDistance: e.target.value });
+              }}
+              required
+            ></input>
+            <br></br>
+            <br></br>
+            <button type="submit" className="btn btn-success w-100 mt-1">
+              Submit
+            </button>
+          </form>
+          <div id="NearbyHospitals"></div>
+        </div>
       </div>
     );
   }

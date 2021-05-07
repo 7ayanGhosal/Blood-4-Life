@@ -44,7 +44,6 @@ class Emergency extends React.Component {
     );
     return (
       <div>
-        <h1>Emergency</h1>
         <PlacePicker hospSearch={this.hospSearch}></PlacePicker>
         {box}
       </div>

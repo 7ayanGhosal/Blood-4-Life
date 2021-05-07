@@ -186,8 +186,9 @@ class PlacePicker extends Component {
     }
 
     return (
-      <div class="emergency_background mb-3">
+      <div class="emergency_background mb-3 p-3">
         <div class="container">
+          <h1>Emergency</h1>
           <form onSubmit={this.onFormSubmit}>
             <div>
               <h4 class="d-inline mr-x">Name :</h4>
