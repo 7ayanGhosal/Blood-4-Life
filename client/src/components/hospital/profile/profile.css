@@ -12,7 +12,7 @@
 
 .edit-profile {
   float: right;
-  width: 15%;
+  width: 150px;
   border: 2px solid black;
 }
 
@@ -50,4 +50,9 @@
   text-align: center;
   color: violet;
   font-family: "Lucida Console", monospace;
+}
+
+.qr-info {
+  text-align: center;
+  color: maroon;
 }

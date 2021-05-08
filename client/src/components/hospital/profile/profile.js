@@ -152,6 +152,10 @@ class Profile extends React.Component {
             title=""
           />
           <br />
+          <h5 class="qr-info">
+            Scan this QR code to get details about the hospital
+          </h5>
+          <br />
           <br />
           <h2 class="card-title">Profile Details</h2>
           <br />
@@ -239,13 +243,13 @@ class Profile extends React.Component {
               </div>
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
-                  <img
+                  {/*<img
                     src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
                     class="card-img-top hospital-pic"
                     alt="..."
                   />
                   <input class="img-change" type="file" />
-                  <br /> <br />
+                <br /> <br />*/}
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>
                     <br />
