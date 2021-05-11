@@ -183,25 +183,25 @@ class Profile extends React.Component {
             </h6>
             <br />
             <div class="cardtext">
-              <h5 class="p-attribute" href="#">
+              <h6 class="p-attribute" href="#">
                 Name :-{" "}
-              </h5>
+              </h6>
               &ensp;
-              <h5 class="p-value">{this.context.name}</h5>
+              <h6 class="p-value">{this.context.name}</h6>
               <br />
               <br />
-              <h5 class="p-attribute" href="#">
+              <h6 class="p-attribute" href="#">
                 Email :-{" "}
-              </h5>
+              </h6>
               &ensp;
-              <h5 class="p-value">{this.context.email}</h5>
+              <h6 class="p-value">{this.context.email}</h6>
               <br />
               <br />
-              <h5 class="p-attribute" href="#">
+              <h6 class="p-attribute" href="#">
                 Address :-{" "}
-              </h5>
+              </h6>
               &ensp;
-              <h5 class="p-value">
+              <h6 class="p-value">
                 {this.context.location.poi +
                   ", " +
                   this.context.location.street +
@@ -223,7 +223,7 @@ class Profile extends React.Component {
                   this.context.location.state +
                   ", " +
                   this.context.location.pincode}
-              </h5>
+              </h6>
               <br />
               <br />
               <br />

@@ -138,116 +138,144 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <div class="card-body profile-bg">
-          <center>
-            <img
-              src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
-              class="card-img-top user-dp"
-              alt="..."
-            />
-          </center>
-          <br />
-          <h3 class="card-title p-card">Profile Details</h3>
-          <br />
-          <div class="cardtext">
-            <h3 class="p-attribute" href="#">
-              Name :-{" "}
+        <button
+          id="openProfileSideNav"
+          class="btn btn-primary d-none"
+          type="button"
+          // data-bs-toggle="offcanvas"
+          // data-bs-target="#offcanvasWithBothOptions"
+          // aria-controls="offcanvasWithBothOptions"
+        >
+          Profile Sidenav
+        </button>
+        <div
+          class="offcanvas offcanvas-start"
+          data-bs-scroll="true"
+          tabindex="-1"
+          id="offcanvasWithBothOptions"
+          aria-labelledby="offcanvasWithBothOptionsLabel"
+        >
+          <div class="offcanvas-header">
+            <h3 class="card-title" id="offcanvasWithBothOptionsLabel">
+              Profile Details
             </h3>
-            &ensp;
-            <h3 class="p-value">
-              {this.context.firstName + " " + this.context.lastName}
-            </h3>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body profile-bg">
+            <center>
+              <img
+                src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+                class="card-img-top user-dp"
+                alt="..."
+              />
+            </center>
             <br />
             <br />
-            <h3 class="p-attribute" href="#">
-              Address :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">
-              {this.context.location.poi +
-                ", " +
-                this.context.location.street +
-                ", " +
-                this.context.location.subSubLocality +
-                ", " +
-                this.context.location.subLocality +
-                ", " +
-                this.context.location.locality +
-                ", " +
-                this.context.location.village +
-                ", " +
-                this.context.location.district +
-                ", " +
-                this.context.location.subDistrict +
-                ", " +
-                this.context.location.city +
-                ", " +
-                this.context.location.state +
-                ", " +
-                this.context.location.pincode}
-            </h3>
-            <br />
-            <br />
-            <h3 class="p-attribute" href="#">
-              Gender :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.gender}</h3>
-            <br />
-            <br />
-            <h3 class="p-attribute" href="#">
-              Age :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.age}</h3>
-            <br />
-            <br />
-            <h3 class="p-attribute" href="#">
-              Email :-{" "}
-            </h3>
-            <h3 class="p-value">{this.context.email}</h3>
-            <br />
-            <br />
-            <h3 class="p-attribute" href="#">
-              Blood Group :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.bloodGroup}</h3>
-            <br />
-            <br />
-            <h3 class="p-attribute" href="#">
-              Rh Factor :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.rhFactor}</h3>
-            <br />
-            <br />
-            {/*<h3 class="p-attribute" href="#">
+            <div class="cardtext">
+              <h6 class="p-attribute" href="#">
+                Name :-{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">
+                {this.context.firstName + " " + this.context.lastName}
+              </h6>
+              <br />
+              <br />
+              <h6 class="p-attribute" href="#">
+                Address :-{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">
+                {this.context.location.poi +
+                  ", " +
+                  this.context.location.street +
+                  ", " +
+                  this.context.location.subSubLocality +
+                  ", " +
+                  this.context.location.subLocality +
+                  ", " +
+                  this.context.location.locality +
+                  ", " +
+                  this.context.location.village +
+                  ", " +
+                  this.context.location.district +
+                  ", " +
+                  this.context.location.subDistrict +
+                  ", " +
+                  this.context.location.city +
+                  ", " +
+                  this.context.location.state +
+                  ", " +
+                  this.context.location.pincode}
+              </h6>
+              <br />
+              <br />
+              <h6 class="p-attribute" href="#">
+                Gender :-{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">{this.context.gender}</h6>
+              <br />
+              <br />
+              <h6 class="p-attribute" href="#">
+                Age :-{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">{this.context.age}</h6>
+              <br />
+              <br />
+              <h6 class="p-attribute" href="#">
+                Email :-{" "}
+              </h6>
+              <h6 class="p-value">{this.context.email}</h6>
+              <br />
+              <br />
+              <h6 class="p-attribute" href="#">
+                Blood Group :-{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">{this.context.bloodGroup}</h6>
+              <br />
+              <br />
+              <h6 class="p-attribute" href="#">
+                Rh Factor :-{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">{this.context.rhFactor}</h6>
+              <br />
+              <br />
+              {/*<h3 class="p-attribute" href="#">
               Last Donated on :-{" "}
             </h3>
             &ensp;
             <h3 class="p-value">{this.context.lastDonated}</h3>
             <br />
               <br/>*/}
-            <h3 class="p-attribute" href="#">
-              Receive Donation Request :{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.reqDonor ? "Yes" : "No"}</h3>
+              <h6 class="p-attribute" href="#">
+                Receive Donation Request :{" "}
+              </h6>
+              &ensp;
+              <h6 class="p-value">{this.context.reqDonor ? "Yes" : "No"}</h6>
+              <br />
+              <br />
+            </div>
+            <br />
+            <button
+              type="button"
+              class="btn btn-success edit-profile"
+              data-bs-toggle="modal"
+              data-bs-target="#profileResetModal"
+            >
+              Edit Profile
+            </button>
             <br />
             <br />
           </div>
-          <button
-            type="button"
-            class="btn btn-success edit-profile"
-            data-bs-toggle="modal"
-            data-bs-target="#profileResetModal"
-          >
-            Edit Profile
-          </button>
-          <br />
-          <br />
-          <br />
         </div>
 
         <div

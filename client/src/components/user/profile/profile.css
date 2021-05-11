@@ -17,7 +17,6 @@
 .profile-bg {
   background-color: #c8bee2;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-  margin-bottom: 1em;
 }
 
 .p-card {
@@ -33,8 +32,8 @@
 
 .user-dp {
   width: 600px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100%;
