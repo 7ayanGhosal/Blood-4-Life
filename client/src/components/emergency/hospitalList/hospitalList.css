@@ -9,9 +9,12 @@
 .hospitalList {
   width: 100%;
 }
-.main-div {
-  background-color: rgb(179, 179, 240);
+.main-div-urslst {
+  background-color: rgb(245, 222, 179, 0.8) !important;
   /* opacity: 70%; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
   font-family: "Helvetica One", sans-serif;
 }
+/* .filters {
+  background-color: rgba(0, 0, 0, 0.3);
+} */

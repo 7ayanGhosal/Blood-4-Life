@@ -5,53 +5,90 @@ import AuthContext from "../../../context/auth-context";
 class Events extends Component {
   static contextType = AuthContext;
   render() {
+    var events = [];
+    for (var i = 0; i < this.context.events.length; i++) {
+      events.push(
+        <div>
+          <div class="card ue">
+            <div class="card-body">
+              <h5 class="ue-attribute" href="#">
+                Name :-
+              </h5>
+              &ensp;
+              <h5 class="ue-value">{this.context.events[i].eventName}</h5>
+              <br />
+              <h5 class="ue-attribute" href="#">
+                Date :-
+              </h5>
+              &ensp;
+              <h5 class="ue-value">{this.context.events[i].eventDate}</h5>
+              <br />
+              <h5 class="ue-attribute" href="#">
+                Time :-
+              </h5>
+              &ensp;
+              <h5 class="ue-value">
+                {this.context.events[i].eventStartTime} To{" "}
+                {this.context.events[i].eventEndTime}
+              </h5>
+              <br />
+              <h5 class="ue-attribute" href="#">
+                Contact :-
+              </h5>
+              &ensp;
+              <h5 class="ue-value">{this.context.events[i].email}</h5>
+              <br />
+              <h5 class="ue-attribute" href="#">
+                Location :-{" "}
+              </h5>
+              &ensp;
+              <h5 class="ue-value">
+                {this.context.events[i].location.poi +
+                  ", " +
+                  this.context.events[i].location.street +
+                  ", " +
+                  this.context.events[i].location.subSubLocality +
+                  ", " +
+                  this.context.events[i].location.subLocality +
+                  ", " +
+                  this.context.events[i].location.locality +
+                  ", " +
+                  this.context.events[i].location.village +
+                  ", " +
+                  this.context.events[i].location.district +
+                  ", " +
+                  this.context.events[i].location.subDistrict +
+                  ", " +
+                  this.context.events[i].location.city +
+                  ", " +
+                  this.context.events[i].location.state +
+                  ", " +
+                  this.context.events[i].location.pincode}
+              </h5>
+              <br />
+              <h5 class="ue-attribute" href="#">
+                Description :-{" "}
+              </h5>
+              &ensp;
+              <h5 class="ue-value">
+                {this.context.events[i].eventDescription}
+              </h5>
+              <br />
+            </div>
+          </div>
+          <br />
+        </div>
+      );
+    }
     return (
       <div class="container">
-        <center>
-          <h1>Upcoming Blood Donation Camps</h1>
-          <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-            <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#camp1">
-                  Camp 1
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#camp2">
-                  Camp 2
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#camp3">
-                  Camp 3
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#camp4">
-                  Camp 4
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div
-            data-bs-spy="scroll"
-            data-bs-target="#navbar-example2"
-            data-bs-offset="0"
-            tabindex="0"
-          >
-            <h4 id="camp1">Camp 1</h4>
-            <p>...</p>
-            <h4 id="camp2">Camp 2</h4>
-            <p>...</p>
-            <h4 id="camp3">Camp 3</h4>
-            <p>...</p>
-            <h4 id="camp4">Camp 4</h4>
-            <p>...</p>
-          </div>
-        </center>
+        <br />
+        <h3>Upcoming Blood Donation Camps</h3>
+        <br />
+        <br />
+        {events}
       </div>
     );
   }
 }
-
 export default Events;
