@@ -29,6 +29,7 @@ class BloodBank extends Component {
     return (
       <div class="bb-bg mb-3">
         <div class="container ">
+          <br />
           <center>
             <h1 class="bb-h">Blood Bank Archive</h1>
             <br />
