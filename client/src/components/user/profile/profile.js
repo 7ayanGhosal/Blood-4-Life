@@ -139,13 +139,14 @@ class Profile extends React.Component {
     return (
       <div>
         <div class="card-body profile-bg">
-          <img
-            src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
-            class="card-img-top user-dp"
-            alt="..."
-          />
-          <br/>
-          <br/>
+          <center>
+            <img
+              src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+              class="card-img-top user-dp"
+              alt="..."
+            />
+          </center>
+          <br />
           <h3 class="card-title p-card">Profile Details</h3>
           <br />
           <div class="cardtext">
@@ -246,6 +247,7 @@ class Profile extends React.Component {
           </button>
           <br />
           <br />
+          <br />
         </div>
 
         <div
@@ -280,7 +282,7 @@ class Profile extends React.Component {
                     class="card-img-top user-dp"
                     alt="..."
                   />
-                  {/*<{input class="img-change" type="file" />*/}
+                  {/*<input class="img-change" type="file" />*/}
                   <br /> <br />
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>

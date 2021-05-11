@@ -275,7 +275,6 @@ class PlacePicker extends Component {
               Submit
             </button>
           </form>
-          <div id="NearbyHospitals"></div>
         </div>
       </div>
     );
