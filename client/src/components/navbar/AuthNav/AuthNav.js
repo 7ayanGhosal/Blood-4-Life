@@ -31,7 +31,7 @@ class AuthNav extends Component {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
               <div class="icons d-flex justify-content-center">
-                <div class="nav-item auth-nav-item">
+                <div class="auth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2 glow"
@@ -62,7 +62,7 @@ class AuthNav extends Component {
                     About Us
                   </button>
                 </div>
-                <div class="nav-item">
+                {/* <div class="nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
@@ -70,7 +70,63 @@ class AuthNav extends Component {
                   >
                     Contact Us
                   </button>
+                </div> */}
+                <div class="dropdown">
+                  <button
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2 dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Options
+                  </button>
+                  <ul
+                    class="dropdown-menu nav-drop"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li>
+                      <button class="dropdown-item" href="#">
+                        <h5 class="drop-head">Profile Details</h5>
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown-item" href="#">
+                        <h5 class="drop-head">Notifications</h5>
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown-item" href="#">
+                        <h5 class="drop-head">Upcoming camps</h5>
+                      </button>
+                    </li>
+                  </ul>
                 </div>
+                {/* <div class="nav-item dropdown">
+                  <button
+                    class="btn nav-link navbar-custom text-align-center pe-4 ps-4 dropdown-toggle icons2"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Dropdown
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="dropdown-item" href="#">
+                      Action
+                    </li>
+                    <li class="dropdown-item" href="#">
+                      Another action
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="dropdown-item" href="#">
+                      Something else here
+                    </li>
+                  </ul>
+                </div> */}
               </div>
               <ul class="navbar-nav me-auto"></ul>
               <div class="icons d-flex justify-content-end">

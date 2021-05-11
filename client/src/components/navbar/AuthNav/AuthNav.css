@@ -1,4 +1,4 @@
-.auth-nav-item button:hover {
+.nav-item button:hover {
   background-color: whitesmoke;
   /* color: rgb(47, 79, 79); */
 }
@@ -17,7 +17,7 @@
     #ed213a
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* .nav-item button {
@@ -57,4 +57,14 @@
     width: 100% !important;
     margin: 0;
   }
+}
+
+.nav-drop {
+  background-color: lightskyblue;
+}
+
+.drop-head {
+  font-family: "Times New Roman", Times, serif;
+  color: darkgreen;
+  font-weight: bold;
 }
