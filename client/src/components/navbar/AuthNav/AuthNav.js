@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.jpeg";
 import AuthContext from "../../../context/auth-context";
+import HospProfile from "../../hospital/profile/profile";
+import UserProfile from "../../user/profile/profile";
 
 class AuthNav extends Component {
   constructor(props) {
@@ -148,8 +150,9 @@ class AuthNav extends Component {
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    href="#"
-                    onClick={() => this.context.pageHandler("Profile")}
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions"
                   >
                     Profile
                   </button>
@@ -167,6 +170,12 @@ class AuthNav extends Component {
             </div>
           </div>
         </nav>
+
+        {this.context.isHospital ? (
+          <HospProfile></HospProfile>
+        ) : (
+          <UserProfile></UserProfile>
+        )}
       </div>
     );
   }

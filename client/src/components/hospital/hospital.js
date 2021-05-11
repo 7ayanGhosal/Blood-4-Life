@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./hospital.css";
-import SecondNav from "./secondNav/secondNav";
+// import SecondNav from "./secondNav/secondNav";
 import BloodBank from "./bloodBank/bloodBank";
 import UpcomingEvents from "./upcomingEvents/upcomingEvents";
-import Profile from "./profile/profile";
+// import Profile from "./profile/profile";
 import OrganiseCamp from "./organiseCamp/organiseCamp";
 import AuthContext from "../../context/auth-context";
-import axios from "axios";
+// import axios from "axios";
 
 class Hospital extends Component {
   static contextType = AuthContext;
@@ -27,7 +27,8 @@ class Hospital extends Component {
 
   render() {
     this.context.displayHandler = this.displayHandler;
-    var box = <Profile></Profile>;
+    // var box = <Profile></Profile>;
+    var box = null;
     if (this.state.display === "OrganiseCamp") {
       box = <OrganiseCamp></OrganiseCamp>;
     } else if (this.state.display === "BloodBank") {
@@ -35,9 +36,10 @@ class Hospital extends Component {
     } else if (this.state.display === "UpcomingEvents") {
       // Get the event details
       box = <UpcomingEvents></UpcomingEvents>;
-    } else {
-      box = <Profile></Profile>;
     }
+    //  else {
+    //   box = <Profile></Profile>;
+    // }
     return (
       <div>
         {/* <SecondNav displayHandler={this.displayHandler}></SecondNav> */}
