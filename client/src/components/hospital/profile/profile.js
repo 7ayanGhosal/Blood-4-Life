@@ -138,82 +138,107 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <div class="card-body hprofile-bg">
-          {/* QR CODE */}
-          <img
-            id="QRCode"
-            class="hospital-pic"
-            src={
-              "https://api.qrserver.com/v1/create-qr-code/?data=https://blood-for-life.herokuapp.com/hospital/qr/" +
-              this.context.email +
-              "&amp;size=50x50"
-            }
-            alt=""
-            title=""
-          />
-          <br />
-          <h5 class="qr-info">
-            Scan this QR code to get details about the hospital
-          </h5>
-          <br />
-          <br />
-          <h2 class="card-title">Profile Details</h2>
-          <br />
-          <div class="cardtext">
-            <h3 class="p-attribute" href="#">
-              Name :-{" "}
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasWithBothOptions"
+          aria-controls="offcanvasWithBothOptions"
+        >
+          Profile Sidenav
+        </button>
+        <div
+          class="offcanvas offcanvas-start hprofile-bg"
+          data-bs-scroll="true"
+          tabindex="-1"
+          id="offcanvasWithBothOptions"
+          aria-labelledby="offcanvasWithBothOptionsLabel"
+        >
+          <div class="offcanvas-header">
+            <h3 class="card-title" id="offcanvasWithBothOptionsLabel">
+              Profile Details
             </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.name}</h3>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <img
+              id="QRCode"
+              class="hospital-qr"
+              src={
+                "https://api.qrserver.com/v1/create-qr-code/?data=https://blood-for-life.herokuapp.com/hospital/qr/" +
+                this.context.email +
+                "&amp;size=50x50"
+              }
+              alt=""
+              title=""
+            />
             <br />
+            <h6 class="qr-info">
+              Scan this QR code to get details about the hospital
+            </h6>
             <br />
-            <h3 class="p-attribute" href="#">
-              Email :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">{this.context.email}</h3>
-            <br />
-            <br />
-            <h3 class="p-attribute" href="#">
-              Address :-{" "}
-            </h3>
-            &ensp;
-            <h3 class="p-value">
-              {this.context.location.poi +
-                ", " +
-                this.context.location.street +
-                ", " +
-                this.context.location.subSubLocality +
-                ", " +
-                this.context.location.subLocality +
-                ", " +
-                this.context.location.locality +
-                ", " +
-                this.context.location.village +
-                ", " +
-                this.context.location.district +
-                ", " +
-                this.context.location.subDistrict +
-                ", " +
-                this.context.location.city +
-                ", " +
-                this.context.location.state +
-                ", " +
-                this.context.location.pincode}
-            </h3>
+            <div class="cardtext">
+              <h5 class="p-attribute" href="#">
+                Name :-{" "}
+              </h5>
+              &ensp;
+              <h5 class="p-value">{this.context.name}</h5>
+              <br />
+              <br />
+              <h5 class="p-attribute" href="#">
+                Email :-{" "}
+              </h5>
+              &ensp;
+              <h5 class="p-value">{this.context.email}</h5>
+              <br />
+              <br />
+              <h5 class="p-attribute" href="#">
+                Address :-{" "}
+              </h5>
+              &ensp;
+              <h5 class="p-value">
+                {this.context.location.poi +
+                  ", " +
+                  this.context.location.street +
+                  ", " +
+                  this.context.location.subSubLocality +
+                  ", " +
+                  this.context.location.subLocality +
+                  ", " +
+                  this.context.location.locality +
+                  ", " +
+                  this.context.location.village +
+                  ", " +
+                  this.context.location.district +
+                  ", " +
+                  this.context.location.subDistrict +
+                  ", " +
+                  this.context.location.city +
+                  ", " +
+                  this.context.location.state +
+                  ", " +
+                  this.context.location.pincode}
+              </h5>
+              <br />
+              <br />
+              <br />
+            </div>
+            <button
+              type="button"
+              class="btn btn-success edit-profile"
+              data-bs-toggle="modal"
+              data-bs-target="#profileResetModal"
+            >
+              Edit Profile
+            </button>
             <br />
             <br />
           </div>
-          <button
-            type="button"
-            class="btn btn-success edit-profile"
-            data-bs-toggle="modal"
-            data-bs-target="#profileResetModal"
-          >
-            Edit Profile
-          </button>
-          <br />
-          <br />
         </div>
 
         <div
