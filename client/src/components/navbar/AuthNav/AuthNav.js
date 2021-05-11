@@ -11,7 +11,7 @@ class AuthNav extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-dark navbar-expand-md p-0 nav1">
+        <nav class="navbar navbar-dark navbar-expand-lg p-0 nav1">
           <div class="container-fluid">
             <div class="logo">
               <img src={logo}></img>
@@ -62,15 +62,6 @@ class AuthNav extends Component {
                     About Us
                   </button>
                 </div>
-                {/* <div class="nav-item">
-                  <button
-                    type="button"
-                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
-                    onClick={() => this.context.pageHandler("Contact Us")}
-                  >
-                    Contact Us
-                  </button>
-                </div> */}
                 <div class="dropdown">
                   <button
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2 dropdown-toggle"
@@ -85,48 +76,71 @@ class AuthNav extends Component {
                     class="dropdown-menu nav-drop"
                     aria-labelledby="dropdownMenuButton1"
                   >
-                    <li>
-                      <button class="dropdown-item" href="#">
-                        <h5 class="drop-head">Profile Details</h5>
-                      </button>
-                    </li>
-                    <li>
-                      <button class="dropdown-item" href="#">
-                        <h5 class="drop-head">Notifications</h5>
-                      </button>
-                    </li>
-                    <li>
-                      <button class="dropdown-item" href="#">
-                        <h5 class="drop-head">Upcoming camps</h5>
-                      </button>
-                    </li>
+                    {this.context.isHospital ? (
+                      <div>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.displayHandler("BloodBank");
+                            }}
+                          >
+                            <h5 class="drop-head">Blood Bank Counter</h5>
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.displayHandler("UpcomingEvents");
+                            }}
+                          >
+                            <h5 class="drop-head">
+                              Upcoming Blood Donation Camps
+                            </h5>
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.displayHandler("OrganiseCamp");
+                            }}
+                          >
+                            <h5 class="drop-head">
+                              Organise a Blood Donation Camp
+                            </h5>
+                          </button>
+                        </li>
+                      </div>
+                    ) : (
+                      <div>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.displayHandler("UpcomingEvents");
+                            }}
+                          >
+                            <h5 class="drop-head">
+                              Upcoming Blood Donation Camps Near You
+                            </h5>
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.displayHandler("Notifications");
+                            }}
+                          >
+                            <h5 class="drop-head">Notifications</h5>
+                          </button>
+                        </li>
+                      </div>
+                    )}
                   </ul>
                 </div>
-                {/* <div class="nav-item dropdown">
-                  <button
-                    class="btn nav-link navbar-custom text-align-center pe-4 ps-4 dropdown-toggle icons2"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Dropdown
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="dropdown-item" href="#">
-                      Action
-                    </li>
-                    <li class="dropdown-item" href="#">
-                      Another action
-                    </li>
-                    <div class="dropdown-divider"></div>
-                    <li class="dropdown-item" href="#">
-                      Something else here
-                    </li>
-                  </ul>
-                </div> */}
               </div>
               <ul class="navbar-nav me-auto"></ul>
               <div class="icons d-flex justify-content-end">
