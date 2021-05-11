@@ -36,7 +36,7 @@ class UnAuthNav extends Component {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
               <div class="icons d-flex justify-content-center">
-                <div class="nav-item unauth-nav-item">
+                <div class="unauth-nav-item">
                   <button
                     type="button"
                     class="btn navbar-custom text-align-center pe-5 ps-5 icons2 glow"

@@ -12,6 +12,7 @@
 }
 .sbox-bg {
   background-color: #c8bee2;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {

@@ -26,12 +26,13 @@ class OrganiseCamp extends React.Component {
     return (
       <div class="oc-bg mb-3 p-3">
         <center>
-          <h1>Organise A Blood Camp</h1>
-          <br></br>
+          <h1 class="oc-head">Organise A Blood Camp</h1>
+          <br />
+          <br />
           <form onSubmit={this.onFormSubmit}>
             <div class="mb-3 row">
               <label for="eventName" class="col-sm-2 col-form-label">
-                Event Name:-
+                Event Name :-
               </label>
               <div class="col-sm-10">
                 <input
@@ -49,7 +50,7 @@ class OrganiseCamp extends React.Component {
             </div>
             <div class="mb-3 row">
               <label for="eventDate" class="col-sm-2 col-form-label">
-                Date:-
+                Date :-
               </label>
               <div class="col-sm-10">
                 <input
@@ -66,7 +67,7 @@ class OrganiseCamp extends React.Component {
             </div>
             <div class="mb-3 row">
               <label for="eventStartTime" class="col-sm-2 col-form-label">
-                Start Time:-
+                Start Time :-
               </label>
               <div class="col-sm-10">
                 <input
@@ -83,7 +84,7 @@ class OrganiseCamp extends React.Component {
             </div>
             <div class="mb-3 row">
               <label for="eventEndTime" class="col-sm-2 col-form-label">
-                End Time:-
+                End Time :-
               </label>
               <div class="col-sm-10">
                 <input
@@ -100,7 +101,7 @@ class OrganiseCamp extends React.Component {
             </div>
             <div class="mb-3 row">
               <label for="description" class="col-sm-2 col-form-label">
-                Description:-{" "}
+                Description :-{" "}
               </label>
               <div class="col-sm-10">
                 <input
@@ -117,7 +118,7 @@ class OrganiseCamp extends React.Component {
             </div>
             <div class="mb-3 row">
               <label for="staticEmail" class="col-sm-2 col-form-label">
-                Contact Email:-
+                Contact Email :-
               </label>
               <div class="col-sm-10">
                 <input
@@ -131,7 +132,7 @@ class OrganiseCamp extends React.Component {
             </div>
             <div class="mb-3 row">
               <label for="location" class="col-sm-2 col-form-label">
-                Location:-{" "}
+                Location :-{" "}
               </label>
               <div class="col-sm-10">
                 <textarea
@@ -167,9 +168,12 @@ class OrganiseCamp extends React.Component {
                 />
               </div>
             </div>
-            <button type="submit" class="btn w-50 btn-success">
+            <br />
+            <button type="submit" class="btn btn-dark camp-create ">
               Create Event
             </button>
+            <br />
+            <br />
           </form>
           <div id="eventMessage" class="mb-3 row"></div>
         </center>

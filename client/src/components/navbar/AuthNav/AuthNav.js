@@ -64,7 +64,7 @@ class AuthNav extends Component {
                     About Us
                   </button>
                 </div>
-                <div class="dropdown">
+                <div class="dropdown nav-item">
                   <button
                     class="btn navbar-custom text-align-center pe-4 ps-4 icons2 dropdown-toggle"
                     type="button"

@@ -18,3 +18,21 @@
   background-color: rgba(135, 206, 250, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
+
+.camp-create {
+  float: right;
+  width: 400px;
+}
+
+.col-form-label {
+  color: darkgreen;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.oc-head {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(200, 60, 30);
+}
