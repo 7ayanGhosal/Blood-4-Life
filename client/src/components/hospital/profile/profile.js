@@ -139,11 +139,12 @@ class Profile extends React.Component {
     return (
       <div>
         <button
-          class="btn btn-primary"
+          id="openProfileSideNav"
+          class="btn btn-primary d-none"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasWithBothOptions"
-          aria-controls="offcanvasWithBothOptions"
+          // data-bs-toggle="offcanvas"
+          // data-bs-target="#offcanvasWithBothOptions"
+          // aria-controls="offcanvasWithBothOptions"
         >
           Profile Sidenav
         </button>
