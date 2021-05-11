@@ -561,7 +561,6 @@ class App extends React.Component {
           <div>
             <Carousel></Carousel>
             <OurNetwork></OurNetwork>
-            {/* <HospitalSearch></HospitalSearch> */}
           </div>
         );
         break;
@@ -578,19 +577,8 @@ class App extends React.Component {
       case "Contact Us":
         box = <ContactUs></ContactUs>;
         break;
-      case "Profile":
-        if (this.state.authenticated) {
-          if (this.state.isHospital) box = <Hospital></Hospital>;
-          else box = <User></User>;
-        }
-        break;
       default:
-        box = (
-          <div>
-            <Carousel></Carousel>
-            <OurNetwork></OurNetwork>
-          </div>
-        );
+        box = null;
     }
     return (
       <div>
@@ -619,6 +607,13 @@ class App extends React.Component {
         >
           <Navbar></Navbar>
           {box}
+          {this.state.authenticated ? (
+            this.state.isHospital ? (
+              <Hospital></Hospital>
+            ) : (
+              <User></User>
+            )
+          ) : null}
         </AuthContext.Provider>
         <FooterHome></FooterHome>
         {/* <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>
