@@ -11,7 +11,7 @@
 }
 .main-div {
   background-color: rgb(179, 179, 240);
-  opacity: 70%;
+  /* opacity: 70%; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
   font-family: "Helvetica One", sans-serif;
 }
