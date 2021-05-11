@@ -53,9 +53,9 @@ class UserProfile extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new2">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title psh" id="exampleModalLabel">
+                <h3 class="modal-title psh" id="exampleModalLabel">
                   Profile Details
-                </h5>
+                </h3>
                 <button
                   type="button"
                   class="btn-close"
@@ -71,11 +71,12 @@ class UserProfile extends Component {
                     style={{ width: 18 + "rem" }}
                   />
                   <div class="card w-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Profile</h5>
-                      <p class="card-text ucard">
-                        First Name :
+                    <div class="card-body profile-bg">
+                      <h4 class="card-title">Profile</h4>
+                      <h4 class="card-text ucard">
+                        <h4 class="p-value">First Name :&ensp;</h4>
                         <input
+                          class="p-value form-control up-modal-input"
                           placeholder=" Enter your first name "
                           type="text"
                           name="firstName"
@@ -86,8 +87,9 @@ class UserProfile extends Component {
                           }}
                         />
                         <br /> <br />
-                        Last Name :
+                        <h4 class="p-value">Last Name :&ensp;</h4>
                         <input
+                          class="p-value form-control up-modal-input"
                           placeholder=" Enter your Last name "
                           type="text"
                           name="lastName"
@@ -98,8 +100,9 @@ class UserProfile extends Component {
                           }}
                         />
                         <br /> <br />
-                        Gender :
+                        <h4 class="p-value">Gender :&ensp;</h4>
                         <select
+                          class="p-value form-control up-modal-input"
                           name="gender"
                           required
                           value={this.state.gender}
@@ -113,8 +116,9 @@ class UserProfile extends Component {
                         </select>
                         <br />
                         <br />
-                        Age :
+                        <h4 class="p-value"> Age :&ensp;</h4>
                         <input
+                          class="p-value form-control up-modal-input"
                           placeholder=" Enter your age "
                           type="number"
                           name="age"
@@ -125,8 +129,9 @@ class UserProfile extends Component {
                           }}
                         />
                         <br /> <br />
-                        Blood Group:
+                        <h4 class="p-value">Blood Group :&ensp;</h4>
                         <select
+                          class="p-value form-control up-modal-input"
                           name="bloodGroup"
                           required
                           value={this.state.bloodGroup}
@@ -140,8 +145,9 @@ class UserProfile extends Component {
                           <option value="O">O</option>
                         </select>
                         <br /> <br />
-                        Rh factor :
+                        <h4 class="p-value">Rh factor :&ensp;</h4>
                         <select
+                          class="p-value form-control up-modal-input"
                           name="rhFactor"
                           required
                           value={this.state.rhFactor}
@@ -154,8 +160,11 @@ class UserProfile extends Component {
                         </select>
                         <br />
                         <br />
-                        Receive Donation Request:
+                        <h4 class="p-value">
+                          Receive Donation Request :&ensp;
+                        </h4>
                         <select
+                          class="p-value form-control up-modal-input"
                           name="donationRequest"
                           required
                           value={this.state.reqDonor}
@@ -180,7 +189,7 @@ class UserProfile extends Component {
                             Next
                           </button>
                         </div>
-                      </p>
+                      </h4>
                     </div>
                   </div>
                 </form>
