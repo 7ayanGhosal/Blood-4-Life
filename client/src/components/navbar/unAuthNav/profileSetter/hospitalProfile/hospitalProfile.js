@@ -41,9 +41,9 @@ class HospitalProfile extends Component {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog-new2">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title psh" id="exampleModalLabel">
                   Profile Details
-                </h5>
+                </h3>
                 <button
                   type="button"
                   class="btn-close"
@@ -57,11 +57,12 @@ class HospitalProfile extends Component {
                 <form onSubmit={this.onFormSubmit}>
                   <div class="card w-100" style={{ width: 18 + "rem" }} />
                   <div class="card w-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Profile</h5>
-                      <p class="card-text hcard">
-                        Name :
+                    <div class="card-body profile-bg">
+                      <h4 class="card-title">Profile</h4>
+                      <h4 class="card-text hcard">
+                        <h4 class="p-value">Name :&ensp;</h4>
                         <input
+                          class="p-value form-control hp-modal-input"
                           placeholder=" Enter the hospital's name "
                           type="text"
                           name="Name"
@@ -84,7 +85,7 @@ class HospitalProfile extends Component {
                             Next
                           </button>
                         </div>
-                      </p>
+                      </h4>
                     </div>
                   </div>
                 </form>

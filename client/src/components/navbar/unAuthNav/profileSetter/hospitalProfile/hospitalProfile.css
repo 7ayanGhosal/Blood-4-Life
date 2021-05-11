@@ -17,3 +17,14 @@
 .modal-close-button:hover {
   opacity: 1;
 }
+
+.hp-modal-input {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.profile-bg {
+  background-color: #c8bee2;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
