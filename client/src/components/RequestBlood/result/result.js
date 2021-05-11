@@ -8,7 +8,12 @@ class Result extends React.Component {
       onlyAvailable: false,
     };
   }
-
+  componentDidMount() {
+    document.getElementById("reqList").scrollIntoView();
+  }
+  componentDidUpdate() {
+    document.getElementById("reqList").scrollIntoView();
+  }
   render() {
     var jsx2 = [];
 
@@ -57,7 +62,7 @@ class Result extends React.Component {
       // };
     }
     return (
-      <div className="mb-3 p-3 useremerlist">
+      <div id="reqList" className="mb-3 p-3 useremerlist main-div-urslst">
         <h4>Search Results:-</h4>
         {this.props.dispState === 2 ? (
           <div>

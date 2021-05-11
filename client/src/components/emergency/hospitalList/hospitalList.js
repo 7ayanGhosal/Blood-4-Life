@@ -8,6 +8,12 @@ class HospitalList extends React.Component {
       onlyAvailable: false,
     };
   }
+  componentDidMount() {
+    document.getElementById("emerList").scrollIntoView();
+  }
+  componentDidUpdate() {
+    document.getElementById("emerList").scrollIntoView();
+  }
   render() {
     var hospListjsx = [];
     var rhFactor = "";
@@ -70,13 +76,72 @@ class HospitalList extends React.Component {
       }
     });
     return (
-      <div class="mb-3 p-3 main-div useremerlist">
-        <h4>Search Results:-</h4>
+      <div id="emerList" class="mb-3 p-3 main-div-urslst useremerlist">
         {this.props.dispState === 2 ? (
           <div>
-            <div class="filters">
+            <div class="dropdown dropend">
+              <button
+                class="btn btn-secondary dropdown-toggle mb-3"
+                type="button"
+                id="dropdownMenuButton2"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Add Filters
+              </button>
+              <h4 class="mb-3">Search Results</h4>
+              <ul
+                class="dropdown-menu dropdown-menu-dark p-2"
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li>
+                  <label
+                    for="customRange3"
+                    class="form-label distance_txt d-inline"
+                  >
+                    <b> Max Distance ( {this.state.maxDistance} KM)</b>
+                  </label>
+                  <input
+                    type="range"
+                    class="form-range d-inline"
+                    min="20"
+                    max="200"
+                    step="20"
+                    id="customRange3"
+                    value={this.state.maxDistance}
+                    onChange={(e) =>
+                      this.setState({
+                        maxDistance: parseInt(e.target.value, 10),
+                      })
+                    }
+                  ></input>
+                </li>
+                <li>
+                  <div class="form-check form-switch">
+                    <label class="form-check-label blood_font">
+                      <b>
+                        {this.props.details.bloodGroup}
+                        {this.props.details.rhFactor} availability
+                      </b>
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexSwitchCheckDefault"
+                      disabled={
+                        this.props.details.bloodGroup === "" ? true : false
+                      }
+                      checked={this.state.onlyAvailable}
+                      onChange={(e) => {
+                        this.setState({ onlyAvailable: e.target.checked });
+                      }}
+                    />
+                  </div>
+                </li>
+              </ul>
+            </div>
+            {/* <div class="filters">
               <div>
-                <h4>Filter by: </h4>
                 <div class="d-inline">
                   <label for="customRange3" class="form-label distance_txt">
                     <b> Max Distance ( {this.state.maxDistance} KM)</b>
@@ -123,7 +188,8 @@ class HospitalList extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+
             <pre class="hospitalList">
               <table class="table table-bordered table-light hover m-auto">
                 <thead>
