@@ -28,15 +28,20 @@ class Notifications extends React.Component {
     for (var i = 0; i < this.state.notifications.length; i++) {
       jsx.push(
         <div>
-          <h5>{this.state.notifications[i].type}</h5>
+          <br />
+          <h4 class="n-type">{this.state.notifications[i].type}</h4>
+          <br />
           <h5>
-            Required BloodType: {this.state.notifications[i].body.bloodGroup}
-            {this.state.notifications[i].body.rhFactor === "Positive"
-              ? "+"
-              : "-"}
+            <div class="ntemp">Required Blood Type :&ensp;</div>
+            <div class="blood-type">
+              {this.state.notifications[i].body.bloodGroup}
+              {this.state.notifications[i].body.rhFactor === "Positive"
+                ? "+"
+                : "-"}
+            </div>
           </h5>
-          <h5>
-            Address:{" "}
+          <h6>
+            <div class="ntemp">Address :&ensp;</div>{" "}
             {this.state.notifications[i].body.location.poi +
               ", " +
               this.state.notifications[i].body.location.street +
@@ -58,7 +63,7 @@ class Notifications extends React.Component {
               this.state.notifications[i].body.location.state +
               ", " +
               this.state.notifications[i].body.location.pincode}
-          </h5>
+          </h6>
           <hr />
         </div>
       );
@@ -66,8 +71,13 @@ class Notifications extends React.Component {
 
     return (
       <div>
-        <h3>Notifications</h3>
-        {jsx}
+        <div class="notify-bg">
+          <br />
+          <div class="notify-cont">
+            <h3 class="notifyh">Notifications</h3>
+            {jsx}
+          </div>
+        </div>
       </div>
     );
   }
