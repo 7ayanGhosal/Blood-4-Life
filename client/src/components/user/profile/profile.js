@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import Map from "./map/map";
 import AuthContext from "../../../context/auth-context";
+import MaleAvatar from "../../../resources/MaleAvatar.jpg";
+import FemaleAvatar from "../../../resources/FemaleAvatar.jpg";
 import "./profile.css";
 
 class Profile extends React.Component {
@@ -136,6 +138,7 @@ class Profile extends React.Component {
         </div>
       );
     }
+
     return (
       <div>
         <button
@@ -169,7 +172,8 @@ class Profile extends React.Component {
           <div class="offcanvas-body profile-bg">
             <center>
               <img
-                src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+                id="avatar"
+                src={this.context.gender == "Male" ? MaleAvatar : FemaleAvatar}
                 class="card-img-top user-dp"
                 alt="..."
               />
@@ -306,7 +310,9 @@ class Profile extends React.Component {
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
                   <img
-                    src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+                    src={
+                      this.context.gender == "Male" ? MaleAvatar : FemaleAvatar
+                    }
                     class="card-img-top user-dp"
                     alt="..."
                   />
