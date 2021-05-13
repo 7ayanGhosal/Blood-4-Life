@@ -83,7 +83,7 @@ class Events extends Component {
     return (
       <div class="container">
         <br />
-        <h3>Upcoming Blood Donation Camps</h3>
+        <h3>Upcoming Blood Donation Camps Near You</h3>
         <br />
         <br />
         {events}

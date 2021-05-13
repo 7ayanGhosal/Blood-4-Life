@@ -577,6 +577,9 @@ class App extends React.Component {
       case "Contact Us":
         box = <ContactUs></ContactUs>;
         break;
+      case "BloodBank":
+        box = <Hospital display="BloodBank" />;
+        break;
       default:
         box = null;
     }
@@ -607,13 +610,6 @@ class App extends React.Component {
         >
           <Navbar></Navbar>
           {box}
-          {this.state.authenticated ? (
-            this.state.isHospital ? (
-              <Hospital></Hospital>
-            ) : (
-              <User></User>
-            )
-          ) : null}
         </AuthContext.Provider>
         <FooterHome></FooterHome>
         {/* <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>

@@ -84,7 +84,7 @@ class AuthNav extends Component {
                           <button
                             class="dropdown-item"
                             onClick={() => {
-                              this.context.displayHandler("BloodBank");
+                              this.context.pageHandler("BloodBank");
                             }}
                           >
                             <h5 class="drop-head">Blood Bank Counter</h5>
