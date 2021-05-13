@@ -7,38 +7,16 @@ import Events from "./upcomingEvents/upcomingEvents";
 import AuthContext from "../../context/auth-context";
 
 class User extends Component {
-  static contextType = AuthContext;
-  // display: will take 4 values, what to diplay? 1.Profile, 2.BloodBank 3.UpcomingEvents, 4.OrganiseCamp
-  state = { display: "Profile" };
-  displayHandler = (display) => {
-    this.setState(
-      (prevState, props) => {
-        // document.getElementById(prevState.display).classList.remove("Active");
-        // document.getElementById(display).classList.add("Active");
-        return { display: display };
-      },
-      () => {
-        this.context.pageHandler("");
-      }
-    );
-  };
   render() {
-    this.context.displayHandler = this.displayHandler;
-
     var box = <Profile></Profile>;
-    if (this.state.display === "UpcomingEvents") {
+    if (this.props.display === "UpcomingEvents") {
       box = <Events></Events>;
-    } else if (this.state.display === "Notifications") {
+    } else if (this.props.display === "Notifications") {
       box = <Notifications></Notifications>;
     } else {
       box = <Profile></Profile>;
     }
-    return (
-      <div>
-        {/* <SecondNav displayHandler={this.displayHandler}></SecondNav> */}
-        {box}
-      </div>
-    );
+    return <div>{box}</div>;
   }
 }
 
