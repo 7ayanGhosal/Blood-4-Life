@@ -580,6 +580,18 @@ class App extends React.Component {
       case "BloodBank":
         box = <Hospital display="BloodBank" />;
         break;
+      case "HospitalUpcomingEvents":
+        box = <Hospital display="UpcomingEvents" />;
+        break;
+      case "UserUpcomingEvents":
+        box = <User display="UpcomingEvents" />;
+        break;
+      case "OrganiseCamp":
+        box = <Hospital display="OrganiseCamp" />;
+        break;
+      case "Notifications":
+        box = <User display="Notifications" />;
+        break;
       default:
         box = null;
     }

@@ -15,7 +15,6 @@ class Hospital extends Component {
     } else if (this.props.display === "BloodBank") {
       box = <BloodBank></BloodBank>;
     } else if (this.props.display === "UpcomingEvents") {
-      // Get the event details
       box = <UpcomingEvents></UpcomingEvents>;
     }
 
