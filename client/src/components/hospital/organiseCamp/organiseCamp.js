@@ -166,13 +166,15 @@ class OrganiseCamp extends React.Component {
                     this.context.location.pincode
                   }
                 />
+                <br />
+                <br />
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-dark camp-create ">
+                    Create Event
+                  </button>
+                </div>
               </div>
             </div>
-            <br />
-            <button type="submit" class="btn btn-dark camp-create ">
-              Create Event
-            </button>
-            <br />
             <br />
           </form>
           <div id="eventMessage" class="mb-3 row"></div>
