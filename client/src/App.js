@@ -140,6 +140,8 @@ class App extends React.Component {
           if (res.data === "False") {
             //Wrong OTP
             console.log("INVALID OTP");
+            document.getElementById("SignupOTPMessage").innerHTML =
+              "<h5>Invalid OTP!</h5>";
           } else {
             //correct OTP
             //turn off signupbox
