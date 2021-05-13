@@ -72,7 +72,7 @@ class AuthNav extends Component {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Options
+                    More
                   </button>
                   <ul
                     class="dropdown-menu nav-drop"
@@ -127,7 +127,7 @@ class AuthNav extends Component {
                             }}
                           >
                             <h5 class="drop-head">
-                              Upcoming Blood Donation Camps Near You
+                              Upcoming Blood Donation Camps
                             </h5>
                           </button>
                         </li>

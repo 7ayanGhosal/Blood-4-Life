@@ -47,31 +47,31 @@
 
 .profile-modal-input1 {
   display: inline-block;
-  width: 20%;
+  width: 100px;
   border: 1px solid black;
 }
 
 .profile-modal-input2 {
   display: inline-block;
-  width: 10%;
+  width: 100px;
   border: 1px solid black;
 }
 
 .profile-modal-input3 {
   display: inline-block;
-  width: 5%;
+  width: 50px;
   border: 1px solid black;
 }
 
 .profile-modal-input4 {
   display: inline-block;
-  width: 70%;
+  width: 73%;
   border: 1px solid black;
 }
 
 .profile-modal-input5 {
   display: inline-block;
-  width: 8%;
+  width: 70px;
   border: 1px solid black;
 }
 
