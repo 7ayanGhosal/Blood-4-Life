@@ -84,7 +84,7 @@ class AuthNav extends Component {
                           <button
                             class="dropdown-item"
                             onClick={() => {
-                              this.context.displayHandler("BloodBank");
+                              this.context.pageHandler("BloodBank");
                             }}
                           >
                             <h5 class="drop-head">Blood Bank Counter</h5>
@@ -94,7 +94,9 @@ class AuthNav extends Component {
                           <button
                             class="dropdown-item"
                             onClick={() => {
-                              this.context.displayHandler("UpcomingEvents");
+                              this.context.pageHandler(
+                                "HospitalUpcomingEvents"
+                              );
                             }}
                           >
                             <h5 class="drop-head">
@@ -106,7 +108,7 @@ class AuthNav extends Component {
                           <button
                             class="dropdown-item"
                             onClick={() => {
-                              this.context.displayHandler("OrganiseCamp");
+                              this.context.pageHandler("OrganiseCamp");
                             }}
                           >
                             <h5 class="drop-head">
@@ -121,7 +123,7 @@ class AuthNav extends Component {
                           <button
                             class="dropdown-item"
                             onClick={() => {
-                              this.context.displayHandler("UpcomingEvents");
+                              this.context.pageHandler("UserUpcomingEvents");
                             }}
                           >
                             <h5 class="drop-head">
@@ -133,7 +135,7 @@ class AuthNav extends Component {
                           <button
                             class="dropdown-item"
                             onClick={() => {
-                              this.context.displayHandler("Notifications");
+                              this.context.pageHandler("Notifications");
                             }}
                           >
                             <h5 class="drop-head">Notifications</h5>
