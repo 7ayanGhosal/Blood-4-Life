@@ -27,7 +27,8 @@ class ResetPass extends Component {
   close = () => {
     document.getElementById("ResetPassOTPBox").style.display = "none";
     document.getElementById("ResetPassPasswordSetter").style.display = "none";
-    this.setState = { email: "" };
+    // this.setState = { email: "" };
+    document.getElementById("ResetPassMessage").innerHTML = "";
     // document.getElementById("ResetPassInp1").value = "";
     // document.getElementById("ResetPassInp2").value = "";
     document.getElementById("ResetPassEmail").disabled = false;
@@ -80,9 +81,12 @@ class ResetPass extends Component {
                                 id="ResetPassEmail"
                                 placeholder=" Enter your valid Email Id "
                                 value={this.state.email}
-                                onChange={(e) =>
-                                  this.setState({ email: e.target.value })
-                                }
+                                onChange={(e) => {
+                                  this.setState({ email: e.target.value });
+                                  document.getElementById(
+                                    "ResetPassMessage"
+                                  ).innerHTML = "";
+                                }}
                                 required
                               />
                             </h5>
@@ -97,6 +101,7 @@ class ResetPass extends Component {
                             >
                               Submit
                             </button>
+                            <div id="ResetPassMessage"></div>
                           </div>
                         </form>
                         <div
