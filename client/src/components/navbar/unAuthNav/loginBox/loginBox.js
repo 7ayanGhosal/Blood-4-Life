@@ -33,7 +33,10 @@ class LoginBox extends Component {
                 class="btn-close modal-close-button"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-                onClick={this.reset}
+                onClick={() => {
+                  document.getElementById("loginMessage").innerHTML = "";
+                  this.reset();
+                }}
               ></button>
               <div class="modal-body">
                 <h2 class="modal-title loginh" id="exampleModalLabel">
@@ -56,9 +59,12 @@ class LoginBox extends Component {
                                 placeholder=" Enter your Email ID "
                                 type="email"
                                 value={this.state.email}
-                                onChange={(e) =>
-                                  this.setState({ email: e.target.value })
-                                }
+                                onChange={(e) => {
+                                  document.getElementById(
+                                    "loginMessage"
+                                  ).innerHTML = "";
+                                  this.setState({ email: e.target.value });
+                                }}
                               />
                               <br></br>
                               <br></br>
@@ -69,9 +75,12 @@ class LoginBox extends Component {
                                 placeholder=" Enter your password "
                                 type="password"
                                 value={this.state.pass}
-                                onChange={(e) =>
-                                  this.setState({ pass: e.target.value })
-                                }
+                                onChange={(e) => {
+                                  document.getElementById(
+                                    "loginMessage"
+                                  ).innerHTML = "";
+                                  this.setState({ pass: e.target.value });
+                                }}
                               />
                             </h5>
                             <br />

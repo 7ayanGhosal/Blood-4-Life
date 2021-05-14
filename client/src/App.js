@@ -104,9 +104,11 @@ class App extends React.Component {
         axios.post("/resetPass/sendOTP", body).then(
           (res) => {
             if (res.data === "doesnotexist") {
-              document.getElementById("ResetPassOTPBox").style.display =
-                "block";
-              document.getElementById("ResetPassOTPBox").innerHTML =
+              // document.getElementById("ResetPassOTPBox").style.display =
+              //   "block";
+              // document.getElementById("ResetPassOTPBox").innerHTML =
+              //   "<h5 className='text-danger'>This Email Id doesn't exist</h5>";
+              document.getElementById("ResetPassMessage").innerHTML =
                 "<h5 className='text-danger'>This Email Id doesn't exist</h5>";
             } else if (res.data === true) {
               //otp sent
@@ -119,9 +121,11 @@ class App extends React.Component {
               document.getElementById("ResetPassSubmit").disabled = true;
             } else {
               //error in nodemailer
-              document.getElementById("ResetPassOTPBox").style.display =
-                "block";
-              document.getElementById("ResetPassOTPBox").innerHTML =
+              // document.getElementById("ResetPassOTPBox").style.display =
+              //   "block";
+              // document.getElementById("ResetPassOTPBox").innerHTML =
+              //   "<h5 className='text-danger'>Couldn't connect to server, please try again after sometime</h5>";
+              document.getElementById("ResetPassMessage").innerHTML =
                 "<h5 className='text-danger'>Couldn't connect to server, please try again after sometime</h5>";
             }
           },
@@ -140,6 +144,8 @@ class App extends React.Component {
           if (res.data === "False") {
             //Wrong OTP
             console.log("INVALID OTP");
+            document.getElementById("SignupOTPMessage").innerHTML =
+              "<h5>Invalid OTP!</h5>";
           } else {
             //correct OTP
             //turn off signupbox

@@ -36,6 +36,7 @@ class OTPBox extends Component {
                 type="number"
                 name="OTP"
                 onChange={(event) => {
+                  document.getElementById("SignupOTPMessage").innerHTML = "";
                   this.setState({ otp: event.target.value });
                 }}
                 value={this.state.otp}
@@ -45,6 +46,7 @@ class OTPBox extends Component {
             </h5>
           </div>
           <br />
+          <div id="SignupOTPMessage"></div>
           <div
             class="btn btn-secondary email-change otp-btn"
             onClick={() => this.context.enableEmail()}
