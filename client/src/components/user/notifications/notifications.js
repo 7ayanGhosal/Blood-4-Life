@@ -24,12 +24,18 @@ class Notifications extends React.Component {
 
   render() {
     var jsx = [];
-
-    for (var i = 0; i < this.state.notifications.length; i++) {
+    if (this.state.notifications.length === 0)
+    {
+      jsx.push(<div><h5>Nothing to show!</h5></div>);
+    }
+    else
+    {
+    for (var i = this.state.notifications.length -1; i >= 0; i--) {
       jsx.push(
         <div>
           <br />
           <h4 class="n-type">{this.state.notifications[i].type}</h4>
+          <p>({this.state.notifications[i].body.date}-{this.state.notifications[i].body.month}-{this.state.notifications[i].body.year},{" "}{this.state.notifications[i].body.hour}:{this.state.notifications[i].body.min} hrs)</p>
           <br />
           <h5>
             <div class="ntemp">Required Blood Type :&ensp;</div>
@@ -66,7 +72,7 @@ class Notifications extends React.Component {
           </h6>
           <hr />
         </div>
-      );
+      );}
     }
 
     return (
