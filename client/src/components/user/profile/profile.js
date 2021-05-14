@@ -309,6 +309,7 @@ class Profile extends React.Component {
               </div>
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
+                  <br />
                   <img
                     src={
                       this.context.gender == "Male" ? MaleAvatar : FemaleAvatar

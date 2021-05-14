@@ -196,8 +196,11 @@ class App extends React.Component {
       axios.post("/signup", this.state).then(
         (res) => {
           if (res.data) {
-            document.getElementById("closeProfileSetterModal").click();
-            this.setState({ authenticated: true });
+            var cred = { email: this.state.email, pass: this.state.pass };
+            this.context.pass = "";
+            this.checkLogin(cred);
+            // document.getElementById("closeProfileSetterModal").click();
+            // this.setState({ authenticated: true });
           } else
             console.log(
               "from App.js, there is some error in index.js(backend)"
@@ -222,6 +225,7 @@ class App extends React.Component {
     };
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
+      console.log(cred);
       document.getElementById("closeLoginModal").click();
       axios.post("/login", cred).then((res) => {
         // console.log(res.data);
@@ -239,6 +243,7 @@ class App extends React.Component {
             ...res.data.data,
             events: res.data.event,
             isHospital: IsHospital,
+            token: res.data.token,
           });
           this.pageHandler("Home");
         }

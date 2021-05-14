@@ -60,11 +60,11 @@
 }
 
 .nav-drop {
-  background-color: lightskyblue;
+  background-color: rgb(245, 245, 119);
 }
 
 .drop-head {
-  font-family: "Times New Roman", Times, serif;
-  color: darkgreen;
+  font-family: garamond;
+  color: darkmagenta;
   font-weight: bold;
 }

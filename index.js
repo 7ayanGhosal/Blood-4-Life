@@ -78,6 +78,7 @@ var hospital = mongoose.model("Hospital", hospitalSchema);
 var camp = mongoose.model("Camp", campSchema);
 
 var otp = String(Math.floor(Math.random() * 89999 + 10000));
+var userToken = String(Math.floor(Math.random() * 89999 + 10000));
 var timer = 60;
 
 function Distance(lat1, lat2, lon1, lon2) {
@@ -106,6 +107,7 @@ var restAPIKey =
   // "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
   // "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
   // "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
+
   // "oymmpwqkf6ucxplv8xglbxvsz5t4cu6c"; //patra1
   // "f4slxwqq1r5kh7tmv2blz68hrvsf275g"; //patra2
   // "gn53n3t9ljaldc39tonzt7brfwojehwt"; //tevoh10810@dghetian.com
@@ -121,6 +123,7 @@ var clientID =
   // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
   // "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
   // "33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
+
   // "33OkryzDZsIxyJnU5Dq3RHxwahAUX51pfdoAFm7zG_zPzrufmmfPzIcIzVMkVwb5gQCiFc_Lgp9KANt3mU3g71CFAaXBvC5nTuiHqmyIqE4-Tmj779fUHA=="; //patra1
   // "33OkryzDZsIfGlUo6y0W-b-v0_R3xyHCINIJYPpjOE9yKkUNqH4T4uvhQL8PqaefiEdkgM7klj1Hd1wreawAmAfyyE-nPgGCa_PE8eMviR6dvxT1Ihc9kA==";
   // "33OkryzDZsKQ2VqmmE2NUNXJMxcHojkZMGJHas-GLu3IKbThgT2kIGh7QXGe8lSoZ9yvsvB6BI_ZfeGBEa8t-dBeMUxVuhAQ3k_ySGMKnQWbPFc0CSLAyA==";
@@ -358,7 +361,7 @@ app.post("/login", async (req, res) => {
     if (account.name) {
       account.password = "";
       await camp.find({ email: req.body.email }, (err, foundCamps) => {
-        Account = { data: account, event: foundCamps };
+        Account = { data: account, event: foundCamps, token: userToken };
         res.send(Account);
       });
     } else {
@@ -378,7 +381,7 @@ app.post("/login", async (req, res) => {
             events.push(camp);
           }
         });
-        Account = { data: account, event: events };
+        Account = { data: account, event: events, token: userToken };
         res.send(Account);
       });
     }
@@ -569,6 +572,19 @@ app.get("/hospital/qr/:email", (req, res) => {
       res.send(data);
     }
   });
+});
+
+app.get("/getNotifications/:token/:email", (req, res) => {
+  if (userToken != req.params.token) {
+    res.send(False);
+  } else {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      if (err) res.send(False);
+      else {
+        res.send(foundUser.notifications);
+      }
+    });
+  }
 });
 
 app.get("/remove/:email", (req, res) => {
@@ -774,6 +790,3 @@ if (process.env.NODE_ENV === "production") {
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
   console.log("Server has started");
 });
-
-//yebef60630@dvdoto.com
-//aaa

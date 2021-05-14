@@ -1,0 +1,31 @@
+.blood-type {
+  color: red;
+  display: inline;
+}
+
+.ntemp {
+  display: inline;
+  font-style: italic;
+}
+
+.n-type {
+  color: green;
+  font-family: "Lucida Console", monospace;
+}
+
+.notify-bg {
+  background-color: skyblue;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.notifyh {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  color: darkred;
+}
+
+.notify-cont {
+  margin-left: 10px;
+  margin-right: 10px;
+}
