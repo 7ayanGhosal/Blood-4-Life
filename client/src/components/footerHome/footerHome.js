@@ -22,32 +22,44 @@ class FooterHome extends Component {
                   <h3> Creators:- </h3>
                 </div>{" "}
                 <br></br>
-                Aditya Saha : <b class="cghid">GitHubID :- </b>
+                <div class="d-inline">
+                <div class="d-inline-block m-auto p-1">
+
+                Aditya Saha : 
                 <a href="https://github.com/nervouscoder27" target="_blank">
-                  github.com/nervouscoder27
+                <b class="cghid"><i class="fab fa-github"></i></b>
                 </a>
-                <br></br>
-                Ayan Ghosal : <b class="cghid">GitHubID :- </b>
+                </div>
+                <div class="d-inline-block m-auto p-1">
+                Ayan Ghosal : 
                 <a href="https://github.com/7ayanGhosal" target="_blank">
-                  github.com/7ayanGhosal
+                <b class="cghid"><i class="fab fa-github"></i> </b>
                 </a>
-                <br></br>
-                Pulkit Singhania : <b class="cghid">GitHubID :- </b>
+                </div>
+                </div>
+                <div>
+                <div class="d-inline-block m-auto p-1">
+               
+                Pulkit Singhania : 
                 <a href="https://github.com/pulkit-singhania" target="_blank">
-                  github.com/pulkit-singhania
+                <b class="cghid"><i class="fab fa-github"></i> </b>
                 </a>
-                <br></br>
-                Rishav Kundu :<b class="cghid">GitHubID :- </b>
+              </div>
+              <div class="d-inline-block m-auto p-1">
+                Rishav Kundu :
                 <a href="https://github.com/rishavkundu62" target="_blank">
-                  github.com/rishavkundu62
+                <b class="cghid"><i class="fab fa-github"></i> </b>
                 </a>
-                <br></br>
-                Sourav Patra : <b class="cghid">GitHubID :- </b>
+                </div>
+                </div>
+                <div>
+                Sourav Patra : 
                 <a href="https://github.com/souravpatra33" target="_blank">
                   {" "}
-                  github.com/souravpatra33
+                  <b class="cghid"><i class="fab fa-github"></i> </b>
                 </a>
-                <br></br>
+                </div>
+              
               </div>
               <div class="col-sm">
                 <div class="col-name">
