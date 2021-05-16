@@ -51,49 +51,55 @@ class Notifications extends React.Component {
         }
 
         jsx.push(
-          <div class={unseen}>
-            <h4 class="n-type">{this.state.notifications[i].type}</h4>
-            <p>
-              ({this.state.notifications[i].body.date}-
-              {this.state.notifications[i].body.month}-
-              {this.state.notifications[i].body.year},{" "}
-              {this.state.notifications[i].body.hour}:
-              {this.state.notifications[i].body.min} hrs)
-            </p>
-            <br />
-            <h5>
-              <div class="ntemp">Required Blood Type :&ensp;</div>
-              <div class="blood-type">
-                {this.state.notifications[i].body.bloodGroup}
-                {this.state.notifications[i].body.rhFactor === "Positive"
-                  ? "+"
-                  : "-"}
+          <div>
+            <div class={unseen}>
+              <div class="card-header">
+                <h4 class="n-type">{this.state.notifications[i].type}</h4>
               </div>
-            </h5>
-            <h6>
-              <div class="ntemp">Address :&ensp;</div>{" "}
-              {this.state.notifications[i].body.location.poi +
-                ", " +
-                this.state.notifications[i].body.location.street +
-                ", " +
-                this.state.notifications[i].body.location.subSubLocality +
-                ", " +
-                this.state.notifications[i].body.location.subLocality +
-                ", " +
-                this.state.notifications[i].body.location.locality +
-                ", " +
-                this.state.notifications[i].body.location.village +
-                ", " +
-                this.state.notifications[i].body.location.district +
-                ", " +
-                this.state.notifications[i].body.location.subDistrict +
-                ", " +
-                this.state.notifications[i].body.location.city +
-                ", " +
-                this.state.notifications[i].body.location.state +
-                ", " +
-                this.state.notifications[i].body.location.pincode}
-            </h6>
+              <div class="card-body">
+                <p>
+                  ({this.state.notifications[i].body.date}-
+                  {this.state.notifications[i].body.month}-
+                  {this.state.notifications[i].body.year},{" "}
+                  {this.state.notifications[i].body.hour}:
+                  {this.state.notifications[i].body.min} hrs)
+                </p>
+                <h5>
+                  <div class="ntemp">Required Blood Type :&ensp;</div>
+                  <div class="blood-type">
+                    {this.state.notifications[i].body.bloodGroup}
+                    {this.state.notifications[i].body.rhFactor === "Positive"
+                      ? "+"
+                      : "-"}
+                  </div>
+                </h5>
+                <h6>
+                  <div class="ntemp">Address :&ensp;</div>{" "}
+                  {this.state.notifications[i].body.location.poi +
+                    ", " +
+                    this.state.notifications[i].body.location.street +
+                    ", " +
+                    this.state.notifications[i].body.location.subSubLocality +
+                    ", " +
+                    this.state.notifications[i].body.location.subLocality +
+                    ", " +
+                    this.state.notifications[i].body.location.locality +
+                    ", " +
+                    this.state.notifications[i].body.location.village +
+                    ", " +
+                    this.state.notifications[i].body.location.district +
+                    ", " +
+                    this.state.notifications[i].body.location.subDistrict +
+                    ", " +
+                    this.state.notifications[i].body.location.city +
+                    ", " +
+                    this.state.notifications[i].body.location.state +
+                    ", " +
+                    this.state.notifications[i].body.location.pincode}
+                </h6>
+              </div>
+            </div>
+            <br />
           </div>
         );
       }
@@ -101,11 +107,16 @@ class Notifications extends React.Component {
 
     return (
       <div>
-        <div class="notify-bg">
+        <div>
           <br />
-          <button onClick={() => this.refresh()}>Refresh</button>
           <div class="notify-cont">
             <h3 class="notifyh">Notifications</h3>
+            <button class="btn n-refresh" onClick={() => this.refresh()}>
+              Refresh
+            </button>
+            <br />
+            <br />
+            <br />
             {jsx}
           </div>
         </div>

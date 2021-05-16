@@ -13,13 +13,9 @@
   font-family: "Lucida Console", monospace;
 }
 
-.notify-bg {
-  /* background-color: skyblue; */
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-}
-
 .notifyh {
   font-family: "Courier New", Courier, monospace;
+  font-size: xx-large;
   font-weight: bold;
   text-align: center;
   color: darkred;
@@ -31,8 +27,23 @@
 }
 
 .unseen {
-  background-color: rgba(0, 0, 139, 0.8);
+  background-color: rgba(2, 236, 253, 0.8);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
+
 .seen {
-  background-color: rgba(135, 206, 235, 0.8);
+  background-color: rgba(119, 235, 243, 0.8);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.n-refresh {
+  float: right;
+  width: 80px;
+  margin-right: 10px;
+  background-color: darkmagenta;
+  color: white;
+}
+
+.n-refresh:hover {
+  color: white;
 }
