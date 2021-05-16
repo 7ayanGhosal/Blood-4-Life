@@ -25,21 +25,31 @@ class Profile extends React.Component {
       this.context.resetProfile(this.state);
     };
     this.getUserLocation = () => {
+      var address = "";
+      if (this.state.location.poi) address += this.state.location.poi + ", ";
+      if (this.state.location.street)
+        address += this.state.location.street + ", ";
+      if (this.state.location.subSubLocality)
+        address += this.state.location.subSubLocality + ", ";
+      if (this.state.location.subLocality)
+        address += this.state.location.subLocality + ", ";
+      if (this.state.location.locality)
+        address += this.state.location.locality + ", ";
+      if (this.state.location.village)
+        address += this.state.location.village + ", ";
+      if (this.state.location.district)
+        address += this.state.location.district + ", ";
+      if (this.state.location.subDistrict)
+        address += this.state.location.subDistrict + ", ";
+      if (this.state.location.city) address += this.state.location.city + ", ";
+      if (this.state.location.state)
+        address += this.state.location.state + ", ";
+      if (this.state.location.pincode) address += this.state.location.pincode;
+
       this.setState({
         latitude: this.state.location.latitude,
         longitude: this.state.location.longitude,
-        address:
-          this.state.location.poi +
-          this.state.location.street +
-          this.state.location.subSubLocality +
-          this.state.location.subLocality +
-          this.state.location.locality +
-          this.state.location.village +
-          this.state.location.district +
-          this.state.location.subDistrict +
-          this.state.location.city +
-          this.state.location.state +
-          this.state.location.pincode,
+        address: address,
       });
     };
 
@@ -112,13 +122,15 @@ class Profile extends React.Component {
   }
   render() {
     var mapJSX = (
-      <div id="MAP2">
-        <Map
-          key={this.state.latitude + this.state.longitude}
-          latitude={this.state.latitude}
-          longitude={this.state.longitude}
-          dragHandler={this.dragHandler}
-        ></Map>
+      <div class="MAP-up">
+        <div id="MAP-up">
+          <Map
+            key={this.state.latitude + this.state.longitude + Math.random()}
+            latitude={this.state.latitude}
+            longitude={this.state.longitude}
+            dragHandler={this.dragHandler}
+          ></Map>
+        </div>
       </div>
     );
     var suggestions = [];
@@ -195,28 +207,39 @@ class Profile extends React.Component {
               </h6>
               &ensp;
               <h6 class="p-value">
-                {(this.context.location.poi != "" ? this.context.location.poi+", ":"")
-                +
-                (this.context.location.street != "" ? this.context.location.street+", ":"")
-                +
-                (this.context.location.subSubLocality != "" ? this.context.location.subSubLocality+", ":"")
-                +
-                (this.context.location.subLocality != "" ? this.context.location.subLocality+", ":"")
-                +
-                (this.context.location.locality != "" ? this.context.location.locality+", ":"")
-                +
-                (this.context.location.village != "" ? this.context.location.village+", ":"")
-                +
-                (this.context.location.district != "" ? this.context.location.district+", ":"")
-                +
-                (this.context.location.subDistrict != "" ? this.context.location.subDistrict+", ":"")
-                +
-                (this.context.location.city != "" ? this.context.location.city+", ":"")
-                +
-                (this.context.location.state != "" ? this.context.location.state+", ":"")
-                +
-                (this.context.location.pincode != "" ? this.context.location.pincode+" ":"")
-                }
+                {(this.context.location.poi != ""
+                  ? this.context.location.poi + ", "
+                  : "") +
+                  (this.context.location.street != ""
+                    ? this.context.location.street + ", "
+                    : "") +
+                  (this.context.location.subSubLocality != ""
+                    ? this.context.location.subSubLocality + ", "
+                    : "") +
+                  (this.context.location.subLocality != ""
+                    ? this.context.location.subLocality + ", "
+                    : "") +
+                  (this.context.location.locality != ""
+                    ? this.context.location.locality + ", "
+                    : "") +
+                  (this.context.location.village != ""
+                    ? this.context.location.village + ", "
+                    : "") +
+                  (this.context.location.district != ""
+                    ? this.context.location.district + ", "
+                    : "") +
+                  (this.context.location.subDistrict != ""
+                    ? this.context.location.subDistrict + ", "
+                    : "") +
+                  (this.context.location.city != ""
+                    ? this.context.location.city + ", "
+                    : "") +
+                  (this.context.location.state != ""
+                    ? this.context.location.state + ", "
+                    : "") +
+                  (this.context.location.pincode != ""
+                    ? this.context.location.pincode + " "
+                    : "")}
               </h6>
               <br />
               <br />
@@ -275,6 +298,9 @@ class Profile extends React.Component {
               class="btn btn-success edit-profile"
               data-bs-toggle="modal"
               data-bs-target="#profileResetModal"
+              onClick={() => {
+                this.forceUpdate();
+              }}
             >
               Edit Profile
             </button>

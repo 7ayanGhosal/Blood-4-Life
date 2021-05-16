@@ -8,11 +8,11 @@ class Notifications extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { notifications: [] };
+    this.state = { notifications: this.props.notif };
     // setInterval(() => {
     //   axios
     //     .get(
-    //       "/getNotifications/" + this.context.token + "/" + this.context.email
+    //       "/getNotifications/" + this.context.email
     //     )
     //     .then((res) => {
     //       console.log(res);
@@ -21,19 +21,12 @@ class Notifications extends React.Component {
     // }, 5000);
   }
   refresh = () => {
-    axios
-      .get("/getNotifications/" + this.context.token + "/" + this.context.email)
-      .then((res) => {
-        console.log(res);
-        this.context.notifications = res.data;
-        this.setState({ notifications: res.data });
-      });
+    this.context.refreshUserNotif();
   };
-  componentDidMount() {
-    this.setState({ notifications: this.context.notifications });
-  }
+  // componentDidMount() {
+  //   this.setState({ notifications: this.context.notifications });
+  // }
   render() {
-    console.log("xxx");
     var jsx = [];
     if (this.state.notifications.length === 0) {
       jsx.push(
@@ -75,27 +68,45 @@ class Notifications extends React.Component {
                 </h5>
                 <h6>
                   <div class="ntemp">Address :&ensp;</div>{" "}
-                  {this.state.notifications[i].body.location.poi +
-                    ", " +
-                    this.state.notifications[i].body.location.street +
-                    ", " +
-                    this.state.notifications[i].body.location.subSubLocality +
-                    ", " +
-                    this.state.notifications[i].body.location.subLocality +
-                    ", " +
-                    this.state.notifications[i].body.location.locality +
-                    ", " +
-                    this.state.notifications[i].body.location.village +
-                    ", " +
-                    this.state.notifications[i].body.location.district +
-                    ", " +
-                    this.state.notifications[i].body.location.subDistrict +
-                    ", " +
-                    this.state.notifications[i].body.location.city +
-                    ", " +
-                    this.state.notifications[i].body.location.state +
-                    ", " +
-                    this.state.notifications[i].body.location.pincode}
+                  {(this.state.notifications[i].body.location.poi != ""
+                    ? this.state.notifications[i].body.location.poi + ", "
+                    : "") +
+                    (this.state.notifications[i].body.location.street != ""
+                      ? this.state.notifications[i].body.location.street + ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.subSubLocality !=
+                    ""
+                      ? this.state.notifications[i].body.location
+                          .subSubLocality + ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.subLocality != ""
+                      ? this.state.notifications[i].body.location.subLocality +
+                        ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.locality != ""
+                      ? this.state.notifications[i].body.location.locality +
+                        ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.village != ""
+                      ? this.state.notifications[i].body.location.village + ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.district != ""
+                      ? this.state.notifications[i].body.location.district +
+                        ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.subDistrict != ""
+                      ? this.state.notifications[i].body.location.subDistrict +
+                        ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.city != ""
+                      ? this.state.notifications[i].body.location.city + ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.state != ""
+                      ? this.state.notifications[i].body.location.state + ", "
+                      : "") +
+                    (this.state.notifications[i].body.location.pincode != ""
+                      ? this.state.notifications[i].body.location.pincode + " "
+                      : "")}
                 </h6>
               </div>
             </div>

@@ -43,27 +43,39 @@ class Events extends Component {
               </h5>
               &ensp;
               <h5 class="ue-value">
-                {this.context.events[i].location.poi +
-                  ", " +
-                  this.context.events[i].location.street +
-                  ", " +
-                  this.context.events[i].location.subSubLocality +
-                  ", " +
-                  this.context.events[i].location.subLocality +
-                  ", " +
-                  this.context.events[i].location.locality +
-                  ", " +
-                  this.context.events[i].location.village +
-                  ", " +
-                  this.context.events[i].location.district +
-                  ", " +
-                  this.context.events[i].location.subDistrict +
-                  ", " +
-                  this.context.events[i].location.city +
-                  ", " +
-                  this.context.events[i].location.state +
-                  ", " +
-                  this.context.events[i].location.pincode}
+                {(this.context.events[i].location.poi != ""
+                  ? this.context.events[i].location.poi + ", "
+                  : "") +
+                  (this.context.events[i].location.street != ""
+                    ? this.context.events[i].location.street + ", "
+                    : "") +
+                  (this.context.events[i].location.subSubLocality != ""
+                    ? this.context.events[i].location.subSubLocality + ", "
+                    : "") +
+                  (this.context.events[i].location.subLocality != ""
+                    ? this.context.events[i].location.subLocality + ", "
+                    : "") +
+                  (this.context.events[i].location.locality != ""
+                    ? this.context.events[i].location.locality + ", "
+                    : "") +
+                  (this.context.events[i].location.village != ""
+                    ? this.context.events[i].location.village + ", "
+                    : "") +
+                  (this.context.events[i].location.district != ""
+                    ? this.context.events[i].location.district + ", "
+                    : "") +
+                  (this.context.events[i].location.subDistrict != ""
+                    ? this.context.events[i].location.subDistrict + ", "
+                    : "") +
+                  (this.context.events[i].location.city != ""
+                    ? this.context.events[i].location.city + ", "
+                    : "") +
+                  (this.context.events[i].location.state != ""
+                    ? this.context.events[i].location.state + ", "
+                    : "") +
+                  (this.context.events[i].location.pincode != ""
+                    ? this.context.events[i].location.pincode + " "
+                    : "")}
               </h5>
               <br />
               <h5 class="ue-attribute" href="#">

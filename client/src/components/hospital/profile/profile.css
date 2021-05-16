@@ -55,3 +55,13 @@
   text-align: center;
   color: maroon;
 }
+
+#MAP-hp {
+  object-position: center;
+  height: 250px;
+  border: 5px solid rgba(148, 148, 148, 0.8);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1em;
+}

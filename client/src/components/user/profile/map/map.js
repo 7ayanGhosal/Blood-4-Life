@@ -8,6 +8,8 @@ class Map extends Component {
       <MapMyIndia
         key={this.props.key}
         height="250px"
+        zoom="10"
+        center={[this.props.latitude, this.props.longitude]}
         markers={[
           {
             position: [this.props.latitude, this.props.longitude],

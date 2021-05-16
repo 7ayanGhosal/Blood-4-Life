@@ -12,7 +12,7 @@ class User extends Component {
     if (this.props.display === "UpcomingEvents") {
       box = <Events></Events>;
     } else if (this.props.display === "Notifications") {
-      box = <Notifications></Notifications>;
+      box = <Notifications notif={this.props.notif}></Notifications>;
     } else {
       box = <Profile></Profile>;
     }

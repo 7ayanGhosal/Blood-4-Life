@@ -9,6 +9,7 @@ class PlacePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // rerender: true,
       latitude: 0,
       longitude: 0,
       address: "", //denotes the adress written inside the search box
@@ -118,6 +119,7 @@ class PlacePicker extends Component {
 
   componentDidMount() {
     this.getUserLocation();
+    this.forceUpdate();
   }
   // ADDING ONCLICK TO SUGGESTIONS
   componentDidUpdate() {

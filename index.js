@@ -79,7 +79,7 @@ var hospital = mongoose.model("Hospital", hospitalSchema);
 var camp = mongoose.model("Camp", campSchema);
 
 var otp = String(Math.floor(Math.random() * 89999 + 10000));
-var userToken = String(Math.floor(Math.random() * 89999 + 10000));
+// var userToken = String(Math.floor(Math.random() * 89999 + 10000));
 var timer = 60;
 
 function Distance(lat1, lat2, lon1, lon2) {
@@ -115,9 +115,9 @@ var restAPIKey =
   // "41bnkkt2m448pnteqzx3zrga1jcmw9dd"; //fake //yebola9356@dghetian.com
   // "nx9uj21rwlp2i3gpserelqc9jk15utmh"; //yasak76551@dghetian.com
   // "6qvauko?d2jwn7t1x933o9dzi5puy6wzn"; //konaga1595@animex98.com
-  "5p3qejd1aust5syjm6hqxvky3gcse6hu"; //hepira8629@dghetian.com
-// "ugtsuizcadlynqjtb7q2zcxf3qtrxh7r"; //malop41024@animex98.com
-// "zmjykodsd1stc2jzp9k7ukq43b2drm4r"; //jadega5571@animex98.com *
+  // "5p3qejd1aust5syjm6hqxvky3gcse6hu"; //hepira8629@dghetian.com
+  // "ugtsuizcadlynqjtb7q2zcxf3qtrxh7r"; //malop41024@animex98.com
+  "zmjykodsd1stc2jzp9k7ukq43b2drm4r"; //jadega5571@animex98.com *
 // "6oee76fnz1354fikljkevh9m3u9zs9ka"; //refij11914@dghetian.com
 var clientID =
   // "33OkryzDZsKud94n0RHNubvOQuBX7plQb60OBebv_UOx9JOq4JbkK0S8MUesdAh9tDIgn3vlhbmifnFmxOPXT_eGXRLvbW95PhT5nywtJlxtZcL0fvC6kw==";
@@ -131,9 +131,9 @@ var clientID =
   // "33OkryzDZsJkys1CEXUKT4-iDtRexzoJfl4ZvqbXnLyYqUhuA_bnVxdEwInJ3FnTSXHeNPKAAGavOR4tK3yuF3lYX7UhrNG6dXkmRKkxoyC6LXe9UHFshQ=="; //fake
   // "33OkryzDZsLgaX8WXOgT0OvRImhfkXNasjteBwVHofwZBDubQpO3YuZPig3io-kf6SefVgjqUvqlbhKdg0FV9VUFatukSuyzAg6Czp9DxJiWda1KMROR6w==";
   // "33OkryzDZsLzTQwobsB?dpbrgKgmmeGTgs7bH7iw0Qjo1DnoaF3nVJlAer13ywvopksH-lQOeQM1mm-ENbPVS3DOOaCd_iCp33BXmyWmZvH9-CbdXVmiDYA==";
-  "33OkryzDZsLAwn2f0kKGSwr8fXWYjR5bbn-fYVdLo1Qtl96mLcu8S3o8AqTrgX3j7bccoH2Evmx60UdRhFChjMo7nw3EcXxZKPWz6_cI0jsp3JKIee5npA==";
-// "33OkryzDZsKCAEV4TZ3WxzuVBHgZDRu5bd7OVzQhUa2P3Ko2WH8y7X8VsIQZ-XCle1fGXvhDbJXDIIoyExDy-OKCrAmbLEpTmtCx2txFmfEEebRelvvJ8A==";
-// "33OkryzDZsIwqjE40QCnFxJK436IzckSW-0-TNIqB05ygPsmbs5GHGz7xeey4dcrQlrnVMklK7te-HIiv8IopPeOS6wbz2IYPQJULvaJw3k="; //*
+  // "33OkryzDZsLAwn2f0kKGSwr8fXWYjR5bbn-fYVdLo1Qtl96mLcu8S3o8AqTrgX3j7bccoH2Evmx60UdRhFChjMo7nw3EcXxZKPWz6_cI0jsp3JKIee5npA==";
+  // "33OkryzDZsKCAEV4TZ3WxzuVBHgZDRu5bd7OVzQhUa2P3Ko2WH8y7X8VsIQZ-XCle1fGXvhDbJXDIIoyExDy-OKCrAmbLEpTmtCx2txFmfEEebRelvvJ8A==";
+  "33OkryzDZsIwqjE40QCnFxJK436IzckSW-0-TNIqB05ygPsmbs5GHGz7xeey4dcrQlrnVMklK7te-HIiv8IopPeOS6wbz2IYPQJULvaJw3k="; //*
 // "33OkryzDZsJyPUR_3XLlRNwL79j27h00rGWcQ2bx4iWtiyjyau-2-3rgHNoP7IXyYM5oxVucopjwOUNPSeHyF8Bnxp5-yUO79qtopXkwSlnJC97uoQsLiw==";
 var clientSecret =
   // "lrFxI-iSEg-zO4DQYfnrt3fVbtkxTr847H5outlqQmJHu__AEHKeeXlkkELCOpGN3gtIe-lEzwRbIsYdmPpLPGG3ZiQs8PCwY-JenzFK_CZAK38D0B9dWVA-C4FjcCxc";
@@ -146,9 +146,9 @@ var clientSecret =
   // "lrFxI-iSEg9s2lXDr-67wP5xDwte_oZVI79HMDTqUdI_olgHdmGcuB5HMRrYgHlbxQ-0-ZOPNnCO3NNdIzyxwZFkakP1Mg1UiIzcrG8CHhuYzjPaHMq13oMgu4qjWFTd"; //fake
   // "lrFxI-iSEg9s2lXDr-67wEB10ObwcqZwf6Ki4G2ZQDucH_IS98KdMZnPWsXjsdHDXK7WnAY48Wqr1b3i0pf2vZVs2ZdKS1QA1nHXL5d41t-mV2Q_yq9YeXhagaEg6ABg";
   // "lrFxI-iSEg9s2lXDr-67wPg9L-?d_VoZCa1pttcqa9-lCUSkdR_axf0F0VQUP60h7Pum10rLa7brYRluLwoA19RuYFlr_ZV0rz_DgjAVPH5tSGmgbrLTIACSfxaNi4Gol";
-  "lrFxI-iSEg9s2lXDr-67wKBkJ66du_ZXkmh7E2vP6Db92fkBbzXd4ulP76mhG-n_JYihKEh33WLldeyyoZOM5yTqfQcokWYFt1FpN4oz6nB0ugkgfOLcOwWylzH49Ep_";
-// "lrFxI-iSEg9s2lXDr-67wC1GdARt3ydr3DJGrbQW7llusXiBaAhi7B5mvrVZkqXZ3TcA6snEfLPeps8dQ80DERVgGznKeQ4v4UmQzCBrNvwT-RN6dDzW9qELy8f3jkPo";
-// "lrFxI-iSEg9s2lXDr-67wOsewZc_GqpRk2zQcvGtWOhi3kd8WR72eR_El2jF55zC0pSicXULk9q1L7XN35Gfj4bI-osA5DOBnjKxYxolmwu_0L8dWtNfzw=="; //*
+  // "lrFxI-iSEg9s2lXDr-67wKBkJ66du_ZXkmh7E2vP6Db92fkBbzXd4ulP76mhG-n_JYihKEh33WLldeyyoZOM5yTqfQcokWYFt1FpN4oz6nB0ugkgfOLcOwWylzH49Ep_";
+  // "lrFxI-iSEg9s2lXDr-67wC1GdARt3ydr3DJGrbQW7llusXiBaAhi7B5mvrVZkqXZ3TcA6snEfLPeps8dQ80DERVgGznKeQ4v4UmQzCBrNvwT-RN6dDzW9qELy8f3jkPo";
+  "lrFxI-iSEg9s2lXDr-67wOsewZc_GqpRk2zQcvGtWOhi3kd8WR72eR_El2jF55zC0pSicXULk9q1L7XN35Gfj4bI-osA5DOBnjKxYxolmwu_0L8dWtNfzw=="; //*
 // "lrFxI-iSEg9s2lXDr-67wIvEQXNojVrm0yn8VsPvB6mmjSWReTM4WLz7NUwEs2KUA-cAFoTA4zcONbdqR_j5UtecAI24tT7FBrqgPd8_yn_POQbgyKMwT4TSwsuZp1M1";
 revgeocodeUrl =
   "https://apis.mapmyindia.com/advancedmaps/v1/" + restAPIKey + "/rev_geocode?";
@@ -385,7 +385,7 @@ app.post("/login", async (req, res) => {
     if (account.name) {
       account.password = "";
       await camp.find({ email: req.body.email }, (err, foundCamps) => {
-        Account = { data: account, event: foundCamps, token: userToken };
+        Account = { data: account, event: foundCamps };
         res.send(Account);
       });
     } else {
@@ -405,7 +405,7 @@ app.post("/login", async (req, res) => {
             events.push(camp);
           }
         });
-        Account = { data: account, event: events, token: userToken };
+        Account = { data: account, event: events };
         res.send(Account);
       });
     }
@@ -598,19 +598,15 @@ app.get("/hospital/qr/:email", (req, res) => {
   });
 });
 
-app.get("/getNotifications/:token/:email", (req, res) => {
-  if (userToken != req.params.token) {
-    res.send(false);
-  } else {
-    user.findOne({ email: req.params.email }, (err, foundUser) => {
-      if (err) res.send(false);
-      else {
-        foundUser.seen = foundUser.notifications.length;
-        foundUser.save();
-        res.send(foundUser.notifications);
-      }
-    });
-  }
+app.get("/getNotifications/:email", (req, res) => {
+  user.findOne({ email: req.params.email }, (err, foundUser) => {
+    if (err) res.send(false);
+    else {
+      foundUser.seen = foundUser.notifications.length;
+      foundUser.save();
+      res.send(foundUser.notifications);
+    }
+  });
 });
 
 app.get("/remove/:email", (req, res) => {
@@ -748,28 +744,24 @@ app.post("/requestBlood/user", (req, res) => {
           emails.push(Users[i].email);
         }
       }
-      var address =
-        req.body.location.poi +
-        ", " +
-        req.body.location.street +
-        ", " +
-        req.body.location.subSubLocality +
-        ", " +
-        req.body.location.subLocality +
-        ", " +
-        req.body.location.locality +
-        ", " +
-        req.body.location.village +
-        ", " +
-        req.body.location.district +
-        ", " +
-        req.body.location.subDistrict +
-        ", " +
-        req.body.location.city +
-        ", " +
-        req.body.location.state +
-        ", " +
-        req.body.location.pincode;
+      var address = "";
+      if (req.body.location.poi) address += req.body.location.poi + ", ";
+      if (req.body.location.street) address += req.body.location.street + ", ";
+      if (req.body.location.subSubLocality)
+        address += req.body.location.subSubLocality + ", ";
+      if (req.body.location.subLocality)
+        address += req.body.location.subLocality + ", ";
+      if (req.body.location.locality)
+        address += req.body.location.locality + ", ";
+      if (req.body.location.village)
+        address += req.body.location.village + ", ";
+      if (req.body.location.district)
+        address += req.body.location.district + ", ";
+      if (req.body.location.subDistrict)
+        address += req.body.location.subDistrict + ", ";
+      if (req.body.location.city) address += req.body.location.city + ", ";
+      if (req.body.location.state) address += req.body.location.state + ", ";
+      if (req.body.location.pincode) address += req.body.location.pincode;
       var mailBody =
         "<h4>This is a donation request  on behalf of " +
         req.body.details.name +
@@ -789,6 +781,7 @@ app.post("/requestBlood/user", (req, res) => {
 
       transporter.sendMail(mailOptions);
       var currDonor;
+      var today = new Date();
       User.forEach(async (donor) => {
         currDonor = await user.findOne({ email: donor.email });
         currDonor.notifications.push({
@@ -797,11 +790,11 @@ app.post("/requestBlood/user", (req, res) => {
             bloodGroup: req.body.details.bloodGroup,
             rhFactor: req.body.details.rhFactor,
             location: req.body.location,
-            date: new Date().getDate(),
-            month: new Date().getMonth(),
-            year: new Date().getYear(),
-            hour: new Date().getHours(),
-            min: new Date().getMinutes(),
+            date: today.getDate(),
+            month: today.getMonth() + 1,
+            year: today.getFullYear(),
+            hour: today.getHours(),
+            min: today.getMinutes(),
           },
         });
         // if (!currDonor.unseen) {

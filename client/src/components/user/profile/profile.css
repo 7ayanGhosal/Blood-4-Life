@@ -98,3 +98,14 @@
     rgba(0, 0, 0, 0)
   );
 }
+.MAP-up {
+  border-radius: 5px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  border: 5px solid rgba(148, 148, 148, 0.5);
+  overflow: hidden;
+  /* height: 250px; */
+}
+/* #MAP-up {
+  position: relative;
+} */

@@ -27,8 +27,14 @@
   box-sizing: border-box;
   border: 5px solid rgba(148, 148, 148, 0.5);
   overflow: hidden;
-  height: 50vh;
+  height: 400px;
 }
+
+#div-map {
+  position: relative;
+  top: -150px;
+}
+
 .marker-icon {
   height: 1rem;
 }

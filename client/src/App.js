@@ -243,7 +243,7 @@ class App extends React.Component {
             ...res.data.data,
             events: res.data.event,
             isHospital: IsHospital,
-            token: res.data.token,
+            // token: res.data.token,
           });
           this.pageHandler("Home");
         }
@@ -363,6 +363,15 @@ class App extends React.Component {
             "<h4>Couldn't Create Event, Try After Sometime!</h4>";
         }
       );
+    };
+
+    //Refresh user notifications
+    this.refreshUserNotif = () => {
+      // console.log();
+      axios.get("/getNotifications/" + this.state.email).then((res) => {
+        this.context.notifications = res.data;
+        this.setState({ notifications: res.data });
+      });
     };
 
     // Fake Hospitals
@@ -601,7 +610,13 @@ class App extends React.Component {
         box = <Hospital display="OrganiseCamp" />;
         break;
       case "Notifications":
-        box = <User display="Notifications" />;
+        box = (
+          <User
+            key={this.state.notifications.length}
+            display="Notifications"
+            notif={this.state.notifications}
+          />
+        );
         break;
       default:
         box = null;
@@ -628,6 +643,7 @@ class App extends React.Component {
             signup: this.signup,
             updateStock: this.updateStock,
             organiseCamp: this.organiseCamp,
+            refreshUserNotif: this.refreshUserNotif,
             emergency: this.emergency,
           }}
         >
