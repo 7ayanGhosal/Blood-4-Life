@@ -51,6 +51,7 @@ var userSchema = new mongoose.Schema({
   reqDonor: Boolean,
   location: Object,
   notifications: Array,
+  seen: Number,
 });
 
 var hospitalSchema = new mongoose.Schema({
@@ -335,6 +336,7 @@ app.post("/signup", async (req, res) => {
       rhFactor: req.body.rhFactor,
       reqDonor: req.body.reqDonor,
       location: req.body.location,
+      seen: 0,
     };
 
   if (
@@ -598,11 +600,13 @@ app.get("/hospital/qr/:email", (req, res) => {
 
 app.get("/getNotifications/:token/:email", (req, res) => {
   if (userToken != req.params.token) {
-    res.send(False);
+    res.send(false);
   } else {
     user.findOne({ email: req.params.email }, (err, foundUser) => {
-      if (err) res.send(False);
+      if (err) res.send(false);
       else {
+        foundUser.seen = foundUser.notifications.length;
+        foundUser.save();
         res.send(foundUser.notifications);
       }
     });
@@ -800,6 +804,10 @@ app.post("/requestBlood/user", (req, res) => {
             min: new Date().getMinutes(),
           },
         });
+        // if (!currDonor.unseen) {
+        //   currDonor.unseen = 0;
+        // }
+        // currDonor.unseen = currDonor.unseen + 1;
         await currDonor.save();
       });
       res.send({ count: User.length });
@@ -807,12 +815,12 @@ app.post("/requestBlood/user", (req, res) => {
   });
 });
 
-// user.find({}, (err, foundUser)=>{
-//   foundUser.forEach((usr)=>{
-//     usr.notifications = [];
+// user.find({}, (err, foundUser) => {
+//   foundUser.forEach((usr) => {
+//     usr.seen = 0;
 //     usr.save();
-//   })
-// })
+//   });
+// });
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
