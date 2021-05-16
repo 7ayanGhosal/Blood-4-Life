@@ -11,6 +11,11 @@
   background-color: skyblue;
 }
 
+.map-loader {
+  width: 100%;
+  height: 100%;
+}
+
 .slist {
   max-height: 150px;
   margin-bottom: 10px;
