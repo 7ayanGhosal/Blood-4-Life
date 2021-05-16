@@ -9,22 +9,31 @@ class Notifications extends React.Component {
   constructor(props) {
     super(props);
     this.state = { notifications: [] };
-
-    setInterval(() => {
-      axios
-        .get(
-          "/getNotifications/" + this.context.token + "/" + this.context.email
-        )
-        .then((res) => {
-          console.log(res);
-          this.setState({ notifications: res.data });
-        });
-    }, 5000);
+    // setInterval(() => {
+    //   axios
+    //     .get(
+    //       "/getNotifications/" + this.context.token + "/" + this.context.email
+    //     )
+    //     .then((res) => {
+    //       console.log(res);
+    //       this.setState({ notifications: res.data });
+    //     });
+    // }, 5000);
   }
+  refresh = () => {
+    axios
+      .get("/getNotifications/" + this.context.token + "/" + this.context.email)
+      .then((res) => {
+        console.log(res);
+        this.context.notifications = res.data;
+        this.setState({ notifications: res.data });
+      });
+  };
   componentDidMount() {
     this.setState({ notifications: this.context.notifications });
   }
   render() {
+    console.log("xxx");
     var jsx = [];
     if (this.state.notifications.length === 0) {
       jsx.push(
@@ -94,6 +103,7 @@ class Notifications extends React.Component {
       <div>
         <div class="notify-bg">
           <br />
+          <button onClick={() => this.refresh()}>Refresh</button>
           <div class="notify-cont">
             <h3 class="notifyh">Notifications</h3>
             {jsx}
