@@ -2,14 +2,18 @@ import React, { Component } from "react";
 import MapMyIndia from "mapmyindia-react";
 
 class Map extends Component {
-  state = { diaplay: false };
+  // state = { diaplay: false };
 
   componentDidMount() {
     setTimeout(() => {
       // document.getElementById("EmerListLoader").scrollIntoView();
       this.props.stopLoader();
-      this.setState({ display: true });
-    }, 1500);
+      // this.setState({ display: true });
+    }, 2000);
+  }
+
+  componentDidUpdate() {
+    console.log("Update hoche!!!");
   }
 
   render() {
@@ -33,7 +37,7 @@ class Map extends Component {
         title: "Hospital",
       });
     }
-    return this.state.display ? (
+    return (
       <MapMyIndia
         height="52vh"
         width="125%"
@@ -41,7 +45,7 @@ class Map extends Component {
         zoom="4"
         markers={[...UserMarkers, ...HospMarkers]}
       />
-    ) : null;
+    );
   }
 }
 
