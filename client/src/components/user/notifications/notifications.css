@@ -14,7 +14,7 @@
 }
 
 .notify-bg {
-  background-color: skyblue;
+  /* background-color: skyblue; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
@@ -28,4 +28,11 @@
 .notify-cont {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.unseen {
+  background-color: rgba(0, 0, 139, 0.8);
+}
+.seen {
+  background-color: rgba(135, 206, 235, 0.8);
 }
