@@ -11,6 +11,11 @@
   background-color: skyblue;
 }
 
+.map-loader {
+  width: 100%;
+  height: 400px;
+}
+
 .slist {
   max-height: 150px;
   margin-bottom: 10px;
@@ -30,10 +35,14 @@
   height: 400px;
 }
 
-#div-map {
+/* #div-map {
   position: relative;
   top: -150px;
-}
+} */
+/* #div-map2 {
+  position: relative;
+  top: -150px;
+} */
 
 .marker-icon {
   height: 1rem;

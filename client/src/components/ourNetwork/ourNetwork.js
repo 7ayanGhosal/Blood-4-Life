@@ -6,7 +6,11 @@ import userMarker from "../../resources/user_marker.png";
 import hospitalMarker from "../../resources/hospital_marker.png";
 
 class OurNetwork extends Component {
-  state = { users: [], hospitals: [], icons: {} };
+  state = { users: [], hospitals: [], icons: {}, loading: true };
+
+  stopLoader = () => {
+    this.setState({ loading: false });
+  };
 
   toggler = (str) => {
     var icons = document.getElementsByTagName("img");
@@ -114,12 +118,20 @@ class OurNetwork extends Component {
               </div>
             </div>
             <div class="col col-12 col-md-6 p-3">
-              <div class="MAP">
-                <div id="div-map">
+              <div id="div-map" class="MAP">
+                {this.state.loading ? (
+                  <div class="d-flex align-items-center justify-content-center text-danger mb-3 p-3 main-div-urslst map-loader useremerlist">
+                    <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                ) : null}
+                <div id="div-map2">
                   <Map
                     key={this.state.users.length + this.state.hospitals.length}
                     UserPoints={this.state.users}
                     HospitalPoints={this.state.hospitals}
+                    stopLoader={this.stopLoader}
                   ></Map>
                 </div>
               </div>

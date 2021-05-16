@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import MapMyIndia from "mapmyindia-react";
-import axios from "axios";
 
 class Map extends Component {
+  // state = { diaplay: false };
+
+  componentDidMount() {
+    setTimeout(() => {
+      // document.getElementById("EmerListLoader").scrollIntoView();
+      this.props.stopLoader();
+      // this.setState({ display: true });
+    }, 3000);
+  }
+
+  componentDidUpdate() {
+    console.log("Update hoche!!!");
+  }
+
   render() {
     var UserMarkers = [];
     var HospMarkers = [];

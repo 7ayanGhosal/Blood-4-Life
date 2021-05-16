@@ -41,7 +41,20 @@ class HospitalList extends React.Component {
       var available = false;
       var bloodGroup =
         this.props.details.bloodGroup + this.props.details.rhFactor;
-      if (ele.bloodStock[bloodGroup] > 0) {
+      // var keys = ele.bloodStock.keys();
+      var keys = ["A+", "B+", "AB+", "O+", "A-", "B-", "AB-", "O-"];
+      var hasBlood = false;
+      for (var i = 0; i < keys.length; i++) {
+        if (ele.bloodStock[keys[i]] > 0) {
+          hasBlood = true;
+          break;
+        }
+      }
+      if (
+        ele.bloodStock[bloodGroup] > 0 || //required blood available
+        (hasBlood && bloodGroup === "AB+") || //AB+ required, any blood available
+        ele.bloodStock["O-"] > 0 //O- is available
+      ) {
         available = true;
       }
       if (
