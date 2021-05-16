@@ -33,10 +33,13 @@
 }
 
 .logo img {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
+
 .logo h3 {
   margin-left: 0.5em;
   display: inline;
@@ -57,6 +60,19 @@
     width: 100% !important;
     margin: 0;
   }
+
+  .nav-drop {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
 }
 
 .nav-drop {
@@ -67,4 +83,11 @@
   font-family: garamond;
   color: darkmagenta;
   font-weight: bold;
+}
+
+.hr-stle {
+  height: 1px;
+  border-width: 0;
+  color: gray;
+  background-color: gray;
 }

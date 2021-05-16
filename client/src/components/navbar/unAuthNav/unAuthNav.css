@@ -40,6 +40,13 @@
     width: 100% !important;
     margin: 0;
   }
+  .logo img {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
 }
 
 @keyframes glow {

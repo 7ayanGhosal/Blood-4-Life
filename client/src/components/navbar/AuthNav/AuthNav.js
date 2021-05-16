@@ -131,6 +131,7 @@ class AuthNav extends Component {
                             </h5>
                           </button>
                         </li>
+                        {/* <hr class="hr-stle"></hr> */}
                         <li>
                           <button
                             class="dropdown-item"
