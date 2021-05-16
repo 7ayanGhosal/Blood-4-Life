@@ -173,7 +173,7 @@ class Profile extends React.Component {
             <center>
               <img
                 id="avatar"
-                src={this.context.gender == "Male" ? MaleAvatar : FemaleAvatar}
+                src={this.context.gender === "Male" ? MaleAvatar : FemaleAvatar}
                 class="card-img-top user-dp"
                 alt="..."
               />
@@ -313,7 +313,7 @@ class Profile extends React.Component {
                   <br />
                   <img
                     src={
-                      this.context.gender == "Male" ? MaleAvatar : FemaleAvatar
+                      this.context.gender === "Male" ? MaleAvatar : FemaleAvatar
                     }
                     class="card-img-top user-dp"
                     alt="..."

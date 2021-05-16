@@ -229,28 +229,39 @@ app.get("/map/eloc/:eloc", (req, res) => {
         state: Res.data.results[0].state,
         pincode: Res.data.results[0].pincode,
         address:
-        (Res.data.results[0].poi != "" ? Res.data.results[0].poi+", ":"")
-                +
-                (Res.data.results[0].street != "" ? Res.data.results[0].street+", ":"")
-                +
-                (Res.data.results[0].subSubLocality != "" ? Res.data.results[0].subSubLocality+", ":"")
-                +
-                (Res.data.results[0].subLocality != "" ? Res.data.results[0].subLocality+", ":"")
-                +
-                (Res.data.results[0].locality != "" ? Res.data.results[0].locality+", ":"")
-                +
-                (Res.data.results[0].village != "" ? Res.data.results[0].village+", ":"")
-                +
-                (Res.data.results[0].district != "" ? Res.data.results[0].district+", ":"")
-                +
-                (Res.data.results[0].subDistrict != "" ? Res.data.results[0].subDistrict+", ":"")
-                +
-                (Res.data.results[0].city != "" ? Res.data.results[0].city+", ":"")
-                +
-                (Res.data.results[0].state != "" ? Res.data.results[0].state+", ":"")
-                +
-                (Res.data.results[0].pincode != "" ? Res.data.results[0].pincode+" ":""),
-          
+          (Res.data.results[0].poi != ""
+            ? Res.data.results[0].poi + ", "
+            : "") +
+          (Res.data.results[0].street != ""
+            ? Res.data.results[0].street + ", "
+            : "") +
+          (Res.data.results[0].subSubLocality != ""
+            ? Res.data.results[0].subSubLocality + ", "
+            : "") +
+          (Res.data.results[0].subLocality != ""
+            ? Res.data.results[0].subLocality + ", "
+            : "") +
+          (Res.data.results[0].locality != ""
+            ? Res.data.results[0].locality + ", "
+            : "") +
+          (Res.data.results[0].village != ""
+            ? Res.data.results[0].village + ", "
+            : "") +
+          (Res.data.results[0].district != ""
+            ? Res.data.results[0].district + ", "
+            : "") +
+          (Res.data.results[0].subDistrict != ""
+            ? Res.data.results[0].subDistrict + ", "
+            : "") +
+          (Res.data.results[0].city != ""
+            ? Res.data.results[0].city + ", "
+            : "") +
+          (Res.data.results[0].state != ""
+            ? Res.data.results[0].state + ", "
+            : "") +
+          (Res.data.results[0].pincode != ""
+            ? Res.data.results[0].pincode + " "
+            : ""),
       });
     },
     (err) => {
@@ -287,7 +298,7 @@ app.post("/emailVerification", async (req, res) => {
 
 app.post("/otpVerification", (req, res) => {
   OTP = req.body.otp;
-  if (otp == OTP) {
+  if (otp === OTP) {
     res.send("True");
   } else {
     res.send("False");
@@ -786,7 +797,7 @@ app.post("/requestBlood/user", (req, res) => {
             month: new Date().getMonth(),
             year: new Date().getYear(),
             hour: new Date().getHours(),
-            min: new Date().getMinutes()
+            min: new Date().getMinutes(),
           },
         });
         await currDonor.save();
@@ -796,14 +807,12 @@ app.post("/requestBlood/user", (req, res) => {
   });
 });
 
-
 // user.find({}, (err, foundUser)=>{
 //   foundUser.forEach((usr)=>{
 //     usr.notifications = [];
 //     usr.save();
 //   })
 // })
-
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
