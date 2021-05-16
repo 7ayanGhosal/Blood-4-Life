@@ -17,6 +17,11 @@
   overflow-y: auto;
 }
 
+.max-dist {
+  display: inline;
+  width: 100px;
+}
+
 #MAP {
   object-position: center;
   max-height: 250px;
@@ -28,4 +33,24 @@
 }
 .bloodgroup-selection {
   margin-right: 2em;
+}
+
+.requestBlood-head {
+  color: darkmagenta;
+  font-family: "Hoefler Text", Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.rb-note {
+  text-align: center;
+  font-style: italic;
+}
+
+.rb-note2 {
+  font-style: italic;
+}
+
+.requestBlood-attribute {
+  color: darkblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

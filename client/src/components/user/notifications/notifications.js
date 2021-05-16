@@ -110,7 +110,6 @@ class Notifications extends React.Component {
                 </h6>
               </div>
             </div>
-            <br />
           </div>
         );
       }
@@ -125,6 +124,7 @@ class Notifications extends React.Component {
             <button class="btn n-refresh" onClick={() => this.refresh()}>
               Refresh
             </button>
+            <button class="btn btn-secondary n-clear">Clear All</button>
             <br />
             <br />
             <br />

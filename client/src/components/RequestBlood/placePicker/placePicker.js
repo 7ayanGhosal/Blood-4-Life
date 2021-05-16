@@ -86,14 +86,15 @@ class PlacePicker extends Component {
     return (
       <div class="hospital_style mb-3 p-3">
         <div class="container">
-          <h3>
-            <b>Make A Blood Request From Other Hospitals</b>
-          </h3>
-          <p>
-            <b>(Send Request To Users If Not Available In Hospitals)</b>
-          </p>
+          <h2 class="requestBlood-head">
+            Make A Blood Request From Other Hospitals
+          </h2>
+          <h4 class="rb-note">
+            (Send Request To Users If Not Available In Hospitals)
+          </h4>
+          <br />
           <form onSubmit={this.onFormSubmit}>
-            <h4>Name :</h4>
+            <h4 class="requestBlood-attribute">Name :</h4>
             <input
               class="form-control"
               name="name"
@@ -102,8 +103,12 @@ class PlacePicker extends Component {
               disabled
             ></input>
             <br></br>
-            <h4>Contact Details (email/phone):</h4>
-            <p>(Note: Hospitals might contact if required)</p>
+            <h4 class="requestBlood-attribute">
+              Contact Details (email/phone):
+            </h4>
+            <h6 class="rb-note2">
+              (Note: Hospitals might contact if required)
+            </h6>
             <input
               class="form-control"
               name="contact"
@@ -112,7 +117,7 @@ class PlacePicker extends Component {
               disabled
             ></input>
             <br></br>
-            <h4>Address:</h4>
+            <h4 class="requestBlood-attribute">Address:</h4>
             <textarea
               class="form-control"
               name="address"
@@ -123,17 +128,17 @@ class PlacePicker extends Component {
 
             <br></br>
             <div class="d-inline-block bloodgroup-selection">
-              <h4 class="d-inline p-3">Blood Group:</h4>
+              <h4 class="d-inline p-3 requestBlood-attribute">Blood Group:</h4>
               <select
                 name="bloodGroup"
-                class="d-inline"
+                class="d-inline form-control"
                 value={this.state.bloodGroup}
                 onChange={(e) => {
                   this.setState({ bloodGroup: e.target.value });
                 }}
                 required
               >
-                <option value="">select</option>
+                <option value="">Select</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="AB">AB</option>
@@ -141,17 +146,19 @@ class PlacePicker extends Component {
               </select>
             </div>
             <div class="d-inline-block bloodgroup-selection">
-              <h4 class="d-inline m-auto p-3">Rh factor :</h4>
+              <h4 class="d-inline m-auto p-3 requestBlood-attribute">
+                Rh factor :
+              </h4>
               <select
                 name="rhFactor"
-                class="d-inline"
+                class="d-inline form-control"
                 value={this.state.rhFactor}
                 onChange={(e) => {
                   this.setState({ rhFactor: e.target.value });
                 }}
                 required
               >
-                <option value="">select</option>
+                <option value="">Select</option>
                 <option value="Positive">Positive</option>
                 <option value="Negative">Negative</option>
               </select>
@@ -159,11 +166,13 @@ class PlacePicker extends Component {
             </div>
             <br></br>
             <br></br>
-            <h4 class="d-inline">Max Distance (KM):</h4>
+            <h5 class="d-inline requestBlood-attribute">
+              Max Distance (KM):&emsp;
+            </h5>
             <input
               type="number"
               name="maxDistance"
-              class="d-inline"
+              class="max-dist form-control"
               value={this.state.maxDistance}
               onChange={(e) => {
                 this.setState({ maxDistance: e.target.value });

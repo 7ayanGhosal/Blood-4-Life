@@ -29,16 +29,22 @@
 .unseen {
   background-color: rgba(2, 236, 253, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.8em;
+  border-radius: 1%;
 }
 
 .seen {
   background-color: rgba(119, 235, 243, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.8em;
+  border-radius: 1%;
 }
 
 .n-refresh {
   float: right;
+  display: inline;
   width: 80px;
+  margin-left: 20px;
   margin-right: 10px;
   background-color: darkmagenta;
   color: white;
@@ -46,4 +52,10 @@
 
 .n-refresh:hover {
   color: white;
+}
+
+.n-clear {
+  display: inline;
+  float: right;
+  width: 100px;
 }
