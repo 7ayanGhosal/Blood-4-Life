@@ -41,3 +41,19 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   margin-bottom: 1em;
 }
+
+.emer-h {
+  color: darkmagenta;
+  font-family: "Hoefler Text", Georgia, "Times New Roman", serif;
+  text-align: center;
+  /* font-weight: bold; */
+}
+
+.emer-attribute {
+  color: darkblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.emer-note {
+  font-style: italic;
+}

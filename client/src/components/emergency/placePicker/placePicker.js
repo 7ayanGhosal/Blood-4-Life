@@ -188,10 +188,11 @@ class PlacePicker extends Component {
     return (
       <div class="emergency_background mb-3 p-3">
         <div class="container">
-          <h1>Emergency</h1>
+          <h1 class="emer-h">Emergency</h1>
+          <br />
           <form onSubmit={this.onFormSubmit}>
             <div>
-              <h4 class="d-inline mr-x">Name :</h4>
+              <h4 class="d-inline mr-x emer-attribute">Name :</h4>
               <input
                 class="form-control w-75"
                 name="name"
@@ -204,8 +205,10 @@ class PlacePicker extends Component {
             </div>
             <br></br>
             <div>
-              <h4>Contact Details (Email/Phone):</h4>
-              <p>(Note: Hospitals might contact you if required)</p>
+              <h4 class="emer-attribute">Contact Details (Email/Phone):</h4>
+              <h6 class="emer-note">
+                (Note: Hospitals might contact you if required)
+              </h6>
               <input
                 class="form-control w-75"
                 name="contact"
@@ -219,7 +222,7 @@ class PlacePicker extends Component {
             <br></br>
             <div>
               <div class="d-inline-block e-selection">
-                <h4 class="d-inline p-3">Blood Group:</h4>
+                <h4 class="emer-attribute d-inline p-3">Blood Group:</h4>
                 <select
                   name="bloodGroup"
                   class="d-inline form-control"
@@ -236,7 +239,7 @@ class PlacePicker extends Component {
                 </select>
               </div>
               <div class="d-inline-block e-selection">
-                <h4 class="d-inline m-auto p-3">Rh factor :</h4>
+                <h4 class="emer-attribute d-inline m-auto p-3">Rh factor :</h4>
                 <select
                   name="rhFactor"
                   class="d-inline form-control"
@@ -253,7 +256,7 @@ class PlacePicker extends Component {
             </div>
             <br />
             <br></br>
-            <h4>Enter your address</h4>
+            <h4 class="emer-attribute">Enter your address</h4>
             <textarea
               class="form-control w-75"
               name="address"
@@ -267,7 +270,7 @@ class PlacePicker extends Component {
               <ul class="list-group">{suggestions}</ul>
             </div>
             <br></br>
-            <h5>
+            <h5 class="emer-attribute">
               Or, drag the pointer in the map below (Use scroll to zoom in/out)
             </h5>
             <div class="MAP2">{mapJSX}</div>
