@@ -78,18 +78,20 @@ class Result extends React.Component {
           <div class="card-body">
             {this.props.dispState === 2 ? (
               <div>
-                <table class="table table-bordered hsr-card hover m-auto">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Email id</th>
-                      <th scope="col">Address</th>
-                      <th scope="col">Distance(in KM)</th>
-                    </tr>
-                  </thead>
-                  <tbody>{jsx2}</tbody>
-                </table>
+                <pre class="hsr-list">
+                  <table class="table table-bordered hsr-card hover m-auto">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email id</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Distance(in KM)</th>
+                      </tr>
+                    </thead>
+                    <tbody>{jsx2}</tbody>
+                  </table>
+                </pre>
               </div>
             ) : null}
             {this.props.dispState === 3 ? (
