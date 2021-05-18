@@ -10,8 +10,7 @@ class HospitalProfile extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-
-    this.context.setProfile(this.state);
+    this.props.setProfile(this.state);
   };
   reset = () => {
     this.setState({
