@@ -124,6 +124,7 @@ class Notifications extends React.Component {
             </button>
             <button
               class="btn btn-secondary n-clear"
+              disabled={this.state.notifications.length === 0 ? true : false}
               onClick={this.context.clearAllNotif}
             >
               Clear All
