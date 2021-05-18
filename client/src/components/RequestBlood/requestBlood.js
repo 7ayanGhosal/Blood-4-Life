@@ -18,36 +18,41 @@ class RequestBlood extends React.Component {
         rhFactor: "",
         maxDistance: 200,
       },
+      loading: true,
     };
-
+    this.stopLoader = () => {
+      this.setState({ loading: false });
+    };
     this.hospSearch = (data) => {
-      axios.post("/requestBlood/hospitals", data).then(
-        (Res) => {
-          // console.log(Res);
-          this.setState(
-            {
-              details: {
-                name: data.details.name,
-                contact: data.details.contact,
-                bloodGroup: data.details.bloodGroup,
-                rhFactor: data.details.rhFactor,
-                maxDistance: data.details.maxDistance,
+      this.setState({ dispState: 1, loading: true }, () => {
+        axios.post("/requestBlood/hospitals", data).then(
+          (Res) => {
+            // console.log(Res);
+            this.setState(
+              {
+                details: {
+                  name: data.details.name,
+                  contact: data.details.contact,
+                  bloodGroup: data.details.bloodGroup,
+                  rhFactor: data.details.rhFactor,
+                  maxDistance: data.details.maxDistance,
+                },
+                location: data.location,
               },
-              location: data.location,
-            },
-            () => {
-              if (Res.data.length === 0) {
-                this.setState({ dispState: 3 });
-              } else {
-                this.setState({ Hospitals: Res.data, dispState: 2 });
+              () => {
+                if (Res.data.length === 0) {
+                  this.setState({ dispState: 3 });
+                } else {
+                  this.setState({ Hospitals: Res.data, dispState: 2 });
+                }
               }
-            }
-          );
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+            );
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+      });
     };
 
     this.mailUsers = () => {
@@ -69,6 +74,15 @@ class RequestBlood extends React.Component {
     return (
       <div>
         <PlacePicker hospSearch={this.hospSearch}></PlacePicker>
+        {this.state.dispState !== 1 && this.state.loading ? (
+          <div id="ResultLoader">
+            <div class="d-flex justify-content-center text-danger mb-3 p-3 main-div-urslst useremerlist">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+        ) : null}
         {this.state.dispState !== 1 ? (
           <Result
             list={this.state.Hospitals}
@@ -76,6 +90,7 @@ class RequestBlood extends React.Component {
             dispState={this.state.dispState}
             count={this.state.count}
             mailUsers={this.mailUsers}
+            stopLoader={this.stopLoader}
           ></Result>
         ) : null}
       </div>

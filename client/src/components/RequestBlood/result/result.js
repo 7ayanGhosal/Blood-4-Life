@@ -6,14 +6,20 @@ class Result extends React.Component {
     super(props);
     this.state = {
       onlyAvailable: false,
+      display: false,
     };
   }
   componentDidMount() {
-    document.getElementById("reqList").scrollIntoView();
+    setTimeout(() => {
+      document.getElementById("ResultLoader").scrollIntoView();
+      this.props.stopLoader();
+      this.setState({ display: true });
+    }, 1500);
   }
-  componentDidUpdate() {
-    document.getElementById("reqList").scrollIntoView();
-  }
+
+  // componentDidUpdate() {
+  //   document.getElementById("reqList").scrollIntoView();
+  // }
   render() {
     var jsx2 = [];
 
@@ -63,7 +69,7 @@ class Result extends React.Component {
       //   console.log("Ami Kaaj Korchi!!!");
       // };
     }
-    return (
+    return this.state.display ? (
       <div id="reqList" className="mb-3 p-3 useremerlist main-div-urslst">
         <h4>Search Results:-</h4>
         {this.props.dispState === 2 ? (
@@ -119,7 +125,7 @@ class Result extends React.Component {
           </div>
         ) : null}
       </div>
-    );
+    ) : null;
   }
 }
 
