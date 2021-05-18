@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import img1 from "../../../src/resources/img1.jpg";
-import img2 from "../../../src/resources/img2.jpg";
-import img3 from "../../../src/resources/img3.jpg";
-import img4 from "../../../src/resources/img4.jpg";
-import img5 from "../../../src/resources/img5.jpg";
+import img1 from "../../../src/resources/img1.png";
+import img2 from "../../../src/resources/img2.png";
+import img3 from "../../../src/resources/img3.png";
+import img4 from "../../../src/resources/img4.png";
+import img5 from "../../../src/resources/img5.png";
 import img6 from "../../../src/resources/img6.png";
 import img7 from "../../../src/resources/img7.jpg";
 import img8 from "../../../src/resources/img8.jpeg";
-import img9 from "../../../src/resources/img9.jpeg";
-import img10 from "../../../src/resources/img10.jpg";
+import img9 from "../../../src/resources/img9.png";
+import img10 from "../../../src/resources/img10.png";
 import "./carousel.css";
 
 class Carousel extends Component {

@@ -2,7 +2,10 @@
   padding: 5px 0;
   /* border-radius: 25px; */
   /* background-color: #ecf671; */
-  background-color: khaki;
+  /* background-color: white; */
+  background-color: #f0e68c;
+  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border: 2px tomato solid;
 }
 .carouselDiv {

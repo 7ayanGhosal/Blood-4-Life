@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./user.css";
-import SecondNav from "./secondNav/secondNav";
 import Profile from "./profile/profile";
 import Notifications from "./notifications/notifications";
 import Events from "./upcomingEvents/upcomingEvents";
