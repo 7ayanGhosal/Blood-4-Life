@@ -16,6 +16,8 @@
 
 .profile-bg {
   background-color: #c8bee2;
+  background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
@@ -106,6 +108,3 @@
   overflow: hidden;
   /* height: 250px; */
 }
-/* #MAP-up {
-  position: relative;
-} */
