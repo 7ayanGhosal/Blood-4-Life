@@ -116,9 +116,9 @@ class HospitalList extends React.Component {
               >
                 Add Filters
               </button>
-              <h4 class="hl-temp mb-3">Search Results</h4>
+              <h3 class="hl-temp mb-3">Search Results</h3>
               <ul
-                class="dropdown-menu dropdown-menu-dark p-2 hl-temp"
+                class="dropdown-menu dropdown-menu-dark p-2"
                 aria-labelledby="dropdownMenuButton2"
               >
                 <li class="hl-temp">

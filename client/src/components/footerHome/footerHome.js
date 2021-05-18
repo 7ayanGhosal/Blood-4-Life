@@ -10,10 +10,11 @@ class FooterHome extends Component {
             <div class="row frow">
               <div class="col-12 col-sm-6">
                 <div class="col-name mb-3">
-                  <h3>Address:- </h3>
+                  <h3>Offered By :- </h3>
                 </div>
-                {/* <br></br> */}
-                Jadavpur University Saltlake Campus,
+                Team Sample
+                <br></br>
+                Jadavpur University , Saltlake Campus,
                 <br></br>
                 Kolkata-700098
               </div>
