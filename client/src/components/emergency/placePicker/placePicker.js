@@ -221,7 +221,7 @@ class PlacePicker extends Component {
             </div>
             <br></br>
             <div>
-              <div class="d-inline-block e-selection">
+              <div class="emer-temp e-selection">
                 <h4 class="emer-attribute d-inline p-3">Blood Group:</h4>
                 <select
                   name="bloodGroup"
@@ -238,8 +238,8 @@ class PlacePicker extends Component {
                   <option value="O">O</option>
                 </select>
               </div>
-              <div class="d-inline-block e-selection">
-                <h4 class="emer-attribute d-inline m-auto p-3">Rh factor :</h4>
+              <div class="emer-temp e-selection">
+                <h4 class="emer-attribute d-inline p-3">Rh factor :</h4>
                 <select
                   name="rhFactor"
                   class="d-inline form-control"
@@ -255,7 +255,6 @@ class PlacePicker extends Component {
               </div>
             </div>
             <br />
-            <br></br>
             <h4 class="emer-attribute">Enter your address</h4>
             <textarea
               class="form-control w-75"
@@ -274,7 +273,7 @@ class PlacePicker extends Component {
               Or, drag the pointer in the map below (Use scroll to zoom in/out)
             </h5>
             <div class="MAP2">{mapJSX}</div>
-            <button type="submit" className="btn btn-success w-100 mt-1">
+            <button type="submit" className="btn emer-submit w-100 mt-1">
               Submit
             </button>
           </form>

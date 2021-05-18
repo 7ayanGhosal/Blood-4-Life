@@ -181,7 +181,7 @@ class PlacePicker extends Component {
             ></input>
             <br></br>
             <br></br>
-            <button type="submit" className="btn btn-success w-100 mt-1">
+            <button type="submit" className="btn rb-submit w-100 mt-1">
               Submit
             </button>
           </form>
