@@ -3,3 +3,24 @@
   background-color: rgba(148, 148, 148, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
+
+.hsr-card {
+  background-color: rgb(182, 206, 206);
+}
+
+.h-result {
+  color: green;
+  font-family: "Lucida Console", monospace;
+}
+
+.hsr-temp {
+  font-weight: bold;
+}
+
+.hsr-temp2 {
+  font-style: italic;
+}
+
+.hsr-temp3 {
+  text-align: center;
+}

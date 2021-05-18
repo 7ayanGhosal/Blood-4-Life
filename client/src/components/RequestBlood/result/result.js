@@ -71,59 +71,80 @@ class Result extends React.Component {
     }
     return this.state.display ? (
       <div id="reqList" className="mb-3 p-3 useremerlist main-div-urslst">
-        <h4>Search Results:-</h4>
-        {this.props.dispState === 2 ? (
-          <div>
-            <table class="table table-bordered table-light hover m-auto">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email id</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Distance</th>
-                </tr>
-              </thead>
-              <tbody>{jsx2}</tbody>
-            </table>
+        <div class="card hsr-card">
+          <div class="card-header">
+            <h3 class="h-result">Search Results :-</h3>
           </div>
-        ) : null}
-        {this.props.dispState === 3 ? (
-          <div>
-            <h5>
-              No hospital found in given range, please increase your search
-              range
-            </h5>
-            <br />
-            <h5>or...</h5>
-            <br />
-            <h5 class="d-inline">
-              Mail all donors within <b>{this.props.details.maxDistance} KM </b>{" "}
-              {"=>"}
-            </h5>
-            <button
-              onClick={this.props.mailUsers}
-              class="d-inline btn btn-warning m-1"
-              id="userMail"
-            >
-              Mail Potential Donors
-            </button>
-          </div>
-        ) : null}
-        {this.props.dispState === 4 ? (
-          <div>
-            <h5>Couldn't Mail Any Suitable Donor!!</h5>
-            <h5>Please Increase Your Search Range</h5>
-          </div>
-        ) : null}
+          <div class="card-body">
+            {this.props.dispState === 2 ? (
+              <div>
+                <table class="table table-bordered hsr-card hover m-auto">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email id</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Distance(in KM)</th>
+                    </tr>
+                  </thead>
+                  <tbody>{jsx2}</tbody>
+                </table>
+              </div>
+            ) : null}
+            {this.props.dispState === 3 ? (
+              <div>
+                <h4 class="hsr-temp">No hospital found in given range. </h4>
+                <br />
+                <h5 class="hsr-temp2 hsr-temp3">
+                  Please increase your search range
+                </h5>
+                <br />
+                <h5 class="hsr-temp3">Or...</h5>
+                <br />
+                <center>
+                  <h5 class="d-inline hsr-temp2">
+                    Mail all donors within{" "}
+                    <b>{this.props.details.maxDistance} KM </b> {"  =>"}
+                  </h5>
+                  &ensp;
+                  <button
+                    onClick={this.props.mailUsers}
+                    class="d-inline btn btn-warning m-1"
+                    id="userMail"
+                  >
+                    Mail Potential Donors
+                  </button>
+                </center>
+              </div>
+            ) : null}
+            {this.props.dispState === 4 ? (
+              <div>
+                <center>
+                  <h5>
+                    <b>Couldn't Mail Any Suitable Donor!!</b>
+                  </h5>
+                  <br />
+                  <h5>Please Increase Your Search Range</h5>
+                </center>
+              </div>
+            ) : null}
 
-        {this.props.dispState === 5 ? (
-          <div>
-            <h5>We Have Successfully Informed {this.props.count} Donors</h5>
-            <h5>Please Wait For Their Response</h5>
-            <h5>Or, Increase The Search Range For More Hospitals.</h5>
+            {this.props.dispState === 5 ? (
+              <div>
+                <h4>
+                  We Have Successfully Informed <b>{this.props.count}</b> Donors
+                </h4>
+                <br />
+                <center>
+                  <h5>Please Wait For Their Response</h5>
+                  <h5>Or</h5>
+                  <h5>Increase The Search Range For More Hospitals.</h5>
+                </center>
+              </div>
+            ) : null}
           </div>
-        ) : null}
+        </div>
       </div>
     ) : null;
   }
