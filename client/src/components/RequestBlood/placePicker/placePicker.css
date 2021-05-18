@@ -54,3 +54,12 @@
   color: darkblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.rb-submit {
+  background-color: darkblue;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.rb-submit:hover {
+  color: white;
+}

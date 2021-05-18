@@ -57,3 +57,23 @@
 .emer-note {
   font-style: italic;
 }
+
+.emer-submit {
+  background-color: darkblue;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.emer-submit:hover {
+  color: white;
+}
+
+.emer-temp {
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .emer-temp {
+    margin-bottom: 0.5em;
+  }
+}
