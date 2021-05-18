@@ -9,23 +9,10 @@ class Notifications extends React.Component {
   constructor(props) {
     super(props);
     this.state = { notifications: this.props.notif };
-    // setInterval(() => {
-    //   axios
-    //     .get(
-    //       "/getNotifications/" + this.context.email
-    //     )
-    //     .then((res) => {
-    //       console.log(res);
-    //       this.setState({ notifications: res.data });
-    //     });
-    // }, 5000);
   }
   refresh = () => {
     this.context.refreshUserNotif();
   };
-  // componentDidMount() {
-  //   this.setState({ notifications: this.context.notifications });
-  // }
   render() {
     var jsx = [];
     if (this.state.notifications.length === 0) {
@@ -44,10 +31,21 @@ class Notifications extends React.Component {
         }
 
         jsx.push(
-          <div>
+          <div id={"notification" + i} title={i}>
             <div class={unseen}>
               <div class="card-header">
-                <h4 class="n-type">{this.state.notifications[i].type}</h4>
+                <h4 class="n-type d-inline">
+                  {this.state.notifications[i].type}
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="toast"
+                  aria-label="Close"
+                  onClick={(ref) => {
+                    this.context.deleteNotif(ref);
+                  }}
+                ></button>
               </div>
               <div class="card-body">
                 <p>
@@ -124,7 +122,12 @@ class Notifications extends React.Component {
             <button class="btn n-refresh" onClick={() => this.refresh()}>
               Refresh
             </button>
-            <button class="btn btn-secondary n-clear">Clear All</button>
+            <button
+              class="btn btn-secondary n-clear"
+              onClick={this.context.clearAllNotif}
+            >
+              Clear All
+            </button>
             <br />
             <br />
             <br />

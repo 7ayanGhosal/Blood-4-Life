@@ -48,6 +48,7 @@ class App extends React.Component {
       reqDonor: false,
       authenticated: false,
       events: {},
+      seen: 0,
       location: {
         latitude: 0,
         longitude: 0,
@@ -367,11 +368,42 @@ class App extends React.Component {
 
     //Refresh user notifications
     this.refreshUserNotif = () => {
-      // console.log();
       axios.get("/getNotifications/" + this.state.email).then((res) => {
-        this.context.notifications = res.data;
-        this.setState({ notifications: res.data });
+        var s = this.state.notifications.length;
+        // this.context.notifications = res.data;
+        this.setState({ notifications: res.data, seen: s });
       });
+    };
+
+    //Clear all notifications
+    this.clearAllNotif = () => {
+      axios.delete("/clearNotifications/" + this.state.email).then((res) => {
+        if (res.data) {
+          // this.context.notifications = [];
+          // this.context.seen = 0;
+          this.setState({ notifications: [], seen: 0 });
+        }
+      });
+    };
+
+    //delete notif (single)
+    this.deleteNotif = (ref) => {
+      // console.log(ref);
+      document.getElementById(
+        ref.target.parentElement.parentElement.parentElement.id
+      ).display = "none";
+      axios
+        .delete(
+          "/deleteNotifications/" +
+            ref.target.parentElement.parentElement.parentElement.title +
+            "/" +
+            this.state.email
+        )
+        .then((res) => {
+          // this.context.notifications = res.data;
+          // this.context.seen = res.data.length;
+          this.setState({ notifications: res.data, seen: res.data.length });
+        });
     };
 
     // Fake Hospitals
@@ -644,6 +676,8 @@ class App extends React.Component {
             updateStock: this.updateStock,
             organiseCamp: this.organiseCamp,
             refreshUserNotif: this.refreshUserNotif,
+            clearAllNotif: this.clearAllNotif,
+            deleteNotif: this.deleteNotif,
             emergency: this.emergency,
           }}
         >

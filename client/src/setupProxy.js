@@ -15,6 +15,8 @@ module.exports = function (app) {
       "/emergency",
       "/requestBlood",
       "/getNotifications",
+      "/clearNotifications",
+      "/deleteNotifications",
     ],
     createProxyMiddleware({
       target: "http://localhost:5000",
