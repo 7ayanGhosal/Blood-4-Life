@@ -183,9 +183,9 @@ class App extends React.Component {
         reqDonor: profile.reqDonor,
       });
       //turn off profilesetter
-      document.getElementById("closeProfileSetterModal").click();
+      // document.getElementById("closeProfileSetterModal").click();
       //turn on placepicker
-      document.getElementById("openSignupPlacepickerModal").click();
+      // document.getElementById("openSignupPlacepickerModal").click();
     };
 
     this.signup = async (location) => {
@@ -193,7 +193,6 @@ class App extends React.Component {
         location: location,
       });
       //turn off placepicker
-      document.getElementById("closeSignupPlacepickerModal").click();
       axios.post("/signup", this.state).then(
         (res) => {
           if (res.data) {
