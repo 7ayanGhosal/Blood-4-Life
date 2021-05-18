@@ -12,7 +12,7 @@ class FooterHome extends Component {
                 <div class="col-name mb-3">
                   <h3>Offered By :- </h3>
                 </div>
-                Team Sample
+                Team Blood4Life
                 <br></br>
                 Jadavpur University , Saltlake Campus,
                 <br></br>

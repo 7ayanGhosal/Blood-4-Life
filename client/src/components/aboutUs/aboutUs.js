@@ -49,13 +49,8 @@ class AboutUs extends Component {
             in the middle of text.
           </p>
           <hr></hr>
-
-          <center>
-            <div class="new-header">
-              <b>The Team</b>
-            </div>
-            <br />
-          </center>
+          <div class="web-team">Team Blood4Life</div>
+          <br />
           <div class="row">
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-8 m-auto mt-3">
               <div class="flip-card">
@@ -65,11 +60,17 @@ class AboutUs extends Component {
                   </div>
                   <div class="flip-card-back">
                     <br />
-                    <h4>Ayan Ghosal</h4>
+                    <h4 class="creator-name">Ayan Ghosal</h4>
                     <br />
-                    <br />
-                    <b>Developer</b>
-                    <br />
+                    <h5 class="developer">Developer</h5>
+                    <h5 class="creator-github">
+                      Github :&ensp;
+                      <a href="https://github.com/7ayanGhosal" target="_blank">
+                        <b class="creator-github">
+                          <i class="fab fa-github"></i>
+                        </b>
+                      </a>
+                    </h5>
                     <br />
                     <h5>Jadavpur University</h5>
                   </div>
@@ -85,11 +86,20 @@ class AboutUs extends Component {
                   </div>
                   <div class="flip-card-back">
                     <br />
-                    <h4>Aditya Saha</h4>
+                    <h4 class="creator-name">Aditya Saha</h4>
                     <br />
-                    <br />
-                    <b>Developer</b>
-                    <br />
+                    <h5 class="developer">Developer</h5>
+                    <h5 class="creator-github">
+                      Github :&ensp;
+                      <a
+                        href="https://github.com/nervouscoder27"
+                        target="_blank"
+                      >
+                        <b class="creator-github">
+                          <i class="fab fa-github"></i>
+                        </b>
+                      </a>
+                    </h5>
                     <br />
                     <h5>Jadavpur University</h5>
                   </div>
@@ -105,11 +115,20 @@ class AboutUs extends Component {
                   </div>
                   <div class="flip-card-back">
                     <br />
-                    <h4>Pulkit Singhania</h4>
+                    <h4 class="creator-name">Pulkit Singhania</h4>
                     <br />
-                    <br />
-                    <b>Developer</b>
-                    <br />
+                    <h5 class="developer">Developer</h5>
+                    <h5 class="creator-github">
+                      Github :&ensp;
+                      <a
+                        href="https://github.com/pulkit-singhania"
+                        target="_blank"
+                      >
+                        <b class="creator-github">
+                          <i class="fab fa-github"></i>
+                        </b>
+                      </a>
+                    </h5>
                     <br />
                     <h5>Jadavpur University</h5>
                   </div>
@@ -125,11 +144,20 @@ class AboutUs extends Component {
                   </div>
                   <div class="flip-card-back">
                     <br />
-                    <h4>Rishav Kundu</h4>
+                    <h4 class="creator-name">Rishav Kundu</h4>
                     <br />
-                    <br />
-                    <b>Developer</b>
-                    <br />
+                    <h5 class="developer">Developer</h5>
+                    <h5 class="creator-github">
+                      Github :&ensp;
+                      <a
+                        href="https://github.com/rishavkundu62"
+                        target="_blank"
+                      >
+                        <b class="creator-github">
+                          <i class="fab fa-github"></i>
+                        </b>
+                      </a>
+                    </h5>
                     <br />
                     <h5>Jadavpur University</h5>
                   </div>
@@ -145,11 +173,20 @@ class AboutUs extends Component {
                   </div>
                   <div class="flip-card-back">
                     <br />
-                    <h4>Sourav Patra</h4>
+                    <h4 class="creator-name">Sourav Patra</h4>
                     <br />
-                    <br />
-                    <b>Developer</b>
-                    <br />
+                    <h5 class="developer">Developer</h5>
+                    <h5 class="creator-github">
+                      Github :&ensp;
+                      <a
+                        href="https://github.com/souravpatra33"
+                        target="_blank"
+                      >
+                        <b class="creator-github">
+                          <i class="fab fa-github"></i>
+                        </b>
+                      </a>
+                    </h5>
                     <br />
                     <h5>Jadavpur University</h5>
                   </div>

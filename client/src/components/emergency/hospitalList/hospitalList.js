@@ -121,7 +121,7 @@ class HospitalList extends React.Component {
                 class="dropdown-menu dropdown-menu-dark p-2"
                 aria-labelledby="dropdownMenuButton2"
               >
-                <li class="hl-temp">
+                <li>
                   <label
                     for="customRange3"
                     class="form-label distance_txt d-inline"
