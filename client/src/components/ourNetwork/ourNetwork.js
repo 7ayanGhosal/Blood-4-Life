@@ -9,7 +9,9 @@ class OurNetwork extends Component {
   state = { users: [], hospitals: [], icons: {}, loading: true };
 
   stopLoader = () => {
-    this.setState({ loading: false });
+    this.setState({ loading: false }, () => {
+      document.getElementById("div-map2").style.display = "block";
+    });
   };
 
   toggler = (str) => {
@@ -119,11 +121,13 @@ class OurNetwork extends Component {
             </div>
             <div class="col col-12 col-md-6 p-3">
               <div id="div-map" class="MAP">
+                <div></div>
                 {this.state.loading ? (
-                  <div class="d-flex align-items-center justify-content-center text-danger mb-3 p-3 main-div-urslst map-loader useremerlist">
-                    <div class="spinner-border" role="status">
+                  <div class="d-flex align-items-center justify-content-center text-danger map-loader">
+                    <div class="loader">Loading...</div>
+                    {/* <div class="spinner-border" role="status">
                       <span class="visually-hidden">Loading...</span>
-                    </div>
+                    </div> */}
                   </div>
                 ) : null}
                 <div id="div-map2">

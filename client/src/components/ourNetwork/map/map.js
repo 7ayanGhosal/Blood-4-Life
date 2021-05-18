@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import MapMyIndia from "mapmyindia-react";
 
 class Map extends Component {
-  // state = { diaplay: false };
-
   componentDidMount() {
     setTimeout(() => {
-      // document.getElementById("EmerListLoader").scrollIntoView();
       this.props.stopLoader();
-      // this.setState({ display: true });
     }, 3000);
   }
 
@@ -39,7 +35,7 @@ class Map extends Component {
     }
     return (
       <MapMyIndia
-        height="540px"
+        height="550px"
         zoom="4"
         markers={[...UserMarkers, ...HospMarkers]}
       />
