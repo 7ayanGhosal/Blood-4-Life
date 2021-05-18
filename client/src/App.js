@@ -343,7 +343,7 @@ class App extends React.Component {
     this.organiseCamp = (camp) => {
       axios.post("/hospital/organiseCamp", camp).then(
         (res) => {
-          if (res != false) {
+          if (res !== false) {
             document.getElementById("eventMessage").innerHTML =
               "<h4>Event Created Successfully</h4>";
             this.setState((prevState) => {

@@ -36,29 +36,29 @@ class Result extends React.Component {
             <td>{ele.name}</td>
             <td>{ele.email}</td>
             <td>
-              {(ele.location.poi != "" ? ele.location.poi + ", " : "") +
-                (ele.location.street != "" ? ele.location.street + ", " : "") +
-                (ele.location.subSubLocality != ""
+              {(ele.location.poi !== "" ? ele.location.poi + ", " : "") +
+                (ele.location.street !== "" ? ele.location.street + ", " : "") +
+                (ele.location.subSubLocality !== ""
                   ? ele.location.subSubLocality + ", "
                   : "") +
-                (ele.location.subLocality != ""
+                (ele.location.subLocality !== ""
                   ? ele.location.subLocality + ", "
                   : "") +
-                (ele.location.locality != ""
+                (ele.location.locality !== ""
                   ? ele.location.locality + ", "
                   : "") +
-                (ele.location.village != ""
+                (ele.location.village !== ""
                   ? ele.location.village + ", "
                   : "") +
-                (ele.location.district != ""
+                (ele.location.district !== ""
                   ? ele.location.district + ", "
                   : "") +
-                (ele.location.subDistrict != ""
+                (ele.location.subDistrict !== ""
                   ? ele.location.subDistrict + ", "
                   : "") +
-                (ele.location.city != "" ? ele.location.city + ", " : "") +
-                (ele.location.state != "" ? ele.location.state + ", " : "") +
-                (ele.location.pincode != "" ? ele.location.pincode + " " : "")}
+                (ele.location.city !== "" ? ele.location.city + ", " : "") +
+                (ele.location.state !== "" ? ele.location.state + ", " : "") +
+                (ele.location.pincode !== "" ? ele.location.pincode + " " : "")}
             </td>
             <td>{ele.distance}</td>
           </tr>
