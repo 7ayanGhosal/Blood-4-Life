@@ -64,7 +64,13 @@ class HospitalList extends React.Component {
         hospListjsx.push(
           <tr>
             <td>{ele.distance}</td>
-            <td>{available ? "Yes" : "No"}</td>
+            <td>
+              {available ? (
+                <h4 class="available">&#10003;</h4>
+              ) : (
+                <h4 class="notAvailable">X</h4>
+              )}
+            </td>
             <td>{ele.name}</td>
             <td>{ele.email}</td>
             <td>
@@ -110,12 +116,12 @@ class HospitalList extends React.Component {
               >
                 Add Filters
               </button>
-              <h4 class="mb-3">Search Results</h4>
+              <h4 class="hl-temp mb-3">Search Results</h4>
               <ul
-                class="dropdown-menu dropdown-menu-dark p-2"
+                class="dropdown-menu dropdown-menu-dark p-2 hl-temp"
                 aria-labelledby="dropdownMenuButton2"
               >
-                <li>
+                <li class="hl-temp">
                   <label
                     for="customRange3"
                     class="form-label distance_txt d-inline"

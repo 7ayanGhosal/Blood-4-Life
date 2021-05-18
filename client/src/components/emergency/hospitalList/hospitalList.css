@@ -15,6 +15,26 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
   font-family: "Helvetica One", sans-serif;
 }
+
+.hl-temp {
+  color: darkmagenta;
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+}
+
 /* .filters {
   background-color: rgba(0, 0, 0, 0.3);
 } */
+
+.available {
+  font-weight: bolder;
+  color: transparent;
+  text-shadow: 0 0 0 green;
+  text-align: center;
+}
+
+.notAvailable {
+  color: red;
+  text-align: center;
+  font-weight: bolder;
+}
