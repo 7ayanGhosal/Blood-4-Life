@@ -267,16 +267,19 @@ class Profile extends React.Component {
                 Blood Group :-{" "}
               </h6>
               &ensp;
-              <h6 class="p-value">{this.context.bloodGroup}</h6>
+              <h6 class="p-value">
+                {this.context.bloodGroup +
+                  (this.context.rhFactor === "Positive" ? "+" : "-")}
+              </h6>
               <br />
               <br />
-              <h6 class="p-attribute" href="#">
+              {/* <h6 class="p-attribute" href="#">
                 Rh Factor :-{" "}
               </h6>
               &ensp;
               <h6 class="p-value">{this.context.rhFactor}</h6>
               <br />
-              <br />
+              <br /> */}
               {/*<h3 class="p-attribute" href="#">
               Last Donated on :-{" "}
             </h3>
