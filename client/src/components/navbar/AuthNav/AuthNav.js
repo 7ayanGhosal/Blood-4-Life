@@ -116,6 +116,16 @@ class AuthNav extends Component {
                             </h5>
                           </button>
                         </li>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.pageHandler("Contact Us");
+                            }}
+                          >
+                            <h5 class="drop-head">Contact Us</h5>
+                          </button>
+                        </li>
                       </div>
                     ) : (
                       <div>
@@ -140,6 +150,16 @@ class AuthNav extends Component {
                             }}
                           >
                             <h5 class="drop-head">Notifications</h5>
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            class="dropdown-item"
+                            onClick={() => {
+                              this.context.pageHandler("Contact Us");
+                            }}
+                          >
+                            <h5 class="drop-head">Contact Us</h5>
                           </button>
                         </li>
                       </div>

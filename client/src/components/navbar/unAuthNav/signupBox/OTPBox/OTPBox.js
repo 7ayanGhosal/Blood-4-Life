@@ -4,7 +4,7 @@ import AuthContext from "../../../../../context/auth-context";
 
 class OTPBox extends Component {
   state = {
-    otp: "10000",
+    otp: "",
     boxName: "SignupBox",
   };
   static contextType = AuthContext;
@@ -15,7 +15,7 @@ class OTPBox extends Component {
   };
   reset = () => {
     this.setState({
-      otp: "10000",
+      otp: "",
       boxName: "SignupBox",
     });
     this.context.remove();
