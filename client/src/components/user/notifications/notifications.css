@@ -59,3 +59,29 @@
   float: right;
   width: 100px;
 }
+
+.n-empty {
+  color: red;
+  font-family: "Lucida Console", monospace;
+  text-align: center;
+}
+
+.n-close {
+  float: right;
+}
+
+.n-time {
+  display: inline;
+  font-style: italic;
+  color: rgb(104, 101, 101);
+  /* float: right; */
+  margin-left: 50px;
+  margin-right: 20x;
+}
+
+@media (max-width: 510px) {
+  .n-time {
+    display: block;
+    margin-left: 0px;
+  }
+}

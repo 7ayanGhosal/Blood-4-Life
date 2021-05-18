@@ -18,7 +18,7 @@ class Notifications extends React.Component {
     if (this.state.notifications.length === 0) {
       jsx.push(
         <div>
-          <h5>Nothing to show!</h5>
+          <h1 class="n-empty">No Notifications to see!</h1>
         </div>
       );
     } else {
@@ -39,22 +39,22 @@ class Notifications extends React.Component {
                 </h4>
                 <button
                   type="button"
-                  class="btn-close"
+                  class="btn-close n-close"
                   data-bs-dismiss="toast"
                   aria-label="Close"
                   onClick={(ref) => {
                     this.context.deleteNotif(ref);
                   }}
                 ></button>
-              </div>
-              <div class="card-body">
-                <p>
+                <h6 class="n-time">
                   ({this.state.notifications[i].body.date}-
                   {this.state.notifications[i].body.month}-
                   {this.state.notifications[i].body.year},{" "}
                   {this.state.notifications[i].body.hour}:
                   {this.state.notifications[i].body.min} hrs)
-                </p>
+                </h6>
+              </div>
+              <div class="card-body">
                 <h5>
                   <div class="ntemp">Required Blood Type :&ensp;</div>
                   <div class="blood-type">
