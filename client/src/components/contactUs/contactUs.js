@@ -1,7 +1,34 @@
 import React, { Component } from "react";
 import "./contactUs.css";
+import axios from "axios";
 
 class ContactUs extends Component {
+  onFormSubmit = (e) => {
+    e.preventDefault();
+    var body = {
+      name: e.target[0].value,
+      email: e.target[1].value,
+      msg: e.target[2].value,
+    };
+    axios.post("/contactUs", body).then((res) => {
+      if (res.data) {
+        document.getElementById("m-res").innerText =
+          "Thank You For Your Support!";
+        document.getElementById("m-form").style.display = "none";
+        document.getElementById("m-another").style.display = "block";
+      } else {
+        document.getElementById("m-res").innerText =
+          "Sorry Couldn't Send Your Message!";
+      }
+    });
+  };
+  another = () => {
+    document.getElementById("m-res").innerText = "";
+    document.getElementById("m-form").style.display = "block";
+    document.getElementById("m-another").style.display = "none";
+    document.getElementById("m-ta").value = "";
+  };
+
   render() {
     return (
       <div class="contact-us-row row mb-2">
@@ -52,7 +79,11 @@ class ContactUs extends Component {
           </div>
         </div>
         <div class="col col-12 col-md-6 d-flex align-items-center justify-content-center side2">
-          <form class="w-100 text-center">
+          <form
+            id="m-form"
+            class="w-100 text-center"
+            onSubmit={this.onFormSubmit}
+          >
             <h1 class="header2">CONTACT FORM</h1>
 
             <input
@@ -60,31 +91,42 @@ class ContactUs extends Component {
               class="bx-shadow form-control w-75 m-auto mb-3"
               id="exampleFormControlInput1"
               placeholder="Enter your Name"
+              required
             />
             <input
               type="email"
               class="bx-shadow form-control w-75 m-auto mb-3"
               id="exampleFormControlInput1"
               placeholder="Enter your email id"
+              required
             />
 
             <textarea
               class="bx-shadow form-control w-75 m-auto mb-3"
-              id="exampleFormControlTextarea1"
+              id="m-ta"
               rows="3"
               placeholder="Enter your message"
+              required
             ></textarea>
 
             <button
-              type="button"
+              type="submit"
               class="bx-shadow w-50 btn btn-info text-dark mb-3"
             >
               Submit
             </button>
           </form>
+          <h5 id="m-res"></h5>
+          <button
+            id="m-another"
+            style={{ display: "none" }}
+            class="btn btn-warning"
+            onClick={this.another}
+          >
+            Send Another Message
+          </button>
         </div>
       </div>
-      // </div>
     );
   }
 }
