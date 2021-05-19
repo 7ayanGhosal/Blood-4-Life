@@ -13,14 +13,38 @@ class OrganiseCamp extends React.Component {
   };
   onFormSubmit = (event) => {
     event.preventDefault();
-    var camp = {
-      name: this.context.name,
-      email: this.context.email,
-      location: this.context.location,
-      ...this.state,
-    };
-    // console.log(camp);
-    this.context.organiseCamp(camp);
+    // TIME CHECK
+    var d_start = new Date(this.state.eventDate);
+    var h_s = parseInt(
+      this.state.eventStartTime[0] + this.state.eventStartTime[1]
+    );
+    var m_s = parseInt(
+      this.state.eventStartTime[3] + this.state.eventStartTime[4]
+    );
+    d_start.setHours(h_s, m_s, 0);
+
+    var d_end = new Date(this.state.eventDate);
+    var h_e = parseInt(this.state.eventEndTime[0] + this.state.eventEndTime[1]);
+    var m_e = parseInt(this.state.eventEndTime[3] + this.state.eventEndTime[4]);
+    d_end.setHours(h_e, m_e, 0);
+
+    var d_now = new Date();
+
+    if (d_start <= d_now) {
+      document.getElementById("eventMessage").innerHTML =
+        "<h5>Past Events Cannot Created!!!<//h5>";
+    } else if (d_end <= d_start) {
+      document.getElementById("eventMessage").innerHTML =
+        "<h5>Start Time Cannot Be After End Time!!!<//h5>";
+    } else {
+      var camp = {
+        name: this.context.name,
+        email: this.context.email,
+        location: this.context.location,
+        ...this.state,
+      };
+      this.context.organiseCamp(camp);
+    }
   };
   render() {
     return (
@@ -42,6 +66,7 @@ class OrganiseCamp extends React.Component {
                   id="eventName"
                   placeholder="Enter Event Name"
                   onChange={(e) => {
+                    document.getElementById("eventMessage").innerHTML = "";
                     this.setState({ eventName: e.target.value });
                   }}
                   value={this.state.eventName}
@@ -59,6 +84,7 @@ class OrganiseCamp extends React.Component {
                   class="form-control w-75"
                   id="eventDate"
                   onChange={(e) => {
+                    document.getElementById("eventMessage").innerHTML = "";
                     this.setState({ eventDate: e.target.value });
                   }}
                   value={this.state.eventDate}
@@ -76,6 +102,7 @@ class OrganiseCamp extends React.Component {
                   class="form-control w-75"
                   id="eventStartTime"
                   onChange={(e) => {
+                    document.getElementById("eventMessage").innerHTML = "";
                     this.setState({ eventStartTime: e.target.value });
                   }}
                   value={this.state.eventStartTime}
@@ -93,6 +120,7 @@ class OrganiseCamp extends React.Component {
                   class="form-control w-75"
                   id="eventEndTime"
                   onChange={(e) => {
+                    document.getElementById("eventMessage").innerHTML = "";
                     this.setState({ eventEndTime: e.target.value });
                   }}
                   value={this.state.eventEndTime}
@@ -110,6 +138,7 @@ class OrganiseCamp extends React.Component {
                   class="form-control w-75"
                   id="description"
                   onChange={(e) => {
+                    document.getElementById("eventMessage").innerHTML = "";
                     this.setState({ eventDescription: e.target.value });
                   }}
                   value={this.state.eventDescription}

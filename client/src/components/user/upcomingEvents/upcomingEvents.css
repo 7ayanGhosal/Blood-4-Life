@@ -8,6 +8,10 @@
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
+.upast {
+  background-color: rgb(172, 170, 170) !important;
+}
+
 .ue-cardh {
   color: darkred;
   font-family: Impact, Haettenschweiler, "Arial", sans-serif;
