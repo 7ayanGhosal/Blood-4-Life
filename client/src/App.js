@@ -298,6 +298,7 @@ class App extends React.Component {
           eloc: "",
         },
       });
+      this.pageHandler("Home");
       localStorage.removeItem("token");
     };
 
@@ -311,7 +312,9 @@ class App extends React.Component {
 
     //Method for changing main content on screen
     this.pageHandler = (Page) => {
-      this.setState({ page: Page });
+      this.setState({ page: Page }, () => {
+        sessionStorage.page = this.state.page;
+      });
     };
 
     //Passsword Reset Route
@@ -657,6 +660,9 @@ class App extends React.Component {
         }
       );
     } else console.log("Token kothay???");
+    if (sessionStorage.getItem("page")) {
+      this.pageHandler(sessionStorage.page);
+    }
   }
 
   render() {
