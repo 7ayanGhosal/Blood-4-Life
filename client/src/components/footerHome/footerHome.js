@@ -10,7 +10,7 @@ class FooterHome extends Component {
             <div class="row frow">
               <div class="col-12 col-sm-6">
                 <div class="col-name mb-3">
-                  <h3>Offered By :- </h3>
+                  <h3>Offered By</h3>
                 </div>
                 Team Blood4Life
                 <br></br>
@@ -20,7 +20,7 @@ class FooterHome extends Component {
               </div>
               <div class="col-12 col-sm-6">
                 <div class="col-name mb-3">
-                  <h3>App Details:- </h3>
+                  <h3>App Details </h3>
                 </div>
                 {/* <br></br> */}
                 GitHub ID:-{" "}
@@ -32,6 +32,8 @@ class FooterHome extends Component {
                 <a href="mailto: assist.blood4life@gmail.com" target="_blank">
                   assist.blood4life@gmail.com
                 </a>
+                <br></br>
+                ©Blood4Life, 2021
               </div>
             </div>
             {/* <div class="row">

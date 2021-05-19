@@ -30,8 +30,6 @@
   width: 40vw;
   max-height: 100vh;
   z-index: -10;
-  /* margin-top: 20vh; */
-  /* height: 100vh; */
 }
 .bodyImgColor {
   background-color: rgba(255, 255, 255, 0.7);
@@ -42,3 +40,7 @@
   height: 100vh;
   z-index: -9;
 }
+/* 
+.app-box {
+  min-height: 100vh;
+} */
