@@ -8,10 +8,6 @@ class Map extends Component {
     }, 3000);
   }
 
-  componentDidUpdate() {
-    console.log("Update hoche!!!");
-  }
-
   render() {
     var UserMarkers = [];
     var HospMarkers = [];

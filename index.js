@@ -1,5 +1,8 @@
 var request = require("request");
 var axios = require("axios");
+var jwt = require("jsonwebtoken");
+var expressjwt = require("express-jwt");
+var cors = require("cors");
 
 var express = require("express");
 var app = express();
@@ -10,6 +13,9 @@ var faker = require("faker");
 //NodeMailer
 var emailid = "assist.blood4life@gmail.com";
 var emailpass = "bloodforlife";
+var jtoken = ""; //jwt token
+var jwtCheck = null; //jwt checker
+var secret = "";
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -26,6 +32,7 @@ app.use(
 );
 app.use(express.json());
 //----
+app.use(cors());
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
@@ -366,6 +373,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
   var account = null;
   account = await user.findOne({
     email: req.body.email,
@@ -383,12 +391,19 @@ app.post("/login", async (req, res) => {
     res.send(false);
   } else {
     if (account.name) {
+      jtoken = jwt.sign({ email: account.email, isHospital: true }, secret, {
+        expiresIn: "30 days",
+      });
       account.password = "";
       await camp.find({ email: req.body.email }, (err, foundCamps) => {
-        Account = { data: account, event: foundCamps };
+        Account = { data: account, event: foundCamps, token: jtoken };
+        secret = "";
         res.send(Account);
       });
     } else {
+      jtoken = jwt.sign({ email: account.email, isHospital: false }, secret, {
+        expiresIn: "30 days",
+      });
       var maxDis = 50; //50km max distance
       var events = [];
       account.password = "";
@@ -405,7 +420,8 @@ app.post("/login", async (req, res) => {
             events.push(camp);
           }
         });
-        Account = { data: account, event: events };
+        Account = { data: account, event: events, token: jtoken };
+        secret = "";
         res.send(Account);
       });
     }
@@ -473,6 +489,7 @@ app.post("/resetPass/sendOTP", async (req, res) => {
 });
 
 app.post("/resetPass/otpVerification", async (req, res) => {
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
   if (req.body.otp === otp) {
     user.findOneAndUpdate(
       { email: req.body.email },
@@ -492,13 +509,37 @@ app.post("/resetPass/otpVerification", async (req, res) => {
                   if (!foundHospital) {
                     res.send("error");
                   } else {
-                    res.send(foundHospital);
+                    jtoken = jwt.sign(
+                      { email: foundHospital.email, isHospital: true },
+                      secret,
+                      {
+                        expiresIn: "30 days",
+                      }
+                    );
+                    var response = {
+                      account: foundHospital,
+                      token: jtoken,
+                    };
+                    secret = "";
+                    res.send(response);
                   }
                 }
               }
             );
           } else {
-            res.send(foundUser);
+            jtoken = jwt.sign(
+              { email: foundUser.email, isHospital: false },
+              secret,
+              {
+                expiresIn: "30 days",
+              }
+            );
+            var response = {
+              account: foundUser,
+              token: jtoken,
+            };
+            secret = "";
+            res.send(response);
           }
         }
       }
@@ -829,12 +870,29 @@ app.post("/requestBlood/user", (req, res) => {
   });
 });
 
-// user.find({}, (err, foundUser) => {
-//   foundUser.forEach((usr) => {
-//     usr.seen = 0;
-//     usr.save();
+// app.get("/registerIP", (req, res) => {
+//   jwtCheck = expressjwt({
+//     secret: req.header("x-forwarded-for") || req.socket.remoteAddress,
 //   });
 // });
+
+app.get("/infoRestore", (req, res) => {
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
+  });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  res.send(decoded);
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

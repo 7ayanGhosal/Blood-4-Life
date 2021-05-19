@@ -225,7 +225,7 @@ class App extends React.Component {
     };
     //LOGIN ROUTE
     this.checkLogin = (cred) => {
-      console.log(cred);
+      // console.log(cred);
       document.getElementById("closeLoginModal").click();
       axios.post("/login", cred).then((res) => {
         // console.log(res.data);
@@ -243,8 +243,9 @@ class App extends React.Component {
             ...res.data.data,
             events: res.data.event,
             isHospital: IsHospital,
-            // token: res.data.token,
           });
+          console.log(res.data.token);
+          localStorage.token = res.data.token;
           this.pageHandler("Home");
         }
       });
@@ -255,20 +256,49 @@ class App extends React.Component {
       this.setState({
         displayOTPBox: false,
         disableEmail: false,
+        name: "",
         firstName: "",
         lastName: "",
         email: "",
         pass: "",
         gender: "",
         age: "",
-        address: "",
         bloodGroup: "",
+        bloodStock: {
+          "A+": 0,
+          "A-": 0,
+          "B+": 0,
+          "B-": 0,
+          "AB+": 0,
+          "AB-": 0,
+          "O+": 0,
+          "O-": 0,
+        },
         rhFactor: "",
+        page: "Home",
         isHospital: false,
-        reqDonor: "",
+        reqDonor: false,
         authenticated: false,
+        events: {},
+        seen: 0,
+        location: {
+          latitude: 0,
+          longitude: 0,
+          poi: "",
+          street: "",
+          subSubLocality: "",
+          subLocality: "",
+          locality: "",
+          village: "",
+          district: "",
+          subDistrict: "",
+          city: "",
+          state: "",
+          pincode: "",
+          eloc: "",
+        },
       });
-      this.pageHandler("Home");
+      localStorage.removeItem("token");
     };
 
     //METHOD FOR REMOVING INFO FROM MODALS
@@ -308,12 +338,13 @@ class App extends React.Component {
             //this.setState({ displayOTPBox: false, disableEmail: false });
             document.getElementById("closeResetPassBox").click();
             var IsHospital = false;
-            if (res.data.name) IsHospital = true;
+            if (res.data.account.name) IsHospital = true;
             this.setState({
               authenticated: true,
-              ...res.data,
+              ...res.data.account,
               isHospital: IsHospital,
             });
+            localStorage.token = res.data.token;
             this.pageHandler("Home");
           }
         },
@@ -602,6 +633,23 @@ class App extends React.Component {
         );
       }
     };
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      console.log("Token peyechi!!!");
+      axios.defaults.headers.common = {
+        Authorization: `bearer ${localStorage.token}`,
+      };
+      axios.get("/infoRestore").then(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log("Bhai ar parchi na: " + err);
+        }
+      );
+    } else console.log("Token kothay???");
   }
 
   render() {
