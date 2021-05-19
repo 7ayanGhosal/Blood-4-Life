@@ -4,8 +4,7 @@ import "./contactUs.css";
 class ContactUs extends Component {
   render() {
     return (
-      // <div class="">
-      <div class="contact-us-row row mb-3">
+      <div class="contact-us-row row mb-2">
         <div class="col col-12 col-md-6 d-flex align-items-center justify-content-center side1">
           <div class="text-center location">
             <h1 class="header1">LOCATION</h1>
@@ -53,33 +52,36 @@ class ContactUs extends Component {
           </div>
         </div>
         <div class="col col-12 col-md-6 d-flex align-items-center justify-content-center side2">
-          <div class="w-100 text-center">
+          <form class="w-100 text-center">
             <h1 class="header2">CONTACT FORM</h1>
 
             <input
               type="text"
-              class="form-control w-75 m-auto mb-3"
+              class="bx-shadow form-control w-75 m-auto mb-3"
               id="exampleFormControlInput1"
               placeholder="Enter your Name"
             />
             <input
               type="email"
-              class="form-control w-75 m-auto mb-3"
+              class="bx-shadow form-control w-75 m-auto mb-3"
               id="exampleFormControlInput1"
               placeholder="Enter your email id"
             />
 
             <textarea
-              class="form-control w-75 m-auto mb-3"
+              class="bx-shadow form-control w-75 m-auto mb-3"
               id="exampleFormControlTextarea1"
               rows="3"
               placeholder="Enter your message"
             ></textarea>
 
-            <button type="button" class="w-50 btn btn-info text-dark mb-3">
+            <button
+              type="button"
+              class="bx-shadow w-50 btn btn-info text-dark mb-3"
+            >
               Submit
             </button>
-          </div>
+          </form>
         </div>
       </div>
       // </div>

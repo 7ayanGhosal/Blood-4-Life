@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AuthNav.css";
-import logo from "../../../resources/logo.jpeg";
+import logo from "../../../resources/logo.png";
 import AuthContext from "../../../context/auth-context";
 import HospProfile from "../../hospital/profile/profile";
 import UserProfile from "../../user/profile/profile";

@@ -15,10 +15,18 @@
   border: none !important;
 }
 
+.logo {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .logo img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.85);
+  /* background-color: rgb(238, 227, 255, 0.8); */
 }
 .logo h3 {
   margin-left: 0.5em;
@@ -26,10 +34,13 @@
   font-family: "Paytone One", sans-serif;
   font-size: 1.5em;
   /* color: firebrick; */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 .icons2 {
   font-family: "Averia Serif Libre", cursive;
   font-size: 1.2em;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 1);
 }
 
 @media (max-width: 991px) {
