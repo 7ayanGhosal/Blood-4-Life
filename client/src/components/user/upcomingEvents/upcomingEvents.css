@@ -15,6 +15,7 @@
 .ue-cardh {
   color: darkred;
   font-family: Impact, Haettenschweiler, "Arial", sans-serif;
+  display: inline;
 }
 
 .ue-attribute {
@@ -36,4 +37,11 @@
   font-weight: bolder;
   text-align: center;
   color: orangered;
+}
+
+.ue-note {
+  display: inline;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: whitesmoke;
 }

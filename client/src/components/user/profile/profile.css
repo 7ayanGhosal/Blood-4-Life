@@ -8,20 +8,41 @@
   font-style: italic;
 }
 
-.edit-profile {
-  float: right;
-  width: 150px;
+.sidenav-bg {
+  background-color: rgb(243, 237, 183);
+}
+
+.edit-profile2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   border: 2px solid black;
+}
+
+.fix-edit {
+  padding: auto;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  max-height: 15px;
+  margin-left: 30px;
 }
 
 .profile-bg {
   background-color: #c8bee2;
   background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); */
 }
 
 .p-card {
   font-weight: bold;
+}
+
+.p-head {
+  max-height: 55px;
+}
+
+.fix-edit {
+  position: static;
 }
 
 .editph {

@@ -22,10 +22,9 @@ class Events extends Component {
         <div>
           <div class={"card ue " + (d < d_now ? "upast" : "")}>
             <div class="card-header">
-              <h3 class=" d-inline ue-cardh">
-                {this.context.events[i].eventName}{" "}
-              </h3>
-              <p class="d-inline ">
+              <h3 class="ue-cardh">{this.context.events[i].eventName} </h3>
+              &emsp;
+              <p class="ue-note ">
                 {d < d_now ? "(NOTE: This camp is already over)" : ""}
               </p>
             </div>
