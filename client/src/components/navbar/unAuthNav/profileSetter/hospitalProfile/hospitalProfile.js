@@ -56,7 +56,7 @@ class HospitalProfile extends Component {
                 <form onSubmit={this.onFormSubmit}>
                   <div class="card w-100" style={{ width: 18 + "rem" }} />
                   <div class="card w-100">
-                    <div class="card-body profile-bg">
+                    <div class="card-body hp-profile-bg">
                       <h4 class="card-title">Profile</h4>
                       <h4 class="card-text hcard">
                         <h4 class="p-value">Name :&ensp;</h4>

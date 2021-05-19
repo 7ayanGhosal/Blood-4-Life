@@ -403,98 +403,125 @@ class Profile extends React.Component {
                       alt="..."
                     />
                   ) : (
-                    <div class="avatar-init-logo">
-                      <h1>
+                    <div class="avatar-init-logo user-dp">
+                      <div>
                         {this.context.firstName[0]}.{this.context.lastName[0]}
-                      </h1>
+                      </div>
                     </div>
                   )}
                   <br />
+                  <h2 class="av-head">Choose Avatar</h2>
+                  <br />
                   <div class="dp-choice">
-                    <h3>Choose Avatar</h3>
-                    <img
-                      src={
-                        this.context.gender === "Male"
-                          ? MaleAvatar
-                          : FemaleAvatar
-                      }
-                    />
-                    <input
-                      type="radio"
-                      name="avatar"
-                      value="1"
-                      onChange={(e) => {
-                        console.log(e);
-                        this.setState({ avatar: 1 });
-                      }}
-                      checked={this.state.avatar === 1 ? true : null}
-                    ></input>
-                    <img
-                      src={
-                        this.context.gender === "Male"
-                          ? MaleAvatar2
-                          : FemaleAvatar2
-                      }
-                    />
-                    <input
-                      type="radio"
-                      name="avatar"
-                      value="2"
-                      onChange={() => {
-                        this.setState({ avatar: 2 });
-                      }}
-                      checked={this.state.avatar === 2 ? true : false}
-                    ></input>
-                    <img
-                      src={
-                        this.context.gender === "Male"
-                          ? MaleAvatar3
-                          : FemaleAvatar3
-                      }
-                    />
-                    <input
-                      type="radio"
-                      name="avatar"
-                      value="3"
-                      onChange={() => {
-                        this.setState({ avatar: 3 });
-                      }}
-                      checked={this.state.avatar === 3 ? true : false}
-                    ></input>
-                    <img
-                      src={
-                        this.context.gender === "Male"
-                          ? MaleAvatar4
-                          : FemaleAvatar4
-                      }
-                    />
-                    <input
-                      type="radio"
-                      name="avatar"
-                      value="4"
-                      onChange={() => {
-                        this.setState({ avatar: 4 });
-                      }}
-                      checked={this.state.avatar === 4 ? true : false}
-                    ></input>
-
-                    <div class="avatar-init">
-                      <h1>
-                        {this.context.firstName[0]}.{this.context.lastName[0]}
-                      </h1>
+                    <div class="choice1">
+                      <img
+                        class="choice-img"
+                        src={
+                          this.context.gender === "Male"
+                            ? MaleAvatar
+                            : FemaleAvatar
+                        }
+                      />
+                      <br />
+                      <input
+                        class="choice-btn"
+                        type="radio"
+                        name="avatar"
+                        value="1"
+                        onChange={(e) => {
+                          console.log(e);
+                          this.setState({ avatar: 1 });
+                        }}
+                        checked={this.state.avatar === 1 ? true : null}
+                      ></input>
+                      <br />
                     </div>
-                    <input
-                      type="radio"
-                      name="avatar"
-                      value="5"
-                      onChange={() => {
-                        this.setState({ avatar: 5 });
-                      }}
-                      checked={this.state.avatar === 5 ? true : false}
-                    ></input>
+                    <div class="choice2">
+                      <img
+                        class="choice-img"
+                        src={
+                          this.context.gender === "Male"
+                            ? MaleAvatar2
+                            : FemaleAvatar2
+                        }
+                      />
+                      <br />
+                      <input
+                        class="choice-btn"
+                        type="radio"
+                        name="avatar"
+                        value="2"
+                        onChange={() => {
+                          this.setState({ avatar: 2 });
+                        }}
+                        checked={this.state.avatar === 2 ? true : false}
+                      ></input>
+                      <br />
+                    </div>
+                    <div class="choice3">
+                      <img
+                        class="choice-img"
+                        src={
+                          this.context.gender === "Male"
+                            ? MaleAvatar3
+                            : FemaleAvatar3
+                        }
+                      />
+                      <br />
+                      <input
+                        class="choice-btn"
+                        type="radio"
+                        name="avatar"
+                        value="3"
+                        onChange={() => {
+                          this.setState({ avatar: 3 });
+                        }}
+                        checked={this.state.avatar === 3 ? true : false}
+                      ></input>
+                      <br />
+                    </div>
+                    <div class="choice4">
+                      <img
+                        class="choice-img"
+                        src={
+                          this.context.gender === "Male"
+                            ? MaleAvatar4
+                            : FemaleAvatar4
+                        }
+                      />
+                      <br />
+                      <input
+                        class="choice-btn"
+                        type="radio"
+                        name="avatar"
+                        value="4"
+                        onChange={() => {
+                          this.setState({ avatar: 4 });
+                        }}
+                        checked={this.state.avatar === 4 ? true : false}
+                      ></input>
+                      <br />
+                    </div>
+                    <div class="choice5">
+                      <div class="avatar-init">
+                        {this.context.firstName[0]}.{this.context.lastName[0]}
+                      </div>
+                      <br />
+                      <input
+                        class="choice-btn"
+                        type="radio"
+                        name="avatar"
+                        value="5"
+                        onChange={() => {
+                          this.setState({ avatar: 5 });
+                        }}
+                        checked={this.state.avatar === 5 ? true : false}
+                      ></input>
+                      <br />
+                    </div>
                   </div>
                   {/*<input class="img-change" type="file" />*/}
-                  <br /> <br />
+                  <br />
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>
                     <br />
