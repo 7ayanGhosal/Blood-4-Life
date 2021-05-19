@@ -4,6 +4,12 @@ import Map from "./map/map";
 import AuthContext from "../../../context/auth-context";
 import MaleAvatar from "../../../resources/MaleAvatar.jpg";
 import FemaleAvatar from "../../../resources/FemaleAvatar.jpg";
+import MaleAvatar2 from "../../../resources/MaleAvatar2.jpg";
+import FemaleAvatar2 from "../../../resources/FemaleAvatar2.jpg";
+import MaleAvatar3 from "../../../resources/MaleAvatar3.jpg";
+import FemaleAvatar3 from "../../../resources/FemaleAvatar3.jpg";
+import MaleAvatar4 from "../../../resources/MaleAvatar4.jpg";
+import FemaleAvatar4 from "../../../resources/FemaleAvatar4.jpg";
 import "./profile.css";
 
 class Profile extends React.Component {
@@ -349,6 +355,38 @@ class Profile extends React.Component {
                     class="card-img-top user-dp"
                     alt="..."
                   />
+                  <br />
+                  <div class="dp-choice">
+                    <h3>choose</h3>
+                    <img
+                      src={
+                        this.context.gender === "Male"
+                          ? MaleAvatar
+                          : FemaleAvatar
+                      }
+                    />
+                    <img
+                      src={
+                        this.context.gender === "Male"
+                          ? MaleAvatar2
+                          : FemaleAvatar2
+                      }
+                    />
+                    <img
+                      src={
+                        this.context.gender === "Male"
+                          ? MaleAvatar3
+                          : FemaleAvatar3
+                      }
+                    />
+                    <img
+                      src={
+                        this.context.gender === "Male"
+                          ? MaleAvatar4
+                          : FemaleAvatar4
+                      }
+                    />
+                  </div>
                   {/*<input class="img-change" type="file" />*/}
                   <br /> <br />
                   <div class="card-body">
