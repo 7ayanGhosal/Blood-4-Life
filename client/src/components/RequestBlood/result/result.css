@@ -4,6 +4,10 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
+.hsr-list {
+  width: 100%;
+}
+
 .hsr-card {
   background-color: rgb(182, 206, 206);
 }

@@ -36,29 +36,29 @@ class Result extends React.Component {
             <td>{ele.name}</td>
             <td>{ele.email}</td>
             <td>
-              {(ele.location.poi != "" ? ele.location.poi + ", " : "") +
-                (ele.location.street != "" ? ele.location.street + ", " : "") +
-                (ele.location.subSubLocality != ""
+              {(ele.location.poi !== "" ? ele.location.poi + ", " : "") +
+                (ele.location.street !== "" ? ele.location.street + ", " : "") +
+                (ele.location.subSubLocality !== ""
                   ? ele.location.subSubLocality + ", "
                   : "") +
-                (ele.location.subLocality != ""
+                (ele.location.subLocality !== ""
                   ? ele.location.subLocality + ", "
                   : "") +
-                (ele.location.locality != ""
+                (ele.location.locality !== ""
                   ? ele.location.locality + ", "
                   : "") +
-                (ele.location.village != ""
+                (ele.location.village !== ""
                   ? ele.location.village + ", "
                   : "") +
-                (ele.location.district != ""
+                (ele.location.district !== ""
                   ? ele.location.district + ", "
                   : "") +
-                (ele.location.subDistrict != ""
+                (ele.location.subDistrict !== ""
                   ? ele.location.subDistrict + ", "
                   : "") +
-                (ele.location.city != "" ? ele.location.city + ", " : "") +
-                (ele.location.state != "" ? ele.location.state + ", " : "") +
-                (ele.location.pincode != "" ? ele.location.pincode + " " : "")}
+                (ele.location.city !== "" ? ele.location.city + ", " : "") +
+                (ele.location.state !== "" ? ele.location.state + ", " : "") +
+                (ele.location.pincode !== "" ? ele.location.pincode + " " : "")}
             </td>
             <td>{ele.distance}</td>
           </tr>
@@ -78,18 +78,20 @@ class Result extends React.Component {
           <div class="card-body">
             {this.props.dispState === 2 ? (
               <div>
-                <table class="table table-bordered hsr-card hover m-auto">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Email id</th>
-                      <th scope="col">Address</th>
-                      <th scope="col">Distance(in KM)</th>
-                    </tr>
-                  </thead>
-                  <tbody>{jsx2}</tbody>
-                </table>
+                <pre class="hsr-list">
+                  <table class="table table-bordered hsr-card hover m-auto">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email id</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Distance(in KM)</th>
+                      </tr>
+                    </thead>
+                    <tbody>{jsx2}</tbody>
+                  </table>
+                </pre>
               </div>
             ) : null}
             {this.props.dispState === 3 ? (

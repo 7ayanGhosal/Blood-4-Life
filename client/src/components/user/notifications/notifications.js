@@ -66,43 +66,45 @@ class Notifications extends React.Component {
                 </h5>
                 <h6>
                   <div class="ntemp">Address :&ensp;</div>{" "}
-                  {(this.state.notifications[i].body.location.poi != ""
+                  {(this.state.notifications[i].body.location.poi !== ""
                     ? this.state.notifications[i].body.location.poi + ", "
                     : "") +
-                    (this.state.notifications[i].body.location.street != ""
+                    (this.state.notifications[i].body.location.street !== ""
                       ? this.state.notifications[i].body.location.street + ", "
                       : "") +
-                    (this.state.notifications[i].body.location.subSubLocality !=
-                    ""
+                    (this.state.notifications[i].body.location
+                      .subSubLocality !== ""
                       ? this.state.notifications[i].body.location
                           .subSubLocality + ", "
                       : "") +
-                    (this.state.notifications[i].body.location.subLocality != ""
+                    (this.state.notifications[i].body.location.subLocality !==
+                    ""
                       ? this.state.notifications[i].body.location.subLocality +
                         ", "
                       : "") +
-                    (this.state.notifications[i].body.location.locality != ""
+                    (this.state.notifications[i].body.location.locality !== ""
                       ? this.state.notifications[i].body.location.locality +
                         ", "
                       : "") +
-                    (this.state.notifications[i].body.location.village != ""
+                    (this.state.notifications[i].body.location.village !== ""
                       ? this.state.notifications[i].body.location.village + ", "
                       : "") +
-                    (this.state.notifications[i].body.location.district != ""
+                    (this.state.notifications[i].body.location.district !== ""
                       ? this.state.notifications[i].body.location.district +
                         ", "
                       : "") +
-                    (this.state.notifications[i].body.location.subDistrict != ""
+                    (this.state.notifications[i].body.location.subDistrict !==
+                    ""
                       ? this.state.notifications[i].body.location.subDistrict +
                         ", "
                       : "") +
-                    (this.state.notifications[i].body.location.city != ""
+                    (this.state.notifications[i].body.location.city !== ""
                       ? this.state.notifications[i].body.location.city + ", "
                       : "") +
-                    (this.state.notifications[i].body.location.state != ""
+                    (this.state.notifications[i].body.location.state !== ""
                       ? this.state.notifications[i].body.location.state + ", "
                       : "") +
-                    (this.state.notifications[i].body.location.pincode != ""
+                    (this.state.notifications[i].body.location.pincode !== ""
                       ? this.state.notifications[i].body.location.pincode + " "
                       : "")}
                 </h6>

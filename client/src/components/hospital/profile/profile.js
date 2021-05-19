@@ -216,37 +216,37 @@ class Profile extends React.Component {
               </h6>
               &ensp;
               <h6 class="p-value">
-                {(this.context.location.poi != ""
+                {(this.context.location.poi !== ""
                   ? this.context.location.poi + ", "
                   : "") +
-                  (this.context.location.street != ""
+                  (this.context.location.street !== ""
                     ? this.context.location.street + ", "
                     : "") +
-                  (this.context.location.subSubLocality != ""
+                  (this.context.location.subSubLocality !== ""
                     ? this.context.location.subSubLocality + ", "
                     : "") +
-                  (this.context.location.subLocality != ""
+                  (this.context.location.subLocality !== ""
                     ? this.context.location.subLocality + ", "
                     : "") +
-                  (this.context.location.locality != ""
+                  (this.context.location.locality !== ""
                     ? this.context.location.locality + ", "
                     : "") +
-                  (this.context.location.village != ""
+                  (this.context.location.village !== ""
                     ? this.context.location.village + ", "
                     : "") +
-                  (this.context.location.district != ""
+                  (this.context.location.district !== ""
                     ? this.context.location.district + ", "
                     : "") +
-                  (this.context.location.subDistrict != ""
+                  (this.context.location.subDistrict !== ""
                     ? this.context.location.subDistrict + ", "
                     : "") +
-                  (this.context.location.city != ""
+                  (this.context.location.city !== ""
                     ? this.context.location.city + ", "
                     : "") +
-                  (this.context.location.state != ""
+                  (this.context.location.state !== ""
                     ? this.context.location.state + ", "
                     : "") +
-                  (this.context.location.pincode != ""
+                  (this.context.location.pincode !== ""
                     ? this.context.location.pincode + " "
                     : "")}
               </h6>

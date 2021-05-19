@@ -59,7 +59,8 @@
   transform: rotateY(180deg);
   border-radius: 5px;
   /* border: rgb(0, 0, 0) 3px solid; */
-  padding: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 .creators {
   object-fit: fill;
@@ -132,4 +133,31 @@ hr {
   font-weight: bold;
   text-align: center;
   color: darkred;
+}
+
+.web-team {
+  background-color: yellow;
+  height: 50px;
+  width: 222px;
+  margin: auto;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.developer {
+  font-style: italic;
+}
+
+.creator-github {
+  color: darkgrey;
+}
+
+.creator-github i {
+  font-size: x-large;
+}
+
+.creator-name {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

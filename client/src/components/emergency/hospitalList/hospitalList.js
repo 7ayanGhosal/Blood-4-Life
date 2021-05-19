@@ -64,33 +64,39 @@ class HospitalList extends React.Component {
         hospListjsx.push(
           <tr>
             <td>{ele.distance}</td>
-            <td>{available ? "Yes" : "No"}</td>
+            <td>
+              {available ? (
+                <h4 class="available">&#10003;</h4>
+              ) : (
+                <h4 class="notAvailable">X</h4>
+              )}
+            </td>
             <td>{ele.name}</td>
             <td>{ele.email}</td>
             <td>
-              {(ele.location.poi != "" ? ele.location.poi + ", " : "") +
-                (ele.location.street != "" ? ele.location.street + ", " : "") +
-                (ele.location.subSubLocality != ""
+              {(ele.location.poi !== "" ? ele.location.poi + ", " : "") +
+                (ele.location.street !== "" ? ele.location.street + ", " : "") +
+                (ele.location.subSubLocality !== ""
                   ? ele.location.subSubLocality + ", "
                   : "") +
-                (ele.location.subLocality != ""
+                (ele.location.subLocality !== ""
                   ? ele.location.subLocality + ", "
                   : "") +
-                (ele.location.locality != ""
+                (ele.location.locality !== ""
                   ? ele.location.locality + ", "
                   : "") +
-                (ele.location.village != ""
+                (ele.location.village !== ""
                   ? ele.location.village + ", "
                   : "") +
-                (ele.location.district != ""
+                (ele.location.district !== ""
                   ? ele.location.district + ", "
                   : "") +
-                (ele.location.subDistrict != ""
+                (ele.location.subDistrict !== ""
                   ? ele.location.subDistrict + ", "
                   : "") +
-                (ele.location.city != "" ? ele.location.city + ", " : "") +
-                (ele.location.state != "" ? ele.location.state + ", " : "") +
-                (ele.location.pincode != "" ? ele.location.pincode + " " : "")}
+                (ele.location.city !== "" ? ele.location.city + ", " : "") +
+                (ele.location.state !== "" ? ele.location.state + ", " : "") +
+                (ele.location.pincode !== "" ? ele.location.pincode + " " : "")}
             </td>
           </tr>
         );
@@ -110,7 +116,7 @@ class HospitalList extends React.Component {
               >
                 Add Filters
               </button>
-              <h4 class="mb-3">Search Results</h4>
+              <h3 class="hl-temp mb-3">Search Results</h3>
               <ul
                 class="dropdown-menu dropdown-menu-dark p-2"
                 aria-labelledby="dropdownMenuButton2"
