@@ -60,6 +60,7 @@ var userSchema = new mongoose.Schema({
   location: Object,
   notifications: Array,
   seen: Number,
+  avatar: Number,
 });
 
 var hospitalSchema = new mongoose.Schema({
@@ -462,6 +463,7 @@ app.post("/resetprofile", (req, res) => {
         birthday: req.body.birthday,
         location: req.body.location,
         bloodStock: req.body.bloodStock,
+        avatar: req.body.avatar,
       },
     },
     (err, updatedUser) => {

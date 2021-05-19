@@ -142,3 +142,22 @@
   border-radius: 100%;
   border: 2px solid black;
 }
+
+.avatar-init {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  text-align: center;
+  background-color: skyblue;
+  padding-top: 1.5rem;
+  border: 2px solid black;
+}
+.avatar-init-logo {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  text-align: center;
+  background-color: skyblue;
+  padding-top: 1.5rem;
+  border: 2px solid black;
+}

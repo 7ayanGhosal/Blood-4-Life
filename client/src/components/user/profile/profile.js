@@ -21,15 +21,15 @@ class Profile extends React.Component {
       longitude: 0,
       address: "",
       results: [],
-      // ...this.context,
       close: "closeProfileResetModal",
+      avatar: 1,
     };
 
     this.onFormSubmit = (event) => {
       event.preventDefault();
-      // console.log(this.state);
       this.context.resetProfile(this.state);
     };
+
     this.getUserLocation = () => {
       var address = "";
       if (this.state.location.poi) address += this.state.location.poi + ", ";
@@ -189,12 +189,40 @@ class Profile extends React.Component {
           </div>
           <div class="offcanvas-body profile-bg">
             <center>
-              <img
-                id="avatar"
-                src={this.context.gender === "Male" ? MaleAvatar : FemaleAvatar}
-                class="card-img-top user-dp"
-                alt="..."
-              />
+              {this.context.avatar !== 5 ? (
+                <img
+                  id="avatar"
+                  src={
+                    this.context.gender === "Male"
+                      ? this.context.avatar === 1
+                        ? MaleAvatar
+                        : this.context.avatar === 2
+                        ? MaleAvatar2
+                        : this.context.avatar === 3
+                        ? MaleAvatar3
+                        : this.context.avatar === 4
+                        ? MaleAvatar4
+                        : null
+                      : this.context.avatar === 1
+                      ? FemaleAvatar
+                      : this.context.avatar === 2
+                      ? FemaleAvatar2
+                      : this.context.avatar === 3
+                      ? FemaleAvatar3
+                      : this.context.avatar === 4
+                      ? FemaleAvatar4
+                      : null
+                  }
+                  class="card-img-top user-dp"
+                  alt="..."
+                />
+              ) : (
+                <div class="avatar-init-logo">
+                  <h1>
+                    {this.context.firstName[0]}.{this.context.lastName[0]}
+                  </h1>
+                </div>
+              )}
             </center>
             <br />
             <br />
@@ -348,16 +376,42 @@ class Profile extends React.Component {
               <div class="modal-body">
                 <div class="card w-100" style={{ width: 18 + "rem" }}>
                   <br />
-                  <img
-                    src={
-                      this.context.gender === "Male" ? MaleAvatar : FemaleAvatar
-                    }
-                    class="card-img-top user-dp"
-                    alt="..."
-                  />
+                  {this.state.avatar !== 5 ? (
+                    <img
+                      src={
+                        this.context.gender === "Male"
+                          ? this.state.avatar === 1
+                            ? MaleAvatar
+                            : this.state.avatar === 2
+                            ? MaleAvatar2
+                            : this.state.avatar === 3
+                            ? MaleAvatar3
+                            : this.state.avatar === 4
+                            ? MaleAvatar4
+                            : MaleAvatar4
+                          : this.state.avatar === 1
+                          ? FemaleAvatar
+                          : this.state.avatar === 2
+                          ? FemaleAvatar2
+                          : this.state.avatar === 3
+                          ? FemaleAvatar3
+                          : this.state.avatar === 4
+                          ? FemaleAvatar4
+                          : FemaleAvatar4
+                      }
+                      class="card-img-top user-dp"
+                      alt="..."
+                    />
+                  ) : (
+                    <div class="avatar-init-logo">
+                      <h1>
+                        {this.context.firstName[0]}.{this.context.lastName[0]}
+                      </h1>
+                    </div>
+                  )}
                   <br />
                   <div class="dp-choice">
-                    <h3>choose</h3>
+                    <h3>Choose Avatar</h3>
                     <img
                       src={
                         this.context.gender === "Male"
@@ -365,6 +419,16 @@ class Profile extends React.Component {
                           : FemaleAvatar
                       }
                     />
+                    <input
+                      type="radio"
+                      name="avatar"
+                      value="1"
+                      onChange={(e) => {
+                        console.log(e);
+                        this.setState({ avatar: 1 });
+                      }}
+                      checked={this.state.avatar === 1 ? true : null}
+                    ></input>
                     <img
                       src={
                         this.context.gender === "Male"
@@ -372,6 +436,15 @@ class Profile extends React.Component {
                           : FemaleAvatar2
                       }
                     />
+                    <input
+                      type="radio"
+                      name="avatar"
+                      value="2"
+                      onChange={() => {
+                        this.setState({ avatar: 2 });
+                      }}
+                      checked={this.state.avatar === 2 ? true : false}
+                    ></input>
                     <img
                       src={
                         this.context.gender === "Male"
@@ -379,6 +452,15 @@ class Profile extends React.Component {
                           : FemaleAvatar3
                       }
                     />
+                    <input
+                      type="radio"
+                      name="avatar"
+                      value="3"
+                      onChange={() => {
+                        this.setState({ avatar: 3 });
+                      }}
+                      checked={this.state.avatar === 3 ? true : false}
+                    ></input>
                     <img
                       src={
                         this.context.gender === "Male"
@@ -386,6 +468,30 @@ class Profile extends React.Component {
                           : FemaleAvatar4
                       }
                     />
+                    <input
+                      type="radio"
+                      name="avatar"
+                      value="4"
+                      onChange={() => {
+                        this.setState({ avatar: 4 });
+                      }}
+                      checked={this.state.avatar === 4 ? true : false}
+                    ></input>
+
+                    <div class="avatar-init">
+                      <h1>
+                        {this.context.firstName[0]}.{this.context.lastName[0]}
+                      </h1>
+                    </div>
+                    <input
+                      type="radio"
+                      name="avatar"
+                      value="5"
+                      onChange={() => {
+                        this.setState({ avatar: 5 });
+                      }}
+                      checked={this.state.avatar === 5 ? true : false}
+                    ></input>
                   </div>
                   {/*<input class="img-change" type="file" />*/}
                   <br /> <br />
