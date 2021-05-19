@@ -73,10 +73,22 @@ var campSchema = new mongoose.Schema({
   eventDescription: String,
 });
 
+var msgSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  location: Object,
+  eventName: String,
+  eventDate: Date,
+  eventStartTime: String,
+  eventEndTime: String,
+  eventDescription: String,
+});
+
 //------------------------------------------------MODEL
 var user = mongoose.model("User", userSchema);
 var hospital = mongoose.model("Hospital", hospitalSchema);
 var camp = mongoose.model("Camp", campSchema);
+var msg = mongoose.model("Message", msgSchema);
 
 var otp = String(Math.floor(Math.random() * 89999 + 10000));
 // var userToken = String(Math.floor(Math.random() * 89999 + 10000));
@@ -835,6 +847,16 @@ app.post("/requestBlood/user", (req, res) => {
 //     usr.save();
 //   });
 // });
+
+app.post("/contactUs", (req, res) => {
+  msg.create(
+    { name: req.body.name, email: req.body.email, msg: req.body.msg },
+    (err, m) => {
+      if (err) res.send(false);
+      else res.send(true);
+    }
+  );
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

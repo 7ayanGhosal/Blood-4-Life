@@ -54,3 +54,8 @@
 .bx-shadow {
   box-shadow: 0 0 3px rgb(0, 0, 0);
 }
+
+#m-res {
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  color: cyan;
+}
