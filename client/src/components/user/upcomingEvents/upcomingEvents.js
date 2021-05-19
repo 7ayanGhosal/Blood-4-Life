@@ -10,39 +10,36 @@ class Events extends Component {
       events.push(
         <div>
           <div class="card ue">
+            <h3 class="card-header ue-cardh">
+              {this.context.events[i].eventName}
+            </h3>
             <div class="card-body">
-              <h5 class="ue-attribute" href="#">
-                Name :-
-              </h5>
-              &ensp;
-              <h5 class="ue-value">{this.context.events[i].eventName}</h5>
-              <br />
               <h5 class="ue-attribute" href="#">
                 Date :-
               </h5>
               &ensp;
-              <h5 class="ue-value">{this.context.events[i].eventDate}</h5>
+              <h6 class="ue-value">{this.context.events[i].eventDate}</h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Time :-
               </h5>
               &ensp;
-              <h5 class="ue-value">
+              <h6 class="ue-value">
                 {this.context.events[i].eventStartTime} To{" "}
                 {this.context.events[i].eventEndTime}
-              </h5>
+              </h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Contact :-
               </h5>
               &ensp;
-              <h5 class="ue-value">{this.context.events[i].email}</h5>
+              <h6 class="ue-value">{this.context.events[i].email}</h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Location :-{" "}
               </h5>
               &ensp;
-              <h5 class="ue-value">
+              <h6 class="ue-value">
                 {(this.context.events[i].location.poi !== ""
                   ? this.context.events[i].location.poi + ", "
                   : "") +
@@ -76,15 +73,15 @@ class Events extends Component {
                   (this.context.events[i].location.pincode !== ""
                     ? this.context.events[i].location.pincode + " "
                     : "")}
-              </h5>
+              </h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Description :-{" "}
               </h5>
               &ensp;
-              <h5 class="ue-value">
+              <h6 class="ue-value">
                 {this.context.events[i].eventDescription}
-              </h5>
+              </h6>
               <br />
             </div>
           </div>
@@ -95,7 +92,7 @@ class Events extends Component {
     return (
       <div class="container">
         <br />
-        <h3>Upcoming Blood Donation Camps Near You</h3>
+        <h2 class="ue-head">Upcoming Blood Donation Camps Near You</h2>
         <br />
         <br />
         {events}

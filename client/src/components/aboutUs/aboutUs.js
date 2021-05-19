@@ -72,7 +72,7 @@ class AboutUs extends Component {
                       </a>
                     </h5>
                     <br />
-                    <h5>Jadavpur University</h5>
+                    <h6>Jadavpur University</h6>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@ class AboutUs extends Component {
                       </a>
                     </h5>
                     <br />
-                    <h5>Jadavpur University</h5>
+                    <h6>Jadavpur University</h6>
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@ class AboutUs extends Component {
                       </a>
                     </h5>
                     <br />
-                    <h5>Jadavpur University</h5>
+                    <h6>Jadavpur University</h6>
                   </div>
                 </div>
               </div>
@@ -159,7 +159,7 @@ class AboutUs extends Component {
                       </a>
                     </h5>
                     <br />
-                    <h5>Jadavpur University</h5>
+                    <h6>Jadavpur University</h6>
                   </div>
                 </div>
               </div>
@@ -188,7 +188,7 @@ class AboutUs extends Component {
                       </a>
                     </h5>
                     <br />
-                    <h5>Jadavpur University</h5>
+                    <h6>Jadavpur University</h6>
                   </div>
                 </div>
               </div>
