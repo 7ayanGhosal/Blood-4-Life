@@ -53,7 +53,6 @@
 }
 
 .user-dp {
-  width: 600px;
   width: 200px;
   height: 200px;
   margin-left: auto;
@@ -127,4 +126,19 @@
   border: 5px solid rgba(148, 148, 148, 0.5);
   overflow: hidden;
   /* height: 250px; */
+}
+
+.dp-choice h3 {
+  display: inline;
+  margin-left: 100px;
+}
+
+.dp-choice img {
+  display: inline;
+  width: 100px;
+  height: 100px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 100%;
+  border: 2px solid black;
 }
