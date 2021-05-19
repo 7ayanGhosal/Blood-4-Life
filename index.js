@@ -9,6 +9,7 @@ var app = express();
 var mongoose = require("mongoose");
 var nodemailer = require("nodemailer");
 var faker = require("faker");
+const { json } = require("body-parser");
 
 //NodeMailer
 var emailid = "assist.blood4life@gmail.com";
@@ -402,6 +403,7 @@ app.post("/login", async (req, res) => {
     //Acccount not found
     res.send(false);
   } else {
+    account.password = "";
     if (account.name) {
       jtoken = jwt.sign({ email: account.email, isHospital: true }, secret, {
         expiresIn: "30 days",
@@ -528,6 +530,7 @@ app.post("/resetPass/otpVerification", async (req, res) => {
                         expiresIn: "30 days",
                       }
                     );
+                    foundHospital.password = "";
                     var response = {
                       account: foundHospital,
                       token: jtoken,
@@ -546,6 +549,7 @@ app.post("/resetPass/otpVerification", async (req, res) => {
                 expiresIn: "30 days",
               }
             );
+            foundUser.password = "";
             var response = {
               account: foundUser,
               token: jtoken,
@@ -903,7 +907,49 @@ app.get("/infoRestore", (req, res) => {
   } catch (e) {
     return res.send("unauthorized");
   }
-  res.send(decoded);
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (isHospital) {
+    hospital.findOne({ email: email }, (err, foundHosp) => {
+      foundHosp.password = "";
+      camp.find({ email: email }, (err, foundCamps) => {
+        var Account = { data: foundHosp, event: foundCamps };
+        res.send(Account);
+      });
+    });
+  } else {
+    user.findOne({ email: email }, (err, foundUser) => {
+      var events = [];
+      foundUser.password = "";
+      camp.find({}, (err, foundCamps) => {
+        foundCamps.forEach((camp) => {
+          var distance = Distance(
+            camp.location.latitude,
+            foundUser.location.latitude,
+            camp.location.longitude,
+            foundUser.location.longitude
+          );
+          distance = distance.toFixed(3);
+          var maxDis = 50;
+          if (distance <= maxDis) {
+            events.push(camp);
+          }
+        });
+        var Account = { data: foundUser, event: events };
+        res.send(Account);
+      });
+    });
+  }
 });
 
 app.post("/contactUs", (req, res) => {

@@ -635,6 +635,7 @@ class App extends React.Component {
     };
   }
 
+  // Local Storage Retreival, JWT
   componentDidMount() {
     if (localStorage.getItem("token")) {
       console.log("Token peyechi!!!");
@@ -643,7 +644,13 @@ class App extends React.Component {
       };
       axios.get("/infoRestore").then(
         (res) => {
-          console.log(res);
+          var isHosp = res.data.data.name ? true : false;
+          this.setState({
+            authenticated: true,
+            ...res.data.data,
+            isHospital: isHosp,
+            events: res.data.event,
+          });
         },
         (err) => {
           console.log("Bhai ar parchi na: " + err);
