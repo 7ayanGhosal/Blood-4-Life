@@ -31,7 +31,7 @@ class ContactUs extends Component {
 
   render() {
     return (
-      <div class="contact-us-row row mb-2">
+      <div class="contact-us-row row mb-2 mt-2">
         <div class="col col-12 col-md-6 d-flex align-items-center justify-content-center side1">
           <div class="text-center location">
             <h1 class="header1">LOCATION</h1>

@@ -50,7 +50,7 @@ class OrganiseCamp extends React.Component {
     return (
       <div class="oc-bg mb-3 p-3">
         <center>
-          <h1 class="oc-head">Organise A Blood Camp</h1>
+          <h1 class="oc-head">Organise A Blood Donation Camp</h1>
           <br />
           <br />
           <form onSubmit={this.onFormSubmit}>

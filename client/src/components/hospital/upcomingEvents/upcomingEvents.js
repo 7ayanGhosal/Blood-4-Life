@@ -7,12 +7,28 @@ class Events extends Component {
   render() {
     var events = [];
     for (var i = 0; i < this.context.events.length; i++) {
+      var d = new Date(this.context.events[i].eventDate);
+      var h = parseInt(
+        this.context.events[i].eventEndTime[0] +
+          this.context.events[i].eventEndTime[1]
+      );
+      var m = parseInt(
+        this.context.events[i].eventEndTime[3] +
+          this.context.events[i].eventEndTime[4]
+      );
+      d.setHours(h, m, 0);
+      var d_now = new Date();
       events.push(
         <div>
-          <div class="card ue">
-            <h3 class="card-header ue-cardh">
-              {this.context.events[i].eventName}
-            </h3>
+          <div class={"card ue " + (d < d_now ? "upast" : "")}>
+            <div class="card-header">
+              <h3 class=" d-inline ue-cardh">
+                {this.context.events[i].eventName}{" "}
+              </h3>
+              <p class="d-inline ">
+                {d < d_now ? "(NOTE: This camp is already over)" : ""}
+              </p>
+            </div>
             <div class="card-body">
               <h5 class="ue-attribute" href="#">
                 Date :-
@@ -92,7 +108,7 @@ class Events extends Component {
     return (
       <div class="container">
         <br />
-        <h2 class="ue-head">Upcoming Blood Donation Camps</h2>
+        <h2 class="ue-head">My Blood Donation Camps</h2>
         <br />
         <br />
         {events}
