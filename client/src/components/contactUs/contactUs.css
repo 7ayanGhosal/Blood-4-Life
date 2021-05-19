@@ -59,3 +59,12 @@
   text-shadow: 0 0 10px rgb(0, 0, 0);
   color: cyan;
 }
+
+.cu-submit {
+  background-color: darkblue;
+  color: white;
+  width: 150px;
+}
+.cu-submit:hover {
+  color: white;
+}

@@ -13,7 +13,7 @@ class ContactUs extends Component {
     axios.post("/contactUs", body).then((res) => {
       if (res.data) {
         document.getElementById("m-res").innerText =
-          "Thank You For Your Support!";
+          "Message received!\nOur team will get back to you\n";
         document.getElementById("m-form").style.display = "none";
         document.getElementById("m-another").style.display = "block";
       } else {
@@ -109,14 +109,13 @@ class ContactUs extends Component {
               required
             ></textarea>
 
-            <button
-              type="submit"
-              class="bx-shadow w-50 btn btn-info text-dark mb-3"
-            >
+            <button type="submit" class="bx-shadow btn cu-submit mb-3">
               Submit
             </button>
           </form>
           <h5 id="m-res"></h5>
+          <br />
+          <br />
           <button
             id="m-another"
             style={{ display: "none" }}
