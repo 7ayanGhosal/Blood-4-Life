@@ -200,7 +200,7 @@ class Carousel extends Component {
               ></div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev c-btn"
               type="button"
               data-bs-target="#carouselExampleIndicators"
               data-bs-slide="prev"
@@ -212,7 +212,7 @@ class Carousel extends Component {
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next c-btn"
               type="button"
               data-bs-target="#carouselExampleIndicators"
               data-bs-slide="next"

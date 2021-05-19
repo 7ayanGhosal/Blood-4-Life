@@ -729,11 +729,11 @@ class App extends React.Component {
           }}
         >
           <Navbar></Navbar>
-          {box}
+          <div class="app-box">{box}</div>
         </AuthContext.Provider>
-        <FooterHome></FooterHome>
         {/* <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>
         <button onClick={() => this.fakeUsers(2)}>fakeUser</button> */}
+        <FooterHome></FooterHome>
       </div>
     );
   }

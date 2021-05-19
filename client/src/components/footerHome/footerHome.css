@@ -1,8 +1,9 @@
 .frow {
   text-align: center;
-  font-style: italic;
+  /* font-style: italic; */
   font-size: 15px;
   padding: 20px 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 .col-name {
@@ -10,10 +11,6 @@
 }
 .back {
   color: cyan;
-  /* background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); */
-
   background-color: #292929;
   background-image: url("https://www.transparenttextures.com/patterns/gravel.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -22,11 +19,11 @@
   color: grey;
 }
 .back a {
-  color: salmon;
+  color: #ffe4e1;
   text-decoration: none;
 }
 
-.footer {
+/* .footer {
   position: relative;
   bottom: 0;
-}
+} */

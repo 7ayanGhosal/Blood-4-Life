@@ -3,11 +3,14 @@
   /* border-radius: 25px; */
   /* background-color: #ecf671; */
   /* background-color: white; */
-  background-color: #f0e68c;
+  background-color: thistle;
   background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   border: 2px tomato solid;
 }
 .carouselDiv {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+.c-btn {
+  color: rgba(0, 0, 0, 0.8);
 }

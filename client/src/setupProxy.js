@@ -18,6 +18,7 @@ module.exports = function (app) {
       "/clearNotifications",
       "/deleteNotifications",
       "/infoRestore",
+      "/contactUs",
     ],
     createProxyMiddleware({
       target: "http://localhost:5000",

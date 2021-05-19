@@ -164,13 +164,13 @@ class Profile extends React.Component {
           Profile Sidenav
         </button>
         <div
-          class="offcanvas offcanvas-start"
+          class="offcanvas offcanvas-start sidenav-bg"
           data-bs-scroll="true"
           tabindex="-1"
           id="offcanvasWithBothOptions"
           aria-labelledby="offcanvasWithBothOptionsLabel"
         >
-          <div class="offcanvas-header">
+          <div class="offcanvas-header p-head">
             <h3 class="card-title" id="offcanvasWithBothOptionsLabel">
               Profile Details
             </h3>
@@ -296,9 +296,13 @@ class Profile extends React.Component {
               <br />
             </div>
             <br />
+            <br />
+            <br />
+          </div>
+          <div class="fix-edit">
             <button
               type="button"
-              class="btn btn-success edit-profile"
+              class="btn btn-success edit-profile2"
               data-bs-toggle="modal"
               data-bs-target="#profileResetModal"
               onClick={() => {
@@ -307,8 +311,6 @@ class Profile extends React.Component {
             >
               Edit Profile
             </button>
-            <br />
-            <br />
           </div>
         </div>
 

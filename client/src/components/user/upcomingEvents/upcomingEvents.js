@@ -7,42 +7,55 @@ class Events extends Component {
   render() {
     var events = [];
     for (var i = 0; i < this.context.events.length; i++) {
+      var d = new Date(this.context.events[i].eventDate);
+      var h = parseInt(
+        this.context.events[i].eventEndTime[0] +
+          this.context.events[i].eventEndTime[1]
+      );
+      var m = parseInt(
+        this.context.events[i].eventEndTime[3] +
+          this.context.events[i].eventEndTime[4]
+      );
+      d.setHours(h, m, 0);
+      var d_now = new Date();
+
       events.push(
         <div>
-          <div class="card ue">
+          <div class={"card ue " + (d < d_now ? "upast" : "")}>
+            <div class="card-header">
+              <h3 class="ue-cardh">{this.context.events[i].eventName} </h3>
+              &emsp;
+              <p class="ue-note ">
+                {d < d_now ? "(NOTE: This camp is already over)" : ""}
+              </p>
+            </div>
             <div class="card-body">
-              <h5 class="ue-attribute" href="#">
-                Name :-
-              </h5>
-              &ensp;
-              <h5 class="ue-value">{this.context.events[i].eventName}</h5>
-              <br />
               <h5 class="ue-attribute" href="#">
                 Date :-
               </h5>
               &ensp;
-              <h5 class="ue-value">{this.context.events[i].eventDate}</h5>
+              <h6 class="ue-value">{this.context.events[i].eventDate}</h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Time :-
               </h5>
               &ensp;
-              <h5 class="ue-value">
+              <h6 class="ue-value">
                 {this.context.events[i].eventStartTime} To{" "}
                 {this.context.events[i].eventEndTime}
-              </h5>
+              </h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Contact :-
               </h5>
               &ensp;
-              <h5 class="ue-value">{this.context.events[i].email}</h5>
+              <h6 class="ue-value">{this.context.events[i].email}</h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Location :-{" "}
               </h5>
               &ensp;
-              <h5 class="ue-value">
+              <h6 class="ue-value">
                 {(this.context.events[i].location.poi !== ""
                   ? this.context.events[i].location.poi + ", "
                   : "") +
@@ -76,26 +89,27 @@ class Events extends Component {
                   (this.context.events[i].location.pincode !== ""
                     ? this.context.events[i].location.pincode + " "
                     : "")}
-              </h5>
+              </h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Description :-{" "}
               </h5>
               &ensp;
-              <h5 class="ue-value">
+              <h6 class="ue-value">
                 {this.context.events[i].eventDescription}
-              </h5>
+              </h6>
               <br />
             </div>
           </div>
           <br />
         </div>
       );
+      // }
     }
     return (
       <div class="container">
         <br />
-        <h3>Upcoming Blood Donation Camps Near You</h3>
+        <h2 class="ue-head">Upcoming Blood Donation Camps Near You</h2>
         <br />
         <br />
         {events}

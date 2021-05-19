@@ -9,17 +9,21 @@
 .location p {
   width: 75%;
   margin: auto;
-  color: #2c4776;
+  color: peachpuff;
   font-size: 1.2rem;
+  text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 .side1 {
-  background-color: rgba(202, 192, 227, 0.8);
+  background-color: #7a3e1d;
+  background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
 }
 .header1 {
-  color: #2c4776;
+  color: darkkhaki;
 }
 .side2 {
-  background-color: rgba(70, 71, 150, 0.8);
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  background-color: #7cfc00;
+  background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
 }
 .header2 {
   color: #c8bee2;
@@ -43,9 +47,24 @@
   font-size: 2rem;
   padding: 0px !important;
   border-radius: 50%;
-  /* border: 2px solid #2c4776; */
-  /*background-color: #2c4776;*/
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.8);
   color: #c8bee2;
   text-decoration: none;
+}
+
+.bx-shadow {
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+}
+
+#m-res {
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  color: cyan;
+}
+
+.cu-submit {
+  background-color: darkblue;
+  color: white;
+  width: 150px;
+}
+.cu-submit:hover {
+  color: white;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AuthNav.css";
-import logo from "../../../resources/logo.jpeg";
+import logo from "../../../resources/logo.png";
 import AuthContext from "../../../context/auth-context";
 import HospProfile from "../../hospital/profile/profile";
 import UserProfile from "../../user/profile/profile";
@@ -87,7 +87,7 @@ class AuthNav extends Component {
                               this.context.pageHandler("BloodBank");
                             }}
                           >
-                            <h5 class="drop-head">Blood Bank Counter</h5>
+                            <h5 class="drop-head">Blood Bank</h5>
                           </button>
                         </li>
                         <li>
@@ -99,9 +99,7 @@ class AuthNav extends Component {
                               );
                             }}
                           >
-                            <h5 class="drop-head">
-                              Upcoming Blood Donation Camps
-                            </h5>
+                            <h5 class="drop-head">My Blood Donation Camps</h5>
                           </button>
                         </li>
                         <li>
@@ -112,7 +110,7 @@ class AuthNav extends Component {
                             }}
                           >
                             <h5 class="drop-head">
-                              Organise a Blood Donation Camp
+                              Organise A Blood Donation Camp
                             </h5>
                           </button>
                         </li>
@@ -136,9 +134,7 @@ class AuthNav extends Component {
                               this.context.pageHandler("UserUpcomingEvents");
                             }}
                           >
-                            <h5 class="drop-head">
-                              Upcoming Blood Donation Camps
-                            </h5>
+                            <h5 class="drop-head">Nearby Camps</h5>
                           </button>
                         </li>
                         {/* <hr class="hr-stle"></hr> */}

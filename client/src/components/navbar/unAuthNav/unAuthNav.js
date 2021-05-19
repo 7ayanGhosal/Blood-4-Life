@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./unAuthNav.css";
 import SignupBox from "./signupBox/signupBox";
-import logo from "../../../resources/logo.jpeg";
+import logo from "../../../resources/logo.png";
 import PasswordSetter from "./passwordSetter/passwordSetter";
 import ProfileSetter from "./profileSetter/profileSetter";
 import LoginBox from "./loginBox/loginBox";
