@@ -8,9 +8,6 @@ import LoginBox from "./loginBox/loginBox";
 import AuthContext from "../../../context/auth-context";
 
 class UnAuthNav extends Component {
-  constructor(props) {
-    super(props);
-  }
   static contextType = AuthContext;
   render() {
     return (
@@ -18,7 +15,7 @@ class UnAuthNav extends Component {
         <nav class="navbar navbar-dark navbar-expand-lg p-0 nav1">
           <div class="container-fluid">
             <div class="logo">
-              <img src={logo}></img>
+              <img src={logo} alt="mainLogoUnAuthNav"></img>
               <h3>Blood4Life</h3>
             </div>
             <button

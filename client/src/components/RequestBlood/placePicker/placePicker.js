@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import Map from "./map/map";
 import "./placePicker.css";
 import AuthContext from "../../../context/auth-context";
-import axios from "axios";
 
 class PlacePicker extends Component {
   static contextType = AuthContext;

@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import "./notifications.css";
 import AuthContext from "../../../context/auth-context";

@@ -3,7 +3,6 @@ import "./user.css";
 import Profile from "./profile/profile";
 import Notifications from "./notifications/notifications";
 import Events from "./upcomingEvents/upcomingEvents";
-import AuthContext from "../../context/auth-context";
 
 class User extends Component {
   render() {

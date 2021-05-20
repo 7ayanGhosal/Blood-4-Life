@@ -22,7 +22,6 @@ class HospitalList extends React.Component {
   // }
   render() {
     var hospListjsx = [];
-    var rhFactor = "";
 
     if (
       this.props.details.bloodGroup === "" ||
