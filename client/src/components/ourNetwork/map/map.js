@@ -11,15 +11,16 @@ class Map extends Component {
   render() {
     var UserMarkers = [];
     var HospMarkers = [];
+    var i;
 
-    for (var i = 0; i < this.props.UserPoints.length; i++) {
+    for (i = 0; i < this.props.UserPoints.length; i++) {
       UserMarkers.push({
         position: [this.props.UserPoints[i].lat, this.props.UserPoints[i].lng],
         draggable: false,
         title: "User",
       });
     }
-    for (var i = 0; i < this.props.HospitalPoints.length; i++) {
+    for (i = 0; i < this.props.HospitalPoints.length; i++) {
       HospMarkers.push({
         position: [
           this.props.HospitalPoints[i].lat,

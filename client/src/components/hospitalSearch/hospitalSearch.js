@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./hospitalSearch.css";
-import axios from "axios";
 
 class HospitalSearch extends Component {
   render() {

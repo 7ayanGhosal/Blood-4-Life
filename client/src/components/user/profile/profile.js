@@ -119,7 +119,7 @@ class Profile extends React.Component {
   }
   componentDidUpdate() {
     for (var i = 0; i < this.state.results.length; i++) {
-      var eloc = this.state.results[i].eLoc;
+      // var eloc = this.state.results[i].eLoc;
       var ele = document.getElementById("suggestion" + i);
       ele.onclick = (e) => {
         this.pointLocation(e.target.getAttribute("name"));
@@ -141,7 +141,7 @@ class Profile extends React.Component {
     );
     var suggestions = [];
     for (var i = 0; i < this.state.results.length; i++) {
-      var eloc = this.state.results[i].eLoc;
+      // var eloc = this.state.results[i].eLoc;
       suggestions.push(
         <div>
           <li
@@ -421,6 +421,7 @@ class Profile extends React.Component {
                             ? MaleAvatar
                             : FemaleAvatar
                         }
+                        alt="userAvatar"
                       />
                       <br />
                       <input
@@ -444,6 +445,7 @@ class Profile extends React.Component {
                             ? MaleAvatar2
                             : FemaleAvatar2
                         }
+                        alt="userAvatar"
                       />
                       <br />
                       <input
@@ -466,6 +468,7 @@ class Profile extends React.Component {
                             ? MaleAvatar3
                             : FemaleAvatar3
                         }
+                        alt="userAvatar"
                       />
                       <br />
                       <input
@@ -488,6 +491,7 @@ class Profile extends React.Component {
                             ? MaleAvatar4
                             : FemaleAvatar4
                         }
+                        alt="userAvatar"
                       />
                       <br />
                       <input

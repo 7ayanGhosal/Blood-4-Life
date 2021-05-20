@@ -11,7 +11,6 @@ import ContactUs from "./components/contactUs/contactUs";
 import Emergency from "./components/emergency/emergency";
 import RequestBlood from "./components/RequestBlood/requestBlood";
 import OurNetwork from "./components/ourNetwork/ourNetwork";
-import HospitalSearch from "./components/hospitalSearch/hospitalSearch";
 import faker from "faker";
 
 import "./App.css";
@@ -641,7 +640,7 @@ class App extends React.Component {
   // Local Storage Retreival, JWT
   componentDidMount() {
     if (localStorage.getItem("token")) {
-      console.log("Token peyechi!!!");
+      // console.log("Token peyechi!!!");
       axios.defaults.headers.common = {
         Authorization: `bearer ${localStorage.token}`,
       };
@@ -657,10 +656,11 @@ class App extends React.Component {
           });
         },
         (err) => {
-          console.log("Bhai ar parchi na: " + err);
+          console.log(err);
         }
       );
-    } else console.log("Token kothay???");
+    }
+    // else console.log("Token kothay???");
     if (sessionStorage.getItem("page")) {
       this.pageHandler(sessionStorage.page);
     }
@@ -716,7 +716,11 @@ class App extends React.Component {
     }
     return (
       <div>
-        <img class="bodyImg" src="https://wallpapercave.com/wp/wp4323580.png" />
+        <img
+          class="bodyImg"
+          src="https://wallpapercave.com/wp/wp4323580.png"
+          alt="bodyImg"
+        />
         <div class="bodyImgColor" />
         <AuthContext.Provider
           value={{

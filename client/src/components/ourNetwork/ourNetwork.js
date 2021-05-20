@@ -16,9 +16,10 @@ class OurNetwork extends Component {
 
   toggler = (str) => {
     var icons = document.getElementsByTagName("img");
+    var i;
 
     if (str === "user") {
-      for (var i = 0; i < icons.length; i++) {
+      for (i = 0; i < icons.length; i++) {
         if (icons[i].title === "Hospital") {
           icons[i].classList.add("d-none");
         } else if (icons[i].title === "User") {
@@ -26,7 +27,7 @@ class OurNetwork extends Component {
         }
       }
     } else if (str === "hospital") {
-      for (var i = 0; i < icons.length; i++) {
+      for (i = 0; i < icons.length; i++) {
         if (icons[i].title === "Hospital") {
           icons[i].classList.remove("d-none");
         } else if (icons[i].title === "User") {
@@ -34,7 +35,7 @@ class OurNetwork extends Component {
         }
       }
     } else {
-      for (var i = 0; i < icons.length; i++) {
+      for (i = 0; i < icons.length; i++) {
         if (icons[i].title === "Hospital" || icons[i].title === "User") {
           icons[i].classList.remove("d-none");
         }

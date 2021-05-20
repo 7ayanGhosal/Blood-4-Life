@@ -112,7 +112,7 @@ class Profile extends React.Component {
   }
   componentDidUpdate() {
     for (var i = 0; i < this.state.results.length; i++) {
-      var eloc = this.state.results[i].eLoc;
+      // var eloc = this.state.results[i].eLoc;
       var ele = document.getElementById("suggestion" + i);
       ele.onclick = (e) => {
         this.pointLocation(e.target.getAttribute("name"));
@@ -134,7 +134,7 @@ class Profile extends React.Component {
     );
     var suggestions = [];
     for (var i = 0; i < this.state.results.length; i++) {
-      var eloc = this.state.results[i].eLoc;
+      // var eloc = this.state.results[i].eLoc;
       suggestions.push(
         <div>
           <li

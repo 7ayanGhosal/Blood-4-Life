@@ -231,19 +231,3 @@ class Carousel extends Component {
 }
 
 export default Carousel;
-{
-  /* <div
-  style={{
-    height: 60 + "vh",
-    
-  }}
-  class="carousel-item active d-flex align-items-center justify-content-center"
->
-  <img
-    src="https://wallpapercave.com/wp/wp4323457.jpg"
-    class="image"
-    style={{ objectFit: "cover", objectPosition: "center" }}
-    alt="..."
-  />
-</div>; */
-}

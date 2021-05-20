@@ -24,12 +24,20 @@ class FooterHome extends Component {
                 </div>
                 {/* <br></br> */}
                 GitHub ID:-{" "}
-                <a href="https://github.com/Blood4LYF" target="_blank">
+                <a
+                  href="https://github.com/Blood4LYF"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   https://github.com/Blood4LYF
                 </a>
                 <br></br>
                 Email ID:-{" "}
-                <a href="mailto: assist.blood4life@gmail.com" target="_blank">
+                <a
+                  href="mailto: assist.blood4life@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   assist.blood4life@gmail.com
                 </a>
                 <br></br>
