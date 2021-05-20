@@ -111,7 +111,18 @@ if (process.env.NODE_ENV !== "production") {
 var i = 0;
 var changeToken = () => {
   if (process.env.NODE_ENV === "production") {
-    console.log("====================XXXXXXXX+++++++++++++++++:" + i);
+    console.log(
+      "====================XXXXXXXX+++++++++++++++++========================="
+    );
+    console.log("BEFORE CHANGE:");
+    console.log(i);
+    console.log(clientID);
+    console.log(clientSecret);
+    console.log(restAPIKey);
+    console.log(token);
+    console.log(
+      "====================XXXXXXXX+++++++++++++++++========================="
+    );
     var size = 6;
     i = (i + 1) % size;
     if (i === 0) {
@@ -152,9 +163,35 @@ var changeToken = () => {
         (res) => {
           token = res.data.access_token;
           axios.defaults.headers.common = { Authorization: `bearer ${token}` };
+
+          console.log(
+            "====================XXXXXXXX+++++++++++++++++========================="
+          );
+          console.log("AFTER CHANGE (KHUB BHALO KAAJ KORCHE):");
+          console.log(i);
+          console.log(clientID);
+          console.log(clientSecret);
+          console.log(restAPIKey);
+          console.log(token);
+          console.log(
+            "====================XXXXXXXX+++++++++++++++++========================="
+          );
         },
         (error) => {
           console.log(error);
+
+          console.log(
+            "====================XXXXXXXX+++++++++++++++++========================="
+          );
+          console.log("AFTER CHANGE (KHUB BAJE KAAJ KORCHENA ^):");
+          console.log(i);
+          console.log(clientID);
+          console.log(clientSecret);
+          console.log(restAPIKey);
+          console.log(token);
+          console.log(
+            "====================XXXXXXXX+++++++++++++++++========================="
+          );
         }
       );
   }
