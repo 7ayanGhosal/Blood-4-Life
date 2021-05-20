@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.png";
+import HospitalAvatar2 from "../../../resources/HospitalAvatar2.jpg";
+import UserAvatar from "../../../resources/UserAvatar.jpg";
 import AuthContext from "../../../context/auth-context";
 import HospProfile from "../../hospital/profile/profile";
 import UserProfile from "../../user/profile/profile";
@@ -163,9 +165,18 @@ class AuthNav extends Component {
               <ul class="navbar-nav me-auto"></ul>
               <div class="icons d-flex justify-content-end">
                 <div class="nav-item">
+                  <img
+                    id="avatar"
+                    src={this.context.isHospital ? HospitalAvatar2 : UserAvatar}
+                    class="profile-avatar"
+                    alt="..."
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions"
+                  />
                   <button
                     type="button"
-                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
+                    class="btn navp navbar-custom text-align-center pe-4 ps-4 icons2"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasWithBothOptions"
                     aria-controls="offcanvasWithBothOptions"
@@ -176,7 +187,7 @@ class AuthNav extends Component {
                 <div class="nav-item">
                   <button
                     type="button"
-                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2"
+                    class="btn navl avbar-custom text-align-center pe-4 ps-4 icons2"
                     onClick={this.context.logout}
                   >
                     Logout
