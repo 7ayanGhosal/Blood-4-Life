@@ -25,7 +25,6 @@ if (process.env.NODE_ENV !== "production") {
     // "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
     // "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
     "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
-
   // "oymmpwqkf6ucxplv8xglbxvsz5t4cu6c"; //patra1
   // "f4slxwqq1r5kh7tmv2blz68hrvsf275g"; //patra2
   // "gn53n3t9ljaldc39tonzt7brfwojehwt"; //tevoh10810@dghetian.com
@@ -41,7 +40,6 @@ if (process.env.NODE_ENV !== "production") {
     // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
     // "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
     "33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
-
   // "33OkryzDZsIxyJnU5Dq3RHxwahAUX51pfdoAFm7zG_zPzrufmmfPzIcIzVMkVwb5gQCiFc_Lgp9KANt3mU3g71CFAaXBvC5nTuiHqmyIqE4-Tmj779fUHA=="; //patra1
   // "33OkryzDZsIfGlUo6y0W-b-v0_R3xyHCINIJYPpjOE9yKkUNqH4T4uvhQL8PqaefiEdkgM7klj1Hd1wreawAmAfyyE-nPgGCa_PE8eMviR6dvxT1Ihc9kA==";
   // "33OkryzDZsKQ2VqmmE2NUNXJMxcHojkZMGJHas-GLu3IKbThgT2kIGh7QXGe8lSoZ9yvsvB6BI_ZfeGBEa8t-dBeMUxVuhAQ3k_ySGMKnQWbPFc0CSLAyA==";
@@ -111,9 +109,12 @@ if (process.env.NODE_ENV !== "production") {
   // );
 }
 
+var i = 0;
 var changeToken = () => {
+  var size = 6;
+  i = (i + 1) % size;
+
   if (process.env.NODE_ENV === "production") {
-    var i = Math.round(Math.random() * 5);
     if (i === 0) {
       restAPIKey = process.env.RESTAPIKEY;
       clientID = process.env.CLIENTID;
@@ -281,6 +282,7 @@ axios
       axios.defaults.headers.common = { Authorization: `bearer ${token}` };
     },
     (error) => {
+      changeToken();
       console.log(error);
     }
   );
@@ -298,11 +300,15 @@ app.get("/map/getEloc/:lat/:lng", (req, Res) => {
               Res.send(res.data.copResults.eLoc);
             },
             (err) => {
+              changeToken();
+
               console.log(err);
             }
           );
       },
       (err) => {
+        changeToken();
+
         console.log(err);
       }
     );
@@ -317,6 +323,8 @@ app.get("/map/suggest/:location", (req, res) => {
       res.send(Res.data.suggestedLocations);
     },
     (err) => {
+      changeToken();
+
       res.send(err);
     }
   );
@@ -380,6 +388,8 @@ app.get("/map/eloc/:eloc", (req, res) => {
       });
     },
     (err) => {
+      changeToken();
+
       res.send(err);
     }
   );
