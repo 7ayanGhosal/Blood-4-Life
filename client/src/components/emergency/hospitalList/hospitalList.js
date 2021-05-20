@@ -106,7 +106,9 @@ class HospitalList extends React.Component {
       <div id="emerList" class="mb-3 p-3 main-div-urslst useremerlist">
         {this.props.dispState === 2 ? (
           <div>
-            <div class="dropdown dropend">
+            <h1 class="hl-temp mb-3">Search Results</h1>
+            <br />
+            <div class="dropdown">
               <button
                 class="btn btn-secondary dropdown-toggle mb-3"
                 type="button"
@@ -116,7 +118,6 @@ class HospitalList extends React.Component {
               >
                 Add Filters
               </button>
-              <h3 class="hl-temp mb-3">Search Results</h3>
               <ul
                 class="dropdown-menu dropdown-menu-dark p-2"
                 aria-labelledby="dropdownMenuButton2"
@@ -126,7 +127,7 @@ class HospitalList extends React.Component {
                     for="customRange3"
                     class="form-label distance_txt d-inline"
                   >
-                    <b> Max Distance ( {this.state.maxDistance} KM)</b>
+                    <h5> Max Distance ({this.state.maxDistance} KM)</h5>
                   </label>
                   <input
                     type="range"
@@ -146,10 +147,10 @@ class HospitalList extends React.Component {
                 <li>
                   <div class="form-check form-switch">
                     <label class="form-check-label blood_font">
-                      <b>
+                      <h5>
                         {this.props.details.bloodGroup}
                         {this.props.details.rhFactor} availability
-                      </b>
+                      </h5>
                     </label>
                     <input
                       class="form-check-input"
@@ -167,7 +168,8 @@ class HospitalList extends React.Component {
                 </li>
               </ul>
             </div>
-
+            <br />
+            <br />
             <pre class="hospitalList">
               <table class="table table-bordered table-light hover m-auto">
                 <thead>
