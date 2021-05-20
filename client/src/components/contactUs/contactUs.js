@@ -51,27 +51,36 @@ class ContactUs extends Component {
                 <a
                   href="https://www.facebook.com/assist.blood4life"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <img
                     class="u-social-url fab fa-twitter fa-2x p-3"
                     src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                    alt="facebookIcon"
                   ></img>
                 </a>
                 &ensp;
-                <a target="_blank" href="https://twitter.com/Blood4life12">
+                <a
+                  target="_blank"
+                  href="https://twitter.com/Blood4life12"
+                  rel="noreferrer"
+                >
                   <img
                     src="https://cdn3.iconfinder.com/data/icons/social-media-circle/512/circle-twitter-512.png"
                     class="u-social-url fab fa-twitter fa-2x p-3"
+                    alt="twitterIcon"
                   ></img>
                 </a>
                 &ensp;
                 <a
                   target="_blank"
                   href="https://www.instagram.com/assist.blood4life"
+                  rel="noreferrer"
                 >
                   <img
                     src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png"
                     class="u-social-url fab fa-instagram fa-2x p-3"
+                    alt="instagramIcon"
                   ></img>
                 </a>
               </div>

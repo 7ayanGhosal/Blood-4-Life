@@ -6,9 +6,6 @@ import HospProfile from "../../hospital/profile/profile";
 import UserProfile from "../../user/profile/profile";
 
 class AuthNav extends Component {
-  constructor(props) {
-    super(props);
-  }
   static contextType = AuthContext;
   render() {
     return (
@@ -16,7 +13,7 @@ class AuthNav extends Component {
         <nav class="navbar navbar-dark navbar-expand-lg p-0 nav1">
           <div class="container-fluid">
             <div class="logo">
-              <img src={logo}></img>
+              <img src={logo} alt="mainLogoAuthNav"></img>
               <h3>Blood4Life</h3>
             </div>
             <button
@@ -36,7 +33,7 @@ class AuthNav extends Component {
                 <div class="auth-nav-item">
                   <button
                     type="button"
-                    class="btn navbar-custom text-align-center pe-4 ps-5 icons2 glow"
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2 glow"
                     onClick={() => this.context.pageHandler("Emergency")}
                   >
                     {this.context.isHospital ? (

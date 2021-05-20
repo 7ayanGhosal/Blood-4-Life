@@ -11,9 +11,152 @@ var nodemailer = require("nodemailer");
 var faker = require("faker");
 const { json } = require("body-parser");
 
-//NodeMailer
-var emailid = "assist.blood4life@gmail.com";
-var emailpass = "bloodforlife";
+//ENVIRONMENT VARIABLES
+var emailid;
+var emailpass;
+var restAPIKey;
+var clientID;
+var clientSecret;
+if (process.env.NODE_ENV !== "production") {
+  emailid = "assist.blood4life@gmail.com";
+  emailpass = "bloodforlife";
+  restAPIKey =
+    // "8ao7pqx5ep643nfhux7fl9h6cj88n1u7"; //self.master
+    // "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
+    // "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
+    "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
+
+  // "oymmpwqkf6ucxplv8xglbxvsz5t4cu6c"; //patra1
+  // "f4slxwqq1r5kh7tmv2blz68hrvsf275g"; //patra2
+  // "gn53n3t9ljaldc39tonzt7brfwojehwt"; //tevoh10810@dghetian.com
+  // "41bnkkt2m448pnteqzx3zrga1jcmw9dd"; //fake //yebola9356@dghetian.com
+  // "nx9uj21rwlp2i3gpserelqc9jk15utmh"; //yasak76551@dghetian.com
+  // "6qvauko?d2jwn7t1x933o9dzi5puy6wzn"; //konaga1595@animex98.com
+  // "5p3qejd1aust5syjm6hqxvky3gcse6hu"; //hepira8629@dghetian.com
+  // "ugtsuizcadlynqjtb7q2zcxf3qtrxh7r"; //malop41024@animex98.com
+  // "zmjykodsd1stc2jzp9k7ukq43b2drm4r"; //jadega5571@animex98.com *
+  // "6oee76fnz1354fikljkevh9m3u9zs9ka"; //refij11914@dghetian.com
+  clientID =
+    // "33OkryzDZsKud94n0RHNubvOQuBX7plQb60OBebv_UOx9JOq4JbkK0S8MUesdAh9tDIgn3vlhbmifnFmxOPXT_eGXRLvbW95PhT5nywtJlxtZcL0fvC6kw==";
+    // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
+    // "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
+    "33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
+
+  // "33OkryzDZsIxyJnU5Dq3RHxwahAUX51pfdoAFm7zG_zPzrufmmfPzIcIzVMkVwb5gQCiFc_Lgp9KANt3mU3g71CFAaXBvC5nTuiHqmyIqE4-Tmj779fUHA=="; //patra1
+  // "33OkryzDZsIfGlUo6y0W-b-v0_R3xyHCINIJYPpjOE9yKkUNqH4T4uvhQL8PqaefiEdkgM7klj1Hd1wreawAmAfyyE-nPgGCa_PE8eMviR6dvxT1Ihc9kA==";
+  // "33OkryzDZsKQ2VqmmE2NUNXJMxcHojkZMGJHas-GLu3IKbThgT2kIGh7QXGe8lSoZ9yvsvB6BI_ZfeGBEa8t-dBeMUxVuhAQ3k_ySGMKnQWbPFc0CSLAyA==";
+  // "33OkryzDZsJkys1CEXUKT4-iDtRexzoJfl4ZvqbXnLyYqUhuA_bnVxdEwInJ3FnTSXHeNPKAAGavOR4tK3yuF3lYX7UhrNG6dXkmRKkxoyC6LXe9UHFshQ=="; //fake
+  // "33OkryzDZsLgaX8WXOgT0OvRImhfkXNasjteBwVHofwZBDubQpO3YuZPig3io-kf6SefVgjqUvqlbhKdg0FV9VUFatukSuyzAg6Czp9DxJiWda1KMROR6w==";
+  // "33OkryzDZsLzTQwobsB?dpbrgKgmmeGTgs7bH7iw0Qjo1DnoaF3nVJlAer13ywvopksH-lQOeQM1mm-ENbPVS3DOOaCd_iCp33BXmyWmZvH9-CbdXVmiDYA==";
+  // "33OkryzDZsLAwn2f0kKGSwr8fXWYjR5bbn-fYVdLo1Qtl96mLcu8S3o8AqTrgX3j7bccoH2Evmx60UdRhFChjMo7nw3EcXxZKPWz6_cI0jsp3JKIee5npA==";
+  // "33OkryzDZsKCAEV4TZ3WxzuVBHgZDRu5bd7OVzQhUa2P3Ko2WH8y7X8VsIQZ-XCle1fGXvhDbJXDIIoyExDy-OKCrAmbLEpTmtCx2txFmfEEebRelvvJ8A==";
+  // "33OkryzDZsIwqjE40QCnFxJK436IzckSW-0-TNIqB05ygPsmbs5GHGz7xeey4dcrQlrnVMklK7te-HIiv8IopPeOS6wbz2IYPQJULvaJw3k="; //*
+  // "33OkryzDZsJyPUR_3XLlRNwL79j27h00rGWcQ2bx4iWtiyjyau-2-3rgHNoP7IXyYM5oxVucopjwOUNPSeHyF8Bnxp5-yUO79qtopXkwSlnJC97uoQsLiw==";
+  clientSecret =
+    // "lrFxI-iSEg-zO4DQYfnrt3fVbtkxTr847H5outlqQmJHu__AEHKeeXlkkELCOpGN3gtIe-lEzwRbIsYdmPpLPGG3ZiQs8PCwY-JenzFK_CZAK38D0B9dWVA-C4FjcCxc";
+    // "lrFxI-iSEg-4SAEyHH3N8Yr5o0Mq_TDDx1BKe1gnOlV-5wchHPK_P2uo7msJ6olzITexNmJ9C4M0PgBBPQfUUaAOgpYVTNRHcOlv0ABYKg1fp72eCZP3dhgXTeZu9_bI";
+    // "lrFxI-iSEg-zO4DQYfnrt24sc7s5VbE72wYjFxjWkhoQjrvP6aG8G8qr0lacNQx2utb4WWnv_K0Jy45plKKWFN-55t-6k4C3ZzQxDau6CuU7DJc-lLXcK3I-IkHQmRHF";
+    "lrFxI-iSEg_XoGoVnWmmSWrjUoJE0Zo4uufY7hCXP5OFHOkXa5xLOh3UyhyC0CPyX9L0N5MLhoIP9w4q7ArSu-b-ZGMGSMMMghAY3pWRNw7qAHrZh9zloy9ZequrPxoJ";
+  // "lrFxI-iSEg8fgRD_vMjNSnLNbwY7GOZ_HaTmUcjnmy8R9FTv2ldK9OlrVSwX1ndkHKoLOSrnurIsNdWX8NunJ4XW7m4Sd9SI6NLXXeTWFpfeAnBQc5MFWgKtDloVI3tA"; //patra1
+  // "lrFxI-iSEg8fgRD_vMjNSoxRqR5oJ7zJlyNaXYy7nwxLccpUjvSfG_3IYGICS2uGliB45v-CjEZz1V-DrZgQM0VtEp26DwYL-3ylKSDtXO_GyZk0nx60dsZIz1Ae7byb";
+  // "lrFxI-iSEg-vcLPoNWhItCgU0vjdUcvuj6aezWzsYbZpU4J1Abuthj2zhy11bDPlZcZsMe__SJbfm9Htp25Xhp7mxkyY9Kh4my8gWhSortVnLEeZHyxG_GRtzNpEnkiR";
+  // "lrFxI-iSEg9s2lXDr-67wP5xDwte_oZVI79HMDTqUdI_olgHdmGcuB5HMRrYgHlbxQ-0-ZOPNnCO3NNdIzyxwZFkakP1Mg1UiIzcrG8CHhuYzjPaHMq13oMgu4qjWFTd"; //fake
+  // "lrFxI-iSEg9s2lXDr-67wEB10ObwcqZwf6Ki4G2ZQDucH_IS98KdMZnPWsXjsdHDXK7WnAY48Wqr1b3i0pf2vZVs2ZdKS1QA1nHXL5d41t-mV2Q_yq9YeXhagaEg6ABg";
+  // "lrFxI-iSEg9s2lXDr-67wPg9L-?d_VoZCa1pttcqa9-lCUSkdR_axf0F0VQUP60h7Pum10rLa7brYRluLwoA19RuYFlr_ZV0rz_DgjAVPH5tSGmgbrLTIACSfxaNi4Gol";
+  // "lrFxI-iSEg9s2lXDr-67wKBkJ66du_ZXkmh7E2vP6Db92fkBbzXd4ulP76mhG-n_JYihKEh33WLldeyyoZOM5yTqfQcokWYFt1FpN4oz6nB0ugkgfOLcOwWylzH49Ep_";
+  // "lrFxI-iSEg9s2lXDr-67wC1GdARt3ydr3DJGrbQW7llusXiBaAhi7B5mvrVZkqXZ3TcA6snEfLPeps8dQ80DERVgGznKeQ4v4UmQzCBrNvwT-RN6dDzW9qELy8f3jkPo";
+  // "lrFxI-iSEg9s2lXDr-67wOsewZc_GqpRk2zQcvGtWOhi3kd8WR72eR_El2jF55zC0pSicXULk9q1L7XN35Gfj4bI-osA5DOBnjKxYxolmwu_0L8dWtNfzw=="; //*
+  // "lrFxI-iSEg9s2lXDr-67wIvEQXNojVrm0yn8VsPvB6mmjSWReTM4WLz7NUwEs2KUA-cAFoTA4zcONbdqR_j5UtecAI24tT7FBrqgPd8_yn_POQbgyKMwT4TSwsuZp1M1";
+  // var i = Math.round(Math.random() * 5);
+  // console.log(
+  //   "============================XXXXXXXXXX===================SERVERT STARTED: " +
+  //     i
+  // );
+} else {
+  emailid = process.env.EMAIL;
+  emailpass = process.env.PASSWORD;
+
+  var i = Math.round(Math.random() * 5);
+  if (i === 0) {
+    restAPIKey = process.env.RESTAPIKEY;
+    clientID = process.env.CLIENTID;
+    clientSecret = process.env.CLIENTSECRET;
+  } else if (i === 1) {
+    restAPIKey = process.env.RESTAPIKEY1;
+    clientID = process.env.CLIENTID1;
+    clientSecret = process.env.CLIENTSECRET1;
+  } else if (i === 2) {
+    restAPIKey = process.env.RESTAPIKEY2;
+    clientID = process.env.CLIENTID2;
+    clientSecret = process.env.CLIENTSECRET2;
+  } else if (i === 3) {
+    restAPIKey = process.env.RESTAPIKEY3;
+    clientID = process.env.CLIENTID3;
+    clientSecret = process.env.CLIENTSECRET3;
+  } else if (i === 4) {
+    restAPIKey = process.env.RESTAPIKEY4;
+    clientID = process.env.CLIENTID4;
+    clientSecret = process.env.CLIENTSECRET4;
+  } else {
+    restAPIKey = process.env.RESTAPIKEY5;
+    clientID = process.env.CLIENTID5;
+    clientSecret = process.env.CLIENTSECRET5;
+  }
+  // console.log(
+  //   "============================XXXXXXXXXX===================SERVERT STARTED: " +
+  //     i
+  // );
+}
+
+var changeToken = () => {
+  if (process.env.NODE_ENV === "production") {
+    var i = Math.round(Math.random() * 5);
+    if (i === 0) {
+      restAPIKey = process.env.RESTAPIKEY;
+      clientID = process.env.CLIENTID;
+      clientSecret = process.env.CLIENTSECRET;
+    } else if (i === 1) {
+      restAPIKey = process.env.RESTAPIKEY1;
+      clientID = process.env.CLIENTID1;
+      clientSecret = process.env.CLIENTSECRET1;
+    } else if (i === 2) {
+      restAPIKey = process.env.RESTAPIKEY2;
+      clientID = process.env.CLIENTID2;
+      clientSecret = process.env.CLIENTSECRET2;
+    } else if (i === 3) {
+      restAPIKey = process.env.RESTAPIKEY3;
+      clientID = process.env.CLIENTID3;
+      clientSecret = process.env.CLIENTSECRET3;
+    } else if (i === 4) {
+      restAPIKey = process.env.RESTAPIKEY4;
+      clientID = process.env.CLIENTID4;
+      clientSecret = process.env.CLIENTSECRET4;
+    } else {
+      restAPIKey = process.env.RESTAPIKEY5;
+      clientID = process.env.CLIENTID5;
+      clientSecret = process.env.CLIENTSECRET5;
+    }
+
+    axios
+      .post(
+        "https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=" +
+          clientID +
+          "&client_secret=" +
+          clientSecret,
+        {}
+      )
+      .then(
+        (res) => {
+          token = res.data.access_token;
+          axios.defaults.headers.common = { Authorization: `bearer ${token}` };
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+};
+
 var jtoken = ""; //jwt token
 var jwtCheck = null; //jwt checker
 var secret = "";
@@ -32,7 +175,6 @@ app.use(
   })
 );
 app.use(express.json());
-//----
 app.use(cors());
 
 mongoose.set("useNewUrlParser", true);
@@ -85,12 +227,7 @@ var campSchema = new mongoose.Schema({
 var msgSchema = new mongoose.Schema({
   name: String,
   email: String,
-  location: Object,
-  eventName: String,
-  eventDate: Date,
-  eventStartTime: String,
-  eventEndTime: String,
-  eventDescription: String,
+  msg: String,
 });
 
 //------------------------------------------------MODEL
@@ -124,53 +261,6 @@ function Distance(lat1, lat2, lon1, lon2) {
 
 //MapMyIndia
 var token = 0;
-var restAPIKey =
-  // "8ao7pqx5ep643nfhux7fl9h6cj88n1u7"; //self.master
-  // "pn9guga52xq8e3glz6srj7uc88j2nj8o"; //blood4life
-  "vnho6si4yv1ihymphyrzczd936i61hyw"; //shadow
-// "dxyg9yvopbpjt1zh39asi1hneipg9thl"; //master
-
-// "oymmpwqkf6ucxplv8xglbxvsz5t4cu6c"; //patra1
-// "f4slxwqq1r5kh7tmv2blz68hrvsf275g"; //patra2
-// "gn53n3t9ljaldc39tonzt7brfwojehwt"; //tevoh10810@dghetian.com
-// "41bnkkt2m448pnteqzx3zrga1jcmw9dd"; //fake //yebola9356@dghetian.com
-// "nx9uj21rwlp2i3gpserelqc9jk15utmh"; //yasak76551@dghetian.com
-// "6qvauko?d2jwn7t1x933o9dzi5puy6wzn"; //konaga1595@animex98.com
-// "5p3qejd1aust5syjm6hqxvky3gcse6hu"; //hepira8629@dghetian.com
-// "ugtsuizcadlynqjtb7q2zcxf3qtrxh7r"; //malop41024@animex98.com
-// "zmjykodsd1stc2jzp9k7ukq43b2drm4r"; //jadega5571@animex98.com *
-// "6oee76fnz1354fikljkevh9m3u9zs9ka"; //refij11914@dghetian.com
-var clientID =
-  // "33OkryzDZsKud94n0RHNubvOQuBX7plQb60OBebv_UOx9JOq4JbkK0S8MUesdAh9tDIgn3vlhbmifnFmxOPXT_eGXRLvbW95PhT5nywtJlxtZcL0fvC6kw==";
-  // "33OkryzDZsIp57EdobRSGBgU1AKXUvmrcTQf4DIdgUg6rz7sXgypeWXwiJ_v6i3MjFWKWwGxNBFWSYki4X6sSrWuX_UhE-KXCK4mWrkuXG402yNV7skqYw==";
-  "33OkryzDZsI5Z0x8-JhQ2Edr12Q9KLeyxboyCw3eYfoogkdg2Hcchz4-RI2aCtvafZkKFclB8eiSkTHzwFknbuoTnESgxegYnH84zNd6wzvcv52N4pPeCQ==";
-// "33OkryzDZsJ1Xuc-qlxykreisPt9C12OUEamMuQDqKrTSA0ex3IcKJF7Ty4UDTICZnP-0EjIoFs5fcHbx6hvME-9ayO2OZYseV8Q2DTKWLqM6D7aYrnyQw==";
-
-// "33OkryzDZsIxyJnU5Dq3RHxwahAUX51pfdoAFm7zG_zPzrufmmfPzIcIzVMkVwb5gQCiFc_Lgp9KANt3mU3g71CFAaXBvC5nTuiHqmyIqE4-Tmj779fUHA=="; //patra1
-// "33OkryzDZsIfGlUo6y0W-b-v0_R3xyHCINIJYPpjOE9yKkUNqH4T4uvhQL8PqaefiEdkgM7klj1Hd1wreawAmAfyyE-nPgGCa_PE8eMviR6dvxT1Ihc9kA==";
-// "33OkryzDZsKQ2VqmmE2NUNXJMxcHojkZMGJHas-GLu3IKbThgT2kIGh7QXGe8lSoZ9yvsvB6BI_ZfeGBEa8t-dBeMUxVuhAQ3k_ySGMKnQWbPFc0CSLAyA==";
-// "33OkryzDZsJkys1CEXUKT4-iDtRexzoJfl4ZvqbXnLyYqUhuA_bnVxdEwInJ3FnTSXHeNPKAAGavOR4tK3yuF3lYX7UhrNG6dXkmRKkxoyC6LXe9UHFshQ=="; //fake
-// "33OkryzDZsLgaX8WXOgT0OvRImhfkXNasjteBwVHofwZBDubQpO3YuZPig3io-kf6SefVgjqUvqlbhKdg0FV9VUFatukSuyzAg6Czp9DxJiWda1KMROR6w==";
-// "33OkryzDZsLzTQwobsB?dpbrgKgmmeGTgs7bH7iw0Qjo1DnoaF3nVJlAer13ywvopksH-lQOeQM1mm-ENbPVS3DOOaCd_iCp33BXmyWmZvH9-CbdXVmiDYA==";
-// "33OkryzDZsLAwn2f0kKGSwr8fXWYjR5bbn-fYVdLo1Qtl96mLcu8S3o8AqTrgX3j7bccoH2Evmx60UdRhFChjMo7nw3EcXxZKPWz6_cI0jsp3JKIee5npA==";
-// "33OkryzDZsKCAEV4TZ3WxzuVBHgZDRu5bd7OVzQhUa2P3Ko2WH8y7X8VsIQZ-XCle1fGXvhDbJXDIIoyExDy-OKCrAmbLEpTmtCx2txFmfEEebRelvvJ8A==";
-// "33OkryzDZsIwqjE40QCnFxJK436IzckSW-0-TNIqB05ygPsmbs5GHGz7xeey4dcrQlrnVMklK7te-HIiv8IopPeOS6wbz2IYPQJULvaJw3k="; //*
-// "33OkryzDZsJyPUR_3XLlRNwL79j27h00rGWcQ2bx4iWtiyjyau-2-3rgHNoP7IXyYM5oxVucopjwOUNPSeHyF8Bnxp5-yUO79qtopXkwSlnJC97uoQsLiw==";
-var clientSecret =
-  // "lrFxI-iSEg-zO4DQYfnrt3fVbtkxTr847H5outlqQmJHu__AEHKeeXlkkELCOpGN3gtIe-lEzwRbIsYdmPpLPGG3ZiQs8PCwY-JenzFK_CZAK38D0B9dWVA-C4FjcCxc";
-  // "lrFxI-iSEg-4SAEyHH3N8Yr5o0Mq_TDDx1BKe1gnOlV-5wchHPK_P2uo7msJ6olzITexNmJ9C4M0PgBBPQfUUaAOgpYVTNRHcOlv0ABYKg1fp72eCZP3dhgXTeZu9_bI";
-  "lrFxI-iSEg-zO4DQYfnrt24sc7s5VbE72wYjFxjWkhoQjrvP6aG8G8qr0lacNQx2utb4WWnv_K0Jy45plKKWFN-55t-6k4C3ZzQxDau6CuU7DJc-lLXcK3I-IkHQmRHF";
-// "lrFxI-iSEg_XoGoVnWmmSWrjUoJE0Zo4uufY7hCXP5OFHOkXa5xLOh3UyhyC0CPyX9L0N5MLhoIP9w4q7ArSu-b-ZGMGSMMMghAY3pWRNw7qAHrZh9zloy9ZequrPxoJ";
-// "lrFxI-iSEg8fgRD_vMjNSnLNbwY7GOZ_HaTmUcjnmy8R9FTv2ldK9OlrVSwX1ndkHKoLOSrnurIsNdWX8NunJ4XW7m4Sd9SI6NLXXeTWFpfeAnBQc5MFWgKtDloVI3tA"; //patra1
-// "lrFxI-iSEg8fgRD_vMjNSoxRqR5oJ7zJlyNaXYy7nwxLccpUjvSfG_3IYGICS2uGliB45v-CjEZz1V-DrZgQM0VtEp26DwYL-3ylKSDtXO_GyZk0nx60dsZIz1Ae7byb";
-// "lrFxI-iSEg-vcLPoNWhItCgU0vjdUcvuj6aezWzsYbZpU4J1Abuthj2zhy11bDPlZcZsMe__SJbfm9Htp25Xhp7mxkyY9Kh4my8gWhSortVnLEeZHyxG_GRtzNpEnkiR";
-// "lrFxI-iSEg9s2lXDr-67wP5xDwte_oZVI79HMDTqUdI_olgHdmGcuB5HMRrYgHlbxQ-0-ZOPNnCO3NNdIzyxwZFkakP1Mg1UiIzcrG8CHhuYzjPaHMq13oMgu4qjWFTd"; //fake
-// "lrFxI-iSEg9s2lXDr-67wEB10ObwcqZwf6Ki4G2ZQDucH_IS98KdMZnPWsXjsdHDXK7WnAY48Wqr1b3i0pf2vZVs2ZdKS1QA1nHXL5d41t-mV2Q_yq9YeXhagaEg6ABg";
-// "lrFxI-iSEg9s2lXDr-67wPg9L-?d_VoZCa1pttcqa9-lCUSkdR_axf0F0VQUP60h7Pum10rLa7brYRluLwoA19RuYFlr_ZV0rz_DgjAVPH5tSGmgbrLTIACSfxaNi4Gol";
-// "lrFxI-iSEg9s2lXDr-67wKBkJ66du_ZXkmh7E2vP6Db92fkBbzXd4ulP76mhG-n_JYihKEh33WLldeyyoZOM5yTqfQcokWYFt1FpN4oz6nB0ugkgfOLcOwWylzH49Ep_";
-// "lrFxI-iSEg9s2lXDr-67wC1GdARt3ydr3DJGrbQW7llusXiBaAhi7B5mvrVZkqXZ3TcA6snEfLPeps8dQ80DERVgGznKeQ4v4UmQzCBrNvwT-RN6dDzW9qELy8f3jkPo";
-// "lrFxI-iSEg9s2lXDr-67wOsewZc_GqpRk2zQcvGtWOhi3kd8WR72eR_El2jF55zC0pSicXULk9q1L7XN35Gfj4bI-osA5DOBnjKxYxolmwu_0L8dWtNfzw=="; //*
-// "lrFxI-iSEg9s2lXDr-67wIvEQXNojVrm0yn8VsPvB6mmjSWReTM4WLz7NUwEs2KUA-cAFoTA4zcONbdqR_j5UtecAI24tT7FBrqgPd8_yn_POQbgyKMwT4TSwsuZp1M1";
 revgeocodeUrl =
   "https://apis.mapmyindia.com/advancedmaps/v1/" + restAPIKey + "/rev_geocode?";
 geocodeUrl = "https://atlas.mapmyindia.com/api/places/geocode?";
@@ -328,6 +418,7 @@ app.post("/otpVerification", (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
+  await changeToken();
   if (req.body.isHospital)
     newHospital = {
       name: req.body.name,
@@ -387,6 +478,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+  await changeToken();
   secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
   var account = null;
   account = await user.findOne({
@@ -411,7 +503,11 @@ app.post("/login", async (req, res) => {
       });
       account.password = "";
       await camp.find({ email: req.body.email }, (err, foundCamps) => {
-        Account = { data: account, event: foundCamps, token: jtoken };
+        Account = {
+          data: account,
+          event: foundCamps,
+          token: jtoken,
+        };
         secret = "";
         res.send(Account);
       });
@@ -444,7 +540,6 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/resetprofile", (req, res) => {
-  // console.log(req.body);
   var account = null;
   if (req.body.isHospital) account = hospital;
   else account = user;
@@ -505,6 +600,7 @@ app.post("/resetPass/sendOTP", async (req, res) => {
 });
 
 app.post("/resetPass/otpVerification", async (req, res) => {
+  await changeToken();
   secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
   if (req.body.otp === otp) {
     user.findOneAndUpdate(
@@ -894,7 +990,8 @@ app.post("/requestBlood/user", (req, res) => {
 //   });
 // });
 
-app.get("/infoRestore", (req, res) => {
+app.get("/infoRestore", async (req, res) => {
+  await changeToken();
   secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
   jwtCheck = expressjwt({
     secret: secret,

@@ -5,9 +5,6 @@ import UnAuthNav from "./unAuthNav/unAuthNav";
 import AuthContext from "../../context/auth-context";
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
   static contextType = AuthContext;
   render() {
     return (

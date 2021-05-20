@@ -65,7 +65,11 @@ class AboutUs extends Component {
                     <h5 class="developer">Developer</h5>
                     <h5 class="creator-github">
                       Github :&ensp;
-                      <a href="https://github.com/7ayanGhosal" target="_blank">
+                      <a
+                        href="https://github.com/7ayanGhosal"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <b class="creator-github">
                           <i class="fab fa-github"></i>
                         </b>
@@ -94,6 +98,7 @@ class AboutUs extends Component {
                       <a
                         href="https://github.com/nervouscoder27"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <b class="creator-github">
                           <i class="fab fa-github"></i>
@@ -123,6 +128,7 @@ class AboutUs extends Component {
                       <a
                         href="https://github.com/pulkit-singhania"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <b class="creator-github">
                           <i class="fab fa-github"></i>
@@ -152,6 +158,7 @@ class AboutUs extends Component {
                       <a
                         href="https://github.com/rishavkundu62"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <b class="creator-github">
                           <i class="fab fa-github"></i>
@@ -181,6 +188,7 @@ class AboutUs extends Component {
                       <a
                         href="https://github.com/souravpatra33"
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <b class="creator-github">
                           <i class="fab fa-github"></i>
