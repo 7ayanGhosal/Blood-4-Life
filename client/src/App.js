@@ -243,7 +243,7 @@ class App extends React.Component {
             events: res.data.event,
             isHospital: IsHospital,
           });
-          console.log(res.data.newtttt);
+
           localStorage.token = res.data.token;
           this.pageHandler("Home");
         }
@@ -647,7 +647,7 @@ class App extends React.Component {
       axios.get("/infoRestore").then(
         (res) => {
           var isHosp = res.data.data.name ? true : false;
-          console.log(res.data.token);
+          // console.log(res.data.token);
           this.setState({
             authenticated: true,
             ...res.data.data,

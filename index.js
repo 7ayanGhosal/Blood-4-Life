@@ -507,7 +507,6 @@ app.post("/login", async (req, res) => {
           data: account,
           event: foundCamps,
           token: jtoken,
-          newtttt: token,
         };
         secret = "";
         res.send(Account);
@@ -1023,7 +1022,7 @@ app.get("/infoRestore", async (req, res) => {
     hospital.findOne({ email: email }, (err, foundHosp) => {
       foundHosp.password = "";
       camp.find({ email: email }, (err, foundCamps) => {
-        var Account = { data: foundHosp, event: foundCamps, token: token };
+        var Account = { data: foundHosp, event: foundCamps };
         res.send(Account);
       });
     });
@@ -1045,7 +1044,7 @@ app.get("/infoRestore", async (req, res) => {
             events.push(camp);
           }
         });
-        var Account = { data: foundUser, event: events, token: token };
+        var Account = { data: foundUser, event: events };
         res.send(Account);
       });
     });
