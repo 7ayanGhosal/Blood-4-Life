@@ -35,7 +35,7 @@ class UnAuthNav extends Component {
                 <div class="unauth-nav-item">
                   <button
                     type="button"
-                    class="btn navbar-custom text-align-center pe-4 ps-5 icons2 glow"
+                    class="btn navbar-custom text-align-center pe-4 ps-4 icons2 glow"
                     onClick={() => this.context.pageHandler("Emergency")}
                   >
                     Emergency

@@ -218,9 +218,7 @@ class Profile extends React.Component {
                 />
               ) : (
                 <div class="avatar-init-logo">
-                  <h1>
-                    {this.context.firstName[0]}.{this.context.lastName[0]}
-                  </h1>
+                  <div>{this.context.firstName[0]}</div>
                 </div>
               )}
             </center>
@@ -404,18 +402,20 @@ class Profile extends React.Component {
                     />
                   ) : (
                     <div class="avatar-init-logo user-dp">
-                      <div>
-                        {this.context.firstName[0]}.{this.context.lastName[0]}
-                      </div>
+                      <div>{this.context.firstName[0]}</div>
                     </div>
                   )}
                   <br />
                   <h2 class="av-head">Choose Avatar</h2>
                   <br />
-                  <div class="dp-choice">
-                    <div class="choice1">
+                  <div class="row">
+                    <div class="col-sm-1 "></div>
+                    <div
+                      class="col col-xs-6 col-sm-2"
+                      onClick={() => this.setState({ avatar: 1 })}
+                    >
                       <img
-                        class="choice-img"
+                        class="m-auto choice-img"
                         src={
                           this.context.gender === "Male"
                             ? MaleAvatar
@@ -437,9 +437,12 @@ class Profile extends React.Component {
                       ></input>
                       <br />
                     </div>
-                    <div class="choice2">
+                    <div
+                      class="col col-xs-6 col-sm-2"
+                      onClick={() => this.setState({ avatar: 2 })}
+                    >
                       <img
-                        class="choice-img"
+                        class="m-auto choice-img"
                         src={
                           this.context.gender === "Male"
                             ? MaleAvatar2
@@ -460,9 +463,12 @@ class Profile extends React.Component {
                       ></input>
                       <br />
                     </div>
-                    <div class="choice3">
+                    <div
+                      class="col col-xs-6 col-sm-2"
+                      onClick={() => this.setState({ avatar: 3 })}
+                    >
                       <img
-                        class="choice-img"
+                        class="m-auto choice-img"
                         src={
                           this.context.gender === "Male"
                             ? MaleAvatar3
@@ -483,9 +489,12 @@ class Profile extends React.Component {
                       ></input>
                       <br />
                     </div>
-                    <div class="choice4">
+                    <div
+                      class="col col-xs-6 col-sm-2"
+                      onClick={() => this.setState({ avatar: 4 })}
+                    >
                       <img
-                        class="choice-img"
+                        class="m-auto choice-img"
                         src={
                           this.context.gender === "Male"
                             ? MaleAvatar4
@@ -506,9 +515,12 @@ class Profile extends React.Component {
                       ></input>
                       <br />
                     </div>
-                    <div class="choice5">
-                      <div class="avatar-init">
-                        {this.context.firstName[0]}.{this.context.lastName[0]}
+                    <div
+                      class="col col-xs-6 col-sm-2"
+                      onClick={() => this.setState({ avatar: 5 })}
+                    >
+                      <div class="m-auto avatar-init">
+                        {this.context.firstName[0]}
                       </div>
                       <br />
                       <input
@@ -523,8 +535,9 @@ class Profile extends React.Component {
                       ></input>
                       <br />
                     </div>
+                    <div class="col-sm-1 "></div>
                   </div>
-                  {/*<input class="img-change" type="file" />*/}
+
                   <br />
                   <div class="card-body">
                     <h3 class="card-title p-card">Profile</h3>
@@ -554,19 +567,6 @@ class Profile extends React.Component {
                         }}
                       />
                       <br /> <br />
-                      <h3 class="p-attribute" href="#">
-                        Address &nbsp;&emsp;&emsp;:-&emsp;&ensp;{" "}
-                      </h3>
-                      <input
-                        class="p-value form-control profile-modal-input4"
-                        type-="text"
-                        value={this.state.address}
-                        onChange={(e) => {
-                          this.setState({ address: e.target.value });
-                        }}
-                      />
-                      <br />
-                      <br />
                       <h3 class="p-attribute" href="#">
                         Blood Group &ensp;:-&emsp;{" "}
                       </h3>

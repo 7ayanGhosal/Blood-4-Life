@@ -148,10 +148,10 @@
 
 .choice-img {
   display: block;
-  width: 100px;
-  height: 100px;
-  margin-left: 30px;
-  margin-right: 30px;
+  width: 4rem;
+  height: 4rem;
+  /* margin-left: 30px;
+  margin-right: 30px; */
   border-radius: 100%;
   border: 2px solid black;
 }
@@ -159,27 +159,26 @@
 .avatar-init {
   text-align: center;
   background-color: skyblue;
-  font-size: xx-large;
+  font-size: x-large;
   display: block;
-  width: 100px;
-  height: 100px;
-  margin-left: 30px;
-  margin-right: 30px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 100%;
-  padding-top: 1.5rem;
+  padding-top: 0.7rem;
+  font-weight: 600;
   border: 2px solid black;
 }
 
 .avatar-init-logo {
   width: 200px;
   height: 200px;
-  font-size: 500%;
+  font-size: 700%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100%;
   text-align: center;
   background-color: skyblue;
-  padding-top: 1.5rem;
+  padding-top: 0.3rem;
   border: 2px solid black;
 }
 
