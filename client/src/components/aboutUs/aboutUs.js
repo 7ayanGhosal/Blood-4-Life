@@ -25,16 +25,39 @@ class AboutUs extends Component {
 
           <h1 class="noname">How It works</h1>
           <p class="work">
-          We are a platform to crate a network between users and hospitals and a network within  hospitals itself.
-Our primary functionalities include:
-	Two Types of account creation user and hospital.
-	User accounts will include details like gender, address , bloodtype etc.
-	Hospital accounts will include details like Blood bank archives address and contact information.
-	Users can search for the nearby hospitals and can even check if those hospitals have their blood type available or not.
-	Hospitals can request nearby hospitals for blood and even contact potential donors in their area in case there are no hospitals nearby.
-	For emergency situation we also have a work around where you don't have to go through the process of account creation, you can just search for nearby hospitals on providing the minimum details in one go.
-
+            We are a platform to crate a network between users and hospitals and
+            a network within hospitals itself.
           </p>
+
+          <p>Our primary functionalities include: </p>
+          <ul>
+            {" "}
+            <li>Two Types of account creation user and hospital.</li>{" "}
+            <li>
+              User accounts will include details like gender, address ,
+              bloodtype etc.
+            </li>
+            <li>
+              {" "}
+              Hospital accounts will include details like Blood bank archives
+              address and contact information.
+            </li>{" "}
+            <li>
+              Users can search for the nearby hospitals and can even check if
+              those hospitals have their blood type available or not.
+            </li>{" "}
+            <li>
+              Hospitals can request nearby hospitals for blood and even contact
+              potential donors in their area in case there are no hospitals
+              nearby.
+            </li>{" "}
+            <li>
+              For emergency situation we also have a work around where you don't
+              have to go through the process of account creation, you can just
+              search for nearby hospitals on providing the minimum details in
+              one go.
+            </li>
+          </ul>
           <hr></hr>
           <div class="web-team">Team Blood4Life</div>
           <br />
