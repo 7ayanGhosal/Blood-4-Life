@@ -402,6 +402,9 @@ class App extends React.Component {
 
     //Refresh user notifications
     this.refreshUserNotif = () => {
+      axios.defaults.headers.common = {
+        Authorization: `bearer ${localStorage.token}`,
+      };
       axios.get("/getNotifications/" + this.state.email).then((res) => {
         var s = this.state.notifications.length;
         // this.context.notifications = res.data;
@@ -411,6 +414,9 @@ class App extends React.Component {
 
     //Clear all notifications
     this.clearAllNotif = () => {
+      axios.defaults.headers.common = {
+        Authorization: `bearer ${localStorage.token}`,
+      };
       axios.delete("/clearNotifications/" + this.state.email).then((res) => {
         if (res.data) {
           // this.context.notifications = [];
@@ -422,6 +428,9 @@ class App extends React.Component {
 
     //delete notif (single)
     this.deleteNotif = (ref) => {
+      axios.defaults.headers.common = {
+        Authorization: `bearer ${localStorage.token}`,
+      };
       // console.log(ref);
       document.getElementById(
         ref.target.parentElement.parentElement.parentElement.id

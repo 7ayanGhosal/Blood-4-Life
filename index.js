@@ -979,34 +979,119 @@ app.get("/hospital/qr/:email", (req, res) => {
 
 // NOTIFICATION ROUTES
 app.get("/getNotifications/:email", (req, res) => {
-  user.findOne({ email: req.params.email }, (err, foundUser) => {
-    if (err) res.send(false);
-    else {
-      foundUser.seen = foundUser.notifications.length;
-      foundUser.save();
-      res.send(foundUser.notifications);
-    }
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
   });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (req.params.email === email) {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      if (err) res.send(false);
+      else {
+        foundUser.seen = foundUser.notifications.length;
+        foundUser.save();
+        res.send(foundUser.notifications);
+      }
+    });
+  } else res.send(401).send("NOT AUTHORIZED!!!");
 });
+
 app.delete("/clearNotifications/:email", (req, res) => {
-  user.findOne({ email: req.params.email }, (err, foundUser) => {
-    if (err) res.send(false);
-    else {
-      foundUser.seen = 0;
-      foundUser.notifications = [];
-      foundUser.save();
-      res.send(true);
-    }
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
   });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (req.params.email === email) {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      if (err) res.send(false);
+      else {
+        foundUser.seen = 0;
+        foundUser.notifications = [];
+        foundUser.save();
+        res.send(true);
+      }
+    });
+  } else res.status(401).send("NOT AUTHORIZED!!!");
 });
 
 app.delete("/deleteNotifications/:i/:email", (req, res) => {
-  user.findOne({ email: req.params.email }, (err, foundUser) => {
-    foundUser.notifications.splice(parseInt(req.params.i, 10), 1);
-    foundUser.seen = foundUser.notifications.length;
-    foundUser.save();
-    res.send(foundUser.notifications);
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
   });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (req.params.email === email) {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      foundUser.notifications.splice(parseInt(req.params.i, 10), 1);
+      foundUser.seen = foundUser.notifications.length;
+      foundUser.save();
+      res.send(foundUser.notifications);
+    });
+  } else res.status(401).send("NOT AUTHORIZED!!!");
 });
 
 app.get("/remove/:email", (req, res) => {
