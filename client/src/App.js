@@ -48,6 +48,7 @@ class App extends React.Component {
       authenticated: false,
       events: {},
       seen: 0,
+      avatar: 5,
       location: {
         latitude: 0,
         longitude: 0,
@@ -64,6 +65,7 @@ class App extends React.Component {
         pincode: "",
         eloc: "",
       },
+      notifications: [],
     };
 
     //CHANGE EMAIL (Changes the state)
@@ -700,7 +702,12 @@ class App extends React.Component {
         box = <User display="UpcomingEvents" />;
         break;
       case "OrganiseCamp":
-        box = <Hospital display="OrganiseCamp" />;
+        box = (
+          <Hospital
+            display="OrganiseCamp"
+            key={Math.floor(Math.random() * 1000)}
+          />
+        );
         break;
       case "Notifications":
         box = (
@@ -714,8 +721,9 @@ class App extends React.Component {
       default:
         box = null;
     }
+    var boxHeight = window.innerHeight - 279.6;
     return (
-      <div>
+      <div id="app-div">
         <img
           class="bodyImg"
           src="https://wallpapercave.com/wp/wp4323580.png"
@@ -746,12 +754,25 @@ class App extends React.Component {
             emergency: this.emergency,
           }}
         >
-          <Navbar></Navbar>
-          <div class="app-box">{box}</div>
+          <div class="app-nav">
+            <Navbar></Navbar>
+          </div>
+          <div class="app-box" style={{ minHeight: boxHeight + "px" }}>
+            {box}
+          </div>
         </AuthContext.Provider>
         {/* <button onClick={() => this.fakeHospitals(2)}>fakeHosp</button>
         <button onClick={() => this.fakeUsers(2)}>fakeUser</button> */}
-        <FooterHome></FooterHome>
+        <div class="app-footer">
+          <FooterHome></FooterHome>
+        </div>
+        {/* <button
+          onClick={() => {
+            console.log(window.innerHeight - 279.6);
+          }}
+        >
+          foff
+        </button> */}
       </div>
     );
   }

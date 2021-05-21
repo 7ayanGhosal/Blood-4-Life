@@ -31,6 +31,7 @@
   max-height: 100vh;
   z-index: -10;
 }
+
 .bodyImgColor {
   background-color: rgba(255, 255, 255, 0.7);
   position: fixed;
@@ -40,7 +41,31 @@
   height: 100vh;
   z-index: -9;
 }
-/* 
-.app-box {
+
+/* .app-box {
   min-height: 100vh;
 } */
+
+/* body {
+  min-height: 100vh;
+} */
+/* #app-div {
+  background-color: white;
+  z-index: -11;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+html {
+  min-height: 100vh;
+} */
+
+.app-nav {
+  min-height: 93.2px;
+}
+
+.app-footer {
+  min-height: 186.4px;
+}
