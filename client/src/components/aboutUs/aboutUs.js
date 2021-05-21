@@ -23,7 +23,7 @@ class AboutUs extends Component {
             blood are available.
           </p>
 
-          <h1 class="noname">How It works</h1>
+          <h1 class="noname">What we offer</h1>
           <p class="work">
             We are a platform to crate a network between users and hospitals and
             a network within hospitals itself.
