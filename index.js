@@ -438,8 +438,85 @@ app.post("/emailVerification", async (req, res) => {
     var mailOptions = {
       from: emailid,
       to: email,
-      subject: "Account Verification",
-      html: otp,
+      subject: "Account Verification OTP- " + otp,
+      html:
+        `<!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+              .box-1{
+                padding: 5px;
+                background-color: rgba(0,191,255, 0.8);
+              }
+              .box-2{
+                padding: 10px;
+                background-color: rgba(255,239,213,0.6);
+                border-radius: 15px;
+              }
+              .logo{
+                width: 200px;
+                max-width: 100%;
+                border-radius: 15px;
+              }
+              .otp{
+                color: tomato;
+                font-size: 1.5rem;
+              }
+              .white{
+                background-color: white;
+                border-radius: 15px;
+              }
+              .l-img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+              }
+              .links{
+                color: rgba(0,0,0,0);
+              }
+          </style>
+      </head>
+      <body>
+        <div class = "box-1">
+          <div class="white">
+            <div class= "box-2">
+            <a src="https://blood-4-life.herokuapp.com/">
+              <img src="https://cdn.discordapp.com/attachments/824856858850230304/845243908354080768/unknown.png" class="logo"/>
+            </a>
+            <br/><br/>
+              <p>
+                  Hi,
+                  <br/>
+                  Thank You for choosing Blood4Life!.
+                  <br/>
+                  <br/>
+                  <span class="otp">` +
+        otp +
+        `</span> is the OTP for your Blood4Life account verification. <br/>Please do not share it with anyone to ensure account security.
+              </p>
+              <h5 class="footer">
+                  Best wishes,
+                  <br/>
+                  Team Blood4Life
+              </h5>
+              <p>
+                Follow Us: 
+              </p>
+              <a href="https://www.facebook.com/assist.blood4life" class="links">
+                <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" class="l-img"/>
+              </a>
+              <a href="https://twitter.com/Blood4life12" class="links">
+                <img src="https://cdn3.iconfinder.com/data/icons/social-media-circle/512/circle-twitter-512.png" class="l-img"/>
+              </a>
+              <a href="https://www.instagram.com/assist.blood4life" class="links">
+                <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png" class="l-img"/>
+              </a>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>`,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -627,8 +704,88 @@ app.post("/resetPass/sendOTP", async (req, res) => {
     var mailOptions = {
       from: emailid,
       to: email,
-      subject: "Password Reset OTP",
-      html: otp,
+      subject:
+        "Blood4Life:- " +
+        otp +
+        " is your verification code for Password Reset ",
+      html:
+        `<!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+              .box-1{
+                padding: 5px;
+                background-color: rgba(0,191,255, 0.8);
+              }
+              .box-2{
+                padding: 10px;
+                background-color: rgba(255,239,213,0.6);
+                border-radius: 15px;
+              }
+              .logo{
+                width: 200px;
+                max-width: 100%;
+                border-radius: 15px;
+              }
+              .otp{
+                color: tomato;
+                font-size: 1.5rem;
+              }
+              .white{
+                background-color: white;
+                border-radius: 15px;
+              }
+              .l-img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+              }
+              .links{
+                color: rgba(0,0,0,0);
+              }
+          </style>
+      </head>
+      <body>
+        <div class = "box-1">
+          <div class="white">
+            <div class= "box-2">
+            <a src="https://blood-4-life.herokuapp.com/">
+              <img src="https://cdn.discordapp.com/attachments/824856858850230304/845243908354080768/unknown.png" class="logo"/>
+            </a>
+            <br/><br/>
+
+              <p>
+                  Hi,
+                  <br/>
+                  You are just 1 step away from resetting your password.
+                  <br/>
+                  <span class="otp">` +
+        otp +
+        `</span> is the OTP for your Blood4Life account. <br/>Please do not share it with anyone to ensure account security.
+              </p>
+              <h5 class="footer">
+                  Best wishes,
+                  <br/>
+                  Team Blood4Life
+              </h5>
+              <p>
+                Follow Us: 
+              </p>
+              <a href="https://www.facebook.com/assist.blood4life" class="links">
+                <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" class="l-img"/>
+              </a>
+              <a href="https://twitter.com/Blood4life12" class="links">
+                <img src="https://cdn3.iconfinder.com/data/icons/social-media-circle/512/circle-twitter-512.png" class="l-img"/>
+              </a>
+              <a href="https://www.instagram.com/assist.blood4life" class="links">
+                <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png" class="l-img"/>
+              </a>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>`,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -996,8 +1153,109 @@ app.post("/requestBlood/user", (req, res) => {
       var mailOptions = {
         from: emailid,
         bcc: emails,
-        subject: "Blood Donation Request",
+        subject: "IMPORTANT!! Blood Donation Request!!",
         html: mailBody,
+        html:
+          `<!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <style>
+                    .box-1{
+                      padding: 5px;
+                      background-color: rgba(0,191,255, 0.8);
+                    }
+                    .box-2{
+                      padding: 10px;
+                      background-color: rgba(255,239,213,0.6);
+                      border-radius: 15px;
+                    }
+                    .logo{
+                      width: 200px;
+                      max-width: 100%;
+                      border-radius: 15px;
+                    }
+                    .white{
+                      background-color: white;
+                      border-radius: 15px;
+                    }
+                    .l-img{
+                      width: 30px;
+                      height: 30px;
+                      border-radius: 50%;
+                    }
+                    .links{
+                      color: rgba(0,0,0,0);
+                    }
+                    .highlight{
+                      color: tomato;
+                      font-size: 1.2rem;
+                    }
+                    .address{
+                      color: tomato;
+                      font-size: 0.8rem;
+                    }
+                    
+                </style>
+            </head>
+            <body>
+              <div class = "box-1">
+                <div class="white">
+                  <div class= "box-2">
+                  <a href="https://blood-4-life.herokuapp.com/">
+                    <img src="https://cdn.discordapp.com/attachments/824856858850230304/845243908354080768/unknown.png" class="logo"/>
+                  </a>
+            <br/><br/>
+
+                    <p>
+                        Hi,
+                        <br/>
+                        This is a donation request  on behalf of <span class="highlight">` +
+          req.body.details.name +
+          `</span>.
+                        <br/>
+                        Someone is in need of
+                        <span class="highlight">` +
+          reqBloodType +
+          `</span>
+                        blood.<br/> Please consider donating.<br/>
+                        <br/>
+                        Email address of the hospital:-
+                        <span class="email">` +
+          req.body.details.contact +
+          `</span>
+                        <br/>
+                        <br/>
+                        Address:-
+                        <i class="address">` +
+          address +
+          `</i>
+                        <br/>
+                        <br/>
+                        Your kindness can save lives. 
+                    </p>
+                    <h5 class="footer">
+                        Best wishes,
+                        <br/>
+                        Team Blood4Life
+                    </h5>
+                    <p>
+                      Follow Us: 
+                    </p>
+                    <a href="https://www.facebook.com/assist.blood4life" class="links">
+                      <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" class="l-img"/>
+                    </a>
+                    <a href="https://twitter.com/Blood4life12" class="links">
+                      <img src="https://cdn3.iconfinder.com/data/icons/social-media-circle/512/circle-twitter-512.png" class="l-img"/>
+                    </a>
+                    <a href="https://www.instagram.com/assist.blood4life" class="links">
+                      <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png" class="l-img"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </body>
+          </html>`,
       };
 
       transporter.sendMail(mailOptions);
