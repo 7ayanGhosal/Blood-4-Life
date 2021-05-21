@@ -48,6 +48,7 @@ class App extends React.Component {
       authenticated: false,
       events: {},
       seen: 0,
+      avatar: 5,
       location: {
         latitude: 0,
         longitude: 0,
