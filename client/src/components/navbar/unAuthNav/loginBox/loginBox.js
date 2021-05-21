@@ -57,9 +57,12 @@ class LoginBox extends Component {
                                 placeholder=" Enter your Email ID "
                                 type="email"
                                 value={this.state.email}
-                                onChange={(e) =>
-                                  this.setState({ email: e.target.value })
-                                }
+                                onChange={(e) => {
+                                  this.setState({ email: e.target.value });
+                                  document.getElementById(
+                                    "loginMessage"
+                                  ).innerHTML = "";
+                                }}
                               />
                               <br></br>
                               <br></br>
@@ -70,9 +73,12 @@ class LoginBox extends Component {
                                 placeholder=" Enter your password "
                                 type="password"
                                 value={this.state.pass}
-                                onChange={(e) =>
-                                  this.setState({ pass: e.target.value })
-                                }
+                                onChange={(e) => {
+                                  this.setState({ pass: e.target.value });
+                                  document.getElementById(
+                                    "loginMessage"
+                                  ).innerHTML = "";
+                                }}
                               />
                             </h5>
                             <br />
