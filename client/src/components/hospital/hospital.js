@@ -13,7 +13,7 @@ class Hospital extends Component {
     if (this.props.display === "OrganiseCamp") {
       box = <OrganiseCamp></OrganiseCamp>;
     } else if (this.props.display === "BloodBank") {
-      box = <BloodBank></BloodBank>;
+      box = <BloodBank key={Math.floor(Math.random() * 1000)}></BloodBank>;
     } else if (this.props.display === "UpcomingEvents") {
       box = <UpcomingEvents></UpcomingEvents>;
     }

@@ -123,77 +123,77 @@ var changeToken = () => {
     console.log(
       "====================XXXXXXXX+++++++++++++++++========================="
     );
-    var size = 6;
-    i = (i + 1) % size;
-    if (i === 0) {
-      restAPIKey = process.env.RESTAPIKEY;
-      clientID = process.env.CLIENTID;
-      clientSecret = process.env.CLIENTSECRET;
-    } else if (i === 1) {
-      restAPIKey = process.env.RESTAPIKEY1;
-      clientID = process.env.CLIENTID1;
-      clientSecret = process.env.CLIENTSECRET1;
-    } else if (i === 2) {
-      restAPIKey = process.env.RESTAPIKEY2;
-      clientID = process.env.CLIENTID2;
-      clientSecret = process.env.CLIENTSECRET2;
-    } else if (i === 3) {
-      restAPIKey = process.env.RESTAPIKEY3;
-      clientID = process.env.CLIENTID3;
-      clientSecret = process.env.CLIENTSECRET3;
-    } else if (i === 4) {
-      restAPIKey = process.env.RESTAPIKEY4;
-      clientID = process.env.CLIENTID4;
-      clientSecret = process.env.CLIENTSECRET4;
-    } else {
-      restAPIKey = process.env.RESTAPIKEY5;
-      clientID = process.env.CLIENTID5;
-      clientSecret = process.env.CLIENTSECRET5;
-    }
+    // var size = 6;
+    // i = (i + 1) % size;
+    // if (i === 0) {
+    //   restAPIKey = process.env.RESTAPIKEY;
+    //   clientID = process.env.CLIENTID;
+    //   clientSecret = process.env.CLIENTSECRET;
+    // } else if (i === 1) {
+    //   restAPIKey = process.env.RESTAPIKEY1;
+    //   clientID = process.env.CLIENTID1;
+    //   clientSecret = process.env.CLIENTSECRET1;
+    // } else if (i === 2) {
+    //   restAPIKey = process.env.RESTAPIKEY2;
+    //   clientID = process.env.CLIENTID2;
+    //   clientSecret = process.env.CLIENTSECRET2;
+    // } else if (i === 3) {
+    //   restAPIKey = process.env.RESTAPIKEY3;
+    //   clientID = process.env.CLIENTID3;
+    //   clientSecret = process.env.CLIENTSECRET3;
+    // } else if (i === 4) {
+    //   restAPIKey = process.env.RESTAPIKEY4;
+    //   clientID = process.env.CLIENTID4;
+    //   clientSecret = process.env.CLIENTSECRET4;
+    // } else {
+    //   restAPIKey = process.env.RESTAPIKEY5;
+    //   clientID = process.env.CLIENTID5;
+    //   clientSecret = process.env.CLIENTSECRET5;
+    // }
 
-    axios
-      .post(
-        "https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=" +
-          clientID +
-          "&client_secret=" +
-          clientSecret,
-        {}
-      )
-      .then(
-        (res) => {
-          token = res.data.access_token;
-          axios.defaults.headers.common = { Authorization: `bearer ${token}` };
+    // axios
+    //   .post(
+    //     "https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=" +
+    //       clientID +
+    //       "&client_secret=" +
+    //       clientSecret,
+    //     {}
+    //   )
+    //   .then(
+    //     (res) => {
+    //       token = res.data.access_token;
+    //       axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 
-          console.log(
-            "====================XXXXXXXX+++++++++++++++++========================="
-          );
-          console.log("AFTER CHANGE (KHUB BHALO KAAJ KORCHE):");
-          console.log(i);
-          console.log(clientID);
-          console.log(clientSecret);
-          console.log(restAPIKey);
-          console.log(token);
-          console.log(
-            "====================XXXXXXXX+++++++++++++++++========================="
-          );
-        },
-        (error) => {
-          console.log(error);
+    //       console.log(
+    //         "====================XXXXXXXX+++++++++++++++++========================="
+    //       );
+    //       console.log("AFTER CHANGE (KHUB BHALO KAAJ KORCHE):");
+    //       console.log(i);
+    //       console.log(clientID);
+    //       console.log(clientSecret);
+    //       console.log(restAPIKey);
+    //       console.log(token);
+    //       console.log(
+    //         "====================XXXXXXXX+++++++++++++++++========================="
+    //       );
+    //     },
+    //     (error) => {
+    //       console.log(error);
 
-          console.log(
-            "====================XXXXXXXX+++++++++++++++++========================="
-          );
-          console.log("AFTER CHANGE (KHUB BAJE KAAJ KORCHENA ^):");
-          console.log(i);
-          console.log(clientID);
-          console.log(clientSecret);
-          console.log(restAPIKey);
-          console.log(token);
-          console.log(
-            "====================XXXXXXXX+++++++++++++++++========================="
-          );
-        }
-      );
+    //       console.log(
+    //         "====================XXXXXXXX+++++++++++++++++========================="
+    //       );
+    //       console.log("AFTER CHANGE (KHUB BAJE KAAJ KORCHENA ^):");
+    //       console.log(i);
+    //       console.log(clientID);
+    //       console.log(clientSecret);
+    //       console.log(restAPIKey);
+    //       console.log(token);
+    //       console.log(
+    //         "====================XXXXXXXX+++++++++++++++++========================="
+    //       );
+    //     }
+    //   );
   }
 };
 

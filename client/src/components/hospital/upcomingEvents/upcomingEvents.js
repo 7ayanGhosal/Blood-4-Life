@@ -33,7 +33,9 @@ class Events extends Component {
                 Date :-
               </h5>
               &ensp;
-              <h6 class="ue-value">{this.context.events[i].eventDate}</h6>
+              <h6 class="ue-value">
+                {this.context.events[i].eventDate.slice(0, 10)}
+              </h6>
               <br />
               <h5 class="ue-attribute" href="#">
                 Time :-
