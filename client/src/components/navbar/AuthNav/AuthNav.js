@@ -2,10 +2,18 @@ import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.png";
 import HospitalAvatar2 from "../../../resources/HospitalAvatar2.jpg";
-import UserAvatar from "../../../resources/UserAvatar.jpg";
+// import UserAvatar from "../../../resources/UserAvatar.jpg";
 import AuthContext from "../../../context/auth-context";
 import HospProfile from "../../hospital/profile/profile";
 import UserProfile from "../../user/profile/profile";
+import MaleAvatar from "../../../resources/MaleAvatar.jpg";
+import FemaleAvatar from "../../../resources/FemaleAvatar.jpg";
+import MaleAvatar2 from "../../../resources/MaleAvatar2.jpg";
+import FemaleAvatar2 from "../../../resources/FemaleAvatar2.jpg";
+import MaleAvatar3 from "../../../resources/MaleAvatar3.jpg";
+import FemaleAvatar3 from "../../../resources/FemaleAvatar3.jpg";
+import MaleAvatar4 from "../../../resources/MaleAvatar4.jpg";
+import FemaleAvatar4 from "../../../resources/FemaleAvatar4.jpg";
 
 class AuthNav extends Component {
   static contextType = AuthContext;
@@ -165,15 +173,49 @@ class AuthNav extends Component {
               <ul class="navbar-nav me-auto"></ul>
               <div class="icons d-flex justify-content-end">
                 <div class="nav-item">
-                  <img
-                    id="avatar"
-                    src={this.context.isHospital ? HospitalAvatar2 : UserAvatar}
-                    class="profile-avatar"
-                    alt="..."
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions"
-                    aria-controls="offcanvasWithBothOptions"
-                  />
+                  {this.context.avatar !== 5 ? (
+                    <img
+                      id="avatar"
+                      src={
+                        this.context.isHospital
+                          ? HospitalAvatar2
+                          : this.context.gender === "Male"
+                          ? this.context.avatar === 1
+                            ? MaleAvatar
+                            : this.context.avatar === 2
+                            ? MaleAvatar2
+                            : this.context.avatar === 3
+                            ? MaleAvatar3
+                            : this.context.avatar === 4
+                            ? MaleAvatar4
+                            : null
+                          : this.context.avatar === 1
+                          ? FemaleAvatar
+                          : this.context.avatar === 2
+                          ? FemaleAvatar2
+                          : this.context.avatar === 3
+                          ? FemaleAvatar3
+                          : this.context.avatar === 4
+                          ? FemaleAvatar4
+                          : null
+                      }
+                      class="profile-avatar"
+                      alt="..."
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#offcanvasWithBothOptions"
+                      aria-controls="offcanvasWithBothOptions"
+                    />
+                  ) : (
+                    <div class="profile-avatar profile-avatar-5">
+                      <div
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions"
+                        aria-controls="offcanvasWithBothOptions"
+                      >
+                        {this.context.firstName[0]}
+                      </div>
+                    </div>
+                  )}
                   <button
                     type="button"
                     class="btn navp navbar-custom text-align-center pe-4 ps-4 icons2"

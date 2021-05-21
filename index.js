@@ -481,7 +481,7 @@ app.post("/emailVerification", async (req, res) => {
         <div class = "box-1">
           <div class="white">
             <div class= "box-2">
-            <a src="https://blood-4-life.herokuapp.com/">
+            <a href="https://blood-4-life.herokuapp.com/">
               <img src="https://cdn.discordapp.com/attachments/824856858850230304/845243908354080768/unknown.png" class="logo"/>
             </a>
             <br/><br/>
@@ -624,7 +624,18 @@ app.post("/login", async (req, res) => {
         expiresIn: "30 days",
       });
       account.password = "";
-      await camp.find({ email: req.body.email }, (err, foundCamps) => {
+      await camp.find({ email: req.body.email }, async (err, foundCamps) => {
+        await foundCamps.sort((a, b) => {
+          var d_a = new Date(a.eventDate);
+          var h_a = parseInt(a.eventStartTime[0] + a.eventStartTime[1]);
+          var m_a = parseInt(a.eventStartTime[3] + a.eventStartTime[4]);
+          d_a.setHours(h_a, m_a, 0);
+          var d_b = new Date(b.eventDate);
+          var h_b = parseInt(b.eventStartTime[0] + b.eventStartTime[1]);
+          var m_b = parseInt(b.eventStartTime[3] + b.eventStartTime[4]);
+          d_b.setHours(h_b, m_b, 0);
+          return d_b - d_a;
+        });
         Account = {
           data: account,
           event: foundCamps,
@@ -640,8 +651,8 @@ app.post("/login", async (req, res) => {
       var maxDis = 50; //50km max distance
       var events = [];
       account.password = "";
-      await camp.find({}, (err, foundCamps) => {
-        foundCamps.forEach((camp) => {
+      await camp.find({}, async (err, foundCamps) => {
+        await foundCamps.forEach((camp) => {
           var distance = Distance(
             camp.location.latitude,
             account.location.latitude,
@@ -652,6 +663,17 @@ app.post("/login", async (req, res) => {
           if (distance <= maxDis) {
             events.push(camp);
           }
+        });
+        await events.sort((a, b) => {
+          var d_a = new Date(a.eventDate);
+          var h_a = parseInt(a.eventStartTime[0] + a.eventStartTime[1]);
+          var m_a = parseInt(a.eventStartTime[3] + a.eventStartTime[4]);
+          d_a.setHours(h_a, m_a, 0);
+          var d_b = new Date(b.eventDate);
+          var h_b = parseInt(b.eventStartTime[0] + b.eventStartTime[1]);
+          var m_b = parseInt(b.eventStartTime[3] + b.eventStartTime[4]);
+          d_b.setHours(h_b, m_b, 0);
+          return d_b - d_a;
         });
         Account = { data: account, event: events, token: jtoken };
         secret = "";
@@ -750,7 +772,7 @@ app.post("/resetPass/sendOTP", async (req, res) => {
         <div class = "box-1">
           <div class="white">
             <div class= "box-2">
-            <a src="https://blood-4-life.herokuapp.com/">
+            <a href="https://blood-4-life.herokuapp.com/">
               <img src="https://cdn.discordapp.com/attachments/824856858850230304/845243908354080768/unknown.png" class="logo"/>
             </a>
             <br/><br/>
@@ -957,34 +979,119 @@ app.get("/hospital/qr/:email", (req, res) => {
 
 // NOTIFICATION ROUTES
 app.get("/getNotifications/:email", (req, res) => {
-  user.findOne({ email: req.params.email }, (err, foundUser) => {
-    if (err) res.send(false);
-    else {
-      foundUser.seen = foundUser.notifications.length;
-      foundUser.save();
-      res.send(foundUser.notifications);
-    }
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
   });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (req.params.email === email) {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      if (err) res.send(false);
+      else {
+        foundUser.seen = foundUser.notifications.length;
+        foundUser.save();
+        res.send(foundUser.notifications);
+      }
+    });
+  } else res.send(401).send("NOT AUTHORIZED!!!");
 });
+
 app.delete("/clearNotifications/:email", (req, res) => {
-  user.findOne({ email: req.params.email }, (err, foundUser) => {
-    if (err) res.send(false);
-    else {
-      foundUser.seen = 0;
-      foundUser.notifications = [];
-      foundUser.save();
-      res.send(true);
-    }
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
   });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (req.params.email === email) {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      if (err) res.send(false);
+      else {
+        foundUser.seen = 0;
+        foundUser.notifications = [];
+        foundUser.save();
+        res.send(true);
+      }
+    });
+  } else res.status(401).send("NOT AUTHORIZED!!!");
 });
 
 app.delete("/deleteNotifications/:i/:email", (req, res) => {
-  user.findOne({ email: req.params.email }, (err, foundUser) => {
-    foundUser.notifications.splice(parseInt(req.params.i, 10), 1);
-    foundUser.seen = foundUser.notifications.length;
-    foundUser.save();
-    res.send(foundUser.notifications);
+  secret = req.header("x-forwarded-for") || req.socket.remoteAddress;
+  jwtCheck = expressjwt({
+    secret: secret,
+    algorithms: ["HS256"],
   });
+  var authorization = req.headers.authorization.split(" ")[1];
+  // console.log(authorization);
+  // console.log(secret);
+  var decoded;
+  try {
+    decoded = jwt.verify(authorization, secret);
+  } catch (e) {
+    return res.send("unauthorized");
+  }
+  // Decoded is a circular object, so please follow the steps blindly
+  var cache = [];
+  JSON.stringify(decoded, (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.includes(value)) return;
+      cache.push(value);
+    }
+    return value;
+  });
+  // console.log(cache[0].email);
+  var email = cache[0].email;
+  var isHospital = cache[0].isHospital;
+  if (req.params.email === email) {
+    user.findOne({ email: req.params.email }, (err, foundUser) => {
+      foundUser.notifications.splice(parseInt(req.params.i, 10), 1);
+      foundUser.seen = foundUser.notifications.length;
+      foundUser.save();
+      res.send(foundUser.notifications);
+    });
+  } else res.status(401).send("NOT AUTHORIZED!!!");
 });
 
 app.get("/remove/:email", (req, res) => {
@@ -1276,10 +1383,7 @@ app.post("/requestBlood/user", (req, res) => {
             min: today.getMinutes(),
           },
         });
-        // if (!currDonor.unseen) {
-        //   currDonor.unseen = 0;
-        // }
-        // currDonor.unseen = currDonor.unseen + 1;
+
         await currDonor.save();
       });
       res.send({ count: User.length });
@@ -1324,7 +1428,19 @@ app.get("/infoRestore", async (req, res) => {
   if (isHospital) {
     hospital.findOne({ email: email }, (err, foundHosp) => {
       foundHosp.password = "";
-      camp.find({ email: email }, (err, foundCamps) => {
+      camp.find({ email: email }, async (err, foundCamps) => {
+        await foundCamps.sort((a, b) => {
+          var d_a = new Date(a.eventDate);
+          var h_a = parseInt(a.eventStartTime[0] + a.eventStartTime[1]);
+          var m_a = parseInt(a.eventStartTime[3] + a.eventStartTime[4]);
+          d_a.setHours(h_a, m_a, 0);
+          var d_b = new Date(b.eventDate);
+          var h_b = parseInt(b.eventStartTime[0] + b.eventStartTime[1]);
+          var m_b = parseInt(b.eventStartTime[3] + b.eventStartTime[4]);
+          d_b.setHours(h_b, m_b, 0);
+          return d_b - d_a;
+        });
+
         var Account = { data: foundHosp, event: foundCamps };
         res.send(Account);
       });
@@ -1333,8 +1449,8 @@ app.get("/infoRestore", async (req, res) => {
     user.findOne({ email: email }, (err, foundUser) => {
       var events = [];
       foundUser.password = "";
-      camp.find({}, (err, foundCamps) => {
-        foundCamps.forEach((camp) => {
+      camp.find({}, async (err, foundCamps) => {
+        await foundCamps.forEach((camp) => {
           var distance = Distance(
             camp.location.latitude,
             foundUser.location.latitude,
@@ -1346,6 +1462,18 @@ app.get("/infoRestore", async (req, res) => {
           if (distance <= maxDis) {
             events.push(camp);
           }
+        });
+        await events.sort((a, b) => {
+          var d_a = new Date(a.eventDate);
+          var h_a = parseInt(a.eventStartTime[0] + a.eventStartTime[1]);
+          var m_a = parseInt(a.eventStartTime[3] + a.eventStartTime[4]);
+          d_a.setHours(h_a, m_a, 0);
+          var d_b = new Date(b.eventDate);
+          var h_b = parseInt(b.eventStartTime[0] + b.eventStartTime[1]);
+          var m_b = parseInt(b.eventStartTime[3] + b.eventStartTime[4]);
+          d_b.setHours(h_b, m_b, 0);
+
+          return d_b - d_a;
         });
         var Account = { data: foundUser, event: events };
         res.send(Account);

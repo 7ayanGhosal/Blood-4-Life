@@ -55,10 +55,18 @@
 .profile-avatar {
   margin-top: 0.1em;
   margin-bottom: 0.1em;
-  margin-right: 30px;
+  margin-right: 15px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
+}
+.profile-avatar-5 {
+  text-align: center;
+  /* box-sizing: border-box; */
+  padding-top: 5px;
+  font-size: 2rem;
+  background-color: rgb(115, 131, 131);
+  color: white;
 }
 
 .navp {
