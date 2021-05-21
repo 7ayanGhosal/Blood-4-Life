@@ -52,10 +52,29 @@
   font-size: 1.2em;
 }
 
+.profile-avatar {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  margin-right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.navp {
+  display: visible;
+}
+
+.navl {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
 @media (max-width: 991px) {
   .icons {
     flex-direction: column;
   }
+
   .icons2 {
     width: 100% !important;
     margin: 0;
@@ -72,6 +91,25 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
+  }
+
+  .profile-avatar {
+    display: none;
+  }
+
+  /* .navp {
+    display: visible !important;
+  } */
+
+  .navl {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 991px) {
+  .navp {
+    display: none;
   }
 }
 

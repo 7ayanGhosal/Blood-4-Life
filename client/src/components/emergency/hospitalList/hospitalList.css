@@ -22,6 +22,10 @@
   font-family: "Lucida Console", monospace;
 }
 
+.hl-dropdown {
+  overflow-x: hidden;
+}
+
 /* .filters {
   background-color: rgba(0, 0, 0, 0.3);
 } */
@@ -37,4 +41,18 @@
   color: red;
   text-align: center;
   font-weight: bolder;
+}
+
+@media (max-width: 520x) {
+  .dropdown-menu {
+    width: 100%;
+  }
+  .hl-dropdown {
+    width: 100%;
+    max-width: 2rem;
+  }
+}
+
+.filter-bg {
+  color: red;
 }
