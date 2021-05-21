@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import "./AuthNav.css";
 import logo from "../../../resources/logo.png";
-import HospitalAvatar2 from "../../../resources/HospitalAvatar2.jpg";
-// import UserAvatar from "../../../resources/UserAvatar.jpg";
 import AuthContext from "../../../context/auth-context";
 import HospProfile from "../../hospital/profile/profile";
 import UserProfile from "../../user/profile/profile";
+import HospitalAvatar2 from "../../../resources/HospitalAvatar2.jpg";
 import MaleAvatar from "../../../resources/MaleAvatar.jpg";
 import FemaleAvatar from "../../../resources/FemaleAvatar.jpg";
 import MaleAvatar2 from "../../../resources/MaleAvatar2.jpg";
@@ -173,7 +172,8 @@ class AuthNav extends Component {
               <ul class="navbar-nav me-auto"></ul>
               <div class="icons d-flex justify-content-end">
                 <div class="nav-item">
-                  {this.context.avatar !== 5 ? (
+                  {this.context.isHospital === true ||
+                  this.context.avatar !== 5 ? (
                     <img
                       id="avatar"
                       src={
