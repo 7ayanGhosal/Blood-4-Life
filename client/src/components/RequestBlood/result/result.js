@@ -33,6 +33,7 @@ class Result extends React.Component {
         jsx2.push(
           <tr>
             <th scope="row">{slno + 1}</th>
+            <td>{ele.distance}</td>
             <td>{ele.name}</td>
             <td>{ele.email}</td>
             <td>
@@ -60,7 +61,6 @@ class Result extends React.Component {
                 (ele.location.state !== "" ? ele.location.state + ", " : "") +
                 (ele.location.pincode !== "" ? ele.location.pincode + " " : "")}
             </td>
-            <td>{ele.distance}</td>
           </tr>
         );
         HospitalPoints.push({
@@ -88,10 +88,10 @@ class Result extends React.Component {
                     <thead>
                       <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Distance(in KM)</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email id</th>
                         <th scope="col">Address</th>
-                        <th scope="col">Distance(in KM)</th>
                       </tr>
                     </thead>
                     <tbody>{jsx2}</tbody>

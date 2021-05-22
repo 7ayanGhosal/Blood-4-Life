@@ -26,13 +26,19 @@ class AboutUs extends Component {
           <h1 class="noname">What we offer</h1>
           <p class="work">
             We are a platform to crate a network between users and hospitals and
-            a network within hospitals itself.
+            among hospitals too.
           </p>
 
-          <p>Our primary functionalities include: </p>
+          <p>Our primary functionalities include : </p>
           <ul>
             {" "}
-            <li>Two Types of account creation user and hospital.</li>{" "}
+            <li>
+              Two types of account creation :-{" "}
+              <ul>
+                <li>User</li>
+                <li>Hospital</li>
+              </ul>
+            </li>{" "}
             <li>
               User accounts will include details like gender, address ,
               bloodtype etc.

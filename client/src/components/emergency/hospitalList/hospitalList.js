@@ -180,7 +180,7 @@ class HospitalList extends React.Component {
               <table class="table table-bordered table-light hover m-auto">
                 <thead>
                   <tr class="table-info">
-                    <th scope="col">Distance</th>
+                    <th scope="col">Distance(in KM)</th>
                     <th scope="col">Availability</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email id</th>
