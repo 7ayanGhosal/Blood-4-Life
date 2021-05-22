@@ -59,12 +59,11 @@ class OurNetwork extends Component {
         icons[i].classList.add("d-none");
       }
     }
-    // Commented on 22-05-21, uncomment it if misbehaves
-    // if (flag) {
-    //   setTimeout(() => {
-    //     this.forceUpdate();
-    //   }, 500);
-    // }
+    if (flag) {
+      setTimeout(() => {
+        this.forceUpdate();
+      }, 500);
+    }
   }
   async componentDidMount() {
     var userPoints = [];
