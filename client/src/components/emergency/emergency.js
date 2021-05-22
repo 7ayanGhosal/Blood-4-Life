@@ -34,6 +34,8 @@ class Emergency extends React.Component {
                   contact: data.details.contact,
                   bloodGroup: data.details.bloodGroup,
                   rhFactor: data.details.rhFactor,
+                  latitude: data.location.latitude,
+                  longitude: data.location.longitude,
                 },
                 Hospitals: Res.data,
               },

@@ -1,5 +1,6 @@
 import React from "react";
 import "./hospitalList.css";
+import Map from "./map/map";
 class HospitalList extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ class HospitalList extends React.Component {
   // }
   render() {
     var hospListjsx = [];
-
+    var HospitalPoints = [];
     if (
       this.props.details.bloodGroup === "" ||
       this.props.details.rhFactor === ""
@@ -99,6 +100,12 @@ class HospitalList extends React.Component {
             </td>
           </tr>
         );
+
+        HospitalPoints.push({
+          lat: ele.location.latitude,
+          lng: ele.location.longitude,
+          name: ele.name,
+        });
       }
     });
     return this.state.display ? (
@@ -183,6 +190,12 @@ class HospitalList extends React.Component {
                 <tbody>{hospListjsx}</tbody>
               </table>
             </pre>
+            <Map
+              key={HospitalPoints.length}
+              UserLat={this.props.details.latitude}
+              UserLng={this.props.details.longitude}
+              HospitalPoints={HospitalPoints}
+            ></Map>
           </div>
         ) : null}
         {this.props.dispState === 3 ? (

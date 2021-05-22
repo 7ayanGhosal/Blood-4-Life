@@ -56,3 +56,10 @@
 .filter-bg {
   color: red;
 }
+
+#res-Map {
+  width: 85%;
+  margin: auto;
+  border: 5px solid rgba(148, 148, 148, 0.8);
+  border-radius: 5px;
+}

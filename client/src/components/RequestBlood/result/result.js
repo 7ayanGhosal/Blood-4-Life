@@ -1,6 +1,6 @@
 import React from "react";
 import "./result.css";
-
+import ResMap from "./map/map";
 class Result extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class Result extends React.Component {
   // }
   render() {
     var jsx2 = [];
-
+    var HospitalPoints = [];
     if (this.props.details.rhFactor === "Positive") {
       this.props.details.rhFactor = "+";
     } else if (this.props.details.rhFactor === "Negative") {
@@ -63,6 +63,11 @@ class Result extends React.Component {
             <td>{ele.distance}</td>
           </tr>
         );
+        HospitalPoints.push({
+          lat: ele.location.latitude,
+          lng: ele.location.longitude,
+          name: ele.name,
+        });
       });
     } else if (this.props.dispState === 3) {
       // document.getElementById("listMessage").onclick = () => {
@@ -92,6 +97,12 @@ class Result extends React.Component {
                     <tbody>{jsx2}</tbody>
                   </table>
                 </pre>
+                <ResMap
+                  key={HospitalPoints.length}
+                  YourLat={this.props.details.latitude}
+                  YourLng={this.props.details.longitude}
+                  HospitalPoints={HospitalPoints}
+                ></ResMap>
               </div>
             ) : null}
             {this.props.dispState === 3 ? (

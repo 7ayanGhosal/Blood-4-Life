@@ -36,6 +36,8 @@ class RequestBlood extends React.Component {
                   bloodGroup: data.details.bloodGroup,
                   rhFactor: data.details.rhFactor,
                   maxDistance: data.details.maxDistance,
+                  latitude: data.location.latitude,
+                  longitude: data.location.longitude,
                 },
                 location: data.location,
               },
