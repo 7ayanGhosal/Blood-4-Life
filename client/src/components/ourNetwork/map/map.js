@@ -11,6 +11,7 @@ class Map extends Component {
   render() {
     var UserMarkers = [];
     var HospMarkers = [];
+    var MidMarkers = [];
     var i;
 
     for (i = 0; i < this.props.UserPoints.length; i++) {
@@ -30,11 +31,16 @@ class Map extends Component {
         title: "Hospital",
       });
     }
+    MidMarkers.push({
+      position: [23.4358, 81.8463],
+      draggable: false,
+      title: "midPoint",
+    });
     return (
       <MapMyIndia
-        height="550px"
+        height="400px"
         zoom="4"
-        markers={[...UserMarkers, ...HospMarkers]}
+        markers={[...UserMarkers, ...HospMarkers, ...MidMarkers]}
       />
     );
   }

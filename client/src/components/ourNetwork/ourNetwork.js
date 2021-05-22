@@ -55,6 +55,8 @@ class OurNetwork extends Component {
         flag = false;
         icons[i].src = userMarker;
         icons[i].classList.add("marker-icon");
+      } else if (icons[i].title === "midPoint") {
+        icons[i].classList.add("d-none");
       }
     }
     // Commented on 22-05-21, uncomment it if misbehaves

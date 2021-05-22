@@ -14,6 +14,7 @@ const { json } = require("body-parser");
 //ENVIRONMENT VARIABLES
 var emailid;
 var emailpass;
+var mongoURI;
 var restAPIKey;
 var clientID;
 var clientSecret;
@@ -22,16 +23,17 @@ var token;
 var i = 0;
 
 if (process.env.NODE_ENV !== "production") {
-  emailid = "assist.blood4life@gmail.com";
-  emailpass = "bloodforlife";
-  restAPIKey = "41bnkkt2m448pnteqzx3zrga1jcmw9dd"; //fake //yebola9356@dghetian.com
-  clientID =
-    "33OkryzDZsJkys1CEXUKT4-iDtRexzoJfl4ZvqbXnLyYqUhuA_bnVxdEwInJ3FnTSXHeNPKAAGavOR4tK3yuF3lYX7UhrNG6dXkmRKkxoyC6LXe9UHFshQ=="; //fake
-  clientSecret =
-    "lrFxI-iSEg9s2lXDr-67wP5xDwte_oZVI79HMDTqUdI_olgHdmGcuB5HMRrYgHlbxQ-0-ZOPNnCO3NNdIzyxwZFkakP1Mg1UiIzcrG8CHhuYzjPaHMq13oMgu4qjWFTd"; //fake
+  var keys = require("./keys/dev");
+  emailid = keys.emailID;
+  emailpass = keys.password;
+  mongoURI = keys.mongoURI;
+  restAPIKey = keys.MMIrestAPIkey;
+  clientID = keys.MMIclientID;
+  clientSecret = keys.MMIclientSecret;
 } else {
   emailid = process.env.EMAIL;
   emailpass = process.env.PASSWORD;
+  mongoURI = process.env.MONGOURI;
   restAPIKey = process.env.RESTAPIKEY;
   clientID = process.env.CLIENTID;
   clientSecret = process.env.CLIENTSECRET;
@@ -113,10 +115,7 @@ mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
 
 //Mongoose
-mongoose.connect(
-  "mongodb+srv://Group16:bloodforlife@blood4life.i6agz.mongodb.net/Blood4LifeDB?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 var userSchema = new mongoose.Schema({
   firstName: String,
