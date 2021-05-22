@@ -319,7 +319,7 @@ axios
     },
     (error) => {
       console.log(error);
-      changeToken();
+      // changeToken();
     }
   );
 
@@ -337,13 +337,13 @@ app.get("/map/getEloc/:lat/:lng", (req, Res) => {
             },
             (err) => {
               console.log(err);
-              changeToken();
+              // changeToken();
             }
           );
       },
       (err) => {
         console.log(err);
-        changeToken();
+        // changeToken();
       }
     );
 });
@@ -357,7 +357,7 @@ app.get("/map/suggest/:location", (req, res) => {
       res.send(Res.data.suggestedLocations);
     },
     (err) => {
-      changeToken();
+      // changeToken();
       res.send(err);
     }
   );
@@ -422,7 +422,7 @@ app.get("/map/eloc/:eloc", (req, res) => {
     },
     (err) => {
       res.send(err);
-      changeToken();
+      // changeToken();
     }
   );
 });
