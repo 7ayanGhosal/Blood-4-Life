@@ -1273,6 +1273,8 @@ app.post("/requestBlood/user", (req, res) => {
       transporter.sendMail(mailOptions);
       var currDonor;
       var today = new Date();
+      today.setMinutes(today.getMinutes());
+
       User.forEach(async (donor) => {
         currDonor = await user.findOne({ email: donor.email });
         currDonor.notifications.push({

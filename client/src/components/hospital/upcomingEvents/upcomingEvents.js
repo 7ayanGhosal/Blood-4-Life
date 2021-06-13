@@ -6,6 +6,21 @@ class Events extends Component {
   static contextType = AuthContext;
   render() {
     var events = [];
+
+    //sort the context events
+    this.context.events.sort((a, b) => {
+      var d_a = new Date(a.eventDate);
+      var h_a = parseInt(a.eventStartTime[0] + a.eventStartTime[1]);
+      var m_a = parseInt(a.eventStartTime[3] + a.eventStartTime[4]);
+      d_a.setHours(h_a, m_a, 0);
+      var d_b = new Date(b.eventDate);
+      var h_b = parseInt(b.eventStartTime[0] + b.eventStartTime[1]);
+      var m_b = parseInt(b.eventStartTime[3] + b.eventStartTime[4]);
+      d_b.setHours(h_b, m_b, 0);
+      return d_b - d_a;
+    });
+
+    //generate the jsx for events
     for (var i = 0; i < this.context.events.length; i++) {
       var d = new Date(this.context.events[i].eventDate);
       var h = parseInt(
