@@ -188,6 +188,7 @@ function Distance(lat1, lat2, lon1, lon2) {
   return c * r;
 }
 
+changeToken();
 //MapMyIndia
 revgeocodeUrl =
   "https://apis.mapmyindia.com/advancedmaps/v1/" + restAPIKey + "/rev_geocode?";
